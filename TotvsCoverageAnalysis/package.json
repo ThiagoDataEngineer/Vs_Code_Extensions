@@ -1,0 +1,57 @@
+{
+	"publisher": "ShinyDataAnalysis",
+	"name": "totvs-coverage-analysis",
+	"displayName": "Totvs_Coverage_Analysis",
+	"description": "Analysis about coverage of TOTVS sourcers.",
+	"version": "0.0.1",
+	"icon": "icon.png",
+	"engines": {
+		"vscode": "^1.25.1"
+	},
+	"keywords": [
+        "advpl",
+        "coverage",
+        "totvs",
+		"totvs-coverage",
+		"coverage-totvs",
+		"microsiga",
+		"shiny",
+		"miyabara",
+		"thiago-yoshiaki"
+    ],
+	"categories": [
+		"Other"
+	],
+	"activationEvents": [
+		"onCommand:totvs-coverage-analysis.inittotvscoverage"
+	],
+	"main": "./extension.js",
+	"contributes": {
+		"commands": [
+			{
+				"command": "totvs-coverage-analysis.inittotvscoverage",
+				"title": "Totvs Coverage Analysis"
+			}
+		]
+	},
+	"scripts": {
+		"lint": "eslint .",
+		"pretest": "npm run lint",
+		"test": "node ./test/runTest.js"
+	},
+	"devDependencies": {
+		"@types/vscode": "^1.43.0",
+		"@types/glob": "^7.1.1",
+		"@types/mocha": "^7.0.2",
+		"@types/node": "^13.11.0",
+		"eslint": "^6.8.0",
+		"glob": "^7.1.6",
+		"mocha": "^7.1.2",
+		"typescript": "^3.8.3",
+		"vscode-test": "^1.3.0"
+	},
+	"dependencies": {
+		"python-shell": "^2.0.1"
+	}
+
+}
