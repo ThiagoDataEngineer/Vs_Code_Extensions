@@ -1,0 +1,37 @@
+{
+    "name": "advpl-theme",
+    "displayName": "Advpl Theme",
+    "description": "Advpl Totvs theme for VS Code",
+    "publisher": "ShinyThemes",
+    "version": "0.0.1",
+    "engines": {
+        "vscode": "^0.10.5"
+    },
+    "categories": [
+        "Themes"
+    ],
+    "keywords": [
+        "advpl",
+        "theme",
+        "totvs",
+        "icon-theme",
+        "customization"
+    ],
+    "contributes": {
+        "themes": [
+            {
+                "label": "Advpl Theme",
+                "uiTheme": "vs-dark",
+                "path": "./themes/Advpl Theme-color-theme.json"
+            }
+        ]
+    },
+    "icon": "icon.png",
+    "repository": {
+      "type": "git",
+      "url": "https://github.com/ShinyDataScience/Vs_Code_Extensions/tree/master/advpl-theme.git"
+    },
+    "bugs": {
+        "url": "https://github.com/ShinyDataScience/Vs_Code_Extensions/issues"
+    }
+}
