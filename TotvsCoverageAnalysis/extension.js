@@ -28,7 +28,12 @@ function activate(context) {
 				
 				const executablePath = vscode.extensions.getExtension("shinydataanalysis.totvs-coverage-analysis").extensionPath + "\\bin\\Coverage.py";
 
-				runCoverAnalysis(executablePath, cPath, cPathSources, cPathResults)	
+				var {PythonShell} = require('python-shell')
+
+				PythonShell.run(executablePath, {args: [cPath, cPathSources, cPathResults]}, function (err, results) {	
+					if (err) throw err;
+						vscode.window.showInformationMessage('Verifique os resultados no diretorio: ' + cPath);	;		
+					});
 
 				console.log('Analise finalizada!!!');
 				console.log('*************************************************************************************************************************************');
@@ -42,16 +47,6 @@ function activate(context) {
 }
 exports.activate = activate;
 
-function runCoverAnalysis(executablePath, cPath, cPathSources, cPathResults) {
-	
-	var {PythonShell} = require('python-shell')
-
-	PythonShell.run(executablePath, {args: [cPath, cPathSources, cPathResults]}, function (err, results) {	
-		if (err) throw err;
-			vscode.window.showInformationMessage('Verifique os resultados no diretorio: ' + cPath);	;		
-		});
-
-}
 // this method is called when your extension is deactivated
 function deactivate() {}
 
