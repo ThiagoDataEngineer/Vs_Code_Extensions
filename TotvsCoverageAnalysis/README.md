@@ -10,10 +10,25 @@ Essa extensao analisa e extrai os dados que realmente importam, entre diversos a
 
 ![total_results_image](https://user-images.githubusercontent.com/34511940/86618898-0c40f180-bf90-11ea-99ee-9517def01632.png)
 
-* Analises por fonte das linhas não cobertas, trazendo informacoes como, identificacao da funcao a qual a linha pertence, priorizacao das funcoes menos cobertas e identifiacao caso a funcao inteira esteja sem cobertura:
+* Analises por fonte das linhas nao cobertas, trazendo informacoes como, identificacao da funcao a qual a linha pertence, priorizacao das funcoes menos cobertas e identifiacao caso a funcao inteira esteja sem cobertura:
 
 ![blank_lines_principal_counts_image](https://user-images.githubusercontent.com/34511940/86619135-62ae3000-bf90-11ea-9092-fde196c3b590.png)
 
+
+# Configuracoes da Extensao
+
+Apos a instalacao definir as seguintes configuracoes:
+
+Via configuraoes graficas:
+
+![graphic_settings_configurations_image](https://user-images.githubusercontent.com/34511940/86622266-00582e00-bf96-11ea-889a-89c004dfd4d8.png)
+
+
+Via settings.json:
+
+![manual_settings_configurations_image](https://user-images.githubusercontent.com/34511940/86619686-71e1ad80-bf91-11ea-927f-b08f2927d3a5.png)
+
+-----------------------------------------------------------------------------------------------------------
 
 # Motivacoes para o uso da extensao Totvs Coverage Analysis
 
@@ -44,27 +59,13 @@ Para atuarmos na gestao, analise ou trabalho de alcancar uma determinada meta de
 
 E Voila, vamos analisar as linhasnao cobertas para criar os novos casos de teste e aumentar o percentual de cobertura de um fonte especifico:
 
-* Como saber em qual funçao de determinado fonte aquela linha sem cobertura se encontra?
+* Como saber em qual funcao de determinado fonte aquela linha sem cobertura se encontra?
   
-        R: Para cada linha nao coberta, devo analisar o fonte(Ex: SPEDXFUN) e levantar em qual funçao ela se encontra.
+        R: Para cada linha nao coberta, devo analisar o fonte(Ex: SPEDXFUN) e levantar em qual funcao ela se encontra.
 
-* Como determinar quais funções tem menos percentual de cobertura?
+* Como determinar quais funcoes tem menos percentual de cobertura?
   
-        R: Somar a quantidade de linhas nao cobertas por funcao, para determinar se há cobertura parcial ou total da mesma. Ordenar por funçao com mais linhas sem cobertura.
-
-
-# Configuracoes da Extensao
-
-Apos a instalacao definir as seguintes configuracoes:
-
-Via configuraoes graficas:
-
-![graphic_settings_configurations_image](https://user-images.githubusercontent.com/34511940/86622266-00582e00-bf96-11ea-889a-89c004dfd4d8.png)
-
-
-Via settings.json:
-
-![manual_settings_configurations_image](https://user-images.githubusercontent.com/34511940/86619686-71e1ad80-bf91-11ea-927f-b08f2927d3a5.png)
+        R: Somar a quantidade de linhas nao cobertas por funcao, para determinar se ha cobertura parcial ou total da mesma. Ordenar por funçao com mais linhas sem cobertura.
 
 
 ## Release Notes
