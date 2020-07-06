@@ -11,19 +11,7 @@ const vscode = require('vscode');
  */
 function activate(context) {
 
-	// Use the console to output diagnostic information (console.log) and errors (console.error)
-	// This line of code will only be executed once when your extension is activated
-	//console.log('Congratulations, your extension "totvs-coverage-analysis" is now active!');
-
-	// The command has been defined in the package.json file
-	// Now provide the implementation of the command with  registerCommand
-	// The commandId parameter must match the command field in package.json
 	let disposable = vscode.commands.registerCommand('totvs-coverage-analysis.inittotvscoverage', function () {
-		// The code you place here will be executed every time your command is executed
-
-		// Display a message box to the user
- 
-		var {PythonShell} = require('python-shell')
 
 		const config = vscode.workspace.getConfiguration("totvs-coverage-analysis");
 		const cPath = config.get("PathCover");
@@ -39,30 +27,31 @@ function activate(context) {
 				vscode.window.showInformationMessage('Executando o programa Totvs Coverage Analysis!');
 				
 				const executablePath = vscode.extensions.getExtension("shinydataanalysis.totvs-coverage-analysis").extensionPath + "\\bin\\Coverage.py";
-							
-				//PythonShell.run('E:\\ZZ_GitHub\\Data-Analysis-and-Machine-Learning-Projects\\Exercises\\Coverage_Totvs\\Coverage.py', {args: [cPath]}, function (err, results) {	
-				PythonShell.run(executablePath, {args: [cPath, cPathSources, cPathResults]}, function (err, results) {	
-				if (err) throw err;
-					//vscode.window.showInformationMessage('erro ao executar o coverage totvs analysis');		
-					//console.log(results);		
-				});
-				
+
+				runCoverAnalysis(executablePath, cPath, cPathSources, cPathResults)	
+
 				console.log('Analise finalizada!!!');
 				console.log('*************************************************************************************************************************************');
 				console.log('Verifique os resultados no diretorio: ' + cPath);
 
-				vscode.window.showInformationMessage('Verifique os resultados no diretorio: ' + cPath);
+				//vscode.window.showInformationMessage('Verifique os resultados no diretorio: ' + cPath);
 
-
-		//PythonShell.run('E:\\ZZ_GitHub\\Data-Analysis-and-Machine-Learning-Projects\\Exercises\\Coverage_Totvs\\Coverage.py', {args: ['E:\\ZZ_GitHub\\Data-Analysis-and-Machine-Learning-Projects\\Exercises\\Coverage_Totvs\\']}, function (err, results) {
-		
-		
 	});
 
 	context.subscriptions.push(disposable);
 }
 exports.activate = activate;
 
+function runCoverAnalysis(executablePath, cPath, cPathSources, cPathResults) {
+	
+	var {PythonShell} = require('python-shell')
+
+	PythonShell.run(executablePath, {args: [cPath, cPathSources, cPathResults]}, function (err, results) {	
+		if (err) throw err;
+			vscode.window.showInformationMessage('Verifique os resultados no diretorio: ' + cPath);	;		
+		});
+
+}
 // this method is called when your extension is deactivated
 function deactivate() {}
 
