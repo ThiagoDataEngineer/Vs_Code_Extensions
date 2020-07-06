@@ -218,8 +218,8 @@ def Fil_Analisys(afilterFontes, aRobos, dfFontes):
         df_ofensores.rename({'Programa': 'Linhas_Nao_Cobertas'}, axis=1, inplace=True)
         df_ofensores = df_ofensores.sort_values(by=['Linhas_Nao_Cobertas'], ascending = False)
 
-        cNameSemCob = ''+'Linhas_Sem_Cobertura_' + afilterFontes[i] + ".xlsx" 
-        with pd.ExcelWriter(path + cNameSemCob) as writer:  
+        cNameSemCob = path_Results + 'Linhas_Sem_Cobertura_' + afilterFontes[i] + ".xlsx" 
+        with pd.ExcelWriter(cNameSemCob) as writer:  
             df_Aba_Principal.to_excel(writer, index = False, header=True, sheet_name = 'Aba_Principal') 
             df_ofensores.to_excel(writer, index = False, header=True, sheet_name = 'Aba_Contagem') 
 
@@ -237,10 +237,10 @@ def Fil_Analisys(afilterFontes, aRobos, dfFontes):
 
     #Geracao planilha Total_Results com a visao analitica dos resultados de cada fonte aos moldes da coverlocal_cover_
     #df.to_excel(r'Total_Results.xlsx', index = False, header=True) 
-    cName_Total_Results = 'Total_Results.xlsx'
-    with open(path + cName_Total_Results, "w") as reference:           # Drop to csv w/ context manager
+    cName_Total_Results = path_Results + 'Total_Results.xlsx'
+    with pd.ExcelWriter(cName_Total_Results) as writer:           # Drop to csv w/ context manager
         #df.to_csv(reference, sep = ",", index = False)
-        df.to_excel(r'' + cName_Total_Results, index = False, header=True) 
+        df.to_excel(writer, index = False, header=True, sheet_name = 'Resultados Consolidados') 
 
     #alist_Plan_Result.append(cName_Total_Results +  ' - Planilha possui todas as metricas da analise, no tocante a cobertura de fonte por robo gerado.')    
 
@@ -263,17 +263,19 @@ from time import sleep
 from tqdm import tqdm
 
 # Open a file
-if sys.argv[1] != '':
+if len(sys.argv) > 1:
     path = sys.argv[1]
+    path_Fontes = sys.argv[2]
+    if sys.argv[3] != '':
+        path_Results = sys.argv[3]
+    else:
+        path_Results = path   
 else:
     path = '.\\'
+    path_Fontes = path + 'Fontes\\'
+    path_Results = path
 
 dirs = os.listdir( path )
-
-if sys.argv[2] != '':
-    path_Fontes = sys.argv[2]
-else:
-    path_Fontes = path + 'Fontes\\'
 
 if os.path.isdir(path_Fontes):
     dir_Fontes = os.listdir( path_Fontes )

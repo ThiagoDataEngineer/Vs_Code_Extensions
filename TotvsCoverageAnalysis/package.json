@@ -1,8 +1,8 @@
 {
 	"publisher": "ShinyDataAnalysis",
 	"name": "totvs-coverage-analysis",
-	"displayName": "Totvs_Coverage_Analysis",
-	"description": "Analysis about coverage of TOTVS sourcers.",
+	"displayName": "Totvs Coverage Analysis",
+	"description": "Suporte para analise dos resultados do Coverage TOTVS. By thiagoyoshiaki@gmail.com",
 	"version": "0.0.1",
 	"icon": "icon.png",
 	"engines": {
@@ -12,12 +12,8 @@
         "advpl",
         "coverage",
         "totvs",
-		"totvs-coverage",
-		"coverage-totvs",
-		"microsiga",
-		"shiny",
 		"miyabara",
-		"thiago-yoshiaki"
+		"protheus"
     ],
 	"categories": [
 		"Other"
@@ -32,7 +28,28 @@
 				"command": "totvs-coverage-analysis.inittotvscoverage",
 				"title": "Totvs Coverage Analysis"
 			}
-		]
+		],
+		"configuration": {
+			"type": "object",
+			"title": "Configuracoes Totvs Coverage",
+			"properties": {
+				"totvs-coverage-analysis.PathCover": {
+					"type": "string",
+					"default": "",
+					"description": "Diretorio de arquivos(.csv) gerados pelo coverage."
+				},
+				"totvs-coverage-analysis.PathCoverSources": {
+					"type": "string",
+					"default": "",
+					"description": "Diretorio de fontes para analise dos resultados de coverage."
+				},
+				"totvs-coverage-analysis.PathCoverResults": {
+					"type": "string",
+					"default": "",
+					"description": "Diretorio onde seram gerados os resultados da analise."
+				}
+			}
+		}			
 	},
 	"scripts": {
 		"lint": "eslint .",
@@ -55,10 +72,10 @@
 	},
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/ShinyDataScience/Vs_Code_Extensions/tree/master/TotvsCoverageAnalysis"
-	  },
-	  "bugs": {
+		"url": "https://github.com/ShinyDataScience/Vs_Code_Extensions/tree/master/TotvsCoverageAnalysis.git"
+	},
+	"bugs": {
 		  "url": "https://github.com/ShinyDataScience/Vs_Code_Extensions/issues"
-	  }
-
+	}
+	
 }

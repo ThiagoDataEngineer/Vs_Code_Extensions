@@ -28,7 +28,6 @@ function activate(context) {
 		const config = vscode.workspace.getConfiguration("totvs-coverage-analysis");
 		const cPath = config.get("PathCover");
 		const cPathSources = config.get("PathCoverSources");
-		const cPathResults = config.get("PathCoverResults");
 				
 		if (cPath == '')
 			vscode.window.showInformationMessage('Crie a chave totvs-coverage-analysis.PathCover com o diretorio onde se encontram os seus arquivos para analise.');
@@ -41,7 +40,7 @@ function activate(context) {
 				const executablePath = vscode.extensions.getExtension("shinydataanalysis.totvs-coverage-analysis").extensionPath + "\\bin\\Coverage.py";
 							
 				//PythonShell.run('E:\\ZZ_GitHub\\Data-Analysis-and-Machine-Learning-Projects\\Exercises\\Coverage_Totvs\\Coverage.py', {args: [cPath]}, function (err, results) {	
-				PythonShell.run(executablePath, {args: [cPath, cPathSources, cPathResults]}, function (err, results) {	
+				PythonShell.run(executablePath, {args: [cPath, cPathSources]}, function (err, results) {	
 				if (err) throw err;
 					//vscode.window.showInformationMessage('erro ao executar o coverage totvs analysis');		
 					//console.log(results);		
@@ -52,7 +51,7 @@ function activate(context) {
 				console.log('Verifique os resultados no diretorio: ' + cPath);
 
 				vscode.window.showInformationMessage('Verifique os resultados no diretorio: ' + cPath);
-
+		
 
 		//PythonShell.run('E:\\ZZ_GitHub\\Data-Analysis-and-Machine-Learning-Projects\\Exercises\\Coverage_Totvs\\Coverage.py', {args: ['E:\\ZZ_GitHub\\Data-Analysis-and-Machine-Learning-Projects\\Exercises\\Coverage_Totvs\\']}, function (err, results) {
 		
