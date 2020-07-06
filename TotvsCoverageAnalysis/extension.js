@@ -13,6 +13,8 @@ function activate(context) {
 
 	let disposable = vscode.commands.registerCommand('totvs-coverage-analysis.inittotvscoverage', function () {
 
+		var {PythonShell} = require('python-shell')
+		
 		const config = vscode.workspace.getConfiguration("totvs-coverage-analysis");
 		const cPath = config.get("PathCover");
 		const cPathSources = config.get("PathCoverSources");
@@ -26,12 +28,11 @@ function activate(context) {
 			else
 				vscode.window.showInformationMessage('Executando o programa Totvs Coverage Analysis!');
 				
-				const executablePath = vscode.extensions.getExtension("shinydataanalysis.totvs-coverage-analysis").extensionPath + "\\bin\\Coverage.py";
-
-				var {PythonShell} = require('python-shell')
+				const executablePath = vscode.extensions.getExtension("shinydataanalysis.totvs-coverage-analysis").extensionPath + "\\bin\\Coverage.py";				
 
 				PythonShell.run(executablePath, {args: [cPath, cPathSources, cPathResults]}, function (err, results) {	
 					if (err) throw err;
+						//console.log(results)
 						vscode.window.showInformationMessage('Verifique os resultados no diretorio: ' + cPath);	;		
 					});
 
