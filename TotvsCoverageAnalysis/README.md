@@ -49,8 +49,7 @@ Cada Suite de Teste deve ser executada em modo exclusivo, ou seja, cada uma tera
 
 Imagine executar diversos Suites de Teste, e ter que analisar manualmente o percentual de cobertura de determinado fonte.
 
-![coverage_files_image](https://user-images.githubusercontent.com/34511940/86978653-c2096d00-c155-11ea-9a1e-298d9d169ae7.png)
-
+![coverage_files_image](https://user-images.githubusercontent.com/34511940/86978802-262c3100-c156-11ea-82cf-85a213f8807f.png)
 
 Logo teremos que consolidar todas informacoes quanto a linhas cobertas ou nao, por fonte(Ex: FISA001.PRW > 17 Mil linhas), entre todos os arquivos(.csv) de cada Suite de Teste. 
 
