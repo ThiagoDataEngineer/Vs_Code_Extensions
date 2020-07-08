@@ -6,13 +6,21 @@ Suporte para analise de dados resultantes do Coverage de fontes TOTVS.
 
 ![executing_extension](https://user-images.githubusercontent.com/34511940/86963662-426ea480-c13b-11ea-91fa-5ba55b31fb4b.gif)
 
-Essa extensao analisa e extrai os dados que realmente importam, entre diversos arquivos de coverage gerados.
+Esta extensao consolida e analisa os arquivos de coverage gerados de diversos Suites de Teste ao mesmo tempo.
 
-* Total_Results -> Demonstra os percentuais de cobertura consolidados entre todos os Suites de Teste:
+Analises disponiveis:
+
+## Total_Results.xlsx
+* Demonstra os percentuais de cobertura de cada fonte, consolidados entre todos os Suites de Teste;
+* Especificacacao do percentual correspondente a cada linha coberta.
 
 ![total_results_image](https://user-images.githubusercontent.com/34511940/86964405-62eb2e80-c13c-11ea-8a21-92aff546e411.png)
 
-* Linhas_Sem_Cobertura_FONTEXXX -> Consolidacao das linhas sem cobertura, especificando a funcao que a linha pertence, priorizacao das funcoes menos cobertas e identificacao caso a funcao inteira esteja sem cobertura:
+## Linhas_Sem_Cobertura_FONTEXXX.xlsx
+* Consolidacao das linhas sem cobertura, eliminando as repetidas do calculo;
+* Varredura do fonte, especificando a funcao que a linha pertence;
+* Priorizacao das funcoes menos cobertas 
+* Identificacao caso a funcao inteira esteja sem cobertura.
 
 ![blank_lines_principal_counts_image](https://user-images.githubusercontent.com/34511940/86968908-4a324700-c143-11ea-814f-744d0a272690.png)
 
@@ -23,6 +31,10 @@ Apos a instalacao definir as seguintes configuracoes:
 Via configuraoes graficas:
 
 ![graphic_settings_configurations_image](https://user-images.githubusercontent.com/34511940/86622266-00582e00-bf96-11ea-889a-89c004dfd4d8.png)
+
+totvs-coverage-analysis.PathCover	        Diretorio de arquivos(.csv) gerados pelo coverage.	
+totvs-coverage-analysis.PathCoverSources	Diretorio de fontes para analise dos resultados de coverage.	
+totvs-coverage-analysis.PathCoverResults	Diretorio onde serao gerados os resultados da analise.
 
 -----------------------------------------------------------------------------------------------------------
 
