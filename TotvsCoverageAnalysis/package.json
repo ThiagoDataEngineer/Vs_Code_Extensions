@@ -46,7 +46,7 @@
 				"totvs-coverage-analysis.PathCoverResults": {
 					"type": "string",
 					"default": "",
-					"description": "Diretorio onde seram gerados os resultados da analise."
+					"description": "Diretorio onde serao gerados os resultados da analise."
 				}
 			}
 		}			
