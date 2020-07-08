@@ -9,13 +9,13 @@ Suporte para analise de dados resultantes do Coverage de fontes TOTVS.
 
 Essa extensao analisa e extrai os dados que realmente importam, entre diversos arquivos de coverage gerados.
 
-* Totalizador de resultados do percentual de cobertura:
+* Total_Results -> Demonstra os percentuais de cobertura consolidados entre todos os Suites de Teste:
 
-![total_results_image](https://user-images.githubusercontent.com/34511940/86618898-0c40f180-bf90-11ea-99ee-9517def01632.png)
+![total_results_image](https://user-images.githubusercontent.com/34511940/86964405-62eb2e80-c13c-11ea-8a21-92aff546e411.png)
 
-* Analises por fonte das linhas nao cobertas, trazendo informacoes como, identificacao da funcao a qual a linha pertence, priorizacao das funcoes menos cobertas e identifiacao caso a funcao inteira esteja sem cobertura:
+* Linhas_Sem_Cobertura_FONTEXXX -> Consolidacao das linhas sem cobertura, especificando a funcao que a linha pertence, priorizacao das funcoes menos cobertas e identificacao caso a funcao inteira esteja sem cobertura:
 
-![blank_lines_principal_counts_image](https://user-images.githubusercontent.com/34511940/86619135-62ae3000-bf90-11ea-9092-fde196c3b590.png)
+![blank_lines_principal_image](https://user-images.githubusercontent.com/34511940/86965381-d5104300-c13d-11ea-9f0e-056fd1ee956a.png)
 
 
 # Configuracoes da Extensao
@@ -25,11 +25,6 @@ Apos a instalacao definir as seguintes configuracoes:
 Via configuraoes graficas:
 
 ![graphic_settings_configurations_image](https://user-images.githubusercontent.com/34511940/86622266-00582e00-bf96-11ea-889a-89c004dfd4d8.png)
-
-
-Via settings.json:
-
-![manual_settings_configurations_image](https://user-images.githubusercontent.com/34511940/86619686-71e1ad80-bf91-11ea-927f-b08f2927d3a5.png)
 
 -----------------------------------------------------------------------------------------------------------
 
