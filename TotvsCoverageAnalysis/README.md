@@ -36,7 +36,7 @@ Cada Suite de Teste deve ser executada em modo exclusivo, ou seja, cada uma tera
 
 * coverlocal_testcase.csv: apresenta as linhas válidas do fonte e, se cobertas, detalha todos os casos de testes que passaram pela linha. Caso seja do TIR ou teste manual, o detalhe será o identificador do parâmetro "Suite" do appserver.ini.
 
-Imagine executar diversos Suits de Teste, e ter que analisar manualmente o percentual de cobertura de determinado fonte.
+Imagine executar diversos Suites de Teste, e ter que analisar manualmente o percentual de cobertura de determinado fonte.
 
 ![coverage_files_image](https://user-images.githubusercontent.com/34511940/86967804-85337b00-c141-11ea-84b9-dc770787afea.png)
 
