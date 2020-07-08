@@ -1,8 +1,6 @@
 # Totvs Coverage Analysis
 
-Bem vindo a extensao para analise de dados resultantes do Coverage de fontes TOTVS. [MarketPlace.VsCode](https://marketplace.visualstudio.com/items?itemName=shinydataanalysis.totvs-coverage-analysis&ssr=false#overview)
-
-Suporte para analise de dados resultantes do Coverage de fontes TOTVS.
+Bem vindo a extensao para suporte da analise de dados resultantes do 'Coverage Local' de fontes TOTVS. [MarketPlace.VsCode](https://marketplace.visualstudio.com/items?itemName=shinydataanalysis.totvs-coverage-analysis&ssr=false#overview)
 
 ![executing_extension](https://user-images.githubusercontent.com/34511940/86963662-426ea480-c13b-11ea-91fa-5ba55b31fb4b.gif)
 
