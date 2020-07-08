@@ -6,7 +6,6 @@ Suporte para analise de dados resultantes do Coverage de fontes TOTVS.
 
 ![executing_extension](https://user-images.githubusercontent.com/34511940/86963662-426ea480-c13b-11ea-91fa-5ba55b31fb4b.gif)
 
-
 Essa extensao analisa e extrai os dados que realmente importam, entre diversos arquivos de coverage gerados.
 
 * Total_Results -> Demonstra os percentuais de cobertura consolidados entre todos os Suites de Teste:
@@ -40,16 +39,16 @@ Imagine executar diversos Suites de Teste, e ter que analisar manualmente o perc
 
 ![coverage_files_image](https://user-images.githubusercontent.com/34511940/86967804-85337b00-c141-11ea-84b9-dc770787afea.png)
 
-Logo teremos que consolidar todas informacoes quanto a linhas cobertas ou nao, por fonte(Ex:FISA001 > 17 Mil linhas), entre todos os arquivos(.csv) de cada Suite de Teste. 
+Logo teremos que consolidar todas informacoes quanto a linhas cobertas ou nao, por fonte(Ex: FISA001.PRW > 17 Mil linhas), entre todos os arquivos(.csv) de cada Suite de Teste. 
 
 Neste momento, voce ja percebeu que tera que levar em consideracao em seu calculo, linhas que em um certo arquivo de coverage estarao cobertas e em outros nao.
 
 ![compare_lines_image](https://user-images.githubusercontent.com/34511940/86617230-5379b300-bf8d-11ea-9f58-d8ce46475683.png)
 
 
-Para atuarmos na gestao, analise ou trabalho de alcancar uma determinada meta de automacao, no minimo, teriamos os seguintes passos a serem executados:
+Para atuarmos na gestao, analise ou trabalho de alcancar uma determinada meta de automacao, no minimo, teriamos os seguintes questoes a serem respondidas:
     
-* Qual o percentual de cobertura total por fonte entre todos os arquivo(.csv) de coverage?
+* Qual o percentual de cobertura total por fonte entre todos os arquivos(.csv) de coverage?
             
         R: Consolidacao(Merge) das linhas cobertas, eliminando as repetidas.
     
@@ -57,13 +56,15 @@ Para atuarmos na gestao, analise ou trabalho de alcancar uma determinada meta de
         
         R: Consolidacao(Merge) das linhas nao cobertas de cada arquivo(.csv) de coverage, eliminando as repetidas.
 
-E Voila, vamos analisar as linhasnao cobertas para criar os novos casos de teste e aumentar o percentual de cobertura de um fonte especifico:
+E Voilà, vamos analisar as linhas nao cobertas para criar os novos casos de teste e aumentar o percentual de cobertura de um fonte especifico:
 
-* Como saber em qual funcao de determinado fonte aquela linha sem cobertura se encontra?
+Quanto as linhas sem cobertura:
+
+* Como saber quais funcoes de determinado fonte, tem menor cobertura?
   
-        R: Para cada linha nao coberta, devo analisar o fonte(Ex: SPEDXFUN) e levantar em qual funcao ela se encontra.
+        R: Para cada linha nao coberta, devo analisar o fonte(Ex: FISA001.PRW) e levantar em qual funcao ela se encontra.
 
-* Como determinar quais funcoes tem menos percentual de cobertura?
+* Como determinar quais sao as funcoes do fonte com menor percentual de cobertura?
   
         R: Somar a quantidade de linhas nao cobertas por funcao, para determinar se ha cobertura parcial ou total da mesma. Ordenar por funçao com mais linhas sem cobertura.
 
