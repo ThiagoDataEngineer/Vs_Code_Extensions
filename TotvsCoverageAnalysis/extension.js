@@ -32,7 +32,7 @@ function activate(context) {
 
 				PythonShell.run(executablePath, {args: [cPath, cPathSources, cPathResults]}, function (err, results) {	
 					if (err) throw err;
-						//console.log(results)
+						console.log(results)
 						vscode.window.showInformationMessage('Verifique os resultados no diretorio: ' + cPath);	;		
 					});
 

@@ -1,8 +1,11 @@
 # Totvs Coverage Analysis
 
-Bem vindo a extensao para analise de dados resultantes do Coverage de fontes TOTVS. [Totvs Coverage Analysis](https://github.com/ShinyDataScience/Vs_Code_Extensions/tree/master/TotvsCoverageAnalysis)
+Bem vindo a extensao para analise de dados resultantes do Coverage de fontes TOTVS. [MarketPlace.VsCode](https://marketplace.visualstudio.com/items?itemName=shinydataanalysis.totvs-coverage-analysis&ssr=false#overview)
 
 Suporte para analise de dados resultantes do Coverage de fontes TOTVS.
+
+![executing_extension](https://user-images.githubusercontent.com/34511940/86963662-426ea480-c13b-11ea-91fa-5ba55b31fb4b.gif)
+
 
 Essa extensao analisa e extrai os dados que realmente importam, entre diversos arquivos de coverage gerados.
 
