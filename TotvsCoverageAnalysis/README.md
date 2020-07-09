@@ -37,9 +37,10 @@ Via configuraoes graficas:
 Hoje temos como funcionalidade nativa TOTVS o [Coverage TOTVS](https://tdn.totvs.com/x/PH6lGw).
 
 Cada Suite de Teste deve ser executada em modo exclusivo, ou seja, cada uma tera no final de sua execucao os arquivos:
-* coverlocal_cover.csv: apresenta o total de linhas válidas do fonte, quantidade de linhas cobertas (passou), quantidade de linhas não cobertas (não passou) e % de cobertura em cada fonte;
 
-* coverlocal_testcase.csv: apresenta as linhas válidas do fonte e, se cobertas, detalha todos os casos de testes que passaram pela linha. Caso seja do TIR ou teste manual, o detalhe será o identificador do parâmetro "Suite" do appserver.ini.
+* coverlocal_cover.csv: apresenta o total de linhas validas do fonte, quantidade de linhas cobertas (passou), quantidade de linhas nao cobertas (nao passou) e % de cobertura em cada fonte;
+
+* coverlocal_testcase.csv: apresenta as linhas validas do fonte e, se cobertas, detalha todos os casos de testes que passaram pela linha. Caso seja do TIR ou teste manual, o detalhe sera o identificador do parâmetro "Suite" do appserver.ini.
 
 ## Imagine ter que analisar manualmente o % de cobertura de determinado fonte levando em consideracao todos os Suites de Teste.
 
@@ -62,7 +63,7 @@ Para atuarmos na gestao, analise ou trabalho de alcancar uma determinada meta de
         
         R: Consolidacao(Merge) das linhas nao cobertas de cada arquivo(.csv) de coverage, eliminando as repetidas.
 
-E Voilà, vamos analisar as linhas nao cobertas para criar os novos casos de teste e aumentar o percentual de cobertura de um fonte especifico:
+E Voila, vamos analisar as linhas nao cobertas para criar os novos casos de teste e aumentar o percentual de cobertura de um fonte especifico:
 
 Quanto as linhas sem cobertura:
 
