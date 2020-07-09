@@ -3,7 +3,7 @@
 	"name": "totvs-coverage-analysis",
 	"displayName": "Totvs Coverage Analysis",
 	"description": "Suporte para analise dos resultados do Coverage TOTVS. By thiagoyoshiaki@gmail.com",
-	"version": "0.0.2",
+	"version": "0.0.3",
 	"icon": "icon.png",
 	"engines": {
 		"vscode": "^1.43.0"

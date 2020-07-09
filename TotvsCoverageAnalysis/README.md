@@ -9,7 +9,7 @@ Esta extensao consolida e analisa os arquivos de coverage gerados de diversos Su
 Analises disponiveis:
 
 ## Total_Results.xlsx
-* Demonstra os percentuais de cobertura de cada fonte, consolidados entre todos os Suites de Teste;
+* Demonstra os % de cobertura de cada fonte, consolidados entre todos os Suites de Teste;
 * Especificacacao do percentual correspondente a cada linha coberta.
 
 ![total_results_image](https://user-images.githubusercontent.com/34511940/86964405-62eb2e80-c13c-11ea-8a21-92aff546e411.png)
@@ -53,7 +53,7 @@ Neste momento, voce ja percebeu que tera que levar em consideracao em seu calcul
 ![compare_lines_image](https://user-images.githubusercontent.com/34511940/86617230-5379b300-bf8d-11ea-9f58-d8ce46475683.png)
 
 
-Para atuarmos na gestao, analise ou trabalho de alcancar uma determinada meta de automacao, no minimo, teriamos os seguintes questoes a serem respondidas:
+Para atuarmos na gestao, analise ou trabalho de alcancar uma determinada meta de automacao, no minimo, teriamos as seguintes questoes a serem respondidas:
     
 * Qual o percentual de cobertura total por fonte entre todos os arquivos(.csv) de coverage?
             
@@ -63,7 +63,7 @@ Para atuarmos na gestao, analise ou trabalho de alcancar uma determinada meta de
         
         R: Consolidacao(Merge) das linhas nao cobertas de cada arquivo(.csv) de coverage, eliminando as repetidas.
 
-E Voila, vamos analisar as linhas nao cobertas para criar os novos casos de teste e aumentar o percentual de cobertura de um fonte especifico:
+E Voila, vamos analisar as linhas nao cobertas para criar os novos casos de teste e aumentar o % de cobertura de um fonte especifico:
 
 Quanto as linhas sem cobertura:
 
