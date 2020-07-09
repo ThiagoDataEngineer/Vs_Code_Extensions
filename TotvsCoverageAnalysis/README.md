@@ -30,10 +30,6 @@ Via configuraoes graficas:
 
 ![graphic_settings_configurations_image](https://user-images.githubusercontent.com/34511940/86622266-00582e00-bf96-11ea-889a-89c004dfd4d8.png)
 
-totvs-coverage-analysis.PathCover	        Diretorio de arquivos(.csv) gerados pelo coverage.	
-totvs-coverage-analysis.PathCoverSources	Diretorio de fontes para analise dos resultados de coverage.	
-totvs-coverage-analysis.PathCoverResults	Diretorio onde serao gerados os resultados da analise.
-
 -----------------------------------------------------------------------------------------------------------
 
 # Motivacoes para o uso da extensao Totvs Coverage Analysis
@@ -45,7 +41,7 @@ Cada Suite de Teste deve ser executada em modo exclusivo, ou seja, cada uma tera
 
 * coverlocal_testcase.csv: apresenta as linhas válidas do fonte e, se cobertas, detalha todos os casos de testes que passaram pela linha. Caso seja do TIR ou teste manual, o detalhe será o identificador do parâmetro "Suite" do appserver.ini.
 
-Imagine executar diversos Suites de Teste, e ter que analisar manualmente o percentual de cobertura de determinado fonte.
+## Imagine ter que analisar manualmente o % de cobertura de determinado fonte levando em consideracao todos os Suites de Teste.
 
 ![coverage_files_image](https://user-images.githubusercontent.com/34511940/86978802-262c3100-c156-11ea-82cf-85a213f8807f.png)
 
