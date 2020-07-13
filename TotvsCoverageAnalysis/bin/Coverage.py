@@ -92,7 +92,7 @@ def fSearchFunc(df):
     cLowerStatic = 'Function '.lower()
 
     for i in dir_Fontes:
-        if df['Programa'].str.contains(i[:-4]).iloc[0]:            
+        if df['Programa'].str.contains(i[:-4].upper()).iloc[0]:            
             with open(r"" + path_Fontes + i ,"r", encoding="iso-8859-1") as f:
                 lines = f.readlines()
                 lines = [x.lower() for x in lines]
