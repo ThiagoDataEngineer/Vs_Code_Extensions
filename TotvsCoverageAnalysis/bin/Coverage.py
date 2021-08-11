@@ -46,6 +46,7 @@ def filtro1(base, afilter, cTpFilter):
         aRet.append(df)
     return aRet
 
+'''
 def ContagemMerge(aTabFil, cType):
     aCont = []
     
@@ -69,7 +70,7 @@ def ContagemMerge(aTabFil, cType):
                 
                 for j in range(len(aTabFil[i])):
                     if aTabFil[i][j]['Programa'].count() > 0:
-                        if ((aTabFil[i][j]['Programa'].iloc[0]).strip(' ') == (df['Programa'].iloc[0]).strip(' ')):
+                        if ((aTabFil[i][j]['Programa'].iloc[0]).strip() == (df['Programa'].iloc[0]).strip()):
                             df = megerdata(df, aTabFil[i][j], 'Linha', cType)
                             aTabFil[i][j] = pd.DataFrame(columns = ['Programa', 'Linhas', 'Passou', 'Nao Passou', '% Cobertura']) 
 
@@ -87,6 +88,104 @@ def ContagemMerge(aTabFil, cType):
         nCont += 1
 
     return aCont
+'''
+
+'''
+def ContagemMerge(aTabFil, cType):
+    aCont = []
+    
+    if cType == 1:    
+        print('Analisando as linhas cobertas...')
+    else:
+        print('Analisando as linhas nao cobertas...')
+
+    nCont = 0
+    while nCont < len(aTabFil):     
+        
+        for nLivre in range(len(aTabFil[nCont])):
+            df = aTabFil[nCont][nLivre]    
+            
+            for i in tqdm(range(len(aTabFil))):
+                
+                for j in range(len(aTabFil[i])):
+                    if aTabFil[i][j]['Programa'].count() > 0:
+                        if ((aTabFil[i][j]['Programa'].iloc[0]).strip() == (df['Programa'].iloc[0]).strip(' ')):
+                            df = megerdata(df, aTabFil[i][j], 'Linha', cType)
+                            aTabFil[i][j] = pd.DataFrame(columns = ['Programa', 'Linhas', 'Passou', 'Nao Passou', '% Cobertura']) 
+
+            df = df.copy()    
+            df['Principal_Function'] = ''
+            df['Entire_Function']    = ''
+
+            if not (df.empty) and (len(dir_Fontes) > 0) and (cType == 2):
+                df = fSearchFunc(df) 
+
+            aCont.append(df)  
+
+            time.sleep(0.001)
+        
+        nCont += 1
+
+    return aCont    
+'''
+
+def ContagemMerge(aTabFil, cType):
+    
+    aCont = []
+    if cType == 1:    
+        print('Analisando as linhas cobertas...')
+    else:
+        print('Analisando as linhas nao cobertas...')
+
+    for iFontes in range(len(afilterFontes)):
+
+        lEntrou = False
+        for nPosRobos in range(len(aTabFil)):
+            if lEntrou:
+                break
+            for nPosFontes in range(len(aTabFil[nPosRobos])):
+                if aTabFil[nPosRobos][nPosFontes]['Programa'].count() > 0 and ((aTabFil[nPosRobos][nPosFontes]['Programa'].iloc[0]).strip() == (afilterFontes[iFontes]).strip()):
+                    lEntrou = True
+                    df = aTabFil[nPosRobos][nPosFontes]
+                    break                
+        
+        if lEntrou:
+            for i in tqdm(range(len(aTabFil))):
+
+                for j in range(len(aTabFil[i])):
+
+                    if aTabFil[i][j]['Programa'].count() > 0:
+                        if ((aTabFil[i][j]['Programa'].iloc[0]).strip() == (df['Programa'].iloc[0]).strip()):
+                            df = megerdata(df, aTabFil[i][j], 'Linha', cType)
+                            aTabFil[i][j] = pd.DataFrame(columns = ['Programa', 'Linhas', 'Passou', 'Nao Passou', '% Cobertura']) 
+
+
+            df = df.copy()    
+            df['Principal_Function'] = ''
+            df['Entire_Function']    = ''
+
+            if not (df.empty) and (len(dir_Fontes) > 0) and (cType == 2):
+                df = fSearchFunc(df) 
+
+            aCont.append(df)  
+
+            time.sleep(0.001)
+
+    return aCont
+
+# Contagem do Dados coverlocal_cover_
+def ContagemMergeFontes(aFontes, cCampo):
+    df = pd.DataFrame()
+    aCont = []
+    for i in range(len(aFontes)):
+        if i == 0:
+            df = aFontes[i]
+        else:
+            df = megerdata(df, aFontes[i], cCampo, 1)   
+
+        df = df.dropna(subset=['Programa'])    
+        df = df.dropna(subset=['Linhas'])    
+    return df   
 
 #Abre o arquivo do fonte e procura Static Functions nao cobertas
 
@@ -158,19 +257,6 @@ def Filter(arqlist, cFiltro):
 #----------------------------------------------
 
 
-def resultado(cText, nTotal_base, base, dfRes):
-        
-    TotalCob_base = base['Linha'].count()
-    
-    nPerc_base = ((TotalCob_base * 100)/nTotal_base)
-
-    dfResult = pd.DataFrame({'Programa': cText, 'Linhas' : nTotal_base, 'Passou': TotalCob_base,'Nao Passou': nTotal_base - TotalCob_base,'% Cobertura': nPerc_base,\
-        '%Cada_1_Linha': 100/nTotal_base}, index=[0.5])
-    
-    dfRes = dfRes.append(dfResult, ignore_index = True, sort=False)  
-    
-    return dfRes
-
 #Nao ha dados suficentes para analise
 def fMens(nType):
                 
@@ -186,6 +272,19 @@ def fMens(nType):
             print('********************************************************************************')
             print('Nao ha dados suficientes para a analise. - Verifique os arquivos coverlocal_testcase .')
             print('********************************************************************************')
+
+def resultado(cText, nTotal_base, base, dfRes):
+        
+    TotalCob_base = base['Linha'].count()
+    
+    nPerc_base = ((TotalCob_base * 100)/nTotal_base)
+
+    dfResult = pd.DataFrame({'Programa': cText, 'Linhas' : nTotal_base, 'Passou': TotalCob_base,'Nao Passou': nTotal_base - TotalCob_base,'% Cobertura': nPerc_base,\
+        '%Cada_1_Linha': 100/nTotal_base}, index=[0.5])
+    
+    dfRes = dfRes.append(dfResult, ignore_index = True, sort=False)  
+    
+    return dfRes    
 
 #Filtra as linhas e analisa os resultados
 def Fil_Analisys(afilterFontes, aRobos):
@@ -241,7 +340,8 @@ def Fil_Analisys(afilterFontes, aRobos):
     print('')
     print(*alist_Plan_Result, sep = "\n") 
     print('----------------------------------------------------------------------------------------------------- \n')
-            
+                
+                            
 #Aqui comeca
 #--------------------------------------------------------------------------------------------------------------
 
@@ -284,6 +384,7 @@ else:
 
 #Defino os arquivos de robo
 coverl_testcase_tab = Filter(dirs, 'coverlocal_testcase') #coverl_testcase_tab    = arquivos do tipo coverlocal_testcase encontrados na pasta raiz
+coverl_cover_tab = Filter(dirs, 'coverlocal_cover') #coverl_testcase_tab    = arquivos do tipo coverlocal_testcase encontrados na pasta raiz
 
 if len(coverl_testcase_tab) > 0:
 
@@ -293,17 +394,15 @@ if len(coverl_testcase_tab) > 0:
     print('----------------------------------------------------------------------------------------------------- \n')
     
     # Aqui busco todos os robos que serao analisados conforme os arquivos coverlocal_testcase_ encontrados na pasta
-    aRobos = opendados(coverl_testcase_tab, path)
+    aRobos     = opendados(coverl_testcase_tab, path)
 
     #Aqui sei quais foram os fontes analisados e quantas linhas cada um deles possui
-    afilterFontes = list()
-    aTotalLin = list()
-    for rb in aRobos:
-        afilterFontes.extend([x.strip(' ') for x in rb['Programa'].value_counts().index.tolist()])#afilter   = nome dos fontes que deseja analisar a cobertura
-        aTotalLin.extend(rb.groupby("Programa")['Linha'].count().tolist()) #aTotalLin = quantidade de linhas de cada um dos fontes informados nas tabelas coverlocal_cover_
-    
-    afilterFontes = list(dict.fromkeys(afilterFontes))
-    aTotalLin = list(dict.fromkeys(aTotalLin))
+    aFontesFil = opendados(coverl_cover_tab, path)  
+    dfFontes  = ContagemMergeFontes(aFontesFil, 'Programa')
+
+    #Aqui sei quais foram os fontes analisados e quantas linhas cada um deles possui
+    afilterFontes = dfFontes['Programa'].unique().tolist() #afilter   = nome dos fontes que deseja analisar a cobertura
+    aTotalLin     = dfFontes['Linhas'].unique().tolist() #aTotalLin = quantidade de linhas de cada um dos fontes informados nas tabelas coverlocal_cover_
 
     print('Foram cobertos', len(afilterFontes), 'fonte(s): ')
     print(*afilterFontes, sep = "\n") 
@@ -316,3 +415,4 @@ if len(coverl_testcase_tab) > 0:
      
 else:
     fMens(3)
+
