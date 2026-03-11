@@ -108,6 +108,10 @@ const NETWORKS = [
   "Optimism",
   "Base",
   "Avalanche",
+  "Fantom",
+  "Gnosis",
+  "Linea",
+  "zkSync Era",
   "Ethereum Sepolia",
   "Base Sepolia",
   "Polygon Amoy",
@@ -167,6 +171,10 @@ const EVM_RPC_DEFAULTS: Record<string, string> = {
   "Optimism": "https://mainnet.optimism.io",
   "Base": "https://mainnet.base.org",
   "Avalanche": "https://api.avax.network/ext/bc/C/rpc",
+  "Fantom": "https://rpc.ankr.com/fantom",
+  "Gnosis": "https://rpc.ankr.com/gnosis",
+  "Linea": "https://rpc.linea.build",
+  "zkSync Era": "https://mainnet.era.zksync.io",
   "Ethereum Sepolia": "https://rpc.sepolia.org",
   "Base Sepolia": "https://sepolia.base.org",
   "Polygon Amoy": "https://rpc-amoy.polygon.technology",
@@ -225,6 +233,10 @@ const NETWORK_BRANDS: Record<string, BrandTheme> = {
   "Base": { label: "Base", mark: "BSE", bg: "#3b82f61f", border: "#3b82f6aa", fg: "#93c5fd" },
   "Base Sepolia": { label: "Base Sepolia", mark: "BSP", bg: "#3b82f61f", border: "#3b82f6aa", fg: "#93c5fd" },
   "Avalanche": { label: "Avalanche", mark: "AVX", bg: "#dc26261f", border: "#dc2626aa", fg: "#fca5a5" },
+  "Fantom": { label: "Fantom", mark: "FTM", bg: "#06b6d41f", border: "#06b6d4aa", fg: "#a5f3fc" },
+  "Gnosis": { label: "Gnosis", mark: "GNO", bg: "#14b8a61f", border: "#14b8a6aa", fg: "#99f6e4" },
+  "Linea": { label: "Linea", mark: "LIN", bg: "#a3a3a31f", border: "#a3a3a3aa", fg: "#e5e5e5" },
+  "zkSync Era": { label: "zkSync", mark: "ZK", bg: "#2563eb1f", border: "#2563ebaa", fg: "#bfdbfe" },
   "Solana": { label: "Solana", mark: "SOL", bg: "#22c55e1f", border: "#22c55eaa", fg: "#86efac" },
 };
 
@@ -281,6 +293,10 @@ const NETWORK_URLS: Record<string, string> = {
   "Base": "https://base.org",
   "Base Sepolia": "https://base.org",
   "Avalanche": "https://avax.network",
+  "Fantom": "https://fantom.foundation",
+  "Gnosis": "https://www.gnosis.io",
+  "Linea": "https://linea.build",
+  "zkSync Era": "https://zksync.io",
   "Solana": "https://solana.com",
 };
 
