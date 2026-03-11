@@ -1999,7 +1999,7 @@ class WalletLabViewProvider implements vscode.WebviewViewProvider {
       .toString();
     const balanceButtonHtml =
       state.mode === "real"
-        ? '<button class="btn btn-secondary" id="balanceBtn">Check Balance</button>'
+        ? '<button class="btn btn-secondary btn-wide" id="balanceBtn">Check Balance</button>'
         : "";
     const realRegistry = registry.filter((entry) => entry.mode === "real");
     const testRegistry = registry.filter((entry) => entry.mode === "test");
@@ -2829,8 +2829,9 @@ class WalletLabViewProvider implements vscode.WebviewViewProvider {
     <div class="actions">
       <button class="btn btn-primary btn-wide" id="connectBtn">Connect Wallet</button>
       <button class="btn btn-secondary" id="contractCheckBtn">Contract Check</button>
-      ${balanceButtonHtml}
       <button class="btn btn-secondary" id="openProviderBtn">Wallet Site</button>
+      ${balanceButtonHtml}
+      <button class="btn btn-secondary" id="copyBtn">Copy Address</button>
       <div class="donate-menu">
         <button class="btn btn-secondary" id="donateBtn"><img class="btn-icon" src="${donateIconUri}" alt="Donate" />Donate</button>
         <div class="donate-flyout" aria-label="Donate addresses and QR codes">
@@ -2838,8 +2839,7 @@ class WalletLabViewProvider implements vscode.WebviewViewProvider {
           <div class="donate-address-grid">${donateAddressesHtml}</div>
         </div>
       </div>
-      <button class="btn btn-secondary" id="copyBtn">Copy Address</button>
-      <button class="btn btn-secondary" id="disconnectBtn">Disconnect</button>
+      <button class="btn btn-secondary btn-wide" id="disconnectBtn">Disconnect</button>
     </div>
 
     <p class="hint">

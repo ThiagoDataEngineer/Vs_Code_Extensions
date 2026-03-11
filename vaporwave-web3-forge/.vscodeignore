@@ -5,6 +5,8 @@ docs/**
 examples/**
 scripts/**
 media/how-to-use.gif
+media/previews/**
+.github/**
 out/**/*.map
 examples/**/node_modules/**
 out/test/**
