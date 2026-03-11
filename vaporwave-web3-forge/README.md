@@ -2,9 +2,35 @@
 
 Independently maintained by thiagoyoshiaki@gmail.com
 
+Validate public wallet addresses, detect deployed contracts, and check real balances across Bitcoin, EVM chains, and Solana inside VS Code.
+
+First useful result in under 1 minute for developers, QA teams, and AI agents.
+
+Includes free built-in themes for human users.
+
+<p align="center">
+	<img src="./media/previews/image-1773250074231.png" alt="Wallet Lab preview" width="720" />
+  <br>
+  <b>Free themes for human users: Bitcoin Calm Light, Bitcoin Sober, Vaporwave Midnight, Vaporwave Neon Dusk</b>
+</p>
+
 <table>
 	<tr>
 		<td valign="top" width="60%">
+Quick value:
+- Verify a public wallet address format before downstream checks.
+- Confirm contract/code presence on supported EVM and Solana networks.
+- Fetch real balances in REAL mode and export operational records.
+- Start with a premium theme preset and keep exploring from there.
+- Enjoy free themes for human users out of the box.
+
+Install and run:
+- Install from VS Code Marketplace.
+- Open Wallet Lab activity view.
+- Select REAL or TEST mode and run your first check.
+
+Works with:
+- VS Code desktop (Universal extension)
 
 Language:
 - [English](#english)
@@ -17,14 +43,6 @@ Language:
 - [中文](#中文)
 - [Arabic](#العربية)
 
-Community Support:
-- <img src="https://raw.githubusercontent.com/spothq/cryptocurrency-icons/master/128/color/btc.png" alt="BTC" width="14" height="14" /> BTC: <span style="color:#facc15;font-size:0.86em;">bc1qt7r96jx06zr5fk8vwhxxcasjjgacs623m6t26j</span> | <a style="font-size:0.78em;" href="https://api.qrserver.com/v1/create-qr-code/?size=220x220&data=bitcoin%3Abc1qt7r96jx06zr5fk8vwhxxcasjjgacs623m6t26j">QRCode</a>
-- <img src="https://raw.githubusercontent.com/spothq/cryptocurrency-icons/master/128/color/eth.png" alt="ETH" width="14" height="14" /> ETH: <span style="color:#facc15;font-size:0.86em;">0x7322789de14a49EBE28b6133167d25BD903A68ed</span> | <a style="font-size:0.78em;" href="https://api.qrserver.com/v1/create-qr-code/?size=220x220&data=ethereum%3A0x7322789de14a49EBE28b6133167d25BD903A68ed">QRCode</a>
-- <img src="https://raw.githubusercontent.com/spothq/cryptocurrency-icons/master/128/color/sol.png" alt="SOL" width="14" height="14" style="filter:hue-rotate(245deg) saturate(1.35);" /> Solana: <span style="color:#facc15;font-size:0.86em;">9VmhYgzF3SVMfHJaPZfkjwQ22svxMf64fCcDoKyBFaSU</span> | <a style="font-size:0.78em;" href="https://api.qrserver.com/v1/create-qr-code/?size=220x220&data=9VmhYgzF3SVMfHJaPZfkjwQ22svxMf64fCcDoKyBFaSU">QRCode</a>
-- <img src="https://raw.githubusercontent.com/spothq/cryptocurrency-icons/master/128/color/matic.png" alt="Polygon" width="14" height="14" /> Polygon: <span style="color:#facc15;font-size:0.86em;">0x7322789de14a49EBE28b6133167d25BD903A68ed</span> | <a style="font-size:0.78em;" href="https://api.qrserver.com/v1/create-qr-code/?size=220x220&data=0x7322789de14a49EBE28b6133167d25BD903A68ed">QRCode</a>
-- <img src="https://raw.githubusercontent.com/spothq/cryptocurrency-icons/master/128/color/trx.png" alt="TRX" width="14" height="14" /> Tron: <span style="color:#facc15;font-size:0.86em;">TD23HKqyLdfms2GqySDu85ZyZTMEj3R37G</span> | <a style="font-size:0.78em;" href="https://api.qrserver.com/v1/create-qr-code/?size=220x220&data=TD23HKqyLdfms2GqySDu85ZyZTMEj3R37G">QRCode</a>
-- [GitHub Sponsors](https://github.com/ThiagoDataEngineer)
-
 	</td>
 		<td valign="top" align="right" width="40%">
 			<img src="./media/previews/image-1773235496224.png" alt="Wallet Lab preview" width="320" />
@@ -32,19 +50,65 @@ Community Support:
 	</tr>
 </table>
 
-> Built for humans and AI agents: this extension is designed for developers, GPT-5.3, and future AI versions.
 > If this project helped or inspired your work, you are welcome to support and contribute to keep it evolving.
 
-> Feito para humanos e agentes de IA: esta extensao foi pensada para developers, GPT-5.3 e futuras versoes de IA.
+> All themes are full free for human users—no cost, no paywall.
+
+> Feito para humanos e agentes de IA: esta extensão foi pensada para desenvolvedores, agentes de IA e futuras versões de IA.
 > Se este projeto ajudou ou inspirou seu trabalho, sua contribuicao e apoio serao muito bem-vindos para continuar evoluindo a ferramenta.
+
+> Todos os temas são totalmente gratuitos (full free) para usuários humanos—sem custo, sem paywall.
+
+## 💛 Sponsor & Community Support
+
+<details>
+<summary>Community Support</summary>
+
+- <img src="https://raw.githubusercontent.com/spothq/cryptocurrency-icons/master/128/color/btc.png" alt="BTC" width="14" height="14" /> BTC: <span style="color:#facc15;font-size:0.86em;">bc1qt7r96jx06zr5fk8vwhxxcasjjgacs623m6t26j</span> | <a style="font-size:0.78em;" href="https://api.qrserver.com/v1/create-qr-code/?size=220x220&data=bitcoin%3Abc1qt7r96jx06zr5fk8vwhxxcasjjgacs623m6t26j">QRCode</a>
+- <img src="https://raw.githubusercontent.com/spothq/cryptocurrency-icons/master/128/color/eth.png" alt="ETH" width="14" height="14" /> ETH: <span style="color:#facc15;font-size:0.86em;">0x7322789de14a49EBE28b6133167d25BD903A68ed</span> | <a style="font-size:0.78em;" href="https://api.qrserver.com/v1/create-qr-code/?size=220x220&data=ethereum%3A0x7322789de14a49EBE28b6133167d25BD903A68ed">QRCode</a>
+- <img src="https://raw.githubusercontent.com/spothq/cryptocurrency-icons/master/128/color/sol.png" alt="SOL" width="14" height="14" style="filter:hue-rotate(245deg) saturate(1.35);" /> Solana: <span style="color:#facc15;font-size:0.86em;">9VmhYgzF3SVMfHJaPZfkjwQ22svxMf64fCcDoKyBFaSU</span> | <a style="font-size:0.78em;" href="https://api.qrserver.com/v1/create-qr-code/?size=220x220&data=9VmhYgzF3SVMfHJaPZfkjwQ22svxMf64fCcDoKyBFaSU">QRCode</a>
+- <img src="https://raw.githubusercontent.com/spothq/cryptocurrency-icons/master/128/color/matic.png" alt="Polygon" width="14" height="14" /> Polygon: <span style="color:#facc15;font-size:0.86em;">0x7322789de14a49EBE28b6133167d25BD903A68ed</span> | <a style="font-size:0.78em;" href="https://api.qrserver.com/v1/create-qr-code/?size=220x220&data=0x7322789de14a49EBE28b6133167d25BD903A68ed">QRCode</a>
+- <img src="https://raw.githubusercontent.com/spothq/cryptocurrency-icons/master/128/color/trx.png" alt="TRX" width="14" height="14" /> Tron: <span style="color:#facc15;font-size:0.86em;">TD23HKqyLdfms2GqySDu85ZyZTMEj3R37G</span> | <a style="font-size:0.78em;" href="https://api.qrserver.com/v1/create-qr-code/?size=220x220&data=TD23HKqyLdfms2GqySDu85ZyZTMEj3R37G">QRCode</a>
+- [GitHub Sponsors](https://github.com/ThiagoDataEngineer)
+
+</details>
 
 ---
 
 ## English
 
+### Why Install
+
+- Reduce wallet validation errors before testing or reporting.
+- Run contract presence checks in-editor without context switching.
+- Standardize quick balance checks and registry/report exports for team workflows, audits, or reporting needs.
+
+### Simplest Entry Point: Themes First
+
+If you want the fastest first contact with the extension, start with themes:
+
+1. Open Command Palette and run Preferences: Color Theme.
+2. Select one of the built-in themes below.
+3. Open Wallet Lab and continue with REAL or TEST checks.
+
+Recommended presets:
+
+- Web3 Blockchain Vaporwave Midnight (dark)
+- Web3 Blockchain Vaporwave Neon Dusk (dark)
+- Web3 Blockchain Bitcoin Sober (dark)
+- Web3 Blockchain Bitcoin Calm Light (light)
+
 ### Overview
 
 Web3 Wallet Lab Forge is a practical VS Code extension for wallet testing, contract verification, real-balance intelligence, and crypto bubble prices visualization across Bitcoin, major EVM chains, and Solana.
+
+### 60-Second Quick Flow
+
+1. Open Wallet Lab and click Connect Wallet.
+2. Choose REAL mode or TEST mode.
+3. Select network and provider.
+4. Paste a public wallet address.
+5. Run Contract Check and then Check Balance (REAL mode).
 
 ### Highlights
 
@@ -77,6 +141,18 @@ Bitcoin networks currently support Balance Check only.
 ### Supported Providers
 
 MetaMask, Coinbase Wallet, Trust Wallet, Binance Wallet, Uniswap Wallet, Phantom, WalletConnect, Ledger Live, Trezor Suite, OKX Wallet, Rainbow, Rabby, Safe Wallet, Zerion, Xverse, Unisat, Leather, Electrum, Backpack.
+
+### Security Model
+
+- Public addresses only.
+- No private keys, seed phrases, or signing secrets.
+- REAL mode calls public RPC/indexer endpoints for live data.
+
+### Known Limitations
+
+- Data freshness depends on selected RPC/indexer providers.
+- Contract Check is available for supported EVM and Solana networks.
+- Bitcoin currently supports Balance Check only.
 
 ### Quick Start
 
@@ -116,9 +192,38 @@ Press F5 in VS Code to launch the Extension Development Host.
 
 ## Portugues (Brasil)
 
+### Por Que Instalar
+
+- Reduzir erros de validacao de carteira antes de testar ou reportar.
+- Executar verificacoes de contrato dentro do editor, sem troca de contexto.
+- Padronizar checagens rapidas de saldo e exportação de registros ou relatórios para o time, auditoria ou report conforme necessário.
+
+### Porta de Entrada Mais Simples: Comece pelos Temas
+
+Se voce quiser o primeiro contato mais rapido com a extensao, comece pelos temas:
+
+1. Abra a Command Palette e rode Preferences: Color Theme.
+2. Selecione um dos temas nativos abaixo.
+3. Abra o Wallet Lab e siga com checks em modo REAL ou TEST.
+
+Presets recomendados:
+
+- Web3 Blockchain Vaporwave Midnight (dark)
+- Web3 Blockchain Vaporwave Neon Dusk (dark)
+- Web3 Blockchain Bitcoin Sober (dark)
+- Web3 Blockchain Bitcoin Calm Light (light)
+
 ### Visao Geral
 
 Web3 Wallet Lab Forge e uma extensao para VS Code focada em prototipagem rapida de dApps com fluxos de carteira seguros, validacao de contratos, inteligencia de saldo e visualizacao de bubble prices cripto para Bitcoin, redes EVM e Solana.
+
+### Fluxo Rapido em 60 Segundos
+
+1. Abra o Wallet Lab e clique em Connect Wallet.
+2. Escolha modo REAL ou TEST.
+3. Selecione rede e provedor.
+4. Cole um endereco publico.
+5. Rode Contract Check e depois Check Balance (modo REAL).
 
 ### Destaques
 
@@ -139,6 +244,18 @@ Temas nativos para manter uma identidade Web3/Blockchain no editor:
 - Web3 Blockchain Vaporwave Neon Dusk (dark)
 - Web3 Blockchain Bitcoin Sober (dark)
 - Web3 Blockchain Bitcoin Calm Light (light)
+
+### Modelo de Seguranca
+
+- Apenas enderecos publicos.
+- Sem chaves privadas, seed phrases ou segredos de assinatura.
+- O modo REAL consulta endpoints publicos de RPC/indexer.
+
+### Limitacoes Conhecidas
+
+- Atualizacao dos dados depende do RPC/indexer selecionado.
+- Contract Check funciona em redes EVM e Solana suportadas.
+- Bitcoin atualmente suporta apenas Balance Check.
 
 ---
 
@@ -223,7 +340,7 @@ Web3 Wallet Lab Forge は、Bitcoin・EVM・Solana に対応した、ウォレ�
 
 - 🛰️ 公開アドレス検証付きのリアルウォレットモード。
 - 🧪 ローカル検証向けのテストウォレット生成モード。
-- 🌌 作業スタイルに合わせた内蔵テーマシステム (dark + light)。
+- 🌌 サイトに合わせたテーマシステム (dark + light)。
 - ₿ Bitcoin 優先のネットワーク選択 (Mainnet / Testnet)。
 - ⚡ 主要ウォレットプロバイダーへのショートカット。
 - 📜 主要 EVM / Solana 向け Contract Check。
