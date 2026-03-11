@@ -1,0 +1,39 @@
+<svg width="256" height="256" viewBox="0 0 256 256" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bgGrad" x1="18" y1="16" x2="236" y2="244" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#081227"/>
+      <stop offset="0.58" stop-color="#102551"/>
+      <stop offset="1" stop-color="#1D3C6A"/>
+    </linearGradient>
+    <linearGradient id="walletGrad" x1="54" y1="78" x2="204" y2="196" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F3C35D"/>
+      <stop offset="1" stop-color="#BC7A1F"/>
+    </linearGradient>
+    <linearGradient id="plateGrad" x1="125" y1="148" x2="214" y2="190" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#CE8A2E"/>
+      <stop offset="1" stop-color="#975711"/>
+    </linearGradient>
+    <radialGradient id="coinGrad" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(176 63) rotate(90) scale(35)">
+      <stop stop-color="#FFE7AB"/>
+      <stop offset="1" stop-color="#D68F1F"/>
+    </radialGradient>
+    <radialGradient id="glow" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(164 172) rotate(90) scale(84)">
+      <stop stop-color="#32A0FF" stop-opacity="0.38"/>
+      <stop offset="1" stop-color="#32A0FF" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <rect x="8" y="8" width="240" height="240" rx="42" fill="url(#bgGrad)"/>
+  <circle cx="164" cy="172" r="84" fill="url(#glow)"/>
+
+  <path d="M60 102C60 90.95 68.95 82 80 82H154C171.67 82 186 96.33 186 114V121" stroke="#E7C176" stroke-width="10" stroke-linecap="round"/>
+
+  <rect x="48" y="104" width="170" height="116" rx="22" fill="url(#walletGrad)" stroke="#885613" stroke-width="5"/>
+  <rect x="66" y="120" width="106" height="50" rx="10" fill="#EABB65" stroke="#9B6719" stroke-width="4"/>
+
+  <rect x="128" y="150" width="102" height="46" rx="12" fill="url(#plateGrad)" stroke="#7C450B" stroke-width="4"/>
+  <text x="179" y="181" text-anchor="middle" font-size="28" font-weight="800" font-family="Segoe UI, Arial, sans-serif" fill="#170D02">B</text>
+
+  <circle cx="176" cy="63" r="33" fill="url(#coinGrad)" stroke="#8A560E" stroke-width="4"/>
+  <text x="176" y="72" text-anchor="middle" font-size="36" font-weight="900" font-family="Segoe UI, Arial, sans-serif" fill="#5A3205">B</text>
+</svg>

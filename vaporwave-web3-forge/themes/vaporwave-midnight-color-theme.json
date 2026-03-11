@@ -1,0 +1,74 @@
+{
+  "$schema": "vscode://schemas/color-theme",
+  "name": "Vaporwave Midnight",
+  "type": "dark",
+  "colors": {
+    "editor.background": "#090711",
+    "editor.foreground": "#E5E7EB",
+    "editorLineNumber.foreground": "#6B7280",
+    "editorCursor.foreground": "#C4B5FD",
+    "editor.selectionBackground": "#4C1D95AA",
+    "activityBar.background": "#0B0914",
+    "activityBar.foreground": "#DDD6FE",
+    "activityBarBadge.background": "#7C3AED",
+    "sideBar.background": "#0A0813",
+    "sideBar.foreground": "#CBD5E1",
+    "sideBar.border": "#2E1A53",
+    "sideBarTitle.foreground": "#E9D5FF",
+    "sideBarSectionHeader.background": "#120A24",
+    "sideBarSectionHeader.foreground": "#D8B4FE",
+    "sideBarSectionHeader.border": "#2E1A53",
+    "list.activeSelectionBackground": "#2A1553",
+    "list.activeSelectionForeground": "#F5EAFE",
+    "list.inactiveSelectionBackground": "#1B1232",
+    "list.hoverBackground": "#201339",
+    "list.hoverForeground": "#F1E8FF",
+    "list.focusBackground": "#301B5C",
+    "list.focusForeground": "#FFFFFF",
+    "list.highlightForeground": "#22D3EE",
+    "statusBar.background": "#120A24",
+    "statusBar.foreground": "#E2E8F0",
+    "titleBar.activeBackground": "#120A24",
+    "button.background": "#7C3AED",
+    "button.foreground": "#FFFFFF",
+    "focusBorder": "#A78BFA"
+  },
+  "tokenColors": [
+    {
+      "scope": ["comment"],
+      "settings": {
+        "foreground": "#64748B"
+      }
+    },
+    {
+      "scope": ["keyword", "storage.type"],
+      "settings": {
+        "foreground": "#C084FC"
+      }
+    },
+    {
+      "scope": ["entity.name.function", "support.function"],
+      "settings": {
+        "foreground": "#22D3EE"
+      }
+    },
+    {
+      "scope": ["string"],
+      "settings": {
+        "foreground": "#34D399"
+      }
+    },
+    {
+      "scope": ["entity.name.type", "support.type"],
+      "settings": {
+        "foreground": "#F9A8D4"
+      }
+    },
+    {
+      "scope": ["constant.numeric"],
+      "settings": {
+        "foreground": "#FDE047"
+      }
+    }
+  ]
+}

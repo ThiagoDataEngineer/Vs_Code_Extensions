@@ -1,0 +1,18 @@
+{
+  "name": "btc-keygen-balance-check-example",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Example project: generate BTC key/address and run balance check via Blockstream API",
+  "scripts": {
+    "generate:testnet": "node index.mjs --network testnet --generate-only",
+    "generate:mainnet": "node index.mjs --network mainnet --generate-only",
+    "check:testnet": "node index.mjs --network testnet",
+    "check:mainnet": "node index.mjs --network mainnet"
+  },
+  "dependencies": {
+    "bitcoinjs-lib": "^6.1.6",
+    "ecpair": "^2.1.0",
+    "tiny-secp256k1": "^2.2.3"
+  }
+}
