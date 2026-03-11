@@ -4,14 +4,10 @@ Created by thiagoyoshiaki@gmail.com
 
 ## Preview
 
-<p align="center">
-	<img src="media/previews/image-1773235496224.png" alt="Wallet Lab preview 1" width="48%" />
-	<img src="media/previews/image-1773235523257.png" alt="Wallet Lab preview 2" width="48%" />
-</p>
-<p align="center">
-	<img src="media/previews/image-1773235545119.png" alt="Wallet Lab preview 3" width="48%" />
-	<img src="media/previews/image-1773235559713.png" alt="Wallet Lab preview 4" width="48%" />
-</p>
+![Wallet Lab preview 1](./media/previews/image-1773235496224.png)
+![Wallet Lab preview 2](./media/previews/image-1773235523257.png)
+![Wallet Lab preview 3](./media/previews/image-1773235545119.png)
+![Wallet Lab preview 4](./media/previews/image-1773235559713.png)
 
 Language:
 - [English](#english)
