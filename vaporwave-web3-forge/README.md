@@ -1,13 +1,10 @@
-﻿# Web3 Wallet Lab Forge
+﻿<h1>Web3 Wallet Lab Forge</h1>
 
-Created by thiagoyoshiaki@gmail.com
+Independently maintained by thiagoyoshiaki@gmail.com
 
-## Preview
-
-![Wallet Lab preview 1](./media/previews/image-1773235496224.png)
-![Wallet Lab preview 2](./media/previews/image-1773235523257.png)
-![Wallet Lab preview 3](./media/previews/image-1773235545119.png)
-![Wallet Lab preview 4](./media/previews/image-1773235559713.png)
+<table>
+	<tr>
+		<td valign="top" width="60%">
 
 Language:
 - [English](#english)
@@ -19,6 +16,27 @@ Language:
 - [日本語](#日本語)
 - [中文](#中文)
 - [Arabic](#العربية)
+
+Community Support:
+- <img src="https://raw.githubusercontent.com/spothq/cryptocurrency-icons/master/128/color/btc.png" alt="BTC" width="14" height="14" /> BTC: <span style="color:#facc15;font-size:0.86em;">bc1qt7r96jx06zr5fk8vwhxxcasjjgacs623m6t26j</span> | <a style="font-size:0.78em;" href="https://api.qrserver.com/v1/create-qr-code/?size=220x220&data=bitcoin%3Abc1qt7r96jx06zr5fk8vwhxxcasjjgacs623m6t26j">QRCode</a>
+- <img src="https://raw.githubusercontent.com/spothq/cryptocurrency-icons/master/128/color/eth.png" alt="ETH" width="14" height="14" /> ETH: <span style="color:#facc15;font-size:0.86em;">0x7322789de14a49EBE28b6133167d25BD903A68ed</span> | <a style="font-size:0.78em;" href="https://api.qrserver.com/v1/create-qr-code/?size=220x220&data=ethereum%3A0x7322789de14a49EBE28b6133167d25BD903A68ed">QRCode</a>
+- <img src="https://raw.githubusercontent.com/spothq/cryptocurrency-icons/master/128/color/sol.png" alt="SOL" width="14" height="14" style="filter:hue-rotate(245deg) saturate(1.35);" /> Solana: <span style="color:#facc15;font-size:0.86em;">9VmhYgzF3SVMfHJaPZfkjwQ22svxMf64fCcDoKyBFaSU</span> | <a style="font-size:0.78em;" href="https://api.qrserver.com/v1/create-qr-code/?size=220x220&data=9VmhYgzF3SVMfHJaPZfkjwQ22svxMf64fCcDoKyBFaSU">QRCode</a>
+- <img src="https://raw.githubusercontent.com/spothq/cryptocurrency-icons/master/128/color/matic.png" alt="Polygon" width="14" height="14" /> Polygon: <span style="color:#facc15;font-size:0.86em;">0x7322789de14a49EBE28b6133167d25BD903A68ed</span> | <a style="font-size:0.78em;" href="https://api.qrserver.com/v1/create-qr-code/?size=220x220&data=0x7322789de14a49EBE28b6133167d25BD903A68ed">QRCode</a>
+- <img src="https://raw.githubusercontent.com/spothq/cryptocurrency-icons/master/128/color/trx.png" alt="TRX" width="14" height="14" /> Tron: <span style="color:#facc15;font-size:0.86em;">TD23HKqyLdfms2GqySDu85ZyZTMEj3R37G</span> | <a style="font-size:0.78em;" href="https://api.qrserver.com/v1/create-qr-code/?size=220x220&data=TD23HKqyLdfms2GqySDu85ZyZTMEj3R37G">QRCode</a>
+- [GitHub Sponsors](https://github.com/ThiagoDataEngineer)
+
+	</td>
+		<td valign="top" align="right" width="40%">
+			<img src="./media/previews/image-1773235496224.png" alt="Wallet Lab preview" width="320" />
+		</td>
+	</tr>
+</table>
+
+> Built for humans and AI agents: this extension is designed for developers, GPT-5.3, and future AI versions.
+> If this project helped or inspired your work, you are welcome to support and contribute to keep it evolving.
+
+> Feito para humanos e agentes de IA: esta extensao foi pensada para developers, GPT-5.3 e futuras versoes de IA.
+> Se este projeto ajudou ou inspirou seu trabalho, sua contribuicao e apoio serao muito bem-vindos para continuar evoluindo a ferramenta.
 
 ---
 
@@ -38,6 +56,15 @@ Web3 Wallet Lab Forge is a practical VS Code extension for wallet testing, contr
 - 📜 Contract check for major EVM and Solana chains.
 - 🪙 Real balance lookup via RPC/indexer APIs.
 - 📤 Registry export for operational records (TXT/CSV).
+
+### Included Themes (Web3 Blockchain)
+
+Built-in editor themes for a consistent Web3/Blockchain look:
+
+- Web3 Blockchain Vaporwave Midnight (dark)
+- Web3 Blockchain Vaporwave Neon Dusk (dark)
+- Web3 Blockchain Bitcoin Sober (dark)
+- Web3 Blockchain Bitcoin Calm Light (light)
 
 ### Contract Check Network Coverage
 
@@ -79,15 +106,6 @@ Press F5 in VS Code to launch the Extension Development Host.
 4. Request your target stack (example: Next.js + wagmi + viem).
 5. Keep wallet safety rules: public addresses only, never seed/private keys.
 
-### Donate
-
-- <img src="https://raw.githubusercontent.com/spothq/cryptocurrency-icons/master/128/color/btc.png" alt="BTC" width="14" height="14" /> BTC: <span style="color:#facc15;font-size:0.92em;">bc1qt7r96jx06zr5fk8vwhxxcasjjgacs623m6t26j</span>
-- <img src="https://raw.githubusercontent.com/spothq/cryptocurrency-icons/master/128/color/eth.png" alt="ETH" width="14" height="14" /> ETH: <span style="color:#facc15;font-size:0.92em;">0x7322789de14a49EBE28b6133167d25BD903A68ed</span>
-- <img src="https://raw.githubusercontent.com/spothq/cryptocurrency-icons/master/128/color/sol.png" alt="SOL" width="14" height="14" style="filter:hue-rotate(245deg) saturate(1.35);" /> Solana: <span style="color:#facc15;font-size:0.92em;">9VmhYgzF3SVMfHJaPZfkjwQ22svxMf64fCcDoKyBFaSU</span>
-- <img src="https://raw.githubusercontent.com/spothq/cryptocurrency-icons/master/128/color/matic.png" alt="Polygon" width="14" height="14" /> Polygon: <span style="color:#facc15;font-size:0.92em;">0x7322789de14a49EBE28b6133167d25BD903A68ed</span>
-- <img src="https://raw.githubusercontent.com/spothq/cryptocurrency-icons/master/128/color/trx.png" alt="TRX" width="14" height="14" /> Tron: <span style="color:#facc15;font-size:0.92em;">TD23HKqyLdfms2GqySDu85ZyZTMEj3R37G</span>
-- [GitHub Sponsors](https://github.com/ThiagoDataEngineer)
-
 ### Intellectual Property
 
 - The extension icon files (media/icon.png and media/activity-icon.svg) and visual identity are reserved for this project unless explicitly authorized by the author.
@@ -112,6 +130,15 @@ Web3 Wallet Lab Forge e uma extensao para VS Code focada em prototipagem rapida 
 - 📜 Contract Check para principais cadeias EVM e Solana.
 - 🪙 Consulta de saldo real por RPC/indexer.
 - 📤 Exportacao de registros e relatorios (TXT/CSV).
+
+### Temas Inclusos (Web3 Blockchain)
+
+Temas nativos para manter uma identidade Web3/Blockchain no editor:
+
+- Web3 Blockchain Vaporwave Midnight (dark)
+- Web3 Blockchain Vaporwave Neon Dusk (dark)
+- Web3 Blockchain Bitcoin Sober (dark)
+- Web3 Blockchain Bitcoin Calm Light (light)
 
 ---
 
