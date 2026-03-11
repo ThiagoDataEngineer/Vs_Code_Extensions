@@ -1,0 +1,49 @@
+<svg width="256" height="256" viewBox="0 0 256 256" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bgGrad" x1="28" y1="22" x2="226" y2="236" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0C102A"/>
+      <stop offset="0.56" stop-color="#101C45"/>
+      <stop offset="1" stop-color="#0C2D5E"/>
+    </linearGradient>
+    <linearGradient id="walletGrad" x1="56" y1="76" x2="202" y2="196" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F6CB66"/>
+      <stop offset="1" stop-color="#BB7A1F"/>
+    </linearGradient>
+    <linearGradient id="panelGrad" x1="124" y1="146" x2="210" y2="190" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#CF8A2C"/>
+      <stop offset="1" stop-color="#9F5F12"/>
+    </linearGradient>
+    <radialGradient id="coinGrad" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(176 62) rotate(90) scale(36)">
+      <stop stop-color="#FFE59C"/>
+      <stop offset="1" stop-color="#D18B22"/>
+    </radialGradient>
+    <radialGradient id="halo" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(170 176) rotate(90) scale(86)">
+      <stop stop-color="#2E7BFF" stop-opacity="0.34"/>
+      <stop offset="1" stop-color="#2E7BFF" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="softBlur" x="72" y="22" width="124" height="104" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feGaussianBlur stdDeviation="9"/>
+    </filter>
+  </defs>
+
+  <rect x="8" y="8" width="240" height="240" rx="42" fill="url(#bgGrad)"/>
+  <circle cx="170" cy="176" r="86" fill="url(#halo)"/>
+
+  <g filter="url(#softBlur)" opacity="0.6">
+    <circle cx="134" cy="66" r="24" fill="#F4C46A"/>
+  </g>
+
+  <path d="M58 100C58 88.95 66.95 80 78 80H153C170.67 80 185 94.33 185 112V120" stroke="#E3B867" stroke-width="10" stroke-linecap="round"/>
+
+  <rect x="46" y="102" width="170" height="118" rx="22" fill="url(#walletGrad)" stroke="#825311" stroke-width="5"/>
+
+  <rect x="64" y="118" width="106" height="52" rx="10" fill="#E8B95A" stroke="#9D691A" stroke-width="4"/>
+
+  <rect x="128" y="150" width="104" height="48" rx="12" fill="url(#panelGrad)"/>
+  <rect x="128" y="150" width="104" height="48" rx="12" stroke="#7E470C" stroke-width="4"/>
+
+  <circle cx="176" cy="62" r="34" fill="url(#coinGrad)" stroke="#8F5A10" stroke-width="4"/>
+  <path d="M169 81V45M183 81V45M161 45H184C190 45 195 49 195 55C195 61 190 64 184 64H161H182C188 64 193 68 193 74C193 80 188 84 182 84H161" stroke="#5E3505" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <text x="177" y="182" text-anchor="middle" font-size="27" font-weight="800" font-family="Segoe UI, Arial, sans-serif" fill="#130A01">B</text>
+</svg>

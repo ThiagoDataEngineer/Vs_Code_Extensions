@@ -1,0 +1,83 @@
+{
+  "$schema": "vscode://schemas/color-theme",
+  "name": "Bitcoin Calm Light",
+  "type": "light",
+  "colors": {
+    "editor.background": "#F4EFE4",
+    "editor.foreground": "#2F281E",
+    "editorLineNumber.foreground": "#A6947B",
+    "editorLineNumber.activeForeground": "#B7791F",
+    "editorCursor.foreground": "#C98721",
+    "editor.selectionBackground": "#E3C38C66",
+    "editor.lineHighlightBackground": "#E9D9BD55",
+    "editorBracketMatch.background": "#E6C78F66",
+    "editorBracketMatch.border": "#B7791F99",
+    "activityBar.background": "#ECE4D4",
+    "activityBar.foreground": "#3A2F21",
+    "activityBar.inactiveForeground": "#8A7A62",
+    "activityBarBadge.background": "#D89A2B",
+    "activityBarBadge.foreground": "#2A2116",
+    "sideBar.background": "#F2EBDE",
+    "sideBar.foreground": "#3C3123",
+    "sideBar.border": "#D8C8AE",
+    "sideBarTitle.foreground": "#9B6618",
+    "sideBarSectionHeader.background": "#EDE2CF",
+    "sideBarSectionHeader.foreground": "#8A5A10",
+    "sideBarSectionHeader.border": "#D8C8AE",
+    "list.activeSelectionBackground": "#E4C89288",
+    "list.activeSelectionForeground": "#2F281E",
+    "list.inactiveSelectionBackground": "#EDE2CE",
+    "list.hoverBackground": "#E8D8BC",
+    "list.hoverForeground": "#2F281E",
+    "list.highlightForeground": "#B7791F",
+    "statusBar.background": "#EADFCB",
+    "statusBar.foreground": "#3A2F21",
+    "titleBar.activeBackground": "#E9DDC7",
+    "titleBar.activeForeground": "#2F281E",
+    "button.background": "#D89A2B",
+    "button.hoverBackground": "#E2A742",
+    "button.foreground": "#2A2116",
+    "input.background": "#F8F3EA",
+    "input.foreground": "#2F281E",
+    "input.border": "#D2C1A5",
+    "focusBorder": "#C98721"
+  },
+  "tokenColors": [
+    {
+      "scope": ["comment"],
+      "settings": {
+        "foreground": "#8E7E67"
+      }
+    },
+    {
+      "scope": ["keyword", "storage.type"],
+      "settings": {
+        "foreground": "#B86F1E"
+      }
+    },
+    {
+      "scope": ["entity.name.function", "support.function"],
+      "settings": {
+        "foreground": "#3E7AA2"
+      }
+    },
+    {
+      "scope": ["string"],
+      "settings": {
+        "foreground": "#2D8A62"
+      }
+    },
+    {
+      "scope": ["entity.name.type", "support.type"],
+      "settings": {
+        "foreground": "#8A5A10"
+      }
+    },
+    {
+      "scope": ["constant.numeric"],
+      "settings": {
+        "foreground": "#C98721"
+      }
+    }
+  ]
+}

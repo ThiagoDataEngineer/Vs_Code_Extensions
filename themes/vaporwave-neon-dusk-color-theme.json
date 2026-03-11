@@ -1,0 +1,74 @@
+{
+  "$schema": "vscode://schemas/color-theme",
+  "name": "Vaporwave Neon Dusk",
+  "type": "dark",
+  "colors": {
+    "editor.background": "#080A17",
+    "editor.foreground": "#E2E8F0",
+    "editorLineNumber.foreground": "#6B7280",
+    "editorCursor.foreground": "#F0ABFC",
+    "editor.selectionBackground": "#312E81AA",
+    "activityBar.background": "#090C1B",
+    "activityBar.foreground": "#E9D5FF",
+    "activityBarBadge.background": "#A855F7",
+    "sideBar.background": "#080B19",
+    "sideBar.foreground": "#CBD5E1",
+    "sideBar.border": "#1E2A47",
+    "sideBarTitle.foreground": "#F0ABFC",
+    "sideBarSectionHeader.background": "#111A32",
+    "sideBarSectionHeader.foreground": "#C4B5FD",
+    "sideBarSectionHeader.border": "#1E2A47",
+    "list.activeSelectionBackground": "#1A2852",
+    "list.activeSelectionForeground": "#F5F3FF",
+    "list.inactiveSelectionBackground": "#101A36",
+    "list.hoverBackground": "#162245",
+    "list.hoverForeground": "#EEF2FF",
+    "list.focusBackground": "#203063",
+    "list.focusForeground": "#FFFFFF",
+    "list.highlightForeground": "#38BDF8",
+    "statusBar.background": "#0F172A",
+    "statusBar.foreground": "#E2E8F0",
+    "titleBar.activeBackground": "#111827",
+    "button.background": "#A855F7",
+    "button.foreground": "#FFFFFF",
+    "focusBorder": "#22D3EE"
+  },
+  "tokenColors": [
+    {
+      "scope": ["comment"],
+      "settings": {
+        "foreground": "#94A3B8"
+      }
+    },
+    {
+      "scope": ["keyword", "storage.type"],
+      "settings": {
+        "foreground": "#F0ABFC"
+      }
+    },
+    {
+      "scope": ["entity.name.function", "support.function"],
+      "settings": {
+        "foreground": "#38BDF8"
+      }
+    },
+    {
+      "scope": ["string"],
+      "settings": {
+        "foreground": "#4ADE80"
+      }
+    },
+    {
+      "scope": ["entity.name.type", "support.type"],
+      "settings": {
+        "foreground": "#C4B5FD"
+      }
+    },
+    {
+      "scope": ["constant.numeric"],
+      "settings": {
+        "foreground": "#FACC15"
+      }
+    }
+  ]
+}

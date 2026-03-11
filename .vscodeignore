@@ -1,0 +1,8 @@
+.vscode/**
+.vscode-test/**
+.venv/**
+examples/**/node_modules/**
+out/test/**
+src/**
+.eslintrc.json
+tsconfig.json

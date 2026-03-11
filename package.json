@@ -1,0 +1,161 @@
+{
+  "name": "dapp-agent-forge-vscode",
+  "displayName": "Web3 Wallet Lab Forge",
+  "description": "Professional Web3 wallet testing and contract verification for VS Code, built for developers, QA teams, and AI agents.",
+  "version": "0.2.44",
+  "icon": "media/icon.png",
+  "publisher": "thiag",
+  "license": "UNLICENSED",
+  "engines": {
+    "vscode": "^1.90.0"
+  },
+  "keywords": [
+    "finance",
+    "fintech",
+    "web3",
+    "vscode",
+    "vscode extension",
+    "data",
+    "onchain data",
+    "onchain analytics",
+    "crypto prices",
+    "price tracker",
+    "wallet testing",
+    "wallet qa",
+    "bitcoin",
+    "btc",
+    "dapp",
+    "wallet lab",
+    "ai",
+    "ai agent",
+    "agentic",
+    "agents",
+    "wallet",
+    "wallet connect",
+    "wallet provider",
+    "balance checker",
+    "portfolio check",
+    "wallet registry",
+    "wallet address",
+    "address validation",
+    "crypto",
+    "blockchain",
+    "web3 testing",
+    "crypto testing",
+    "web3 qa",
+    "agent qa",
+    "agent testing",
+    "autonomous testing",
+    "smart contract",
+    "contract check",
+    "contract verification",
+    "testnet",
+    "mainnet",
+    "sepolia",
+    "onchain",
+    "rpc",
+    "mcp",
+    "metamask",
+    "uniswap wallet",
+    "coinbase wallet",
+    "trust wallet",
+    "walletconnect",
+    "ledger",
+    "trezor",
+    "binance",
+    "evm",
+    "solana",
+    "theme",
+    "vaporwave"
+  ],
+  "categories": [
+    "Testing",
+    "Data Science",
+    "Other"
+  ],
+  "activationEvents": [
+    "onView:vaporwaveWeb3.walletView",
+    "onCommand:vaporwaveWeb3.connectTestWallet",
+    "onCommand:vaporwaveWeb3.disconnectWallet",
+    "onCommand:vaporwaveWeb3.copyWallet",
+    "onCommand:vaporwaveWeb3.runContractCheck"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "vaporwaveWeb3.connectTestWallet",
+        "title": "Web3 Wallet Lab: Connect Wallet"
+      },
+      {
+        "command": "vaporwaveWeb3.disconnectWallet",
+        "title": "Web3 Wallet Lab: Disconnect Wallet"
+      },
+      {
+        "command": "vaporwaveWeb3.copyWallet",
+        "title": "Web3 Wallet Lab: Copy Wallet Address"
+      },
+      {
+        "command": "vaporwaveWeb3.runContractCheck",
+        "title": "Web3 Wallet Lab: Run Contract Check"
+      }
+    ],
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "vaporwaveWeb3",
+          "title": "Wallet Lab",
+          "icon": "media/activity-icon.svg"
+        }
+      ]
+    },
+    "views": {
+      "vaporwaveWeb3": [
+        {
+          "id": "vaporwaveWeb3.walletView",
+          "name": "Web3 Wallet Lab",
+          "type": "webview"
+        }
+      ]
+    },
+    "themes": [
+      {
+        "label": "Vaporwave Midnight",
+        "uiTheme": "vs-dark",
+        "path": "./themes/vaporwave-midnight-color-theme.json"
+      },
+      {
+        "label": "Vaporwave Neon Dusk",
+        "uiTheme": "vs-dark",
+        "path": "./themes/vaporwave-neon-dusk-color-theme.json"
+      },
+      {
+        "label": "Bitcoin Sober",
+        "uiTheme": "vs-dark",
+        "path": "./themes/bitcoin-sober-color-theme.json"
+      },
+      {
+        "label": "Bitcoin Calm Light",
+        "uiTheme": "vs",
+        "path": "./themes/bitcoin-calm-light-color-theme.json"
+      }
+    ]
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "lint": "eslint src --ext ts",
+    "package": "vsce package --allow-missing-repository --skip-license --baseContentUrl https://github.com/thiag/vaporwave-web3-forge/blob/main --baseImagesUrl https://raw.githubusercontent.com/thiag/vaporwave-web3-forge/main",
+    "test:real:eth-balance": "node scripts/test-real-eth-balance.mjs"
+  },
+  "devDependencies": {
+    "@vscode/vsce": "^3.3.2",
+    "@types/node": "^20.14.9",
+    "@types/vscode": "^1.90.0",
+    "@typescript-eslint/eslint-plugin": "^7.15.0",
+    "@typescript-eslint/parser": "^7.15.0",
+    "eslint": "^8.57.0",
+    "typescript": "^5.5.3"
+  }
+}
