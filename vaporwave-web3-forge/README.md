@@ -1,12 +1,10 @@
-# Web3 Wallet Lab Forge
+﻿# Web3 Wallet Lab Forge
 
-### Live Preview
-
-![Web3 Wallet Lab running inside VS Code](https://raw.githubusercontent.com/thiag/vaporwave-web3-forge/main/media/how-to-use.gif)
+Created by thiagoyoshiaki@gmail.com
 
 ### Quick Donate
 
-- [GitHub Sponsors](https://github.com/sponsors/thiag)
+- [GitHub Sponsors](https://github.com/ThiagoDataEngineer)
 - ETH: <span style="color:#facc15;"><code>0x7322789de14a49EBE28b6133167d25BD903A68ed</code></span>
 - BTC: <span style="color:#facc15;"><code>bc1qt7r96jx06zr5fk8vwhxxcasjjgacs623m6t26j</code></span>
 - Solana: <span style="color:#facc15;"><code>9VmhYgzF3SVMfHJaPZfkjwQ22svxMf64fCcDoKyBFaSU</code></span>
@@ -17,12 +15,12 @@ Language:
 - [English](#english)
 - [Portugues (Brasil)](#portugues-brasil)
 - [Francais](#francais)
-- [Русский](#русский)
+- [Ð ÑƒÑÑÐºÐ¸Ð¹](#Ñ€ÑƒÑÑÐºÐ¸Ð¹)
 - [Espanol](#espanol)
-- [中文](#中文)
-- [日本語](#日本語)
+- [ä¸­æ–‡](#ä¸­æ–‡)
+- [æ—¥æœ¬èªž](#æ—¥æœ¬èªž)
 - [Deutsch](#deutsch)
-- [Arabic (العربية)](#العربية)
+- [Arabic (Ø§Ù„Ø¹Ø±Ø¨ÙŠØ©)](#Ø§Ù„Ø¹Ø±Ø¨ÙŠØ©)
 
 ---
 
@@ -34,18 +32,18 @@ Web3 Wallet Lab Forge is a practical VS Code extension for wallet testing, contr
 
 ### Highlights
 
-- 🌐 Bitcoin-first network selection (Mainnet and Testnet).
-- 🔗 Provider shortcuts for major wallets.
-- 🔐 Real wallet mode with public address validation.
-- 🧪 Test wallet generation mode for local workflows.
-- 🧾 Contract check for EVM and Solana chains.
-- 🛡️ Professional contract verification policy: optional bytecode prefix + minimum runtime size.
-- 💰 Real balance lookup via RPC/indexer APIs.
-- 🗂️ Batch real-balance check from Wallet Registry.
-- 📦 Registry export for operational records (TXT/CSV).
-- 📑 Contract verification report export (TXT/CSV) for QA evidence.
-- 🎨 Built-in theme system (dark + light) for different working styles.
-- 📈 In-panel mini market chart with coin selection.
+- ðŸŒ Bitcoin-first network selection (Mainnet and Testnet).
+- ðŸ”— Provider shortcuts for major wallets.
+- ðŸ” Real wallet mode with public address validation.
+- ðŸ§ª Test wallet generation mode for local workflows.
+- ðŸ§¾ Contract check for EVM and Solana chains.
+- ðŸ›¡ï¸ Professional contract verification policy: optional bytecode prefix + minimum runtime size.
+- ðŸ’° Real balance lookup via RPC/indexer APIs.
+- ðŸ—‚ï¸ Batch real-balance check from Wallet Registry.
+- ðŸ“¦ Registry export for operational records (TXT/CSV).
+- ðŸ“‘ Contract verification report export (TXT/CSV) for QA evidence.
+- ðŸŽ¨ Built-in theme system (dark + light) for different working styles.
+- ðŸ“ˆ In-panel mini market chart with coin selection.
 
 ### Built For
 
@@ -115,14 +113,14 @@ Press F5 in VS Code to launch the Extension Development Host.
 
 ### Usage
 
-1. 🔌 Click Connect Wallet and choose REAL mode or TEST mode.
-2. 🌐 Select network and provider.
-3. 📬 Paste a public wallet address (BTC, EVM, or Solana).
-4. 🧾 Run Contract Check to validate deployment/code presence.
-5. 💰 In REAL mode, use Check Balance for live lookup.
-6. 📈 In Crypto Market Snapshot, add extra coins by symbol/id (example: DOGE, XRP, cardano).
-7. 📊 Use the chart selector to view BTC or another selected asset trend.
-8. 🗂️ In Wallet Registry, run Check Real Balances and export reports.
+1. ðŸ”Œ Click Connect Wallet and choose REAL mode or TEST mode.
+2. ðŸŒ Select network and provider.
+3. ðŸ“¬ Paste a public wallet address (BTC, EVM, or Solana).
+4. ðŸ§¾ Run Contract Check to validate deployment/code presence.
+5. ðŸ’° In REAL mode, use Check Balance for live lookup.
+6. ðŸ“ˆ In Crypto Market Snapshot, add extra coins by symbol/id (example: DOGE, XRP, cardano).
+7. ðŸ“Š Use the chart selector to view BTC or another selected asset trend.
+8. ðŸ—‚ï¸ In Wallet Registry, run Check Real Balances and export reports.
 
 > Note: The visual guide currently shows a legacy product name. The workflow is still valid and an updated guide is coming soon.
 
@@ -138,7 +136,7 @@ Press F5 in VS Code to launch the Extension Development Host.
 
 If this extension helps your workflow, you can support ongoing development here:
 
-- [GitHub Sponsors](https://github.com/sponsors/thiag)
+- [GitHub Sponsors](https://github.com/ThiagoDataEngineer)
 - ETH: <span style="color:#facc15;"><code>0x7322789de14a49EBE28b6133167d25BD903A68ed</code></span>
 - BTC: <span style="color:#facc15;"><code>bc1qt7r96jx06zr5fk8vwhxxcasjjgacs623m6t26j</code></span>
 - Solana: <span style="color:#facc15;"><code>9VmhYgzF3SVMfHJaPZfkjwQ22svxMf64fCcDoKyBFaSU</code></span>
@@ -161,18 +159,18 @@ Web3 Wallet Lab Forge e uma extensao para VS Code focada em prototipagem rapida 
 
 ### Destaques
 
-- 🌐 Selecao de rede com Bitcoin primeiro (Mainnet e Testnet).
-- 🔗 Atalhos para sites de provedores de carteira.
-- 🔐 Modo carteira real com validacao de endereco publico.
-- 🧪 Modo carteira de teste para fluxo local.
-- 🧾 Contract Check para cadeias EVM e Solana.
-- 🛡️ Politica profissional de verificacao de contrato: prefixo opcional de bytecode + tamanho minimo de runtime.
-- 💰 Consulta de saldo real por RPC/indexer.
-- 🗂️ Checagem em lote de saldos reais via Wallet Registry.
-- 📦 Exportacao de registros e relatorios (TXT/CSV).
-- 📑 Exportacao de relatorio de verificacao de contrato (TXT/CSV) para evidencias de QA.
-- 🎨 Sistema de temas da ferramenta com opcoes escuras e claras.
-- 📈 Mini grafico de mercado com selecao de ativo.
+- ðŸŒ Selecao de rede com Bitcoin primeiro (Mainnet e Testnet).
+- ðŸ”— Atalhos para sites de provedores de carteira.
+- ðŸ” Modo carteira real com validacao de endereco publico.
+- ðŸ§ª Modo carteira de teste para fluxo local.
+- ðŸ§¾ Contract Check para cadeias EVM e Solana.
+- ðŸ›¡ï¸ Politica profissional de verificacao de contrato: prefixo opcional de bytecode + tamanho minimo de runtime.
+- ðŸ’° Consulta de saldo real por RPC/indexer.
+- ðŸ—‚ï¸ Checagem em lote de saldos reais via Wallet Registry.
+- ðŸ“¦ Exportacao de registros e relatorios (TXT/CSV).
+- ðŸ“‘ Exportacao de relatorio de verificacao de contrato (TXT/CSV) para evidencias de QA.
+- ðŸŽ¨ Sistema de temas da ferramenta com opcoes escuras e claras.
+- ðŸ“ˆ Mini grafico de mercado com selecao de ativo.
 
 ### Provedores Suportados
 
@@ -181,19 +179,19 @@ Xverse, Unisat, Leather, Electrum, MetaMask, Uniswap Wallet, Binance Wallet, Coi
 ### Como Usar
 
 Fluxo rapido:
-1. 🔌 Clique em Connect Wallet e escolha modo REAL ou TESTE.
-2. 🌐 Selecione rede e provedor.
-3. 📬 Cole um endereco publico (BTC, EVM, Solana e outros).
-4. 🧾 Rode Contract Check para validar deploy/presenca de bytecode.
-5. 💰 No modo REAL, use Check Balance para consulta ao vivo.
-6. 📈 No Crypto Market Snapshot, adicione outras moedas por simbolo/id (ex.: DOGE, XRP, cardano).
-7. 📊 Use o seletor de grafico para acompanhar BTC ou outro ativo.
-8. 🗂️ No Wallet Registry, rode Check Real Balances e exporte relatorios.
+1. ðŸ”Œ Clique em Connect Wallet e escolha modo REAL ou TESTE.
+2. ðŸŒ Selecione rede e provedor.
+3. ðŸ“¬ Cole um endereco publico (BTC, EVM, Solana e outros).
+4. ðŸ§¾ Rode Contract Check para validar deploy/presenca de bytecode.
+5. ðŸ’° No modo REAL, use Check Balance para consulta ao vivo.
+6. ðŸ“ˆ No Crypto Market Snapshot, adicione outras moedas por simbolo/id (ex.: DOGE, XRP, cardano).
+7. ðŸ“Š Use o seletor de grafico para acompanhar BTC ou outro ativo.
+8. ðŸ—‚ï¸ No Wallet Registry, rode Check Real Balances e exporte relatorios.
 
 Recursos que agilizam seu fluxo:
-- 🤖 Para apps com IA: gere enderecos de teste rapidamente para simular cenarios sem usar chaves reais.
-- 👩‍💻 Para dev humano: valide contrato e saldo no mesmo painel sem trocar de ferramenta.
-- 🔒 Seguranca por padrao: apenas endereco publico, nunca seed phrase ou chave privada.
+- ðŸ¤– Para apps com IA: gere enderecos de teste rapidamente para simular cenarios sem usar chaves reais.
+- ðŸ‘©â€ðŸ’» Para dev humano: valide contrato e saldo no mesmo painel sem trocar de ferramenta.
+- ðŸ”’ Seguranca por padrao: apenas endereco publico, nunca seed phrase ou chave privada.
 
 > Nota: O guia visual atual ainda mostra um nome antigo do produto. O fluxo continua valido e uma versao atualizada sera publicada em breve.
 
@@ -209,7 +207,7 @@ Recursos que agilizam seu fluxo:
 
 Se esta extensao ajuda seu fluxo, voce pode apoiar o desenvolvimento continuo aqui:
 
-- [GitHub Sponsors](https://github.com/sponsors/thiag)
+- [GitHub Sponsors](https://github.com/ThiagoDataEngineer)
 - ETH: <span style="color:#facc15;"><code>0x7322789de14a49EBE28b6133167d25BD903A68ed</code></span>
 - BTC: <span style="color:#facc15;"><code>bc1qt7r96jx06zr5fk8vwhxxcasjjgacs623m6t26j</code></span>
 - Solana: <span style="color:#facc15;"><code>9VmhYgzF3SVMfHJaPZfkjwQ22svxMf64fCcDoKyBFaSU</code></span>
@@ -232,15 +230,15 @@ Web3 Wallet Lab Forge est une extension VS Code pour tester des portefeuilles et
 
 ### Points Forts
 
-- 🌐 Selection de reseau orientee Bitcoin (Mainnet et Testnet).
-- 🔗 Raccourcis vers les principaux fournisseurs de portefeuilles.
-- 🔐 Mode portefeuille reel avec validation d'adresse publique.
-- 🧪 Mode portefeuille de test pour les workflows locaux.
-- 🧾 Verification de contrat pour les chaines EVM et Solana.
-- 🛡️ Politique de verification de contrat professionnelle: prefixe de bytecode optionnel + taille minimale runtime.
-- 💰 Consultation de solde reel via API RPC/indexer.
-- 📑 Export de rapport de verification de contrat (TXT/CSV) pour preuves QA.
-- 🎨 Trois themes sombres integres, dont une option sobre orientee Bitcoin.
+- ðŸŒ Selection de reseau orientee Bitcoin (Mainnet et Testnet).
+- ðŸ”— Raccourcis vers les principaux fournisseurs de portefeuilles.
+- ðŸ” Mode portefeuille reel avec validation d'adresse publique.
+- ðŸ§ª Mode portefeuille de test pour les workflows locaux.
+- ðŸ§¾ Verification de contrat pour les chaines EVM et Solana.
+- ðŸ›¡ï¸ Politique de verification de contrat professionnelle: prefixe de bytecode optionnel + taille minimale runtime.
+- ðŸ’° Consultation de solde reel via API RPC/indexer.
+- ðŸ“‘ Export de rapport de verification de contrat (TXT/CSV) pour preuves QA.
+- ðŸŽ¨ Trois themes sombres integres, dont une option sobre orientee Bitcoin.
 
 ### Fournisseurs Pris en Charge
 
@@ -285,7 +283,7 @@ Cette commande genere un fichier .vsix pour installation/publication.
 
 Si cette extension aide votre flux, vous pouvez soutenir son developpement ici:
 
-- [GitHub Sponsors](https://github.com/sponsors/thiag)
+- [GitHub Sponsors](https://github.com/ThiagoDataEngineer)
 - ETH: <span style="color:#facc15;"><code>0x7322789de14a49EBE28b6133167d25BD903A68ed</code></span>
 - BTC: <span style="color:#facc15;"><code>bc1qt7r96jx06zr5fk8vwhxxcasjjgacs623m6t26j</code></span>
 - Solana: <span style="color:#facc15;"><code>9VmhYgzF3SVMfHJaPZfkjwQ22svxMf64fCcDoKyBFaSU</code></span>
@@ -308,15 +306,15 @@ Web3 Wallet Lab Forge es una extension de VS Code para pruebas de billeteras y v
 
 ### Puntos Destacados
 
-- 🌐 Seleccion de red con enfoque Bitcoin (Mainnet y Testnet).
-- 🔗 Atajos a proveedores principales de billetera.
-- 🔐 Modo billetera real con validacion de direccion publica.
-- 🧪 Modo billetera de prueba para flujos locales.
-- 🧾 Verificacion de contrato para cadenas EVM y Solana.
-- 🛡️ Politica profesional de verificacion de contrato: prefijo opcional de bytecode + tamano minimo runtime.
-- 💰 Consulta de saldo real via APIs RPC/indexer.
-- 📑 Exportacion de reporte de verificacion de contrato (TXT/CSV) para evidencia QA.
-- 🎨 Tres temas oscuros incluidos, con una opcion sobria enfocada en Bitcoin.
+- ðŸŒ Seleccion de red con enfoque Bitcoin (Mainnet y Testnet).
+- ðŸ”— Atajos a proveedores principales de billetera.
+- ðŸ” Modo billetera real con validacion de direccion publica.
+- ðŸ§ª Modo billetera de prueba para flujos locales.
+- ðŸ§¾ Verificacion de contrato para cadenas EVM y Solana.
+- ðŸ›¡ï¸ Politica profesional de verificacion de contrato: prefijo opcional de bytecode + tamano minimo runtime.
+- ðŸ’° Consulta de saldo real via APIs RPC/indexer.
+- ðŸ“‘ Exportacion de reporte de verificacion de contrato (TXT/CSV) para evidencia QA.
+- ðŸŽ¨ Tres temas oscuros incluidos, con una opcion sobria enfocada en Bitcoin.
 
 ### Proveedores Soportados
 
@@ -361,7 +359,7 @@ Este comando genera un archivo .vsix para instalacion/publicacion.
 
 Si esta extension ayuda tu flujo, puedes apoyar el desarrollo continuo aqui:
 
-- [GitHub Sponsors](https://github.com/sponsors/thiag)
+- [GitHub Sponsors](https://github.com/ThiagoDataEngineer)
 - ETH: <span style="color:#facc15;"><code>0x7322789de14a49EBE28b6133167d25BD903A68ed</code></span>
 - BTC: <span style="color:#facc15;"><code>bc1qt7r96jx06zr5fk8vwhxxcasjjgacs623m6t26j</code></span>
 - Solana: <span style="color:#facc15;"><code>9VmhYgzF3SVMfHJaPZfkjwQ22svxMf64fCcDoKyBFaSU</code></span>
@@ -376,155 +374,155 @@ Si esta extension ayuda tu flujo, puedes apoyar el desarrollo continuo aqui:
 
 ---
 
-## 中文
+## ä¸­æ–‡
 
-### 概述
+### æ¦‚è¿°
 
-Web3 Wallet Lab Forge 是一个 VS Code 扩展，用于在 Bitcoin、EVM 链和 Solana 上进行钱包测试与合约/余额检查。
+Web3 Wallet Lab Forge æ˜¯ä¸€ä¸ª VS Code æ‰©å±•ï¼Œç”¨äºŽåœ¨ Bitcoinã€EVM é“¾å’Œ Solana ä¸Šè¿›è¡Œé’±åŒ…æµ‹è¯•ä¸Žåˆçº¦/ä½™é¢æ£€æŸ¥ã€‚
 
-### 核心特性
+### æ ¸å¿ƒç‰¹æ€§
 
-- 🌐 以 Bitcoin 为优先的网络选择（Mainnet 和 Testnet）。
-- 🔗 提供主流钱包服务商快捷入口。
-- 🔐 真实钱包模式，支持公开地址校验。
-- 🧪 测试钱包生成模式，适合本地工作流。
-- 🧾 支持 EVM 与 Solana 的合约检查。
-- 🛡️ 专业级合约验证策略：可选字节码前缀 + 运行时代码最小大小。
-- 💰 通过 RPC/indexer API 进行真实余额查询。
-- 📑 支持导出合约验证报告（TXT/CSV），用于 QA 证据留存。
-- 🎨 内置三个深色主题，其中一个是偏 Bitcoin 的稳重风格。
+- ðŸŒ ä»¥ Bitcoin ä¸ºä¼˜å…ˆçš„ç½‘ç»œé€‰æ‹©ï¼ˆMainnet å’Œ Testnetï¼‰ã€‚
+- ðŸ”— æä¾›ä¸»æµé’±åŒ…æœåŠ¡å•†å¿«æ·å…¥å£ã€‚
+- ðŸ” çœŸå®žé’±åŒ…æ¨¡å¼ï¼Œæ”¯æŒå…¬å¼€åœ°å€æ ¡éªŒã€‚
+- ðŸ§ª æµ‹è¯•é’±åŒ…ç”Ÿæˆæ¨¡å¼ï¼Œé€‚åˆæœ¬åœ°å·¥ä½œæµã€‚
+- ðŸ§¾ æ”¯æŒ EVM ä¸Ž Solana çš„åˆçº¦æ£€æŸ¥ã€‚
+- ðŸ›¡ï¸ ä¸“ä¸šçº§åˆçº¦éªŒè¯ç­–ç•¥ï¼šå¯é€‰å­—èŠ‚ç å‰ç¼€ + è¿è¡Œæ—¶ä»£ç æœ€å°å¤§å°ã€‚
+- ðŸ’° é€šè¿‡ RPC/indexer API è¿›è¡ŒçœŸå®žä½™é¢æŸ¥è¯¢ã€‚
+- ðŸ“‘ æ”¯æŒå¯¼å‡ºåˆçº¦éªŒè¯æŠ¥å‘Šï¼ˆTXT/CSVï¼‰ï¼Œç”¨äºŽ QA è¯æ®ç•™å­˜ã€‚
+- ðŸŽ¨ å†…ç½®ä¸‰ä¸ªæ·±è‰²ä¸»é¢˜ï¼Œå…¶ä¸­ä¸€ä¸ªæ˜¯å Bitcoin çš„ç¨³é‡é£Žæ ¼ã€‚
 
-### 支持的钱包提供商
+### æ”¯æŒçš„é’±åŒ…æä¾›å•†
 
 Xverse, Unisat, Leather, Electrum, MetaMask, Uniswap Wallet, Binance Wallet, Coinbase Wallet, Rainbow, Rabby, Trust Wallet, Zerion, Safe Wallet, Ledger Live, Trezor Suite, OKX Wallet, Phantom, Backpack, WalletConnect.
 
-### 本地开发
+### æœ¬åœ°å¼€å‘
 
 ```bash
 npm install
 npm run compile
 ```
 
-在 VS Code 中按 F5 启动 Extension Development Host。
+åœ¨ VS Code ä¸­æŒ‰ F5 å¯åŠ¨ Extension Development Hostã€‚
 
-### 使用方式
+### ä½¿ç”¨æ–¹å¼
 
-1. 点击 Connect Wallet，选择真实模式或测试模式。
-2. 选择网络和钱包提供商。
-3. 粘贴公开钱包地址（BTC、EVM 或 Solana）。
-4. 运行 Contract Check，验证部署/代码是否存在。
-5. 在真实模式下，使用 Check Balance 进行实时查询。
+1. ç‚¹å‡» Connect Walletï¼Œé€‰æ‹©çœŸå®žæ¨¡å¼æˆ–æµ‹è¯•æ¨¡å¼ã€‚
+2. é€‰æ‹©ç½‘ç»œå’Œé’±åŒ…æä¾›å•†ã€‚
+3. ç²˜è´´å…¬å¼€é’±åŒ…åœ°å€ï¼ˆBTCã€EVM æˆ– Solanaï¼‰ã€‚
+4. è¿è¡Œ Contract Checkï¼ŒéªŒè¯éƒ¨ç½²/ä»£ç æ˜¯å¦å­˜åœ¨ã€‚
+5. åœ¨çœŸå®žæ¨¡å¼ä¸‹ï¼Œä½¿ç”¨ Check Balance è¿›è¡Œå®žæ—¶æŸ¥è¯¢ã€‚
 
-> 说明：当前可视化指南仍显示旧产品名称。流程依然有效，我们会尽快发布更新版本。
+> è¯´æ˜Žï¼šå½“å‰å¯è§†åŒ–æŒ‡å—ä»æ˜¾ç¤ºæ—§äº§å“åç§°ã€‚æµç¨‹ä¾ç„¶æœ‰æ•ˆï¼Œæˆ‘ä»¬ä¼šå°½å¿«å‘å¸ƒæ›´æ–°ç‰ˆæœ¬ã€‚
 
-### 打包
+### æ‰“åŒ…
 
 ```bash
 npm run package
 ```
 
-该命令会生成用于安装/发布的 .vsix 文件。
+è¯¥å‘½ä»¤ä¼šç”Ÿæˆç”¨äºŽå®‰è£…/å‘å¸ƒçš„ .vsix æ–‡ä»¶ã€‚
 
-### 作为 dApp 模板复用
+### ä½œä¸º dApp æ¨¡æ¿å¤ç”¨
 
-1. 克隆本仓库。
-2. 保留 .github 下的 agent 约定文件。
-3. 在 Copilot Chat 运行 .github/prompts/new-dapp-from-forge.prompt.md。
-4. 指定你的目标技术栈（例如：Next.js + wagmi + viem）。
-5. 保持钱包安全规则：仅使用公开地址，绝不使用助记词/私钥。
+1. å…‹éš†æœ¬ä»“åº“ã€‚
+2. ä¿ç•™ .github ä¸‹çš„ agent çº¦å®šæ–‡ä»¶ã€‚
+3. åœ¨ Copilot Chat è¿è¡Œ .github/prompts/new-dapp-from-forge.prompt.mdã€‚
+4. æŒ‡å®šä½ çš„ç›®æ ‡æŠ€æœ¯æ ˆï¼ˆä¾‹å¦‚ï¼šNext.js + wagmi + viemï¼‰ã€‚
+5. ä¿æŒé’±åŒ…å®‰å…¨è§„åˆ™ï¼šä»…ä½¿ç”¨å…¬å¼€åœ°å€ï¼Œç»ä¸ä½¿ç”¨åŠ©è®°è¯/ç§é’¥ã€‚
 
-### 支持项目
+### æ”¯æŒé¡¹ç›®
 
-如果这个扩展对你的工作流有帮助，可以在这里支持持续开发：
+å¦‚æžœè¿™ä¸ªæ‰©å±•å¯¹ä½ çš„å·¥ä½œæµæœ‰å¸®åŠ©ï¼Œå¯ä»¥åœ¨è¿™é‡Œæ”¯æŒæŒç»­å¼€å‘ï¼š
 
-- [GitHub Sponsors](https://github.com/sponsors/thiag)
+- [GitHub Sponsors](https://github.com/ThiagoDataEngineer)
 - ETH: <span style="color:#facc15;"><code>0x7322789de14a49EBE28b6133167d25BD903A68ed</code></span>
 - BTC: <span style="color:#facc15;"><code>bc1qt7r96jx06zr5fk8vwhxxcasjjgacs623m6t26j</code></span>
 - Solana: <span style="color:#facc15;"><code>9VmhYgzF3SVMfHJaPZfkjwQ22svxMf64fCcDoKyBFaSU</code></span>
 - Polygon: <span style="color:#facc15;"><code>0x7322789de14a49EBE28b6133167d25BD903A68ed</code></span>
 - Tron: <span style="color:#facc15;"><code>TD23HKqyLdfms2GqySDu85ZyZTMEj3R37G</code></span>
 
-### 知识产权
+### çŸ¥è¯†äº§æƒ
 
-- 扩展图标文件（media/icon.png 与 media/activity-icon.svg）及视觉标识仅供本项目使用，除非作者明确授权。
-- 名称、品牌与视觉资产均保留所有权利。
-- 未经事先许可，本仓库不授予该产品标识的商业使用权。
+- æ‰©å±•å›¾æ ‡æ–‡ä»¶ï¼ˆmedia/icon.png ä¸Ž media/activity-icon.svgï¼‰åŠè§†è§‰æ ‡è¯†ä»…ä¾›æœ¬é¡¹ç›®ä½¿ç”¨ï¼Œé™¤éžä½œè€…æ˜Žç¡®æŽˆæƒã€‚
+- åç§°ã€å“ç‰Œä¸Žè§†è§‰èµ„äº§å‡ä¿ç•™æ‰€æœ‰æƒåˆ©ã€‚
+- æœªç»äº‹å…ˆè®¸å¯ï¼Œæœ¬ä»“åº“ä¸æŽˆäºˆè¯¥äº§å“æ ‡è¯†çš„å•†ä¸šä½¿ç”¨æƒã€‚
 
 ---
 
-## 日本語
+## æ—¥æœ¬èªž
 
-### 概要
+### æ¦‚è¦
 
-Web3 Wallet Lab Forge は、Bitcoin、EVM チェーン、Solana でウォレット検証とコントラクト/残高チェックを行うための VS Code 拡張です。
+Web3 Wallet Lab Forge ã¯ã€Bitcoinã€EVM ãƒã‚§ãƒ¼ãƒ³ã€Solana ã§ã‚¦ã‚©ãƒ¬ãƒƒãƒˆæ¤œè¨¼ã¨ã‚³ãƒ³ãƒˆãƒ©ã‚¯ãƒˆ/æ®‹é«˜ãƒã‚§ãƒƒã‚¯ã‚’è¡Œã†ãŸã‚ã® VS Code æ‹¡å¼µã§ã™ã€‚
 
-### 主な特長
+### ä¸»ãªç‰¹é•·
 
-- 🌐 Bitcoin 優先のネットワーク選択（Mainnet / Testnet）。
-- 🔗 主要ウォレットプロバイダーへのショートカット。
-- 🔐 公開アドレス検証付きの実ウォレットモード。
-- 🧪 ローカル作業向けのテストウォレット生成モード。
-- 🧾 EVM と Solana のコントラクトチェックに対応。
-- 🛡️ プロ向けコントラクト検証ポリシー: 任意のバイトコード接頭辞 + 最小ランタイムサイズ。
-- 💰 RPC/indexer API による実残高の照会。
-- 📑 QA 証跡向けにコントラクト検証レポート（TXT/CSV）をエクスポート可能。
-- 🎨 Bitcoin 寄りの落ち着いたテーマを含む 3 つのダークテーマを内蔵。
+- ðŸŒ Bitcoin å„ªå…ˆã®ãƒãƒƒãƒˆãƒ¯ãƒ¼ã‚¯é¸æŠžï¼ˆMainnet / Testnetï¼‰ã€‚
+- ðŸ”— ä¸»è¦ã‚¦ã‚©ãƒ¬ãƒƒãƒˆãƒ—ãƒ­ãƒã‚¤ãƒ€ãƒ¼ã¸ã®ã‚·ãƒ§ãƒ¼ãƒˆã‚«ãƒƒãƒˆã€‚
+- ðŸ” å…¬é–‹ã‚¢ãƒ‰ãƒ¬ã‚¹æ¤œè¨¼ä»˜ãã®å®Ÿã‚¦ã‚©ãƒ¬ãƒƒãƒˆãƒ¢ãƒ¼ãƒ‰ã€‚
+- ðŸ§ª ãƒ­ãƒ¼ã‚«ãƒ«ä½œæ¥­å‘ã‘ã®ãƒ†ã‚¹ãƒˆã‚¦ã‚©ãƒ¬ãƒƒãƒˆç”Ÿæˆãƒ¢ãƒ¼ãƒ‰ã€‚
+- ðŸ§¾ EVM ã¨ Solana ã®ã‚³ãƒ³ãƒˆãƒ©ã‚¯ãƒˆãƒã‚§ãƒƒã‚¯ã«å¯¾å¿œã€‚
+- ðŸ›¡ï¸ ãƒ—ãƒ­å‘ã‘ã‚³ãƒ³ãƒˆãƒ©ã‚¯ãƒˆæ¤œè¨¼ãƒãƒªã‚·ãƒ¼: ä»»æ„ã®ãƒã‚¤ãƒˆã‚³ãƒ¼ãƒ‰æŽ¥é ­è¾ž + æœ€å°ãƒ©ãƒ³ã‚¿ã‚¤ãƒ ã‚µã‚¤ã‚ºã€‚
+- ðŸ’° RPC/indexer API ã«ã‚ˆã‚‹å®Ÿæ®‹é«˜ã®ç…§ä¼šã€‚
+- ðŸ“‘ QA è¨¼è·¡å‘ã‘ã«ã‚³ãƒ³ãƒˆãƒ©ã‚¯ãƒˆæ¤œè¨¼ãƒ¬ãƒãƒ¼ãƒˆï¼ˆTXT/CSVï¼‰ã‚’ã‚¨ã‚¯ã‚¹ãƒãƒ¼ãƒˆå¯èƒ½ã€‚
+- ðŸŽ¨ Bitcoin å¯„ã‚Šã®è½ã¡ç€ã„ãŸãƒ†ãƒ¼ãƒžã‚’å«ã‚€ 3 ã¤ã®ãƒ€ãƒ¼ã‚¯ãƒ†ãƒ¼ãƒžã‚’å†…è”µã€‚
 
-### 対応プロバイダー
+### å¯¾å¿œãƒ—ãƒ­ãƒã‚¤ãƒ€ãƒ¼
 
 Xverse, Unisat, Leather, Electrum, MetaMask, Uniswap Wallet, Binance Wallet, Coinbase Wallet, Rainbow, Rabby, Trust Wallet, Zerion, Safe Wallet, Ledger Live, Trezor Suite, OKX Wallet, Phantom, Backpack, WalletConnect.
 
-### ローカル開発
+### ãƒ­ãƒ¼ã‚«ãƒ«é–‹ç™º
 
 ```bash
 npm install
 npm run compile
 ```
 
-VS Code で F5 を押して Extension Development Host を起動します。
+VS Code ã§ F5 ã‚’æŠ¼ã—ã¦ Extension Development Host ã‚’èµ·å‹•ã—ã¾ã™ã€‚
 
-### 使い方
+### ä½¿ã„æ–¹
 
-1. Connect Wallet をクリックし、実モードまたはテストモードを選択します。
-2. ネットワークとプロバイダーを選択します。
-3. 公開ウォレットアドレス（BTC、EVM、Solana）を貼り付けます。
-4. Contract Check を実行し、デプロイ/コード存在を確認します。
-5. 実モードでは Check Balance でリアルタイム照会を行います。
+1. Connect Wallet ã‚’ã‚¯ãƒªãƒƒã‚¯ã—ã€å®Ÿãƒ¢ãƒ¼ãƒ‰ã¾ãŸã¯ãƒ†ã‚¹ãƒˆãƒ¢ãƒ¼ãƒ‰ã‚’é¸æŠžã—ã¾ã™ã€‚
+2. ãƒãƒƒãƒˆãƒ¯ãƒ¼ã‚¯ã¨ãƒ—ãƒ­ãƒã‚¤ãƒ€ãƒ¼ã‚’é¸æŠžã—ã¾ã™ã€‚
+3. å…¬é–‹ã‚¦ã‚©ãƒ¬ãƒƒãƒˆã‚¢ãƒ‰ãƒ¬ã‚¹ï¼ˆBTCã€EVMã€Solanaï¼‰ã‚’è²¼ã‚Šä»˜ã‘ã¾ã™ã€‚
+4. Contract Check ã‚’å®Ÿè¡Œã—ã€ãƒ‡ãƒ—ãƒ­ã‚¤/ã‚³ãƒ¼ãƒ‰å­˜åœ¨ã‚’ç¢ºèªã—ã¾ã™ã€‚
+5. å®Ÿãƒ¢ãƒ¼ãƒ‰ã§ã¯ Check Balance ã§ãƒªã‚¢ãƒ«ã‚¿ã‚¤ãƒ ç…§ä¼šã‚’è¡Œã„ã¾ã™ã€‚
 
-> 注記: 現在のビジュアルガイドには旧製品名が表示されています。ワークフロー自体は有効で、更新版を近日公開予定です。
+> æ³¨è¨˜: ç¾åœ¨ã®ãƒ“ã‚¸ãƒ¥ã‚¢ãƒ«ã‚¬ã‚¤ãƒ‰ã«ã¯æ—§è£½å“åãŒè¡¨ç¤ºã•ã‚Œã¦ã„ã¾ã™ã€‚ãƒ¯ãƒ¼ã‚¯ãƒ•ãƒ­ãƒ¼è‡ªä½“ã¯æœ‰åŠ¹ã§ã€æ›´æ–°ç‰ˆã‚’è¿‘æ—¥å…¬é–‹äºˆå®šã§ã™ã€‚
 
-### パッケージ化
+### ãƒ‘ãƒƒã‚±ãƒ¼ã‚¸åŒ–
 
 ```bash
 npm run package
 ```
 
-このコマンドでインストール/公開用の .vsix ファイルを生成します。
+ã“ã®ã‚³ãƒžãƒ³ãƒ‰ã§ã‚¤ãƒ³ã‚¹ãƒˆãƒ¼ãƒ«/å…¬é–‹ç”¨ã® .vsix ãƒ•ã‚¡ã‚¤ãƒ«ã‚’ç”Ÿæˆã—ã¾ã™ã€‚
 
-### dApp スターターとして再利用
+### dApp ã‚¹ã‚¿ãƒ¼ã‚¿ãƒ¼ã¨ã—ã¦å†åˆ©ç”¨
 
-1. このリポジトリをクローンします。
-2. .github 配下の agent 規約を維持します。
-3. Copilot Chat で .github/prompts/new-dapp-from-forge.prompt.md を実行します。
-4. 目標スタックを指定します（例: Next.js + wagmi + viem）。
-5. ウォレット安全ルールを守ります: 公開アドレスのみ使用し、seed phrase/秘密鍵は絶対に扱わないでください。
+1. ã“ã®ãƒªãƒã‚¸ãƒˆãƒªã‚’ã‚¯ãƒ­ãƒ¼ãƒ³ã—ã¾ã™ã€‚
+2. .github é…ä¸‹ã® agent è¦ç´„ã‚’ç¶­æŒã—ã¾ã™ã€‚
+3. Copilot Chat ã§ .github/prompts/new-dapp-from-forge.prompt.md ã‚’å®Ÿè¡Œã—ã¾ã™ã€‚
+4. ç›®æ¨™ã‚¹ã‚¿ãƒƒã‚¯ã‚’æŒ‡å®šã—ã¾ã™ï¼ˆä¾‹: Next.js + wagmi + viemï¼‰ã€‚
+5. ã‚¦ã‚©ãƒ¬ãƒƒãƒˆå®‰å…¨ãƒ«ãƒ¼ãƒ«ã‚’å®ˆã‚Šã¾ã™: å…¬é–‹ã‚¢ãƒ‰ãƒ¬ã‚¹ã®ã¿ä½¿ç”¨ã—ã€seed phrase/ç§˜å¯†éµã¯çµ¶å¯¾ã«æ‰±ã‚ãªã„ã§ãã ã•ã„ã€‚
 
-### プロジェクト支援
+### ãƒ—ãƒ­ã‚¸ã‚§ã‚¯ãƒˆæ”¯æ´
 
-この拡張が役立った場合は、継続開発の支援をお願いします：
+ã“ã®æ‹¡å¼µãŒå½¹ç«‹ã£ãŸå ´åˆã¯ã€ç¶™ç¶šé–‹ç™ºã®æ”¯æ´ã‚’ãŠé¡˜ã„ã—ã¾ã™ï¼š
 
-- [GitHub Sponsors](https://github.com/sponsors/thiag)
+- [GitHub Sponsors](https://github.com/ThiagoDataEngineer)
 - ETH: <span style="color:#facc15;"><code>0x7322789de14a49EBE28b6133167d25BD903A68ed</code></span>
 - BTC: <span style="color:#facc15;"><code>bc1qt7r96jx06zr5fk8vwhxxcasjjgacs623m6t26j</code></span>
 - Solana: <span style="color:#facc15;"><code>9VmhYgzF3SVMfHJaPZfkjwQ22svxMf64fCcDoKyBFaSU</code></span>
 - Polygon: <span style="color:#facc15;"><code>0x7322789de14a49EBE28b6133167d25BD903A68ed</code></span>
 - Tron: <span style="color:#facc15;"><code>TD23HKqyLdfms2GqySDu85ZyZTMEj3R37G</code></span>
 
-### 知的財産
+### çŸ¥çš„è²¡ç”£
 
-- 拡張アイコン（media/icon.png と media/activity-icon.svg）およびビジュアルアイデンティティは、作者の明示的な許可がない限り本プロジェクト専用です。
-- 名称、ブランド、ビジュアル資産はすべての権利を留保します。
-- 事前許可なしに、本製品アイデンティティの商用利用権は付与されません。
+- æ‹¡å¼µã‚¢ã‚¤ã‚³ãƒ³ï¼ˆmedia/icon.png ã¨ media/activity-icon.svgï¼‰ãŠã‚ˆã³ãƒ“ã‚¸ãƒ¥ã‚¢ãƒ«ã‚¢ã‚¤ãƒ‡ãƒ³ãƒ†ã‚£ãƒ†ã‚£ã¯ã€ä½œè€…ã®æ˜Žç¤ºçš„ãªè¨±å¯ãŒãªã„é™ã‚Šæœ¬ãƒ—ãƒ­ã‚¸ã‚§ã‚¯ãƒˆå°‚ç”¨ã§ã™ã€‚
+- åç§°ã€ãƒ–ãƒ©ãƒ³ãƒ‰ã€ãƒ“ã‚¸ãƒ¥ã‚¢ãƒ«è³‡ç”£ã¯ã™ã¹ã¦ã®æ¨©åˆ©ã‚’ç•™ä¿ã—ã¾ã™ã€‚
+- äº‹å‰è¨±å¯ãªã—ã«ã€æœ¬è£½å“ã‚¢ã‚¤ãƒ‡ãƒ³ãƒ†ã‚£ãƒ†ã‚£ã®å•†ç”¨åˆ©ç”¨æ¨©ã¯ä»˜ä¸Žã•ã‚Œã¾ã›ã‚“ã€‚
 
 ---
 
@@ -536,15 +534,15 @@ Web3 Wallet Lab Forge ist eine VS Code-Erweiterung fur Wallet-Tests sowie Vertra
 
 ### Highlights
 
-- 🌐 Bitcoin-zentrierte Netzwerkauswahl (Mainnet und Testnet).
-- 🔗 Schnellzugriffe auf wichtige Wallet-Anbieter.
-- 🔐 Echter Wallet-Modus mit Validierung offentlich sichtbarer Adressen.
-- 🧪 Test-Wallet-Generierungsmodus fur lokale Workflows.
-- 🧾 Contract Check fur EVM- und Solana-Chains.
-- 🛡️ Professionelle Contract-Verification-Policy: optionales Bytecode-Prafix + minimale Runtime-Grose.
-- 💰 Reale Saldoabfrage uber RPC-/Indexer-APIs.
-- 📑 Export von Contract-Verification-Reports (TXT/CSV) fur QA-Nachweise.
-- 🎨 Drei integrierte Dark-Themes, darunter eine nuchterne Bitcoin-orientierte Option.
+- ðŸŒ Bitcoin-zentrierte Netzwerkauswahl (Mainnet und Testnet).
+- ðŸ”— Schnellzugriffe auf wichtige Wallet-Anbieter.
+- ðŸ” Echter Wallet-Modus mit Validierung offentlich sichtbarer Adressen.
+- ðŸ§ª Test-Wallet-Generierungsmodus fur lokale Workflows.
+- ðŸ§¾ Contract Check fur EVM- und Solana-Chains.
+- ðŸ›¡ï¸ Professionelle Contract-Verification-Policy: optionales Bytecode-Prafix + minimale Runtime-Grose.
+- ðŸ’° Reale Saldoabfrage uber RPC-/Indexer-APIs.
+- ðŸ“‘ Export von Contract-Verification-Reports (TXT/CSV) fur QA-Nachweise.
+- ðŸŽ¨ Drei integrierte Dark-Themes, darunter eine nuchterne Bitcoin-orientierte Option.
 
 ### Unterstutzte Anbieter
 
@@ -589,7 +587,7 @@ Dieser Befehl erzeugt eine .vsix-Datei fur Installation/Veroffentlichung.
 
 Wenn diese Erweiterung Ihrem Workflow hilft, konnen Sie die Weiterentwicklung hier unterstutzen:
 
-- [GitHub Sponsors](https://github.com/sponsors/thiag)
+- [GitHub Sponsors](https://github.com/ThiagoDataEngineer)
 - ETH: <span style="color:#facc15;"><code>0x7322789de14a49EBE28b6133167d25BD903A68ed</code></span>
 - BTC: <span style="color:#facc15;"><code>bc1qt7r96jx06zr5fk8vwhxxcasjjgacs623m6t26j</code></span>
 - Solana: <span style="color:#facc15;"><code>9VmhYgzF3SVMfHJaPZfkjwQ22svxMf64fCcDoKyBFaSU</code></span>
@@ -604,153 +602,154 @@ Wenn diese Erweiterung Ihrem Workflow hilft, konnen Sie die Weiterentwicklung hi
 
 ---
 
-## العربية
+## Ø§Ù„Ø¹Ø±Ø¨ÙŠØ©
 
-### نظرة عامة
+### Ù†Ø¸Ø±Ø© Ø¹Ø§Ù…Ø©
 
-Web3 Wallet Lab Forge هي اضافة لـ VS Code لاختبار المحافظ والتحقق من العقود والارصدة على Bitcoin وسلاسل EVM وSolana.
+Web3 Wallet Lab Forge Ù‡ÙŠ Ø§Ø¶Ø§ÙØ© Ù„Ù€ VS Code Ù„Ø§Ø®ØªØ¨Ø§Ø± Ø§Ù„Ù…Ø­Ø§ÙØ¸ ÙˆØ§Ù„ØªØ­Ù‚Ù‚ Ù…Ù† Ø§Ù„Ø¹Ù‚ÙˆØ¯ ÙˆØ§Ù„Ø§Ø±ØµØ¯Ø© Ø¹Ù„Ù‰ Bitcoin ÙˆØ³Ù„Ø§Ø³Ù„ EVM ÙˆSolana.
 
-### المميزات
+### Ø§Ù„Ù…Ù…ÙŠØ²Ø§Øª
 
-- 🌐 اختيار الشبكة يبدأ ب Bitcoin (Mainnet وTestnet).
-- 🔗 اختصارات لمزودي المحافظ الرئيسيين.
-- 🔐 وضع المحفظة الحقيقية مع التحقق من العنوان العام.
-- 🧪 وضع توليد محفظة اختبار لسير العمل المحلي.
-- 🧾 فحص العقود لسلاسل EVM وSolana.
-- 🛡️ سياسة احترافية للتحقق من العقود: بادئة bytecode اختيارية + حد ادنى لحجم runtime.
-- 💰 الاستعلام عن الرصيد الحقيقي عبر واجهات RPC/indexer.
-- 📑 تصدير تقرير التحقق من العقد (TXT/CSV) كدليل لفرق QA.
-- 🎨 ثلاث سمات داكنة مدمجة، بينها خيار هادئ يركز على Bitcoin.
+- ðŸŒ Ø§Ø®ØªÙŠØ§Ø± Ø§Ù„Ø´Ø¨ÙƒØ© ÙŠØ¨Ø¯Ø£ Ø¨ Bitcoin (Mainnet ÙˆTestnet).
+- ðŸ”— Ø§Ø®ØªØµØ§Ø±Ø§Øª Ù„Ù…Ø²ÙˆØ¯ÙŠ Ø§Ù„Ù…Ø­Ø§ÙØ¸ Ø§Ù„Ø±Ø¦ÙŠØ³ÙŠÙŠÙ†.
+- ðŸ” ÙˆØ¶Ø¹ Ø§Ù„Ù…Ø­ÙØ¸Ø© Ø§Ù„Ø­Ù‚ÙŠÙ‚ÙŠØ© Ù…Ø¹ Ø§Ù„ØªØ­Ù‚Ù‚ Ù…Ù† Ø§Ù„Ø¹Ù†ÙˆØ§Ù† Ø§Ù„Ø¹Ø§Ù….
+- ðŸ§ª ÙˆØ¶Ø¹ ØªÙˆÙ„ÙŠØ¯ Ù…Ø­ÙØ¸Ø© Ø§Ø®ØªØ¨Ø§Ø± Ù„Ø³ÙŠØ± Ø§Ù„Ø¹Ù…Ù„ Ø§Ù„Ù…Ø­Ù„ÙŠ.
+- ðŸ§¾ ÙØ­Øµ Ø§Ù„Ø¹Ù‚ÙˆØ¯ Ù„Ø³Ù„Ø§Ø³Ù„ EVM ÙˆSolana.
+- ðŸ›¡ï¸ Ø³ÙŠØ§Ø³Ø© Ø§Ø­ØªØ±Ø§ÙÙŠØ© Ù„Ù„ØªØ­Ù‚Ù‚ Ù…Ù† Ø§Ù„Ø¹Ù‚ÙˆØ¯: Ø¨Ø§Ø¯Ø¦Ø© bytecode Ø§Ø®ØªÙŠØ§Ø±ÙŠØ© + Ø­Ø¯ Ø§Ø¯Ù†Ù‰ Ù„Ø­Ø¬Ù… runtime.
+- ðŸ’° Ø§Ù„Ø§Ø³ØªØ¹Ù„Ø§Ù… Ø¹Ù† Ø§Ù„Ø±ØµÙŠØ¯ Ø§Ù„Ø­Ù‚ÙŠÙ‚ÙŠ Ø¹Ø¨Ø± ÙˆØ§Ø¬Ù‡Ø§Øª RPC/indexer.
+- ðŸ“‘ ØªØµØ¯ÙŠØ± ØªÙ‚Ø±ÙŠØ± Ø§Ù„ØªØ­Ù‚Ù‚ Ù…Ù† Ø§Ù„Ø¹Ù‚Ø¯ (TXT/CSV) ÙƒØ¯Ù„ÙŠÙ„ Ù„ÙØ±Ù‚ QA.
+- ðŸŽ¨ Ø«Ù„Ø§Ø« Ø³Ù…Ø§Øª Ø¯Ø§ÙƒÙ†Ø© Ù…Ø¯Ù…Ø¬Ø©ØŒ Ø¨ÙŠÙ†Ù‡Ø§ Ø®ÙŠØ§Ø± Ù‡Ø§Ø¯Ø¦ ÙŠØ±ÙƒØ² Ø¹Ù„Ù‰ Bitcoin.
 
-### المزودون المدعومون
+### Ø§Ù„Ù…Ø²ÙˆØ¯ÙˆÙ† Ø§Ù„Ù…Ø¯Ø¹ÙˆÙ…ÙˆÙ†
 
 Xverse, Unisat, Leather, Electrum, MetaMask, Uniswap Wallet, Binance Wallet, Coinbase Wallet, Rainbow, Rabby, Trust Wallet, Zerion, Safe Wallet, Ledger Live, Trezor Suite, OKX Wallet, Phantom, Backpack, WalletConnect.
 
-### التطوير المحلي
+### Ø§Ù„ØªØ·ÙˆÙŠØ± Ø§Ù„Ù…Ø­Ù„ÙŠ
 
 ```bash
 npm install
 npm run compile
 ```
 
-اضغط F5 في VS Code لفتح Extension Development Host.
+Ø§Ø¶ØºØ· F5 ÙÙŠ VS Code Ù„ÙØªØ­ Extension Development Host.
 
-### طريقة الاستخدام
+### Ø·Ø±ÙŠÙ‚Ø© Ø§Ù„Ø§Ø³ØªØ®Ø¯Ø§Ù…
 
-1. انقر Connect Wallet واختر الوضع الحقيقي او وضع الاختبار.
-2. اختر الشبكة والمزود.
-3. الصق عنوان محفظة عام (BTC او EVM او Solana).
-4. شغل Contract Check للتحقق من النشر/وجود الكود.
-5. في الوضع الحقيقي استخدم Check Balance للاستعلام المباشر.
+1. Ø§Ù†Ù‚Ø± Connect Wallet ÙˆØ§Ø®ØªØ± Ø§Ù„ÙˆØ¶Ø¹ Ø§Ù„Ø­Ù‚ÙŠÙ‚ÙŠ Ø§Ùˆ ÙˆØ¶Ø¹ Ø§Ù„Ø§Ø®ØªØ¨Ø§Ø±.
+2. Ø§Ø®ØªØ± Ø§Ù„Ø´Ø¨ÙƒØ© ÙˆØ§Ù„Ù…Ø²ÙˆØ¯.
+3. Ø§Ù„ØµÙ‚ Ø¹Ù†ÙˆØ§Ù† Ù…Ø­ÙØ¸Ø© Ø¹Ø§Ù… (BTC Ø§Ùˆ EVM Ø§Ùˆ Solana).
+4. Ø´ØºÙ„ Contract Check Ù„Ù„ØªØ­Ù‚Ù‚ Ù…Ù† Ø§Ù„Ù†Ø´Ø±/ÙˆØ¬ÙˆØ¯ Ø§Ù„ÙƒÙˆØ¯.
+5. ÙÙŠ Ø§Ù„ÙˆØ¶Ø¹ Ø§Ù„Ø­Ù‚ÙŠÙ‚ÙŠ Ø§Ø³ØªØ®Ø¯Ù… Check Balance Ù„Ù„Ø§Ø³ØªØ¹Ù„Ø§Ù… Ø§Ù„Ù…Ø¨Ø§Ø´Ø±.
 
-> ملاحظة: الدليل المرئي الحالي ما زال يعرض اسما قديما للمنتج. سير العمل ما زال صحيحا وسيتم نشر نسخة محدثة قريبا.
+> Ù…Ù„Ø§Ø­Ø¸Ø©: Ø§Ù„Ø¯Ù„ÙŠÙ„ Ø§Ù„Ù…Ø±Ø¦ÙŠ Ø§Ù„Ø­Ø§Ù„ÙŠ Ù…Ø§ Ø²Ø§Ù„ ÙŠØ¹Ø±Ø¶ Ø§Ø³Ù…Ø§ Ù‚Ø¯ÙŠÙ…Ø§ Ù„Ù„Ù…Ù†ØªØ¬. Ø³ÙŠØ± Ø§Ù„Ø¹Ù…Ù„ Ù…Ø§ Ø²Ø§Ù„ ØµØ­ÙŠØ­Ø§ ÙˆØ³ÙŠØªÙ… Ù†Ø´Ø± Ù†Ø³Ø®Ø© Ù…Ø­Ø¯Ø«Ø© Ù‚Ø±ÙŠØ¨Ø§.
 
-### الحزم
+### Ø§Ù„Ø­Ø²Ù…
 
 ```bash
 npm run package
 ```
 
-ينتج هذا الامر ملف .vsix للتثبيت/النشر.
+ÙŠÙ†ØªØ¬ Ù‡Ø°Ø§ Ø§Ù„Ø§Ù…Ø± Ù…Ù„Ù .vsix Ù„Ù„ØªØ«Ø¨ÙŠØª/Ø§Ù„Ù†Ø´Ø±.
 
-### اعادة الاستخدام كبداية dApp
+### Ø§Ø¹Ø§Ø¯Ø© Ø§Ù„Ø§Ø³ØªØ®Ø¯Ø§Ù… ÙƒØ¨Ø¯Ø§ÙŠØ© dApp
 
-1. انسخ هذا المستودع.
-2. حافظ على قواعد الوكيل داخل .github.
-3. شغل الموجه .github/prompts/new-dapp-from-forge.prompt.md في Copilot Chat.
-4. اطلب الحزمة التقنية المستهدفة (مثال: Next.js + wagmi + viem).
-5. التزم بقواعد امان المحافظ: عناوين عامة فقط، ولا تستخدم ابدا seed phrase او المفاتيح الخاصة.
+1. Ø§Ù†Ø³Ø® Ù‡Ø°Ø§ Ø§Ù„Ù…Ø³ØªÙˆØ¯Ø¹.
+2. Ø­Ø§ÙØ¸ Ø¹Ù„Ù‰ Ù‚ÙˆØ§Ø¹Ø¯ Ø§Ù„ÙˆÙƒÙŠÙ„ Ø¯Ø§Ø®Ù„ .github.
+3. Ø´ØºÙ„ Ø§Ù„Ù…ÙˆØ¬Ù‡ .github/prompts/new-dapp-from-forge.prompt.md ÙÙŠ Copilot Chat.
+4. Ø§Ø·Ù„Ø¨ Ø§Ù„Ø­Ø²Ù…Ø© Ø§Ù„ØªÙ‚Ù†ÙŠØ© Ø§Ù„Ù…Ø³ØªÙ‡Ø¯ÙØ© (Ù…Ø«Ø§Ù„: Next.js + wagmi + viem).
+5. Ø§Ù„ØªØ²Ù… Ø¨Ù‚ÙˆØ§Ø¹Ø¯ Ø§Ù…Ø§Ù† Ø§Ù„Ù…Ø­Ø§ÙØ¸: Ø¹Ù†Ø§ÙˆÙŠÙ† Ø¹Ø§Ù…Ø© ÙÙ‚Ø·ØŒ ÙˆÙ„Ø§ ØªØ³ØªØ®Ø¯Ù… Ø§Ø¨Ø¯Ø§ seed phrase Ø§Ùˆ Ø§Ù„Ù…ÙØ§ØªÙŠØ­ Ø§Ù„Ø®Ø§ØµØ©.
 
-### دعم المشروع
+### Ø¯Ø¹Ù… Ø§Ù„Ù…Ø´Ø±ÙˆØ¹
 
-اذا كانت هذه الاضافة مفيدة لك، يمكنك دعم التطوير المستمر هنا:
+Ø§Ø°Ø§ ÙƒØ§Ù†Øª Ù‡Ø°Ù‡ Ø§Ù„Ø§Ø¶Ø§ÙØ© Ù…ÙÙŠØ¯Ø© Ù„ÙƒØŒ ÙŠÙ…ÙƒÙ†Ùƒ Ø¯Ø¹Ù… Ø§Ù„ØªØ·ÙˆÙŠØ± Ø§Ù„Ù…Ø³ØªÙ…Ø± Ù‡Ù†Ø§:
 
-- [GitHub Sponsors](https://github.com/sponsors/thiag)
+- [GitHub Sponsors](https://github.com/ThiagoDataEngineer)
 - ETH: <span style="color:#facc15;"><code>0x7322789de14a49EBE28b6133167d25BD903A68ed</code></span>
 - BTC: <span style="color:#facc15;"><code>bc1qt7r96jx06zr5fk8vwhxxcasjjgacs623m6t26j</code></span>
 - Solana: <span style="color:#facc15;"><code>9VmhYgzF3SVMfHJaPZfkjwQ22svxMf64fCcDoKyBFaSU</code></span>
 - Polygon: <span style="color:#facc15;"><code>0x7322789de14a49EBE28b6133167d25BD903A68ed</code></span>
 - Tron: <span style="color:#facc15;"><code>TD23HKqyLdfms2GqySDu85ZyZTMEj3R37G</code></span>
 
-### الملكية الفكرية
+### Ø§Ù„Ù…Ù„ÙƒÙŠØ© Ø§Ù„ÙÙƒØ±ÙŠØ©
 
-- ايقونات الاضافة (media/icon.png وmedia/activity-icon.svg) والهوية البصرية مخصصة لهذا المشروع ما لم يصرح المؤلف بخلاف ذلك.
-- الاسم والعلامة والاصول البصرية محفوظة الحقوق بالكامل.
-- هذا المستودع لا يمنح حقوق استخدام تجاري لهوية المنتج بدون اذن مسبق.
+- Ø§ÙŠÙ‚ÙˆÙ†Ø§Øª Ø§Ù„Ø§Ø¶Ø§ÙØ© (media/icon.png Ùˆmedia/activity-icon.svg) ÙˆØ§Ù„Ù‡ÙˆÙŠØ© Ø§Ù„Ø¨ØµØ±ÙŠØ© Ù…Ø®ØµØµØ© Ù„Ù‡Ø°Ø§ Ø§Ù„Ù…Ø´Ø±ÙˆØ¹ Ù…Ø§ Ù„Ù… ÙŠØµØ±Ø­ Ø§Ù„Ù…Ø¤Ù„Ù Ø¨Ø®Ù„Ø§Ù Ø°Ù„Ùƒ.
+- Ø§Ù„Ø§Ø³Ù… ÙˆØ§Ù„Ø¹Ù„Ø§Ù…Ø© ÙˆØ§Ù„Ø§ØµÙˆÙ„ Ø§Ù„Ø¨ØµØ±ÙŠØ© Ù…Ø­ÙÙˆØ¸Ø© Ø§Ù„Ø­Ù‚ÙˆÙ‚ Ø¨Ø§Ù„ÙƒØ§Ù…Ù„.
+- Ù‡Ø°Ø§ Ø§Ù„Ù…Ø³ØªÙˆØ¯Ø¹ Ù„Ø§ ÙŠÙ…Ù†Ø­ Ø­Ù‚ÙˆÙ‚ Ø§Ø³ØªØ®Ø¯Ø§Ù… ØªØ¬Ø§Ø±ÙŠ Ù„Ù‡ÙˆÙŠØ© Ø§Ù„Ù…Ù†ØªØ¬ Ø¨Ø¯ÙˆÙ† Ø§Ø°Ù† Ù…Ø³Ø¨Ù‚.
 
 ---
 
-## Русский
+## Ð ÑƒÑÑÐºÐ¸Ð¹
 
-### Обзор
+### ÐžÐ±Ð·Ð¾Ñ€
 
-Web3 Wallet Lab Forge - это расширение VS Code для тестирования кошельков и проверки контрактов/балансов в Bitcoin, EVM-сетях и Solana.
+Web3 Wallet Lab Forge - ÑÑ‚Ð¾ Ñ€Ð°ÑÑˆÐ¸Ñ€ÐµÐ½Ð¸Ðµ VS Code Ð´Ð»Ñ Ñ‚ÐµÑÑ‚Ð¸Ñ€Ð¾Ð²Ð°Ð½Ð¸Ñ ÐºÐ¾ÑˆÐµÐ»ÑŒÐºÐ¾Ð² Ð¸ Ð¿Ñ€Ð¾Ð²ÐµÑ€ÐºÐ¸ ÐºÐ¾Ð½Ñ‚Ñ€Ð°ÐºÑ‚Ð¾Ð²/Ð±Ð°Ð»Ð°Ð½ÑÐ¾Ð² Ð² Bitcoin, EVM-ÑÐµÑ‚ÑÑ… Ð¸ Solana.
 
-### Ключевые возможности
+### ÐšÐ»ÑŽÑ‡ÐµÐ²Ñ‹Ðµ Ð²Ð¾Ð·Ð¼Ð¾Ð¶Ð½Ð¾ÑÑ‚Ð¸
 
-- 🌐 Выбор сети с приоритетом Bitcoin (Mainnet и Testnet).
-- 🔗 Быстрые переходы к популярным провайдерам кошельков.
-- 🔐 Режим реального кошелька с валидацией публичного адреса.
-- 🧪 Режим генерации тестового кошелька для локальных сценариев.
-- 🧾 Проверка контрактов для EVM и Solana.
-- 🛡️ Профессиональная политика проверки контракта: опциональный префикс байткода + минимальный размер runtime-кода.
-- 💰 Проверка реальных балансов через RPC/indexer API.
-- 📑 Экспорт отчета по проверке контрактов (TXT/CSV) для QA-артефактов.
-- 🎨 Встроенные темы и рыночный блок с мини-графиком.
+- ðŸŒ Ð’Ñ‹Ð±Ð¾Ñ€ ÑÐµÑ‚Ð¸ Ñ Ð¿Ñ€Ð¸Ð¾Ñ€Ð¸Ñ‚ÐµÑ‚Ð¾Ð¼ Bitcoin (Mainnet Ð¸ Testnet).
+- ðŸ”— Ð‘Ñ‹ÑÑ‚Ñ€Ñ‹Ðµ Ð¿ÐµÑ€ÐµÑ…Ð¾Ð´Ñ‹ Ðº Ð¿Ð¾Ð¿ÑƒÐ»ÑÑ€Ð½Ñ‹Ð¼ Ð¿Ñ€Ð¾Ð²Ð°Ð¹Ð´ÐµÑ€Ð°Ð¼ ÐºÐ¾ÑˆÐµÐ»ÑŒÐºÐ¾Ð².
+- ðŸ” Ð ÐµÐ¶Ð¸Ð¼ Ñ€ÐµÐ°Ð»ÑŒÐ½Ð¾Ð³Ð¾ ÐºÐ¾ÑˆÐµÐ»ÑŒÐºÐ° Ñ Ð²Ð°Ð»Ð¸Ð´Ð°Ñ†Ð¸ÐµÐ¹ Ð¿ÑƒÐ±Ð»Ð¸Ñ‡Ð½Ð¾Ð³Ð¾ Ð°Ð´Ñ€ÐµÑÐ°.
+- ðŸ§ª Ð ÐµÐ¶Ð¸Ð¼ Ð³ÐµÐ½ÐµÑ€Ð°Ñ†Ð¸Ð¸ Ñ‚ÐµÑÑ‚Ð¾Ð²Ð¾Ð³Ð¾ ÐºÐ¾ÑˆÐµÐ»ÑŒÐºÐ° Ð´Ð»Ñ Ð»Ð¾ÐºÐ°Ð»ÑŒÐ½Ñ‹Ñ… ÑÑ†ÐµÐ½Ð°Ñ€Ð¸ÐµÐ².
+- ðŸ§¾ ÐŸÑ€Ð¾Ð²ÐµÑ€ÐºÐ° ÐºÐ¾Ð½Ñ‚Ñ€Ð°ÐºÑ‚Ð¾Ð² Ð´Ð»Ñ EVM Ð¸ Solana.
+- ðŸ›¡ï¸ ÐŸÑ€Ð¾Ñ„ÐµÑÑÐ¸Ð¾Ð½Ð°Ð»ÑŒÐ½Ð°Ñ Ð¿Ð¾Ð»Ð¸Ñ‚Ð¸ÐºÐ° Ð¿Ñ€Ð¾Ð²ÐµÑ€ÐºÐ¸ ÐºÐ¾Ð½Ñ‚Ñ€Ð°ÐºÑ‚Ð°: Ð¾Ð¿Ñ†Ð¸Ð¾Ð½Ð°Ð»ÑŒÐ½Ñ‹Ð¹ Ð¿Ñ€ÐµÑ„Ð¸ÐºÑ Ð±Ð°Ð¹Ñ‚ÐºÐ¾Ð´Ð° + Ð¼Ð¸Ð½Ð¸Ð¼Ð°Ð»ÑŒÐ½Ñ‹Ð¹ Ñ€Ð°Ð·Ð¼ÐµÑ€ runtime-ÐºÐ¾Ð´Ð°.
+- ðŸ’° ÐŸÑ€Ð¾Ð²ÐµÑ€ÐºÐ° Ñ€ÐµÐ°Ð»ÑŒÐ½Ñ‹Ñ… Ð±Ð°Ð»Ð°Ð½ÑÐ¾Ð² Ñ‡ÐµÑ€ÐµÐ· RPC/indexer API.
+- ðŸ“‘ Ð­ÐºÑÐ¿Ð¾Ñ€Ñ‚ Ð¾Ñ‚Ñ‡ÐµÑ‚Ð° Ð¿Ð¾ Ð¿Ñ€Ð¾Ð²ÐµÑ€ÐºÐµ ÐºÐ¾Ð½Ñ‚Ñ€Ð°ÐºÑ‚Ð¾Ð² (TXT/CSV) Ð´Ð»Ñ QA-Ð°Ñ€Ñ‚ÐµÑ„Ð°ÐºÑ‚Ð¾Ð².
+- ðŸŽ¨ Ð’ÑÑ‚Ñ€Ð¾ÐµÐ½Ð½Ñ‹Ðµ Ñ‚ÐµÐ¼Ñ‹ Ð¸ Ñ€Ñ‹Ð½Ð¾Ñ‡Ð½Ñ‹Ð¹ Ð±Ð»Ð¾Ðº Ñ Ð¼Ð¸Ð½Ð¸-Ð³Ñ€Ð°Ñ„Ð¸ÐºÐ¾Ð¼.
 
-### Поддерживаемые провайдеры
+### ÐŸÐ¾Ð´Ð´ÐµÑ€Ð¶Ð¸Ð²Ð°ÐµÐ¼Ñ‹Ðµ Ð¿Ñ€Ð¾Ð²Ð°Ð¹Ð´ÐµÑ€Ñ‹
 
 Xverse, Unisat, Leather, Electrum, MetaMask, Uniswap Wallet, Binance Wallet, Coinbase Wallet, Rainbow, Rabby, Trust Wallet, Zerion, Safe Wallet, Ledger Live, Trezor Suite, OKX Wallet, Phantom, Backpack, WalletConnect.
 
-### Локальная разработка
+### Ð›Ð¾ÐºÐ°Ð»ÑŒÐ½Ð°Ñ Ñ€Ð°Ð·Ñ€Ð°Ð±Ð¾Ñ‚ÐºÐ°
 
 ```bash
 npm install
 npm run compile
 ```
 
-Нажмите F5 в VS Code, чтобы открыть Extension Development Host.
+ÐÐ°Ð¶Ð¼Ð¸Ñ‚Ðµ F5 Ð² VS Code, Ñ‡Ñ‚Ð¾Ð±Ñ‹ Ð¾Ñ‚ÐºÑ€Ñ‹Ñ‚ÑŒ Extension Development Host.
 
-### Использование
+### Ð˜ÑÐ¿Ð¾Ð»ÑŒÐ·Ð¾Ð²Ð°Ð½Ð¸Ðµ
 
-1. Нажмите Connect Wallet и выберите режим REAL или TEST.
-2. Выберите сеть и провайдера.
-3. Вставьте публичный адрес кошелька (BTC, EVM или Solana).
-4. Запустите Contract Check для проверки деплоя/наличия кода.
-5. В режиме REAL используйте Check Balance для онлайн-проверки.
+1. ÐÐ°Ð¶Ð¼Ð¸Ñ‚Ðµ Connect Wallet Ð¸ Ð²Ñ‹Ð±ÐµÑ€Ð¸Ñ‚Ðµ Ñ€ÐµÐ¶Ð¸Ð¼ REAL Ð¸Ð»Ð¸ TEST.
+2. Ð’Ñ‹Ð±ÐµÑ€Ð¸Ñ‚Ðµ ÑÐµÑ‚ÑŒ Ð¸ Ð¿Ñ€Ð¾Ð²Ð°Ð¹Ð´ÐµÑ€Ð°.
+3. Ð’ÑÑ‚Ð°Ð²ÑŒÑ‚Ðµ Ð¿ÑƒÐ±Ð»Ð¸Ñ‡Ð½Ñ‹Ð¹ Ð°Ð´Ñ€ÐµÑ ÐºÐ¾ÑˆÐµÐ»ÑŒÐºÐ° (BTC, EVM Ð¸Ð»Ð¸ Solana).
+4. Ð—Ð°Ð¿ÑƒÑÑ‚Ð¸Ñ‚Ðµ Contract Check Ð´Ð»Ñ Ð¿Ñ€Ð¾Ð²ÐµÑ€ÐºÐ¸ Ð´ÐµÐ¿Ð»Ð¾Ñ/Ð½Ð°Ð»Ð¸Ñ‡Ð¸Ñ ÐºÐ¾Ð´Ð°.
+5. Ð’ Ñ€ÐµÐ¶Ð¸Ð¼Ðµ REAL Ð¸ÑÐ¿Ð¾Ð»ÑŒÐ·ÑƒÐ¹Ñ‚Ðµ Check Balance Ð´Ð»Ñ Ð¾Ð½Ð»Ð°Ð¹Ð½-Ð¿Ñ€Ð¾Ð²ÐµÑ€ÐºÐ¸.
 
-> Примечание: визуальный гайд пока показывает старое название продукта. Текущий поток работы остается актуальным, обновление будет опубликовано позже.
+> ÐŸÑ€Ð¸Ð¼ÐµÑ‡Ð°Ð½Ð¸Ðµ: Ð²Ð¸Ð·ÑƒÐ°Ð»ÑŒÐ½Ñ‹Ð¹ Ð³Ð°Ð¹Ð´ Ð¿Ð¾ÐºÐ° Ð¿Ð¾ÐºÐ°Ð·Ñ‹Ð²Ð°ÐµÑ‚ ÑÑ‚Ð°Ñ€Ð¾Ðµ Ð½Ð°Ð·Ð²Ð°Ð½Ð¸Ðµ Ð¿Ñ€Ð¾Ð´ÑƒÐºÑ‚Ð°. Ð¢ÐµÐºÑƒÑ‰Ð¸Ð¹ Ð¿Ð¾Ñ‚Ð¾Ðº Ñ€Ð°Ð±Ð¾Ñ‚Ñ‹ Ð¾ÑÑ‚Ð°ÐµÑ‚ÑÑ Ð°ÐºÑ‚ÑƒÐ°Ð»ÑŒÐ½Ñ‹Ð¼, Ð¾Ð±Ð½Ð¾Ð²Ð»ÐµÐ½Ð¸Ðµ Ð±ÑƒÐ´ÐµÑ‚ Ð¾Ð¿ÑƒÐ±Ð»Ð¸ÐºÐ¾Ð²Ð°Ð½Ð¾ Ð¿Ð¾Ð·Ð¶Ðµ.
 
-### Упаковка
+### Ð£Ð¿Ð°ÐºÐ¾Ð²ÐºÐ°
 
 ```bash
 npm run package
 ```
 
-Эта команда создает файл .vsix для установки/публикации.
+Ð­Ñ‚Ð° ÐºÐ¾Ð¼Ð°Ð½Ð´Ð° ÑÐ¾Ð·Ð´Ð°ÐµÑ‚ Ñ„Ð°Ð¹Ð» .vsix Ð´Ð»Ñ ÑƒÑÑ‚Ð°Ð½Ð¾Ð²ÐºÐ¸/Ð¿ÑƒÐ±Ð»Ð¸ÐºÐ°Ñ†Ð¸Ð¸.
 
-### Повторное использование как dApp-стартера
+### ÐŸÐ¾Ð²Ñ‚Ð¾Ñ€Ð½Ð¾Ðµ Ð¸ÑÐ¿Ð¾Ð»ÑŒÐ·Ð¾Ð²Ð°Ð½Ð¸Ðµ ÐºÐ°Ðº dApp-ÑÑ‚Ð°Ñ€Ñ‚ÐµÑ€Ð°
 
-1. Клонируйте этот репозиторий.
-2. Сохраните агентские соглашения в .github.
-3. Запустите prompt .github/prompts/new-dapp-from-forge.prompt.md в Copilot Chat.
-4. Запросите целевой стек (пример: Next.js + wagmi + viem).
-5. Соблюдайте правила безопасности: только публичные адреса, никогда не используйте seed phrase/приватные ключи.
+1. ÐšÐ»Ð¾Ð½Ð¸Ñ€ÑƒÐ¹Ñ‚Ðµ ÑÑ‚Ð¾Ñ‚ Ñ€ÐµÐ¿Ð¾Ð·Ð¸Ñ‚Ð¾Ñ€Ð¸Ð¹.
+2. Ð¡Ð¾Ñ…Ñ€Ð°Ð½Ð¸Ñ‚Ðµ Ð°Ð³ÐµÐ½Ñ‚ÑÐºÐ¸Ðµ ÑÐ¾Ð³Ð»Ð°ÑˆÐµÐ½Ð¸Ñ Ð² .github.
+3. Ð—Ð°Ð¿ÑƒÑÑ‚Ð¸Ñ‚Ðµ prompt .github/prompts/new-dapp-from-forge.prompt.md Ð² Copilot Chat.
+4. Ð—Ð°Ð¿Ñ€Ð¾ÑÐ¸Ñ‚Ðµ Ñ†ÐµÐ»ÐµÐ²Ð¾Ð¹ ÑÑ‚ÐµÐº (Ð¿Ñ€Ð¸Ð¼ÐµÑ€: Next.js + wagmi + viem).
+5. Ð¡Ð¾Ð±Ð»ÑŽÐ´Ð°Ð¹Ñ‚Ðµ Ð¿Ñ€Ð°Ð²Ð¸Ð»Ð° Ð±ÐµÐ·Ð¾Ð¿Ð°ÑÐ½Ð¾ÑÑ‚Ð¸: Ñ‚Ð¾Ð»ÑŒÐºÐ¾ Ð¿ÑƒÐ±Ð»Ð¸Ñ‡Ð½Ñ‹Ðµ Ð°Ð´Ñ€ÐµÑÐ°, Ð½Ð¸ÐºÐ¾Ð³Ð´Ð° Ð½Ðµ Ð¸ÑÐ¿Ð¾Ð»ÑŒÐ·ÑƒÐ¹Ñ‚Ðµ seed phrase/Ð¿Ñ€Ð¸Ð²Ð°Ñ‚Ð½Ñ‹Ðµ ÐºÐ»ÑŽÑ‡Ð¸.
 
-### Поддержать проект
+### ÐŸÐ¾Ð´Ð´ÐµÑ€Ð¶Ð°Ñ‚ÑŒ Ð¿Ñ€Ð¾ÐµÐºÑ‚
 
-Если это расширение помогает вашему рабочему процессу, вы можете поддержать развитие здесь:
+Ð•ÑÐ»Ð¸ ÑÑ‚Ð¾ Ñ€Ð°ÑÑˆÐ¸Ñ€ÐµÐ½Ð¸Ðµ Ð¿Ð¾Ð¼Ð¾Ð³Ð°ÐµÑ‚ Ð²Ð°ÑˆÐµÐ¼Ñƒ Ñ€Ð°Ð±Ð¾Ñ‡ÐµÐ¼Ñƒ Ð¿Ñ€Ð¾Ñ†ÐµÑÑÑƒ, Ð²Ñ‹ Ð¼Ð¾Ð¶ÐµÑ‚Ðµ Ð¿Ð¾Ð´Ð´ÐµÑ€Ð¶Ð°Ñ‚ÑŒ Ñ€Ð°Ð·Ð²Ð¸Ñ‚Ð¸Ðµ Ð·Ð´ÐµÑÑŒ:
 
-- [GitHub Sponsors](https://github.com/sponsors/thiag)
+- [GitHub Sponsors](https://github.com/ThiagoDataEngineer)
 - ETH: <span style="color:#facc15;"><code>0x7322789de14a49EBE28b6133167d25BD903A68ed</code></span>
 - BTC: <span style="color:#facc15;"><code>bc1qt7r96jx06zr5fk8vwhxxcasjjgacs623m6t26j</code></span>
 - Solana: <span style="color:#facc15;"><code>9VmhYgzF3SVMfHJaPZfkjwQ22svxMf64fCcDoKyBFaSU</code></span>
 - Polygon: <span style="color:#facc15;"><code>0x7322789de14a49EBE28b6133167d25BD903A68ed</code></span>
 - Tron: <span style="color:#facc15;"><code>TD23HKqyLdfms2GqySDu85ZyZTMEj3R37G</code></span>
 
-### Интеллектуальная собственность
+### Ð˜Ð½Ñ‚ÐµÐ»Ð»ÐµÐºÑ‚ÑƒÐ°Ð»ÑŒÐ½Ð°Ñ ÑÐ¾Ð±ÑÑ‚Ð²ÐµÐ½Ð½Ð¾ÑÑ‚ÑŒ
 
-- Иконки расширения (media/icon.png и media/activity-icon.svg) и визуальная айдентика зарезервированы для этого проекта, если автор явно не разрешил иное.
-- Название, бренд и визуальные материалы защищены с сохранением всех прав.
-- Репозиторий не предоставляет прав на коммерческое использование айдентики продукта без предварительного разрешения.
+- Ð˜ÐºÐ¾Ð½ÐºÐ¸ Ñ€Ð°ÑÑˆÐ¸Ñ€ÐµÐ½Ð¸Ñ (media/icon.png Ð¸ media/activity-icon.svg) Ð¸ Ð²Ð¸Ð·ÑƒÐ°Ð»ÑŒÐ½Ð°Ñ Ð°Ð¹Ð´ÐµÐ½Ñ‚Ð¸ÐºÐ° Ð·Ð°Ñ€ÐµÐ·ÐµÑ€Ð²Ð¸Ñ€Ð¾Ð²Ð°Ð½Ñ‹ Ð´Ð»Ñ ÑÑ‚Ð¾Ð³Ð¾ Ð¿Ñ€Ð¾ÐµÐºÑ‚Ð°, ÐµÑÐ»Ð¸ Ð°Ð²Ñ‚Ð¾Ñ€ ÑÐ²Ð½Ð¾ Ð½Ðµ Ñ€Ð°Ð·Ñ€ÐµÑˆÐ¸Ð» Ð¸Ð½Ð¾Ðµ.
+- ÐÐ°Ð·Ð²Ð°Ð½Ð¸Ðµ, Ð±Ñ€ÐµÐ½Ð´ Ð¸ Ð²Ð¸Ð·ÑƒÐ°Ð»ÑŒÐ½Ñ‹Ðµ Ð¼Ð°Ñ‚ÐµÑ€Ð¸Ð°Ð»Ñ‹ Ð·Ð°Ñ‰Ð¸Ñ‰ÐµÐ½Ñ‹ Ñ ÑÐ¾Ñ…Ñ€Ð°Ð½ÐµÐ½Ð¸ÐµÐ¼ Ð²ÑÐµÑ… Ð¿Ñ€Ð°Ð².
+- Ð ÐµÐ¿Ð¾Ð·Ð¸Ñ‚Ð¾Ñ€Ð¸Ð¹ Ð½Ðµ Ð¿Ñ€ÐµÐ´Ð¾ÑÑ‚Ð°Ð²Ð»ÑÐµÑ‚ Ð¿Ñ€Ð°Ð² Ð½Ð° ÐºÐ¾Ð¼Ð¼ÐµÑ€Ñ‡ÐµÑÐºÐ¾Ðµ Ð¸ÑÐ¿Ð¾Ð»ÑŒÐ·Ð¾Ð²Ð°Ð½Ð¸Ðµ Ð°Ð¹Ð´ÐµÐ½Ñ‚Ð¸ÐºÐ¸ Ð¿Ñ€Ð¾Ð´ÑƒÐºÑ‚Ð° Ð±ÐµÐ· Ð¿Ñ€ÐµÐ´Ð²Ð°Ñ€Ð¸Ñ‚ÐµÐ»ÑŒÐ½Ð¾Ð³Ð¾ Ñ€Ð°Ð·Ñ€ÐµÑˆÐµÐ½Ð¸Ñ.
+
 

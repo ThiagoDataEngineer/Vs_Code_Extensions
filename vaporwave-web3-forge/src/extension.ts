@@ -88,7 +88,7 @@ const BALANCE_REPORT_KEY = "vaporwaveWeb3.walletBalanceReport";
 const CONTRACT_REPORT_KEY = "vaporwaveWeb3.contractVerificationReport";
 const UI_THEME_KEY = "vaporwaveWeb3.uiTheme";
 const REGISTRY_LIMIT = 200;
-const DONATE_URL = "https://github.com/sponsors/thiag";
+const DONATE_URL = "https://github.com/ThiagoDataEngineer";
 const DONATE_ADDRESSES = {
   eth: "0x7322789de14a49EBE28b6133167d25BD903A68ed",
   btc: "bc1qt7r96jx06zr5fk8vwhxxcasjjgacs623m6t26j",

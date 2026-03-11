@@ -1,2 +1,4 @@
-# Vs_Code_Extensions
+﻿# Vs_Code_Extensions
+
+Created by thiagoyoshiaki@gmail.com
  
