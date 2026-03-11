@@ -2,7 +2,7 @@
   "name": "dapp-agent-forge-vscode",
   "displayName": "Web3 Wallet Lab Forge",
   "description": "Professional Web3 wallet testing and contract verification for VS Code, built for developers, QA teams, and AI agents.",
-  "version": "0.2.89",
+  "version": "0.2.90",
   "icon": "media/icon.png",
   "publisher": "ShinyDapps",
   "license": "UNLICENSED",
