@@ -1,3 +1,5 @@
+  "cripto",
+  "cripto-output",
 {
   "name": "dapp-agent-forge-vscode",
   "displayName": "Web3 Wallet Lab Forge",
