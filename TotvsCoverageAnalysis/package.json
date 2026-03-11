@@ -1,0 +1,81 @@
+{
+	"publisher": "shinydataanalysis",
+	"name": "totvs-coverage-analysis",
+	"displayName": "Totvs Coverage Analysis",
+	"description": "Suporte para analise dos resultados do Coverage TOTVS. By thiagoyoshiaki@gmail.com",
+	"version": "0.0.6",
+	"icon": "icon.png",
+	"engines": {
+		"vscode": "^1.43.0"
+	},
+	"keywords": [
+        "advpl",
+        "coverage",
+        "totvs",
+		"miyabara",
+		"protheus"
+    ],
+	"categories": [
+		"Other"
+	],
+	"activationEvents": [
+		"onCommand:totvs-coverage-analysis.inittotvscoverage"
+	],
+	"main": "./extension.js",
+	"contributes": {
+		"commands": [
+			{
+				"command": "totvs-coverage-analysis.inittotvscoverage",
+				"title": "Totvs Coverage Analysis"
+			}
+		],
+		"configuration": {
+			"type": "object",
+			"title": "Configuracoes Totvs Coverage",
+			"properties": {
+				"totvs-coverage-analysis.PathCover": {
+					"type": "string",
+					"default": "",
+					"description": "Diretorio de arquivos(.csv) gerados pelo coverage."
+				},
+				"totvs-coverage-analysis.PathCoverSources": {
+					"type": "string",
+					"default": "",
+					"description": "Diretorio de fontes para analise dos resultados de coverage."
+				},
+				"totvs-coverage-analysis.PathCoverResults": {
+					"type": "string",
+					"default": "",
+					"description": "Diretorio onde serao gerados os resultados da analise."
+				}
+			}
+		}			
+	},
+	"scripts": {
+		"lint": "eslint .",
+		"pretest": "npm run lint",
+		"test": "node ./test/runTest.js"
+	},
+	"devDependencies": {
+		"@types/vscode": "^1.43.0",
+		"@types/glob": "^7.1.1",
+		"@types/mocha": "^7.0.2",
+		"@types/node": "^13.11.0",
+		"eslint": "^6.8.0",
+		"glob": "^7.1.6",
+		"mocha": "^7.1.2",
+		"typescript": "^3.8.3",
+		"vscode-test": "^1.3.0"
+	},
+	"dependencies": {
+		"python-shell": "^2.0.1"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/ShinyDataScience/Vs_Code_Extensions/tree/master/TotvsCoverageAnalysis.git"
+	},
+	"bugs": {
+		  "url": "https://github.com/ShinyDataScience/Vs_Code_Extensions/issues"
+	}
+	
+}
