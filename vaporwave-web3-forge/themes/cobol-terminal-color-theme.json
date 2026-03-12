@@ -1,0 +1,65 @@
+{
+  "$schema": "vscode://schemas/color-theme",
+  "name": "Web3 Blockchain COBOL Terminal",
+  "type": "dark",
+  "colors": {
+    "editor.background": "#06130A",
+    "editor.foreground": "#D8FFD9",
+    "editorLineNumber.foreground": "#4DAE60",
+    "editorCursor.foreground": "#E9FF9F",
+    "editor.selectionBackground": "#2C7A3F55",
+    "activityBar.background": "#071A0D",
+    "activityBar.foreground": "#D8FFD9",
+    "activityBarBadge.background": "#39FF14",
+    "sideBar.background": "#07160C",
+    "sideBar.foreground": "#C8F8CC",
+    "sideBarTitle.foreground": "#9DFFA0",
+    "list.activeSelectionBackground": "#12361B",
+    "list.activeSelectionForeground": "#E6FFE9",
+    "list.hoverBackground": "#0F2A16",
+    "statusBar.background": "#071A0D",
+    "statusBar.foreground": "#D8FFD9",
+    "titleBar.activeBackground": "#071A0D",
+    "button.background": "#2FEE58",
+    "button.foreground": "#05200C",
+    "focusBorder": "#65FFA8"
+  },
+  "tokenColors": [
+    {
+      "scope": ["comment"],
+      "settings": {
+        "foreground": "#78B784"
+      }
+    },
+    {
+      "scope": ["keyword", "storage.type"],
+      "settings": {
+        "foreground": "#8DFF95"
+      }
+    },
+    {
+      "scope": ["entity.name.function", "support.function"],
+      "settings": {
+        "foreground": "#E9FF9F"
+      }
+    },
+    {
+      "scope": ["string"],
+      "settings": {
+        "foreground": "#74FFC0"
+      }
+    },
+    {
+      "scope": ["punctuation.section.block.begin", "punctuation.section.block.end", "punctuation.definition.parameters.begin", "punctuation.definition.parameters.end"],
+      "settings": {
+        "foreground": "#39FF14"
+      }
+    },
+    {
+      "scope": ["constant.numeric"],
+      "settings": {
+        "foreground": "#F4FF8A"
+      }
+    }
+  ]
+}
