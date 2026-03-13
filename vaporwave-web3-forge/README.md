@@ -31,7 +31,6 @@ This extension is multilanguage and includes full documentation in all listed la
 - Can be used as a practical reference for wallet-validation, balance-check, and contract-check routines.
 
 
-Independently maintained by thiagoyoshiaki@gmail.com
 
 ## 💛 Sponsor & Community Support
 
