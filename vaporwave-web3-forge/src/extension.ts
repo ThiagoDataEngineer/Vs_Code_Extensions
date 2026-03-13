@@ -3668,7 +3668,17 @@ class WalletLabViewProvider implements vscode.WebviewViewProvider {
         polygon: 'matic-network',
         pol: 'matic-network',
         link: 'chainlink',
-        dot: 'polkadot'
+        dot: 'polkadot',
+        xaut: 'tether-gold',
+        htx: 'htx-dao',
+        huobi: 'huobi-token',
+        ht: 'huobi-token'
+      };
+
+      const extraCandidateIdsByQuery = {
+        htx: ['htx-dao', 'huobi-token'],
+        huobi: ['huobi-token', 'htx-dao'],
+        ht: ['huobi-token']
       };
 
       const symbolById = {
@@ -3683,7 +3693,10 @@ class WalletLabViewProvider implements vscode.WebviewViewProvider {
         'avalanche-2': 'AVAX',
         'matic-network': 'POL',
         chainlink: 'LINK',
-        polkadot: 'DOT'
+        polkadot: 'DOT',
+        'tether-gold': 'XAUT',
+        'htx-dao': 'HTX',
+        'huobi-token': 'HT'
       };
 
       const coinCapIdByCoinGeckoId = {
@@ -3698,7 +3711,8 @@ class WalletLabViewProvider implements vscode.WebviewViewProvider {
         'avalanche-2': 'avalanche',
         'matic-network': 'polygon',
         chainlink: 'chainlink',
-        polkadot: 'polkadot'
+        polkadot: 'polkadot',
+        'huobi-token': 'huobi-token'
       };
 
       const binancePairByCoinId = {
@@ -3713,7 +3727,8 @@ class WalletLabViewProvider implements vscode.WebviewViewProvider {
         'avalanche-2': 'AVAXUSDT',
         'matic-network': 'POLUSDT',
         chainlink: 'LINKUSDT',
-        polkadot: 'DOTUSDT'
+        polkadot: 'DOTUSDT',
+        'huobi-token': 'HTUSDT'
       };
 
       const yahooSymbolByCoinId = {
@@ -3748,6 +3763,7 @@ class WalletLabViewProvider implements vscode.WebviewViewProvider {
       let activeSuggestions = [];
       let activeSuggestionIndex = -1;
       let autocompleteTimer = null;
+      let selectedSuggestionId = '';
       let coinGeckoCoinListCache = [];
       let coinGeckoCoinListFetchedAt = 0;
       let chartRangeSetting = 'max';
@@ -3779,9 +3795,24 @@ class WalletLabViewProvider implements vscode.WebviewViewProvider {
         return String(asset?.symbol || '').toUpperCase().replace(/[^A-Z0-9]/g, '') || 'COIN';
       }
 
+      function getSyntheticSymbolFromId(assetId) {
+        const rawId = String(assetId || '').toLowerCase();
+        if (!rawId.startsWith('symbol:')) {
+          return '';
+        }
+
+        const rawSymbol = rawId.replace('symbol:', '').toUpperCase();
+        return rawSymbol.replace(/[^A-Z0-9]/g, '').slice(0, 12);
+      }
+
       function getYahooSymbolForAsset(asset) {
         const rawId = String(asset?.id || '').toLowerCase();
         const normalizedId = rawId.startsWith('coincap:') ? rawId.replace('coincap:', '') : rawId;
+
+        const syntheticSymbol = getSyntheticSymbolFromId(rawId);
+        if (syntheticSymbol) {
+          return syntheticSymbol + '-USD';
+        }
 
         if (yahooSymbolByCoinId[normalizedId]) {
           return yahooSymbolByCoinId[normalizedId];
@@ -3808,7 +3839,8 @@ class WalletLabViewProvider implements vscode.WebviewViewProvider {
           return;
         }
 
-        marketSearchInputEl.value = suggestion.id;
+        selectedSuggestionId = String(suggestion.id || '').toLowerCase();
+        marketSearchInputEl.value = suggestion.symbol || suggestion.id;
         clearAutocomplete();
       }
 
@@ -4260,10 +4292,28 @@ class WalletLabViewProvider implements vscode.WebviewViewProvider {
           return { points: [], startMs: NaN, endMs: NaN };
         }
 
+        const syntheticSymbol = getSyntheticSymbolFromId(rawId);
+        let geckoId = rawId;
+
+        if (syntheticSymbol) {
+          try {
+            const searchEndpoint = 'https://api.coingecko.com/api/v3/search?query=' + encodeURIComponent(syntheticSymbol);
+            const searchPayload = await fetchJsonWithRetry(searchEndpoint, 1, 9000);
+            const bestMatch = pickBestCoinMatch(searchPayload?.coins, syntheticSymbol.toLowerCase());
+            geckoId = bestMatch?.id ? String(bestMatch.id).toLowerCase() : '';
+          } catch {
+            geckoId = '';
+          }
+
+          if (!geckoId) {
+            return { points: [], startMs: NaN, endMs: NaN };
+          }
+        }
+
         try {
           const geckoEndpoint =
             'https://api.coingecko.com/api/v3/coins/'
-            + encodeURIComponent(rawId)
+            + encodeURIComponent(geckoId)
             + '/market_chart?vs_currency=usd&days=max&interval=daily';
           const geckoPayload = await fetchJsonWithRetry(geckoEndpoint, 1, 25000);
           return parseCoinGeckoChartData(geckoPayload);
@@ -4279,7 +4329,20 @@ class WalletLabViewProvider implements vscode.WebviewViewProvider {
 
         const rawId = String(asset.id || '').toLowerCase();
         const normalizedId = rawId.startsWith('coincap:') ? rawId.replace('coincap:', '') : rawId;
-        const coinCapId = coinCapIdByCoinGeckoId[normalizedId] || normalizedId;
+        let coinCapId = coinCapIdByCoinGeckoId[normalizedId] || normalizedId;
+
+        const syntheticSymbol = getSyntheticSymbolFromId(rawId);
+        if (syntheticSymbol) {
+          try {
+            const searchEndpoint = 'https://api.coincap.io/v2/assets?search=' + encodeURIComponent(syntheticSymbol.toLowerCase());
+            const searchPayload = await fetchJsonWithRetry(searchEndpoint, 1, 10000);
+            const bestMatch = pickBestCoinCapMatch(searchPayload?.data, syntheticSymbol.toLowerCase());
+            coinCapId = bestMatch?.id ? String(bestMatch.id).toLowerCase() : '';
+          } catch {
+            coinCapId = '';
+          }
+        }
+
         if (!coinCapId) {
           return { points: [], startMs: NaN, endMs: NaN };
         }
@@ -4709,6 +4772,10 @@ class WalletLabViewProvider implements vscode.WebviewViewProvider {
           candidates.push(coinAliases[normalized]);
         }
 
+        if (Array.isArray(extraCandidateIdsByQuery[normalized])) {
+          candidates.push(...extraCandidateIdsByQuery[normalized]);
+        }
+
         candidates.push(normalized);
         candidates.push(normalized.replace(/\\s+/g, '-'));
 
@@ -4724,6 +4791,90 @@ class WalletLabViewProvider implements vscode.WebviewViewProvider {
         }
 
         return unique;
+      }
+
+      function mergeUniqueCoinIds(ids) {
+        const merged = [];
+        for (const id of ids) {
+          const cleaned = String(id || '').trim().toLowerCase();
+          if (!cleaned) {
+            continue;
+          }
+          if (!merged.includes(cleaned)) {
+            merged.push(cleaned);
+          }
+        }
+        return merged;
+      }
+
+      function scoreSearchCoinCandidate(coin, normalizedQuery) {
+        const id = String(coin?.id || '').toLowerCase();
+        const symbol = String(coin?.symbol || '').toLowerCase();
+        const name = String(coin?.name || '').toLowerCase();
+        const marketCapRank = typeof coin?.market_cap_rank === 'number' ? coin.market_cap_rank : Number.MAX_SAFE_INTEGER;
+
+        let score = 0;
+        if (symbol === normalizedQuery) {
+          score += 120;
+        }
+        if (id === normalizedQuery || id === normalizedQuery.replace(/\s+/g, '-')) {
+          score += 110;
+        }
+        if (name === normalizedQuery) {
+          score += 95;
+        }
+        if (symbol.startsWith(normalizedQuery)) {
+          score += 65;
+        }
+        if (id.startsWith(normalizedQuery)) {
+          score += 60;
+        }
+        if (name.startsWith(normalizedQuery)) {
+          score += 55;
+        }
+        if (id.includes(normalizedQuery)) {
+          score += 45;
+        }
+        if (name.includes(normalizedQuery)) {
+          score += 35;
+        }
+
+        return {
+          id,
+          score,
+          marketCapRank
+        };
+      }
+
+      async function buildCoinGeckoSearchCandidateIds(rawQuery) {
+        const normalizedQuery = String(rawQuery || '').trim().toLowerCase();
+        if (!normalizedQuery) {
+          return [];
+        }
+
+        try {
+          const endpoint = 'https://api.coingecko.com/api/v3/search?query=' + encodeURIComponent(normalizedQuery);
+          const payload = await fetchJsonWithRetry(endpoint, 1, 9000);
+          if (!Array.isArray(payload?.coins) || payload.coins.length === 0) {
+            return [];
+          }
+
+          const rankedIds = payload.coins
+            .map((coin) => scoreSearchCoinCandidate(coin, normalizedQuery))
+            .filter((entry) => entry.score > 0 && entry.id)
+            .sort((a, b) => {
+              if (b.score !== a.score) {
+                return b.score - a.score;
+              }
+              return a.marketCapRank - b.marketCapRank;
+            })
+            .slice(0, 20)
+            .map((entry) => entry.id);
+
+          return mergeUniqueCoinIds(rankedIds);
+        } catch {
+          return [];
+        }
       }
 
       async function fetchJsonWithRetry(url, retries, timeoutMs = 12000) {
@@ -5134,6 +5285,39 @@ class WalletLabViewProvider implements vscode.WebviewViewProvider {
         };
       }
 
+      async function resolveAssetByUniversalSymbol(rawQuery) {
+        const symbol = String(rawQuery || '').trim().toUpperCase().replace(/[^A-Z0-9]/g, '').slice(0, 12);
+        if (symbol.length < 2) {
+          return null;
+        }
+
+        const syntheticAsset = {
+          id: 'symbol:' + symbol.toLowerCase(),
+          symbol
+        };
+
+        const providerChecks = [
+          () => fetchCoinCapPriceForAsset(syntheticAsset),
+          () => fetchCryptoComparePriceForAsset(syntheticAsset),
+          () => fetchYahooPriceForAsset(syntheticAsset),
+          () => fetchDexScreenerPriceForAsset(syntheticAsset),
+          () => fetchBinancePriceForAsset(syntheticAsset)
+        ];
+
+        for (const check of providerChecks) {
+          try {
+            const priceData = await check();
+            if (priceData && Number.isFinite(Number(priceData.usd))) {
+              return syntheticAsset;
+            }
+          } catch {
+            // Continue trying other providers.
+          }
+        }
+
+        return null;
+      }
+
       async function resolveCoinWithBinance(rawQuery, resolvedCoin) {
         const candidateIds = buildCandidateIds(rawQuery, resolvedCoin?.id || '', Boolean(resolvedCoin?.fromAlias));
 
@@ -5169,12 +5353,15 @@ class WalletLabViewProvider implements vscode.WebviewViewProvider {
       }
 
       async function refreshMarketBubbles() {
-        const ids = marketConfig.map((a) => encodeURIComponent(a.id)).join(',');
+        const geckoCompatibleIds = marketConfig
+          .map((asset) => String(asset?.id || '').toLowerCase())
+          .filter((id) => id && !id.includes(':'));
+        const ids = geckoCompatibleIds.map((id) => encodeURIComponent(id)).join(',');
         const endpoint = 'https://api.coingecko.com/api/v3/simple/price?ids=' + ids + '&vs_currencies=usd&include_24hr_change=true';
 
         try {
           marketErrorEl.style.display = 'none';
-          const geckoData = await fetchJsonWithRetry(endpoint, 1);
+          const geckoData = ids ? await fetchJsonWithRetry(endpoint, 1) : {};
           const mergedData = { ...geckoData };
 
           const missingAssets = marketConfig.filter((asset) => {
@@ -5214,13 +5401,20 @@ class WalletLabViewProvider implements vscode.WebviewViewProvider {
 
       async function addAssetFromSearch() {
         const rawQuery = (marketSearchInputEl.value || '').trim();
+        const explicitSuggestionId = String(selectedSuggestionId || '').trim().toLowerCase();
         if (!rawQuery) {
           return;
         }
 
         marketSearchBtnEl.disabled = true;
 
-        const resolvedCoin = await resolveCoin(rawQuery);
+        const resolvedCoin = explicitSuggestionId
+          ? {
+              id: explicitSuggestionId,
+              symbol: resolveSymbol(explicitSuggestionId, rawQuery),
+              fromAlias: false
+            }
+          : await resolveCoin(rawQuery);
         const coinId = resolvedCoin.id;
         if (!coinId) {
           marketSearchBtnEl.disabled = false;
@@ -5230,7 +5424,14 @@ class WalletLabViewProvider implements vscode.WebviewViewProvider {
         try {
           marketErrorEl.style.display = 'none';
 
-          const candidateIds = buildCandidateIds(rawQuery, coinId, Boolean(resolvedCoin.fromAlias));
+          const baseCandidateIds = buildCandidateIds(rawQuery, coinId, Boolean(resolvedCoin.fromAlias));
+          const searchCandidateIds = await buildCoinGeckoSearchCandidateIds(rawQuery);
+          const candidateIds = mergeUniqueCoinIds([
+            explicitSuggestionId,
+            coinId,
+            ...baseCandidateIds,
+            ...searchCandidateIds
+          ]);
           const idsParam = candidateIds.map((id) => encodeURIComponent(id)).join(',');
           const endpoint = 'https://api.coingecko.com/api/v3/simple/price?ids=' + idsParam + '&vs_currencies=usd&include_24hr_change=true';
           const payload = await fetchJsonWithRetry(endpoint, 1);
@@ -5248,6 +5449,7 @@ class WalletLabViewProvider implements vscode.WebviewViewProvider {
           }
 
           marketSearchInputEl.value = '';
+          selectedSuggestionId = '';
           await refreshMarketBubbles();
           await refreshSelectedChart();
         } catch (error) {
@@ -5262,6 +5464,7 @@ class WalletLabViewProvider implements vscode.WebviewViewProvider {
               }
 
               marketSearchInputEl.value = '';
+              selectedSuggestionId = '';
               await refreshMarketBubbles();
               await refreshSelectedChart();
               marketErrorEl.style.display = 'none';
@@ -5283,6 +5486,7 @@ class WalletLabViewProvider implements vscode.WebviewViewProvider {
               }
 
               marketSearchInputEl.value = '';
+              selectedSuggestionId = '';
               await refreshMarketBubbles();
               await refreshSelectedChart();
               marketErrorEl.style.display = 'none';
@@ -5290,6 +5494,24 @@ class WalletLabViewProvider implements vscode.WebviewViewProvider {
             }
           } catch {
             // Surface original error when CoinCap fallback also fails.
+          }
+
+          try {
+            const symbolAsset = await resolveAssetByUniversalSymbol(rawQuery);
+            if (symbolAsset) {
+              if (!marketConfig.some((asset) => asset.id === symbolAsset.id)) {
+                marketConfig.push(symbolAsset);
+              }
+
+              marketSearchInputEl.value = '';
+              selectedSuggestionId = '';
+              await refreshMarketBubbles();
+              await refreshSelectedChart();
+              marketErrorEl.style.display = 'none';
+              return;
+            }
+          } catch {
+            // Keep original error from previous attempts.
           }
 
           const message = error instanceof Error ? error.message : 'Unknown error';
@@ -5302,6 +5524,7 @@ class WalletLabViewProvider implements vscode.WebviewViewProvider {
 
       marketSearchBtnEl.addEventListener('click', addAssetFromSearch);
       marketSearchInputEl.addEventListener('input', () => {
+        selectedSuggestionId = '';
         const query = marketSearchInputEl.value || '';
         if (autocompleteTimer) {
           clearTimeout(autocompleteTimer);
