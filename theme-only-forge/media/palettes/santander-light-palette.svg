@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="220" viewBox="0 0 1200 220" role="img" aria-label="Santander Light palette">
+  <rect width="1200" height="220" fill="#F7FAFF"/>
+  <text x="24" y="38" fill="#4C262B" font-family="Segoe UI, Arial, sans-serif" font-size="24" font-weight="700">Santander Light Palette</text>
+  <g transform="translate(24,60)">
+    <rect x="0" y="0" width="140" height="120" fill="#FFF7F8"/>
+    <rect x="146" y="0" width="140" height="120" fill="#4A2328"/>
+    <rect x="292" y="0" width="140" height="120" fill="#E30613"/>
+    <rect x="438" y="0" width="140" height="120" fill="#005FAF"/>
+    <rect x="584" y="0" width="140" height="120" fill="#1F7A57"/>
+    <rect x="730" y="0" width="140" height="120" fill="#A15C00"/>
+    <rect x="876" y="0" width="140" height="120" fill="#9C640C"/>
+    <rect x="1022" y="0" width="140" height="120" fill="#C13A4A"/>
+  </g>
+  <g transform="translate(24,196)" font-family="Consolas, 'Courier New', monospace" font-size="14" fill="#334155">
+    <text x="0" y="0">#FFF7F8</text>
+    <text x="146" y="0">#4A2328</text>
+    <text x="292" y="0">#E30613</text>
+    <text x="438" y="0">#005FAF</text>
+    <text x="584" y="0">#1F7A57</text>
+    <text x="730" y="0">#A15C00</text>
+    <text x="876" y="0">#9C640C</text>
+    <text x="1022" y="0">#C13A4A</text>
+  </g>
+</svg>

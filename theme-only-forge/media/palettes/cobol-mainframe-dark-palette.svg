@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="220" viewBox="0 0 1200 220" role="img" aria-label="COBOL Mainframe Dark palette">
+  <rect width="1200" height="220" fill="#08140F"/>
+  <text x="24" y="38" fill="#E8FFF0" font-family="Segoe UI, Arial, sans-serif" font-size="24" font-weight="700">COBOL Mainframe Dark Palette</text>
+  <g transform="translate(24,60)">
+    <rect x="0" y="0" width="140" height="120" fill="#07140D"/>
+    <rect x="146" y="0" width="140" height="120" fill="#DFFBE8"/>
+    <rect x="292" y="0" width="140" height="120" fill="#D53B3B"/>
+    <rect x="438" y="0" width="140" height="120" fill="#8EC5FF"/>
+    <rect x="584" y="0" width="140" height="120" fill="#74DFAE"/>
+    <rect x="730" y="0" width="140" height="120" fill="#FFCC80"/>
+    <rect x="876" y="0" width="140" height="120" fill="#FFD166"/>
+    <rect x="1022" y="0" width="140" height="120" fill="#FF8D8D"/>
+  </g>
+  <g transform="translate(24,196)" font-family="Consolas, 'Courier New', monospace" font-size="14" fill="#CFEFDB">
+    <text x="0" y="0">#07140D</text>
+    <text x="146" y="0">#DFFBE8</text>
+    <text x="292" y="0">#D53B3B</text>
+    <text x="438" y="0">#8EC5FF</text>
+    <text x="584" y="0">#74DFAE</text>
+    <text x="730" y="0">#FFCC80</text>
+    <text x="876" y="0">#FFD166</text>
+    <text x="1022" y="0">#FF8D8D</text>
+  </g>
+</svg>

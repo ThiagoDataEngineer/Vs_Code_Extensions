@@ -1,0 +1,341 @@
+{
+    "$schema": "vscode://schemas/color-theme",
+    "name": "World Banking Santander Neon Black",
+    "type": "dark",
+    "colors": {
+        "editor.background": "#070707",
+        "editor.foreground": "#FFEFF3",
+        "editorLineNumber.foreground": "#A06A79",
+        "editorCursor.foreground": "#FF355E",
+        "editor.selectionBackground": "#FF355E33",
+        "activityBar.background": "#0C0C0D",
+        "activityBar.foreground": "#FFEFF3",
+        "activityBarBadge.background": "#FF1744",
+        "activityBarBadge.foreground": "#FFFFFF",
+        "sideBar.background": "#0A0A0B",
+        "sideBar.foreground": "#FFDDE4",
+        "sideBarTitle.foreground": "#FF8AA1",
+        "list.activeSelectionBackground": "#2A1118",
+        "list.activeSelectionForeground": "#FFFFFF",
+        "list.hoverBackground": "#1B0C11",
+        "statusBar.background": "#FF1744",
+        "statusBar.foreground": "#FFFFFF",
+        "titleBar.activeBackground": "#0C0C0D",
+        "titleBar.activeForeground": "#FFFFFF",
+        "button.background": "#FF355E",
+        "button.foreground": "#FFFFFF",
+        "focusBorder": "#FF4D6D",
+        "editorLineNumber.activeForeground": "#FF4D6D",
+        "editor.lineHighlightBackground": "#FF17441A",
+        "editorBracketMatch.background": "#FF4D6D22",
+        "editorBracketMatch.border": "#FF4D6D88",
+        "editorIndentGuide.background1": "#2B1720",
+        "editorIndentGuide.activeBackground1": "#4A2632",
+        "editorGutter.background": "#070707",
+        "editorWhitespace.foreground": "#4A2932",
+        "editor.selectionHighlightBackground": "#FF355E26",
+        "editor.wordHighlightBackground": "#FF355E1F",
+        "editor.wordHighlightStrongBackground": "#FF355E33",
+        "activityBar.inactiveForeground": "#B37C8A",
+        "sideBar.border": "#3A1A23",
+        "sideBarSectionHeader.foreground": "#FF9AB0",
+        "sideBarSectionHeader.border": "#3A1A23",
+        "list.inactiveSelectionBackground": "#FF355E22",
+        "list.focusBackground": "#FF355E36",
+        "list.focusForeground": "#FFFFFF",
+        "list.highlightForeground": "#FF9AB0",
+        "statusBar.debuggingBackground": "#FF4D6D",
+        "statusBar.debuggingForeground": "#FFFFFF",
+        "titleBar.inactiveBackground": "#050505",
+        "titleBar.inactiveForeground": "#A06A79",
+        "tab.activeBackground": "#0A0A0B",
+        "tab.activeForeground": "#FFEFF3",
+        "tab.inactiveBackground": "#050505",
+        "tab.inactiveForeground": "#A06A79",
+        "tab.border": "#3A1A23",
+        "tab.activeBorderTop": "#FF1744",
+        "button.hoverBackground": "#FF4D6D",
+        "input.background": "#050505",
+        "input.border": "#4A2632",
+        "input.foreground": "#FFEFF3",
+        "input.placeholderForeground": "#A06A79",
+        "dropdown.background": "#050505",
+        "dropdown.foreground": "#FFEFF3",
+        "dropdown.border": "#4A2632",
+        "badge.background": "#FF1744",
+        "badge.foreground": "#FFFFFF",
+        "panel.background": "#0C0C0D",
+        "panel.border": "#3A1A23",
+        "panelTitle.activeBorder": "#FF1744",
+        "panelTitle.activeForeground": "#FFEFF3",
+        "panelTitle.inactiveForeground": "#A06A79",
+        "terminal.background": "#070707",
+        "terminal.foreground": "#FFEFF3",
+        "terminalCursor.foreground": "#FF355E",
+        "terminal.ansiBlack": "#0C0C0D",
+        "terminal.ansiRed": "#FF4D6D",
+        "terminal.ansiGreen": "#32E875",
+        "terminal.ansiYellow": "#FFD700",
+        "terminal.ansiBlue": "#FF8FA8",
+        "terminal.ansiMagenta": "#FF65D2",
+        "terminal.ansiCyan": "#FF9FB5",
+        "terminal.ansiWhite": "#E5E7EB",
+        "terminal.ansiBrightBlack": "#4A2632",
+        "terminal.ansiBrightRed": "#FF7C95",
+        "terminal.ansiBrightGreen": "#6DF5A1",
+        "terminal.ansiBrightYellow": "#FFE866",
+        "terminal.ansiBrightBlue": "#FFB3C5",
+        "terminal.ansiBrightMagenta": "#FF8DE3",
+        "terminal.ansiBrightCyan": "#FFC6D3",
+        "terminal.ansiBrightWhite": "#FFFFFF",
+        "scrollbarSlider.background": "#FF8AA133",
+        "scrollbarSlider.hoverBackground": "#FF8AA155",
+        "scrollbarSlider.activeBackground": "#FF8AA177",
+        "notifications.background": "#0A0A0B",
+        "notifications.foreground": "#FFEFF3",
+        "notifications.border": "#3A1A23",
+        "minimap.background": "#070707EE",
+        "sideBarSectionHeader.background": "#14090E"
+    },
+    "tokenColors": [
+        {
+            "settings": {
+                "foreground": "#A06A79",
+                "fontStyle": "italic"
+            },
+            "scope": [
+                "comment",
+                "punctuation.definition.comment"
+            ]
+        },
+        {
+            "settings": {
+                "foreground": "#FF6B89",
+                "fontStyle": "bold"
+            },
+            "scope": [
+                "keyword",
+                "storage.type",
+                "storage.modifier",
+                "keyword.control",
+                "keyword.operator.new",
+                "keyword.operator.expression",
+                "source.cobol keyword",
+                "source.cobol storage",
+                "source.cobol meta.verb"
+            ]
+        },
+        {
+            "settings": {
+                "foreground": "#FF9FB5"
+            },
+            "scope": [
+                "entity.name.type",
+                "support.type",
+                "entity.name.class",
+                "entity.name.namespace",
+                "storage.type.java",
+                "source.scala storage.type",
+                "source.python storage.type"
+            ]
+        },
+        {
+            "settings": {
+                "foreground": "#FF7C95"
+            },
+            "scope": [
+                "entity.name.function",
+                "support.function",
+                "entity.name.function.python",
+                "entity.name.function.java",
+                "entity.name.function.scala",
+                "support.function.builtin.python",
+                "support.function.pyspark"
+            ]
+        },
+        {
+            "settings": {
+                "foreground": "#FF8AA1"
+            },
+            "scope": [
+                "meta.function-call",
+                "variable.function",
+                "meta.method-call.java",
+                "meta.function-call.python"
+            ]
+        },
+        {
+            "settings": {
+                "foreground": "#FFE0E7"
+            },
+            "scope": [
+                "variable",
+                "meta.definition.variable",
+                "meta.variable.object",
+                "variable.other.readwrite",
+                "source.cobol variable"
+            ]
+        },
+        {
+            "settings": {
+                "foreground": "#FFD700"
+            },
+            "scope": [
+                "variable.parameter",
+                "meta.function.parameters",
+                "meta.parameters",
+                "variable.parameter.function"
+            ]
+        },
+        {
+            "settings": {
+                "foreground": "#FFC0CC"
+            },
+            "scope": [
+                "variable.other.property",
+                "support.variable.property",
+                "variable.other.member",
+                "meta.attribute",
+                "variable.other.constant"
+            ]
+        },
+        {
+            "settings": {
+                "foreground": "#8EF5B1"
+            },
+            "scope": [
+                "string",
+                "punctuation.definition.string",
+                "string.quoted.single",
+                "string.quoted.double"
+            ]
+        },
+        {
+            "settings": {
+                "foreground": "#FFD700"
+            },
+            "scope": [
+                "constant.numeric",
+                "constant.numeric.integer",
+                "constant.numeric.float",
+                "constant.language.boolean"
+            ]
+        },
+        {
+            "settings": {
+                "foreground": "#F5B1C4"
+            },
+            "scope": [
+                "constant.language",
+                "constant.character",
+                "constant.other",
+                "constant.other.symbol",
+                "constant.language.solidity"
+            ]
+        },
+        {
+            "settings": {
+                "foreground": "#FFD3DD"
+            },
+            "scope": [
+                "keyword.operator",
+                "keyword.operator.logical",
+                "keyword.operator.arithmetic"
+            ]
+        },
+        {
+            "settings": {
+                "foreground": "#FFD700",
+                "fontStyle": "bold"
+            },
+            "scope": [
+                "source.cobol entity.name.section",
+                "source.cobol entity.name.paragraph",
+                "entity.name.section",
+                "entity.name.label"
+            ]
+        },
+        {
+            "settings": {
+                "foreground": "#FF9D4D",
+                "fontStyle": "bold"
+            },
+            "scope": [
+                "source.solidity keyword",
+                "source.solidity storage.type",
+                "storage.type.user-defined.solidity"
+            ]
+        },
+        {
+            "settings": {
+                "foreground": "#FFB3C5"
+            },
+            "scope": [
+                "source.python support.type",
+                "source.scala support.type",
+                "source.java support.type",
+                "source.pyspark support.function"
+            ]
+        }
+    ],
+    "semanticTokenColors": {
+        "class": {
+            "foreground": "#FF9FB5"
+        },
+        "parameter": {
+            "foreground": "#FFD700"
+        },
+        "enum": {
+            "foreground": "#FF9FB5"
+        },
+        "property": {
+            "foreground": "#FFC0CC"
+        },
+        "keyword.control": {
+            "foreground": "#FF6B89",
+            "fontStyle": "bold"
+        },
+        "method": {
+            "foreground": "#FF8AA1"
+        },
+        "variable": {
+            "foreground": "#FFE0E7"
+        },
+        "type": {
+            "foreground": "#FF9FB5"
+        },
+        "keyword": {
+            "foreground": "#FF6B89",
+            "fontStyle": "bold"
+        },
+        "interface": {
+            "foreground": "#FF9FB5"
+        },
+        "variable.readonly": {
+            "foreground": "#F5B1C4"
+        },
+        "number": {
+            "foreground": "#FFD700"
+        },
+        "function": {
+            "foreground": "#FF7C95"
+        },
+        "string": {
+            "foreground": "#8EF5B1"
+        },
+        "comment": {
+            "foreground": "#A06A79",
+            "fontStyle": "italic"
+        },
+        "namespace": {
+            "foreground": "#FF9FB5"
+        },
+        "label": {
+            "foreground": "#FFD700",
+            "fontStyle": "bold"
+        },
+        "macro": {
+            "foreground": "#FF9D4D"
+        }
+    }
+}

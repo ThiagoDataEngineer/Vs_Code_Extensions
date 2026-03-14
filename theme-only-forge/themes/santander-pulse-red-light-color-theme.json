@@ -1,0 +1,341 @@
+﻿{
+    "$schema":  "vscode://schemas/color-theme",
+    "name":  "World Banking Santander Light",
+    "type":  "light",
+    "colors":  {
+                   "editor.background":  "#FFF2F5",
+                   "editor.foreground":  "#4A2328",
+                   "editorLineNumber.foreground":  "#9AA7BD",
+                   "editorCursor.foreground":  "#E30613",
+                   "editor.selectionBackground":  "#FFC2CF66",
+                   "activityBar.background":  "#FFE0E7",
+                   "activityBar.foreground":  "#4C262B",
+                   "activityBarBadge.background":  "#E30613",
+                   "activityBarBadge.foreground":  "#FFFFFF",
+                   "sideBar.background":  "#FFE8EE",
+                   "sideBar.foreground":  "#314865",
+                   "sideBarTitle.foreground":  "#B0B4BC",
+                   "list.activeSelectionBackground":  "#FFD2DC",
+                   "list.activeSelectionForeground":  "#4C262B",
+                   "list.hoverBackground":  "#FFE0E7",
+                   "statusBar.background":  "#E30613",
+                   "statusBar.foreground":  "#FFFFFF",
+                   "titleBar.activeBackground":  "#FFE0E7",
+                   "titleBar.activeForeground":  "#4C262B",
+                   "button.background":  "#E30613",
+                   "button.foreground":  "#FFFFFF",
+                   "focusBorder":  "#FF4D6D",
+                   "editorLineNumber.activeForeground":  "#E30613",
+                   "editor.lineHighlightBackground":  "#E5001214",
+                   "editorBracketMatch.background":  "#B0B4BC1F",
+                   "editorBracketMatch.border":  "#B0B4BCAA",
+                   "editorIndentGuide.background1":  "#F2C5D0",
+                   "editorIndentGuide.activeBackground1":  "#E89AAF",
+                   "editorGutter.background":  "#FFF2F5",
+                   "editorWhitespace.foreground":  "#D9AAB8",
+                   "editor.selectionHighlightBackground":  "#E5001222",
+                   "editor.wordHighlightBackground":  "#4A4A4A24",
+                   "editor.wordHighlightStrongBackground":  "#E5001230",
+                   "activityBar.inactiveForeground":  "#B97788",
+                   "sideBar.border":  "#E7B5C3",
+                   "sideBarSectionHeader.foreground":  "#B0B4BC",
+                   "sideBarSectionHeader.border":  "#E7B5C3",
+                   "list.inactiveSelectionBackground":  "#E5001224",
+                   "list.focusBackground":  "#E5001238",
+                   "list.focusForeground":  "#111827",
+                   "list.highlightForeground":  "#B0B4BC",
+                   "statusBar.debuggingBackground":  "#B0B4BC",
+                   "statusBar.debuggingForeground":  "#111827",
+                   "titleBar.inactiveBackground":  "#FFD8E1",
+                   "titleBar.inactiveForeground":  "#B97788",
+                   "tab.activeBackground":  "#FFFFFF",
+                   "tab.activeForeground":  "#4C262B",
+                   "tab.inactiveBackground":  "#FFD8E1",
+                   "tab.inactiveForeground":  "#B97788",
+                   "tab.border":  "#E7B5C3",
+                   "tab.activeBorderTop":  "#E30613",
+                   "button.hoverBackground":  "#B0B4BC",
+                   "input.background":  "#FFFFFF",
+                   "input.border":  "#E7B5C3",
+                   "input.foreground":  "#4C262B",
+                   "input.placeholderForeground":  "#B97788",
+                   "dropdown.background":  "#FFFFFF",
+                   "dropdown.foreground":  "#4C262B",
+                   "dropdown.border":  "#E7B5C3",
+                   "badge.background":  "#E30613",
+                   "badge.foreground":  "#FFFFFF",
+                   "panel.background":  "#FFE4EB",
+                   "panel.border":  "#E7B5C3",
+                   "panelTitle.activeBorder":  "#E30613",
+                   "panelTitle.activeForeground":  "#4C262B",
+                   "panelTitle.inactiveForeground":  "#B97788",
+                   "terminal.background":  "#FFF2F5",
+                   "terminal.foreground":  "#4A2328",
+                   "terminalCursor.foreground":  "#E50012",
+                   "terminal.ansiBlack":  "#6B3D48",
+                   "terminal.ansiRed":  "#EF4444",
+                   "terminal.ansiGreen":  "#22C55E",
+                   "terminal.ansiYellow":  "#EAB308",
+                   "terminal.ansiBlue":  "#3B82F6",
+                   "terminal.ansiMagenta":  "#A855F7",
+                   "terminal.ansiCyan":  "#06B6D4",
+                   "terminal.ansiWhite":  "#E5E7EB",
+                   "terminal.ansiBrightBlack":  "#8E5A67",
+                   "terminal.ansiBrightRed":  "#F87171",
+                   "terminal.ansiBrightGreen":  "#4ADE80",
+                   "terminal.ansiBrightYellow":  "#FACC15",
+                   "terminal.ansiBrightBlue":  "#60A5FA",
+                   "terminal.ansiBrightMagenta":  "#C084FC",
+                   "terminal.ansiBrightCyan":  "#22D3EE",
+                   "terminal.ansiBrightWhite":  "#F8FAFC",
+                   "scrollbarSlider.background":  "#B0B4BC33",
+                   "scrollbarSlider.hoverBackground":  "#B0B4BC55",
+                   "scrollbarSlider.activeBackground":  "#B0B4BC77",
+                   "notifications.background":  "#FFFFFF",
+                   "notifications.foreground":  "#4C262B",
+                   "notifications.border":  "#E7B5C3",
+                   "minimap.background":  "#FFF2F5EE",
+                   "sideBarSectionHeader.background":  "#FFDDE6"
+               },
+    "tokenColors":  [
+                        {
+                            "settings":  {
+                                             "foreground":  "#7D8CA0",
+                                             "fontStyle":  "italic"
+                                         },
+                            "scope":  [
+                                          "comment",
+                                          "punctuation.definition.comment"
+                                      ]
+                        },
+                        {
+                            "settings":  {
+                                             "foreground":  "#C13A4A",
+                                             "fontStyle":  "bold"
+                                         },
+                            "scope":  [
+                                          "keyword",
+                                          "storage.type",
+                                          "storage.modifier",
+                                          "keyword.control",
+                                          "keyword.operator.new",
+                                          "keyword.operator.expression",
+                                          "source.cobol keyword",
+                                          "source.cobol storage",
+                                          "source.cobol meta.verb"
+                                      ]
+                        },
+                        {
+                            "settings":  {
+                                             "foreground":  "#8A5A14"
+                                         },
+                            "scope":  [
+                                          "entity.name.type",
+                                          "support.type",
+                                          "entity.name.class",
+                                          "entity.name.namespace",
+                                          "storage.type.java",
+                                          "source.scala storage.type",
+                                          "source.python storage.type"
+                                      ]
+                        },
+                        {
+                            "settings":  {
+                                             "foreground":  "#005FAF"
+                                         },
+                            "scope":  [
+                                          "entity.name.function",
+                                          "support.function",
+                                          "entity.name.function.python",
+                                          "entity.name.function.java",
+                                          "entity.name.function.scala",
+                                          "support.function.builtin.python",
+                                          "support.function.pyspark"
+                                      ]
+                        },
+                        {
+                            "settings":  {
+                                             "foreground":  "#1A6FC2"
+                                         },
+                            "scope":  [
+                                          "meta.function-call",
+                                          "variable.function",
+                                          "meta.method-call.java",
+                                          "meta.function-call.python"
+                                      ]
+                        },
+                        {
+                            "settings":  {
+                                             "foreground":  "#2A3F5F"
+                                         },
+                            "scope":  [
+                                          "variable",
+                                          "meta.definition.variable",
+                                          "meta.variable.object",
+                                          "variable.other.readwrite",
+                                          "source.cobol variable"
+                                      ]
+                        },
+                        {
+                            "settings":  {
+                                             "foreground":  "#FFD700"
+                                         },
+                            "scope":  [
+                                          "variable.parameter",
+                                          "meta.function.parameters",
+                                          "meta.parameters",
+                                          "variable.parameter.function"
+                                      ]
+                        },
+                        {
+                            "settings":  {
+                                             "foreground":  "#4B5F7E"
+                                         },
+                            "scope":  [
+                                          "variable.other.property",
+                                          "support.variable.property",
+                                          "variable.other.member",
+                                          "meta.attribute",
+                                          "variable.other.constant"
+                                      ]
+                        },
+                        {
+                            "settings":  {
+                                             "foreground":  "#1F7A57"
+                                         },
+                            "scope":  [
+                                          "string",
+                                          "punctuation.definition.string",
+                                          "string.quoted.single",
+                                          "string.quoted.double"
+                                      ]
+                        },
+                        {
+                            "settings":  {
+                                             "foreground":  "#FFD700"
+                                         },
+                            "scope":  [
+                                          "constant.numeric",
+                                          "constant.numeric.integer",
+                                          "constant.numeric.float",
+                                          "constant.language.boolean"
+                                      ]
+                        },
+                        {
+                            "settings":  {
+                                             "foreground":  "#9E4C7B"
+                                         },
+                            "scope":  [
+                                          "constant.language",
+                                          "constant.character",
+                                          "constant.other",
+                                          "constant.other.symbol",
+                                          "constant.language.solidity"
+                                      ]
+                        },
+                        {
+                            "settings":  {
+                                             "foreground":  "#5D6C80"
+                                         },
+                            "scope":  [
+                                          "keyword.operator",
+                                          "keyword.operator.logical",
+                                          "keyword.operator.arithmetic"
+                                      ]
+                        },
+                        {
+                            "settings":  {
+                                             "foreground":  "#FFD700",
+                                             "fontStyle":  "bold"
+                                         },
+                            "scope":  [
+                                          "source.cobol entity.name.section",
+                                          "source.cobol entity.name.paragraph",
+                                          "entity.name.section",
+                                          "entity.name.label"
+                                      ]
+                        },
+                        {
+                            "settings":  {
+                                             "foreground":  "#C13A4A",
+                                             "fontStyle":  "bold"
+                                         },
+                            "scope":  [
+                                          "source.solidity keyword",
+                                          "source.solidity storage.type",
+                                          "storage.type.user-defined.solidity"
+                                      ]
+                        },
+                        {
+                            "settings":  {
+                                             "foreground":  "#005FAF"
+                                         },
+                            "scope":  [
+                                          "source.python support.type",
+                                          "source.scala support.type",
+                                          "source.java support.type",
+                                          "source.pyspark support.function"
+                                      ]
+                        }
+                    ],
+    "semanticTokenColors":  {
+                                "class":  {
+                                              "foreground":  "#8A5A14"
+                                          },
+                                "parameter":  {
+                                                  "foreground":  "#FFD700"
+                                              },
+                                "enum":  {
+                                             "foreground":  "#8A5A14"
+                                         },
+                                "property":  {
+                                                 "foreground":  "#4B5F7E"
+                                             },
+                                "keyword.control":  {
+                                                        "foreground":  "#C13A4A",
+                                                        "fontStyle":  "bold"
+                                                    },
+                                "method":  {
+                                               "foreground":  "#1A6FC2"
+                                           },
+                                "variable":  {
+                                                 "foreground":  "#2A3F5F"
+                                             },
+                                "type":  {
+                                             "foreground":  "#8A5A14"
+                                         },
+                                "keyword":  {
+                                                "foreground":  "#C13A4A",
+                                                "fontStyle":  "bold"
+                                            },
+                                "interface":  {
+                                                  "foreground":  "#8A5A14"
+                                              },
+                                "variable.readonly":  {
+                                                          "foreground":  "#9E4C7B"
+                                                      },
+                                "number":  {
+                                               "foreground":  "#FFD700"
+                                           },
+                                "function":  {
+                                                 "foreground":  "#005FAF"
+                                             },
+                                "string":  {
+                                               "foreground":  "#1F7A57"
+                                           },
+                                "comment":  {
+                                                "foreground":  "#7D8CA0",
+                                                "fontStyle":  "italic"
+                                            },
+                                "namespace":  {
+                                                  "foreground":  "#8A5A14"
+                                              },
+                                "label":  {
+                                              "foreground":  "#FFD700",
+                                              "fontStyle":  "bold"
+                                          },
+                                "macro":  {
+                                              "foreground":  "#C13A4A"
+                                          }
+                            }
+}
