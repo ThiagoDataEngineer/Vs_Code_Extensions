@@ -6,18 +6,19 @@
     <h1>IDEA Theme F1rst 🎨</h1>
     <p>A collection of 7 vibrant and high-quality themes for IntelliJ IDEA and PyCharm. Support for multiple languages and styled for modern development (thema, tema, theme, f1rst, language, multi, bitcoin, crypto, web3, solidity, ubatuba, beach, ghibli).</p>
     <ul>
+      <li><b>IDEA Theme F1rst</b>: Updated professional base with blue and grey tones. Inspired by F1rst digital identity.</li>
       <li><b>Ubatuba Lamberto Beach</b>: Inspired by a soft sunset in Ilhabela, with smooth ocean blues and mountain greens. A Ghibli-style aesthetic.</li>
       <li><b>Bitcoin Tech</b>: Tech-focused theme with Bitcoin orange and smooth dark grey. Ideal for Web3/Solidity.</li>
       <li><b>Vaporwave Red Neon</b>: Dark base with neon magenta and cyan.</li>
       <li><b>Sky Garden</b>: Studio Ghibli inspired soft look.</li>
       <li><b>Cowboy Terminal Black</b>: Retro green-on-black terminal.</li>
       <li><b>Red Neon Future</b>: High contrast futuristic corporate style.</li>
-      <li><b>IDEA Theme F1rst</b>: Solid base with blue and grey tones.</li>
     </ul>
     <p>Designed for comfort and productivity.</p>
   ]]></description>
   <change-notes><![CDATA[
     <ul>
+      <li><b>0.7.0</b>: Updated "IDEA Theme F1rst" with professional blue and grey tones. New modern plugin icon for Marketplace.</li>
       <li><b>0.6.0</b>: Final release of theme-only version. Optimized for marketplace.</li>
       <li><b>0.5.0</b>: Added "Ubatuba Lamberto Beach" theme. Inspired by Ilhabela sunsets and Ghibli style.</li>
       <li><b>0.4.0</b>: Added "Bitcoin Tech" theme for Web3/Solidity developers. Updated search tags.</li>
@@ -25,7 +26,7 @@
       <li><b>0.3.1</b>: Initial release on Marketplace. Anonymized author metadata. Added high-quality descriptions.</li>
     </ul>
   ]]></change-notes>
-  <version>0.6.0</version>
+  <version>0.7.0</version>
   <depends>com.intellij.modules.platform</depends>
 
   <extensions defaultExtensionNs="com.intellij">

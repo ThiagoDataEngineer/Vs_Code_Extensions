@@ -15,10 +15,10 @@ Tema customizado para IntelliJ IDEA e PyCharm. Inclui 7 variações vibrantes e 
 - **Sky Garden**: Inspirado em Studio Ghibli, visual suave e ilustrado.
 - **Cowboy Terminal Black**: Visual retrô de terminal verde sobre preto.
 - **Red Neon Future**: Estilo corporativo futurista com alto contraste.
-- **IDEA Theme F1rst**: Base sólida com tons de azul e cinza.
+- **IDEA Theme F1rst**: Base sólida com tons de azul e cinza profissionais. Inspirado na identidade visual da F1rst.
 
 ### Como Instalar:
-1. Baixe o arquivo `dist/idea-theme-f1rst-0.6.0.zip`.
+1. Baixe o arquivo `dist/idea-theme-f1rst-0.7.0.zip`.
 2. No IntelliJ/PyCharm: `Settings` > `Plugins` > ícone de engrenagem > `Install Plugin from Disk...`.
 3. Selecione o ZIP e reinicie.
 
@@ -35,10 +35,10 @@ Custom theme for IntelliJ IDEA and PyCharm. Includes 7 vibrant variations calibr
 - **Sky Garden**: Ghibli-inspired, soft and illustrated look.
 - **Cowboy Terminal Black**: Retro green-on-black terminal look.
 - **Red Neon Future**: Futuristic corporate style with high contrast.
-- **IDEA Theme F1rst**: Solid base with blue and grey tones.
+- **IDEA Theme F1rst**: Solid base with professional blue and grey tones. Inspired by F1rst digital identity.
 
 ### How to Install:
-1. Download `dist/idea-theme-f1rst-0.6.0.zip`.
+1. Download `dist/idea-theme-f1rst-0.7.0.zip`.
 2. In IntelliJ/PyCharm: `Settings` > `Plugins` > gear icon > `Install Plugin from Disk...`.
 3. Select the ZIP and restart.
 
@@ -157,7 +157,7 @@ Tema personalizzato per IntelliJ IDEA e PyCharm. Include 7 varianti vivaci calib
 
 1. **Crie uma conta**: Acesse [JetBrains Marketplace](https://plugins.jetbrains.com/) e faça login.
 2. **Upload**: Clique em "Upload Plugin".
-3. **Selecione o ZIP**: Escolha o arquivo em `dist/idea-theme-f1rst-0.6.0.zip`.
+3. **Selecione o ZIP**: Escolha o arquivo em `dist/idea-theme-f1rst-0.7.0.zip`.
 4. **Preencha os detalhes**: Adicione tags (Theme, UI), prints de tela e a descrição.
 5. **Aguarde a aprovação**: A JetBrains revisará o plugin em alguns dias.
 

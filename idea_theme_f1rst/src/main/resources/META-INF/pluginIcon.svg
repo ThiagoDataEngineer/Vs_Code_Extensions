@@ -1,6 +1,11 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40">
-    <rect width="40" height="40" rx="8" fill="#101318"/>
-    <text x="50%" y="50%" dominant-baseline="central" text-anchor="middle" font-family="Arial, sans-serif" font-weight="bold" font-size="20" fill="#5AA9E6">F1</text>
-    <path d="M5 30 L10 35 L30 15 L25 10 Z" fill="#FF6B6B" opacity="0.6"/>
-    <circle cx="32" cy="8" r="4" fill="#FF00FF" opacity="0.8"/>
+<svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="40" height="40" rx="8" fill="url(#paint0_linear)"/>
+  <path d="M12 10H28V14H16V18H26V22H16V30H12V10Z" fill="white"/>
+  <path d="M24 18L28 10H32L28 18V30H24V18Z" fill="#E0E1DD" fill-opacity="0.8"/>
+  <defs>
+    <linearGradient id="paint0_linear" x1="0" y1="0" x2="40" y2="40" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0D1B2A"/>
+      <stop offset="1" stop-color="#415A77"/>
+    </linearGradient>
+  </defs>
 </svg>
