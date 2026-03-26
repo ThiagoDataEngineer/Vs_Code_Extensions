@@ -1,11 +1,11 @@
 <idea-plugin>
   <id>com.thiag.idea.theme.f1rst</id>
   <name>IDEA Theme F1rst</name>
-  <vendor email="thiag@example.com">Thiag</vendor>
+  <vendor email="thiagoyoshiaki@gmail.com">Thiag</vendor>
   <description><![CDATA[
     Tema customizado para IntelliJ IDEA.
   ]]></description>
-  <version>0.2.0</version>
+  <version>0.3.0</version>
   <depends>com.intellij.modules.platform</depends>
 
   <extensions defaultExtensionNs="com.intellij">
@@ -17,5 +17,7 @@
                    path="/theme/ghibli_sky_garden.theme.json" />
     <themeProvider id="cowboy-terminal-black"
                    path="/theme/cowboy_terminal.theme.json" />
+    <themeProvider id="red-neon-future"
+                   path="/theme/red_neon_future.theme.json" />
   </extensions>
 </idea-plugin>

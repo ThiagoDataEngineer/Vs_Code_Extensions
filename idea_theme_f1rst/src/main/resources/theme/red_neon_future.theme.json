@@ -1,0 +1,41 @@
+{
+  "name": "Red Neon Future",
+  "author": "Thiag",
+  "dark": true,
+  "editorScheme": "/theme/red_neon_future.icls",
+  "ui": {
+    "*": {
+      "background": "#120306",
+      "foreground": "#FFE8ED"
+    },
+    "Panel.background": "#17050A",
+    "ToolWindow.background": "#17050A",
+    "EditorPane.background": "#120306",
+    "EditorPane.foreground": "#FFE8ED",
+    "Component.focusColor": "#FF1F3D",
+    "Button.startBackground": "#3A0B16",
+    "Button.endBackground": "#3A0B16",
+    "Button.foreground": "#FFF1F4",
+    "Link.activeForeground": "#35F2FF",
+    "Notification.background": "#260A12",
+    "Separator.foreground": "#7F1C32"
+  },
+  "icons": {
+    "ColorPalette": {
+      "Checkbox.Background.Default": "#250913",
+      "Checkbox.Border.Default": "#FF4060",
+      "Checkbox.Focus.Wide": "#35F2FF",
+      "Component.errorFocusColor": "#FF6C7D",
+      "Component.focusColor": "#FF1F3D",
+      "Component.focusedBorderColor": "#35F2FF",
+      "Actions.Red": "#FF1F3D",
+      "Actions.Green": "#67F593",
+      "Actions.Yellow": "#FFD166",
+      "Actions.Blue": "#35F2FF",
+      "Objects.Grey": "#C9D1D9",
+      "Objects.Purple": "#C084FC",
+      "Objects.Pink": "#FF78B0",
+      "Objects.Red": "#FF4A64"
+    }
+  }
+}
