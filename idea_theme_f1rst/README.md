@@ -18,7 +18,7 @@ Tema customizado para IntelliJ IDEA e PyCharm. Inclui 7 variações vibrantes e 
 - **IDEA Theme F1rst**: Base sólida com tons de azul e cinza.
 
 ### Como Instalar:
-1. Baixe o arquivo `dist/idea-theme-f1rst-0.5.0.zip`.
+1. Baixe o arquivo `dist/idea-theme-f1rst-0.6.0.zip`.
 2. No IntelliJ/PyCharm: `Settings` > `Plugins` > ícone de engrenagem > `Install Plugin from Disk...`.
 3. Selecione o ZIP e reinicie.
 
@@ -38,7 +38,7 @@ Custom theme for IntelliJ IDEA and PyCharm. Includes 7 vibrant variations calibr
 - **IDEA Theme F1rst**: Solid base with blue and grey tones.
 
 ### How to Install:
-1. Download `dist/idea-theme-f1rst-0.5.0.zip`.
+1. Download `dist/idea-theme-f1rst-0.6.0.zip`.
 2. In IntelliJ/PyCharm: `Settings` > `Plugins` > gear icon > `Install Plugin from Disk...`.
 3. Select the ZIP and restart.
 
@@ -157,7 +157,7 @@ Tema personalizzato per IntelliJ IDEA e PyCharm. Include 7 varianti vivaci calib
 
 1. **Crie uma conta**: Acesse [JetBrains Marketplace](https://plugins.jetbrains.com/) e faça login.
 2. **Upload**: Clique em "Upload Plugin".
-3. **Selecione o ZIP**: Escolha o arquivo em `dist/idea-theme-f1rst-0.5.0.zip`.
+3. **Selecione o ZIP**: Escolha o arquivo em `dist/idea-theme-f1rst-0.6.0.zip`.
 4. **Preencha os detalhes**: Adicione tags (Theme, UI), prints de tela e a descrição.
 5. **Aguarde a aprovação**: A JetBrains revisará o plugin em alguns dias.
 

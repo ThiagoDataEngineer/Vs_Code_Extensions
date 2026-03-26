@@ -18,13 +18,14 @@
   ]]></description>
   <change-notes><![CDATA[
     <ul>
+      <li><b>0.6.0</b>: Final release of theme-only version. Optimized for marketplace.</li>
       <li><b>0.5.0</b>: Added "Ubatuba Lamberto Beach" theme. Inspired by Ilhabela sunsets and Ghibli style.</li>
       <li><b>0.4.0</b>: Added "Bitcoin Tech" theme for Web3/Solidity developers. Updated search tags.</li>
       <li><b>0.3.2</b>: Added official plugin icon and search tags (thema, tema, theme, f1rst, language, multi).</li>
       <li><b>0.3.1</b>: Initial release on Marketplace. Anonymized author metadata. Added high-quality descriptions.</li>
     </ul>
   ]]></change-notes>
-  <version>0.5.0</version>
+  <version>0.6.0</version>
   <depends>com.intellij.modules.platform</depends>
 
   <extensions defaultExtensionNs="com.intellij">
