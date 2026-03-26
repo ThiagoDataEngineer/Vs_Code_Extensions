@@ -4,8 +4,9 @@
   <vendor email="thiagoyoshiaki@gmail.com" url="https://github.com/ThiagoDataEngineer/Vs_Code_Extensions">Thiago Yoshiaki</vendor>
   <description><![CDATA[
     <h1>IDEA Theme F1rst 🎨</h1>
-    <p>A collection of 6 vibrant and high-quality themes for IntelliJ IDEA and PyCharm. Support for multiple languages and styled for modern development (thema, tema, theme, f1rst, language, multi, bitcoin, crypto, web3, solidity).</p>
+    <p>A collection of 7 vibrant and high-quality themes for IntelliJ IDEA and PyCharm. Support for multiple languages and styled for modern development (thema, tema, theme, f1rst, language, multi, bitcoin, crypto, web3, solidity, ubatuba, beach, ghibli).</p>
     <ul>
+      <li><b>Ubatuba Lamberto Beach</b>: Inspired by a soft sunset in Ilhabela, with smooth ocean blues and mountain greens. A Ghibli-style aesthetic.</li>
       <li><b>Bitcoin Tech</b>: Tech-focused theme with Bitcoin orange and smooth dark grey. Ideal for Web3/Solidity.</li>
       <li><b>Vaporwave Red Neon</b>: Dark base with neon magenta and cyan.</li>
       <li><b>Sky Garden</b>: Studio Ghibli inspired soft look.</li>
@@ -17,17 +18,20 @@
   ]]></description>
   <change-notes><![CDATA[
     <ul>
+      <li><b>0.5.0</b>: Added "Ubatuba Lamberto Beach" theme. Inspired by Ilhabela sunsets and Ghibli style.</li>
       <li><b>0.4.0</b>: Added "Bitcoin Tech" theme for Web3/Solidity developers. Updated search tags.</li>
       <li><b>0.3.2</b>: Added official plugin icon and search tags (thema, tema, theme, f1rst, language, multi).</li>
       <li><b>0.3.1</b>: Initial release on Marketplace. Anonymized author metadata. Added high-quality descriptions.</li>
     </ul>
   ]]></change-notes>
-  <version>0.4.0</version>
+  <version>0.5.0</version>
   <depends>com.intellij.modules.platform</depends>
 
   <extensions defaultExtensionNs="com.intellij">
     <themeProvider id="bitcoin-tech"
                    path="theme/bitcoin_tech.theme.json" />
+    <themeProvider id="ubatuba-lamberto-beach"
+                   path="theme/ubatuba_lamberto.theme.json" />
     <themeProvider id="idea-theme-f1rst"
                    path="theme/idea_theme_f1rst.theme.json" />
     <themeProvider id="vaporwave-red-neon"
