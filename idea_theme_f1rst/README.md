@@ -15,10 +15,10 @@ Tema customizado para IntelliJ IDEA e PyCharm. Inclui 7 variações vibrantes e 
 - **Sky Garden**: Inspirado em Studio Ghibli, visual suave e ilustrado.
 - **Cowboy Terminal Black**: Visual retrô de terminal verde sobre preto.
 - **Red Neon Future**: Estilo corporativo futurista com alto contraste.
-- **IDEA Theme F1rst**: Base sólida com tons de azul e cinza profissionais. Inspirado na identidade visual da F1rst.
+- **Theme F1rst**: Base sólida com tons de azul e cinza profissionais. Inspirado na identidade visual da F1rst.
 
 ### Como Instalar:
-1. Baixe o arquivo `dist/idea-theme-f1rst-0.7.1.zip`.
+1. Baixe o arquivo `dist/idea-theme-f1rst-0.7.2.zip`.
 2. No IntelliJ/PyCharm: `Settings` > `Plugins` > ícone de engrenagem > `Install Plugin from Disk...`.
 3. Selecione o ZIP e reinicie.
 
@@ -35,7 +35,7 @@ Custom theme for IntelliJ IDEA and PyCharm. Includes 7 vibrant variations calibr
 - **Sky Garden**: Ghibli-inspired, soft and illustrated look.
 - **Cowboy Terminal Black**: Retro green-on-black terminal look.
 - **Red Neon Future**: Futuristic corporate style with high contrast.
-- **IDEA Theme F1rst**: Solid base with professional blue and grey tones. Inspired by F1rst digital identity.
+- **Theme F1rst**: Solid base with professional blue and grey tones. Inspired by F1rst digital identity.
 
 ### How to Install:
 1. Download `dist/idea-theme-f1rst-0.7.0.zip`.
@@ -55,7 +55,7 @@ Tema personalizado para IntelliJ IDEA y PyCharm. Incluye 7 variantes vibrantes c
 - **Sky Garden**: Inspirado en Ghibli, aspecto suave e ilustrado.
 - **Cowboy Terminal Black**: Aspecto de terminal retro verde sobre negro.
 - **Red Neon Future**: Estilo corporativo futurista con alto contraste.
-- **IDEA Theme F1rst**: Base sólida con tonos azules y grises.
+- **Theme F1rst**: Base sólida con tonos azules y grises.
 
 ---
 
