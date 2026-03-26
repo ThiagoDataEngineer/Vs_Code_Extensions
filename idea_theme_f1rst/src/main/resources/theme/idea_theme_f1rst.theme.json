@@ -5,29 +5,29 @@
   "editorScheme": "theme/idea_theme_f1rst.icls",
   "ui": {
     "*": {
-      "background": "#0D1B2A",
-      "foreground": "#E0E1DD"
+      "background": "#0A0A0A",
+      "foreground": "#F5E6D3"
     },
-    "Panel.background": "#1B263B",
-    "ToolWindow.background": "#1B263B",
-    "EditorPane.background": "#0D1B2A",
-    "EditorPane.foreground": "#E0E1DD",
-    "Component.focusColor": "#415A77",
-    "Button.startBackground": "#415A77",
-    "Button.endBackground": "#415A77",
-    "Button.foreground": "#E0E1DD",
-    "Link.activeForeground": "#778DA9",
-    "Notification.background": "#1B263B",
-    "Separator.foreground": "#415A77"
+    "Panel.background": "#1A1A1A",
+    "ToolWindow.background": "#1A1A1A",
+    "EditorPane.background": "#0A0A0A",
+    "EditorPane.foreground": "#F5E6D3",
+    "Component.focusColor": "#D64933",
+    "Button.startBackground": "#C44536",
+    "Button.endBackground": "#C44536",
+    "Button.foreground": "#F5E6D3",
+    "Link.activeForeground": "#E07A5F",
+    "Notification.background": "#1A1A1A",
+    "Separator.foreground": "#D64933"
   },
   "icons": {
     "ColorPalette": {
-      "Checkbox.Background.Default": "#1B263B",
-      "Checkbox.Border.Default": "#415A77",
-      "Checkbox.Focus.Wide": "#778DA9",
+      "Checkbox.Background.Default": "#1A1A1A",
+      "Checkbox.Border.Default": "#C44536",
+      "Checkbox.Focus.Wide": "#E07A5F",
       "Component.errorFocusColor": "#E63946",
-      "Component.focusColor": "#778DA9",
-      "Component.focusedBorderColor": "#778DA9"
+      "Component.focusColor": "#E07A5F",
+      "Component.focusedBorderColor": "#E07A5F"
     }
   }
 }
