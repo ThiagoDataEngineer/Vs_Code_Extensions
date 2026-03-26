@@ -4,7 +4,7 @@
   <vendor email="thiagoyoshiaki@gmail.com" url="https://github.com/ThiagoDataEngineer/Vs_Code_Extensions">Thiago Yoshiaki</vendor>
   <description><![CDATA[
     <h1>IDEA Theme F1rst 🎨</h1>
-    <p>A collection of 5 vibrant and high-quality themes for IntelliJ IDEA and PyCharm.</p>
+    <p>A collection of 5 vibrant and high-quality themes for IntelliJ IDEA and PyCharm. Support for multiple languages and styled for modern development (thema, tema, theme, f1rst, language, multi).</p>
     <ul>
       <li><b>Vaporwave Red Neon</b>: Dark base with neon magenta and cyan.</li>
       <li><b>Sky Garden</b>: Studio Ghibli inspired soft look.</li>
@@ -16,10 +16,11 @@
   ]]></description>
   <change-notes><![CDATA[
     <ul>
+      <li><b>0.3.2</b>: Added official plugin icon and search tags (thema, tema, theme, f1rst, language, multi).</li>
       <li><b>0.3.1</b>: Initial release on Marketplace. Anonymized author metadata. Added high-quality descriptions.</li>
     </ul>
   ]]></change-notes>
-  <version>0.3.1</version>
+  <version>0.3.2</version>
   <depends>com.intellij.modules.platform</depends>
 
   <extensions defaultExtensionNs="com.intellij">
