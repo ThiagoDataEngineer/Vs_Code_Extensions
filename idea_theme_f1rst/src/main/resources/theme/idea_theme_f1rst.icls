@@ -71,5 +71,31 @@
         <option name="FOREGROUND" value="FFFFFF" />
       </value>
     </option>
+    <option name="INTERFACE_NAME">
+      <value>
+        <option name="FOREGROUND" value="FF4444" />
+      </value>
+    </option>
+    <option name="ENUM_NAME">
+      <value>
+        <option name="FOREGROUND" value="FF8888" />
+      </value>
+    </option>
+    <option name="ANNOTATION_NAME">
+      <value>
+        <option name="FOREGROUND" value="FF3333" />
+      </value>
+    </option>
+    <option name="STATIC_METHOD">
+      <value>
+        <option name="FOREGROUND" value="FF0000" />
+        <option name="FONT_TYPE" value="2" />
+      </value>
+    </option>
+    <option name="TYPE_PARAMETER">
+      <value>
+        <option name="FOREGROUND" value="FF9999" />
+      </value>
+    </option>
   </attributes>
 </scheme>

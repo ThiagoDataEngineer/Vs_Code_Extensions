@@ -11,7 +11,8 @@
   <attributes>
     <option name="DEFAULT_TEXT">
       <value>
-        <option name="FOREGROUND" value="A8DADC" />
+        <option name="FOREGROUND" value="F1FAEE" />
+        <option name="BACKGROUND" value="1D3557" />
       </value>
     </option>
     <option name="KEYWORD">
@@ -67,6 +68,32 @@
       </value>
     </option>
     <option name="OPERATION_SIGN">
+      <value>
+        <option name="FOREGROUND" value="E9C46A" />
+      </value>
+    </option>
+    <option name="INTERFACE_NAME">
+      <value>
+        <option name="FOREGROUND" value="F4A261" />
+      </value>
+    </option>
+    <option name="ENUM_NAME">
+      <value>
+        <option name="FOREGROUND" value="E76F51" />
+      </value>
+    </option>
+    <option name="ANNOTATION_NAME">
+      <value>
+        <option name="FOREGROUND" value="A8DADC" />
+      </value>
+    </option>
+    <option name="STATIC_METHOD">
+      <value>
+        <option name="FOREGROUND" value="2A9D8F" />
+        <option name="FONT_TYPE" value="2" />
+      </value>
+    </option>
+    <option name="TYPE_PARAMETER">
       <value>
         <option name="FOREGROUND" value="E9C46A" />
       </value>

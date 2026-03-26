@@ -19,6 +19,7 @@
   ]]></description>
   <change-notes><![CDATA[
     <ul>
+      <li><b>0.9.0</b>: Melhorias no realce de sintaxe e cores de fundo do editor para todos os temas.</li>
       <li><b>0.8.0</b>: New vibrant Red & Black "Theme F1rst". Fixed icon and cleaned project structure. Removed non-functional action placeholders.</li>
       <li><b>0.7.2</b>: Fix Marketplace validation: removed "IDEA" from plugin name, added idea-version, and fixed description format.</li>
       <li><b>0.7.1</b>: Melhorias de compatibilidade e otimização final para o Marketplace.</li>
@@ -30,7 +31,7 @@
       <li><b>0.3.1</b>: Initial release on Marketplace. Anonymized author metadata. Added high-quality descriptions.</li>
     </ul>
   ]]></change-notes>
-  <version>0.8.0</version>
+  <version>0.9.0</version>
   <depends>com.intellij.modules.platform</depends>
   <depends>com.intellij.modules.lang</depends>
 
