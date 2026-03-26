@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40">
+    <rect width="40" height="40" rx="8" fill="#101318"/>
+    <text x="50%" y="50%" dominant-baseline="central" text-anchor="middle" font-family="Arial, sans-serif" font-weight="bold" font-size="20" fill="#5AA9E6">F1</text>
+    <path d="M5 30 L10 35 L30 15 L25 10 Z" fill="#FF6B6B" opacity="0.6"/>
+    <circle cx="32" cy="8" r="4" fill="#FF00FF" opacity="0.8"/>
+</svg>

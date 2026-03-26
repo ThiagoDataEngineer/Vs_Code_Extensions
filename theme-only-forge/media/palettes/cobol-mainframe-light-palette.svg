@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="220" viewBox="0 0 1200 220" role="img" aria-label="COBOL Mainframe Light palette">
+  <rect width="1200" height="220" fill="#F3F9F5"/>
+  <text x="24" y="38" fill="#1F3B2D" font-family="Segoe UI, Arial, sans-serif" font-size="24" font-weight="700">COBOL Mainframe Light Palette</text>
+  <g transform="translate(24,60)">
+    <rect x="0" y="0" width="140" height="120" fill="#F6FBF8"/>
+    <rect x="146" y="0" width="140" height="120" fill="#1F3B2D"/>
+    <rect x="292" y="0" width="140" height="120" fill="#B23A48"/>
+    <rect x="438" y="0" width="140" height="120" fill="#005FAF"/>
+    <rect x="584" y="0" width="140" height="120" fill="#1F7A57"/>
+    <rect x="730" y="0" width="140" height="120" fill="#A15C00"/>
+    <rect x="876" y="0" width="140" height="120" fill="#9C640C"/>
+    <rect x="1022" y="0" width="140" height="120" fill="#6E8D7F"/>
+  </g>
+  <g transform="translate(24,196)" font-family="Consolas, 'Courier New', monospace" font-size="14" fill="#385A49">
+    <text x="0" y="0">#F6FBF8</text>
+    <text x="146" y="0">#1F3B2D</text>
+    <text x="292" y="0">#B23A48</text>
+    <text x="438" y="0">#005FAF</text>
+    <text x="584" y="0">#1F7A57</text>
+    <text x="730" y="0">#A15C00</text>
+    <text x="876" y="0">#9C640C</text>
+    <text x="1022" y="0">#6E8D7F</text>
+  </g>
+</svg>

@@ -1,0 +1,84 @@
+{
+    "name": "bankingthemes",
+    "displayName": "BankingThemes",
+    "description": "A banking themes pack for VS Code, with freely inspired institutional visual styles and no official affiliation.",
+    "version": "0.1.50",
+    "publisher": "ShinyDapps",
+    "license": "UNLICENSED",
+    "main": "./extension.js",
+    "engines": {
+        "vscode": "^1.90.0"
+    },
+    "categories": [
+        "Themes"
+    ],
+    "keywords": [
+        "theme",
+        "themes",
+        "banking themes",
+        "vscode-theme",
+        "vscode",
+        "banking",
+        "brazil",
+        "brasil",
+        "bancos brasileiros",
+        "finance",
+        "fintech",
+        "cobol",
+        "mainframe",
+        "z os",
+        "host",
+        "python",
+        "pyspark",
+        "scala",
+        "java",
+        "javascript"
+    ],
+    "icon": "media/icon-world-banking.png",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/ThiagoDataEngineer/Vs_Code_Extensions"
+    },
+    "contributes": {
+        "commands": [
+            {
+                "command": "worldBankingThemes.selectThemeBySubgroup",
+                "title": "Select Theme by Subgroup",
+                "category": "BankingThemes"
+            }
+        ],
+        "themes": [
+            {
+                "label": "Santander Dark",
+                "path": "./themes/santander-pulse-red-color-theme.json",
+                "uiTheme": "vs-dark"
+            },
+            {
+                "label": "Santander Neon Black",
+                "path": "./themes/santander-neon-black-color-theme.json",
+                "uiTheme": "vs-dark"
+            },
+            {
+                "label": "Santander Light",
+                "path": "./themes/santander-pulse-red-light-color-theme.json",
+                "uiTheme": "vs"
+            },
+            {
+                "label": "COBOL Mainframe Dark",
+                "path": "./themes/cobol-mainframe-dark-color-theme.json",
+                "uiTheme": "vs-dark"
+            },
+            {
+                "label": "COBOL Mainframe Light",
+                "path": "./themes/cobol-mainframe-light-color-theme.json",
+                "uiTheme": "vs"
+            }
+        ]
+    },
+    "scripts": {
+        "package": "vsce package --allow-missing-repository --skip-license --baseContentUrl https://github.com/ThiagoDataEngineer/Vs_Code_Extensions/blob/main/theme-only-forge --baseImagesUrl https://raw.githubusercontent.com/ThiagoDataEngineer/Vs_Code_Extensions/main/theme-only-forge"
+    },
+    "devDependencies": {
+        "@vscode/vsce": "^3.3.2"
+    }
+}

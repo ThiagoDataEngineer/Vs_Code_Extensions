@@ -1,0 +1,65 @@
+{
+  "$schema": "vscode://schemas/color-theme",
+  "name": "Web3 Blockchain Lamberto Ubatuba Beach",
+  "type": "dark",
+  "colors": {
+    "editor.background": "#0D2B47",
+    "editor.foreground": "#EAF8FF",
+    "editorLineNumber.foreground": "#6FB9DD",
+    "editorCursor.foreground": "#FFD166",
+    "editor.selectionBackground": "#68B7DD55",
+    "activityBar.background": "#0A233B",
+    "activityBar.foreground": "#EAF8FF",
+    "activityBarBadge.background": "#F97316",
+    "sideBar.background": "#0B2944",
+    "sideBar.foreground": "#D8F1FF",
+    "sideBarTitle.foreground": "#FFE29A",
+    "list.activeSelectionBackground": "#1E4F73",
+    "list.activeSelectionForeground": "#FFFFFF",
+    "list.hoverBackground": "#1A4566",
+    "statusBar.background": "#0A233B",
+    "statusBar.foreground": "#EAF8FF",
+    "titleBar.activeBackground": "#0A233B",
+    "button.background": "#F59E0B",
+    "button.foreground": "#0D2B47",
+    "focusBorder": "#7DD3FC"
+  },
+  "tokenColors": [
+    {
+      "scope": ["comment"],
+      "settings": {
+        "foreground": "#9ED0E7"
+      }
+    },
+    {
+      "scope": ["keyword", "storage.type"],
+      "settings": {
+        "foreground": "#7DD3FC"
+      }
+    },
+    {
+      "scope": ["entity.name.function", "support.function"],
+      "settings": {
+        "foreground": "#FFE29A"
+      }
+    },
+    {
+      "scope": ["string"],
+      "settings": {
+        "foreground": "#FFB86C"
+      }
+    },
+    {
+      "scope": ["punctuation.section.block.begin", "punctuation.section.block.end", "punctuation.definition.parameters.begin", "punctuation.definition.parameters.end"],
+      "settings": {
+        "foreground": "#34D399"
+      }
+    },
+    {
+      "scope": ["constant.numeric"],
+      "settings": {
+        "foreground": "#FCD34D"
+      }
+    }
+  ]
+}

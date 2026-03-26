@@ -9,7 +9,18 @@ type WalletState = {
   mode: "test" | "real";
 };
 
-type UiThemeId = "pro" | "calm-light" | "btc-dawn-light" | "neon";
+type UiThemeId = "neon" | "pro" | "calm-light" | "btc-dawn-light" | "bittensor" | "lamberto" | "cobol";
+
+type EditorThemeId =
+  | "vaporwave-neon-dusk"
+  | "vaporwave-midnight"
+  | "bitcoin-sober"
+  | "bitcoin-calm-light"
+  | "bittensor-signal"
+  | "lamberto-shoreline"
+  | "cobol-terminal";
+
+type LocaleId = "en" | "pt-BR" | "fr" | "es" | "de" | "ru" | "ja" | "zh" | "ar";
 
 type WalletRegistryEntry = {
   address: string;
@@ -66,11 +77,15 @@ type WebviewCommand =
   | "exportRegistryBalancesCsv"
   | "exportContractReportTxt"
   | "exportContractReportCsv"
-  | "setUiTheme";
+  | "setUiTheme"
+  | "setWorkbenchTheme"
+  | "setLocale";
 
 type WebviewMessage = {
   command?: WebviewCommand;
   themeId?: string;
+  workbenchThemeId?: string;
+  localeId?: string;
   address?: string;
 };
 
@@ -87,8 +102,11 @@ const REGISTRY_KEY = "vaporwaveWeb3.walletRegistry";
 const BALANCE_REPORT_KEY = "vaporwaveWeb3.walletBalanceReport";
 const CONTRACT_REPORT_KEY = "vaporwaveWeb3.contractVerificationReport";
 const UI_THEME_KEY = "vaporwaveWeb3.uiTheme";
+const LOCALE_KEY = "vaporwaveWeb3.locale";
+const WORKBENCH_THEME_KEY = "colorTheme";
+const THEME_BOOTSTRAP_DONE_KEY = "vaporwaveWeb3.themeBootstrapDone";
 const REGISTRY_LIMIT = 200;
-const DONATE_URL = "https://github.com/sponsors/thiag";
+const DONATE_URL = "https://github.com/ThiagoDataEngineer";
 const DONATE_ADDRESSES = {
   eth: "0x7322789de14a49EBE28b6133167d25BD903A68ed",
   btc: "bc1qt7r96jx06zr5fk8vwhxxcasjjgacs623m6t26j",
@@ -108,6 +126,10 @@ const NETWORKS = [
   "Optimism",
   "Base",
   "Avalanche",
+  "Fantom",
+  "Gnosis",
+  "Linea",
+  "zkSync Era",
   "Ethereum Sepolia",
   "Base Sepolia",
   "Polygon Amoy",
@@ -123,7 +145,6 @@ const PROVIDERS = [
   "Uniswap Wallet",
   "Binance Wallet",
   "Coinbase Wallet",
-  "Rainbow",
   "Rabby",
   "Trust Wallet",
   "Zerion",
@@ -146,7 +167,6 @@ const PROVIDER_URLS: Record<string, string> = {
   "Uniswap Wallet": "https://wallet.uniswap.org/",
   "Binance Wallet": "https://www.bnbchain.org/en/binance-wallet",
   "Coinbase Wallet": "https://www.coinbase.com/wallet",
-  "Rainbow": "https://rainbow.me/",
   "Rabby": "https://rabby.io/",
   "Trust Wallet": "https://trustwallet.com/",
   "Zerion": "https://zerion.io/",
@@ -167,6 +187,10 @@ const EVM_RPC_DEFAULTS: Record<string, string> = {
   "Optimism": "https://mainnet.optimism.io",
   "Base": "https://mainnet.base.org",
   "Avalanche": "https://api.avax.network/ext/bc/C/rpc",
+  "Fantom": "https://rpc.ankr.com/fantom",
+  "Gnosis": "https://rpc.ankr.com/gnosis",
+  "Linea": "https://rpc.linea.build",
+  "zkSync Era": "https://mainnet.era.zksync.io",
   "Ethereum Sepolia": "https://rpc.sepolia.org",
   "Base Sepolia": "https://sepolia.base.org",
   "Polygon Amoy": "https://rpc-amoy.polygon.technology",
@@ -177,6 +201,16 @@ const SOLANA_RPC_DEFAULT = "https://api.mainnet-beta.solana.com";
 const BITCOIN_API_DEFAULTS: Record<string, string> = {
   "Bitcoin Mainnet": "https://blockstream.info/api",
   "Bitcoin Testnet": "https://blockstream.info/testnet/api",
+};
+
+const EDITOR_THEME_LABELS: Record<EditorThemeId, string> = {
+  "vaporwave-neon-dusk": "Web3 Blockchain Vaporwave Neon Dusk",
+  "vaporwave-midnight": "Web3 Blockchain Vaporwave Midnight",
+  "bitcoin-sober": "Web3 Blockchain Bitcoin Sober",
+  "bitcoin-calm-light": "Web3 Blockchain Bitcoin Calm Light",
+  "bittensor-signal": "Web3 Blockchain Bittensor Signal",
+  "lamberto-shoreline": "Web3 Blockchain Lamberto Ubatuba Beach",
+  "cobol-terminal": "Web3 Blockchain COBOL Terminal",
 };
 
 type BrandTheme = {
@@ -196,7 +230,6 @@ const PROVIDER_BRANDS: Record<string, BrandTheme> = {
   "Uniswap Wallet": { label: "Uniswap", mark: "UNI", bg: "#ec48991f", border: "#ec4899aa", fg: "#f9a8d4" },
   "Binance Wallet": { label: "Binance", mark: "BN", bg: "#facc151f", border: "#facc15aa", fg: "#fde047" },
   "Coinbase Wallet": { label: "Coinbase", mark: "CB", bg: "#3b82f61f", border: "#3b82f6aa", fg: "#93c5fd" },
-  "Rainbow": { label: "Rainbow", mark: "RBW", bg: "#f59e0b1f", border: "#f59e0baa", fg: "#fde68a" },
   "Rabby": { label: "Rabby", mark: "RB", bg: "#ef44441f", border: "#ef4444aa", fg: "#fca5a5" },
   "Trust Wallet": { label: "Trust", mark: "TW", bg: "#0ea5e91f", border: "#0ea5e9aa", fg: "#7dd3fc" },
   "Zerion": { label: "Zerion", mark: "ZR", bg: "#8b5cf61f", border: "#8b5cf6aa", fg: "#ddd6fe" },
@@ -225,6 +258,10 @@ const NETWORK_BRANDS: Record<string, BrandTheme> = {
   "Base": { label: "Base", mark: "BSE", bg: "#3b82f61f", border: "#3b82f6aa", fg: "#93c5fd" },
   "Base Sepolia": { label: "Base Sepolia", mark: "BSP", bg: "#3b82f61f", border: "#3b82f6aa", fg: "#93c5fd" },
   "Avalanche": { label: "Avalanche", mark: "AVX", bg: "#dc26261f", border: "#dc2626aa", fg: "#fca5a5" },
+  "Fantom": { label: "Fantom", mark: "FTM", bg: "#06b6d41f", border: "#06b6d4aa", fg: "#a5f3fc" },
+  "Gnosis": { label: "Gnosis", mark: "GNO", bg: "#14b8a61f", border: "#14b8a6aa", fg: "#99f6e4" },
+  "Linea": { label: "Linea", mark: "LIN", bg: "#a3a3a31f", border: "#a3a3a3aa", fg: "#e5e5e5" },
+  "zkSync Era": { label: "zkSync", mark: "ZK", bg: "#2563eb1f", border: "#2563ebaa", fg: "#bfdbfe" },
   "Solana": { label: "Solana", mark: "SOL", bg: "#22c55e1f", border: "#22c55eaa", fg: "#86efac" },
 };
 
@@ -244,7 +281,6 @@ const PROVIDER_LOGO_FILES: Record<string, string> = {
   "Uniswap Wallet": "uniswap.png",
   "Binance Wallet": "binance.svg",
   "Coinbase Wallet": "coinbase.svg",
-  "Rainbow": "rainbow.png",
   "Rabby": "rabby.png",
   "Trust Wallet": "trustwallet.png",
   "Zerion": "zerion.png",
@@ -281,10 +317,16 @@ const NETWORK_URLS: Record<string, string> = {
   "Base": "https://base.org",
   "Base Sepolia": "https://base.org",
   "Avalanche": "https://avax.network",
+  "Fantom": "https://fantom.foundation",
+  "Gnosis": "https://www.gnosis.io",
+  "Linea": "https://linea.build",
+  "zkSync Era": "https://zksync.io",
   "Solana": "https://solana.com",
 };
 
 export function activate(context: vscode.ExtensionContext): void {
+  void ensureFirstInstallThemeDefaults(context);
+
   const walletPanel = new WalletLabViewProvider(context);
 
   context.subscriptions.push(
@@ -332,6 +374,27 @@ export function deactivate(): void {
   // No-op
 }
 
+async function ensureFirstInstallThemeDefaults(context: vscode.ExtensionContext): Promise<void> {
+  const alreadyInitialized = context.globalState.get<boolean>(THEME_BOOTSTRAP_DONE_KEY, false);
+  if (alreadyInitialized) {
+    return;
+  }
+
+  try {
+    await context.globalState.update(UI_THEME_KEY, "neon");
+    await vscode.workspace
+      .getConfiguration("workbench")
+      .update(
+        WORKBENCH_THEME_KEY,
+        EDITOR_THEME_LABELS["vaporwave-neon-dusk"],
+        vscode.ConfigurationTarget.Global
+      );
+    await context.globalState.update(THEME_BOOTSTRAP_DONE_KEY, true);
+  } catch {
+    // Best effort; user can still pick manually in the theme selector.
+  }
+}
+
 class WalletLabViewProvider implements vscode.WebviewViewProvider {
   private view?: vscode.WebviewView;
 
@@ -348,7 +411,9 @@ class WalletLabViewProvider implements vscode.WebviewViewProvider {
       webviewView.webview,
       this.getState(),
       this.getRegistry(),
-      this.getUiTheme()
+      this.getUiTheme(),
+      this.getEditorTheme(),
+      this.getLocale()
     );
 
     webviewView.webview.onDidReceiveMessage(async (message: WebviewMessage) => {
@@ -403,6 +468,14 @@ class WalletLabViewProvider implements vscode.WebviewViewProvider {
           break;
         case "setUiTheme":
           await this.saveUiTheme(this.sanitizeUiTheme(message.themeId));
+          this.refreshView(this.getState());
+          break;
+        case "setWorkbenchTheme":
+          await this.applyWorkbenchTheme(this.sanitizeEditorTheme(message.workbenchThemeId));
+          this.refreshView(this.getState());
+          break;
+        case "setLocale":
+          await this.saveLocale(this.sanitizeLocale(message.localeId));
           this.refreshView(this.getState());
           break;
         default:
@@ -1297,15 +1370,59 @@ class WalletLabViewProvider implements vscode.WebviewViewProvider {
       this.view.webview,
       state,
       this.getRegistry(),
-      this.getUiTheme()
+      this.getUiTheme(),
+      this.getEditorTheme(),
+      this.getLocale()
     );
   }
 
   private sanitizeUiTheme(value: string | undefined): UiThemeId {
-    if (value === "calm-light" || value === "btc-dawn-light" || value === "neon" || value === "pro") {
+    if (
+      value === "neon"
+      || value === "pro"
+      || value === "calm-light"
+      || value === "btc-dawn-light"
+      || value === "bittensor"
+      || value === "lamberto"
+      || value === "cobol"
+    ) {
       return value;
     }
-    return "pro";
+    return "neon";
+  }
+
+  private sanitizeEditorTheme(value: string | undefined): EditorThemeId {
+    if (
+      value === "vaporwave-neon-dusk"
+      || value === "vaporwave-midnight"
+      || value === "bitcoin-sober"
+      || value === "bitcoin-calm-light"
+      || value === "bittensor-signal"
+      || value === "lamberto-shoreline"
+      || value === "cobol-terminal"
+    ) {
+      return value;
+    }
+
+    return "vaporwave-neon-dusk";
+  }
+
+  private sanitizeLocale(value: string | undefined): LocaleId {
+    if (
+      value === "en"
+      || value === "pt-BR"
+      || value === "fr"
+      || value === "es"
+      || value === "de"
+      || value === "ru"
+      || value === "ja"
+      || value === "zh"
+      || value === "ar"
+    ) {
+      return value;
+    }
+
+    return "en";
   }
 
   private getUiTheme(): UiThemeId {
@@ -1313,8 +1430,34 @@ class WalletLabViewProvider implements vscode.WebviewViewProvider {
     return this.sanitizeUiTheme(persisted);
   }
 
+  private getEditorTheme(): EditorThemeId {
+    const workbenchTheme = vscode.workspace
+      .getConfiguration("workbench")
+      .get<string>("colorTheme");
+
+    const entry = (Object.entries(EDITOR_THEME_LABELS) as Array<[EditorThemeId, string]>)
+      .find(([, label]) => label === workbenchTheme);
+
+    return this.sanitizeEditorTheme(entry?.[0]);
+  }
+
+  private getLocale(): LocaleId {
+    const persisted = this.context.globalState.get<string>(LOCALE_KEY);
+    return this.sanitizeLocale(persisted);
+  }
+
   private async saveUiTheme(theme: UiThemeId): Promise<void> {
     await this.context.globalState.update(UI_THEME_KEY, theme);
+  }
+
+  private async applyWorkbenchTheme(themeId: EditorThemeId): Promise<void> {
+    await vscode.workspace
+      .getConfiguration("workbench")
+      .update(WORKBENCH_THEME_KEY, EDITOR_THEME_LABELS[themeId], vscode.ConfigurationTarget.Global);
+  }
+
+  private async saveLocale(locale: LocaleId): Promise<void> {
+    await this.context.globalState.update(LOCALE_KEY, locale);
   }
 
   private getRegistry(): WalletRegistryEntry[] {
@@ -1947,7 +2090,9 @@ class WalletLabViewProvider implements vscode.WebviewViewProvider {
     webview: vscode.Webview,
     state: WalletState,
     registry: WalletRegistryEntry[],
-    uiTheme: UiThemeId
+    uiTheme: UiThemeId,
+    editorTheme: EditorThemeId,
+    locale: LocaleId
   ): string {
     const nonce = Date.now().toString();
     const isDisconnected = !state.connected;
@@ -1956,21 +2101,11 @@ class WalletLabViewProvider implements vscode.WebviewViewProvider {
       : state.mode === "real"
       ? "#ef4444"
       : "#a855f7";
-    const modeColorAlt = isDisconnected
-      ? "#64748b"
-      : state.mode === "real"
-      ? "#f97316"
-      : "#7c3aed";
     const modeSurface = isDisconnected
       ? "#94a3b822"
       : state.mode === "real"
       ? "#ef444422"
       : "#a855f722";
-    const modeBorder = isDisconnected
-      ? "#94a3b866"
-      : state.mode === "real"
-      ? "#ef444488"
-      : "#a855f788";
     const statusColor = state.connected ? modeColor : "#64748b";
     const statusLabel = state.connected ? "Connected" : "Disconnected";
     const modeLabel = state.mode === "real" ? "PRD / REAL" : "DEV / TEST";
@@ -1983,7 +2118,7 @@ class WalletLabViewProvider implements vscode.WebviewViewProvider {
       .toString();
     const balanceButtonHtml =
       state.mode === "real"
-        ? '<button class="btn btn-secondary" id="balanceBtn">Check Balance</button>'
+        ? '<button class="btn btn-secondary btn-wide" id="balanceBtn">Check Balance</button>'
         : "";
     const realRegistry = registry.filter((entry) => entry.mode === "real");
     const testRegistry = registry.filter((entry) => entry.mode === "test");
@@ -2053,6 +2188,19 @@ class WalletLabViewProvider implements vscode.WebviewViewProvider {
         --accent-success: #3b9d6c;
         --accent-danger: #c16666;
       }
+      body.ui-theme-bittensor {
+        --panel-bg: rgba(5, 15, 18, 0.78);
+        --panel-border: rgba(46, 196, 182, 0.5);
+        --panel-shadow: 0 10px 26px rgba(0, 77, 73, 0.35);
+        --text-primary: #dbfffa;
+        --text-secondary: #8fc9c3;
+        --address-color: #f59e0b;
+        --accent-primary: #f97316;
+        --accent-primary-hover: #fb923c;
+        --accent-info: #2dd4bf;
+        --accent-success: #22c55e;
+        --accent-danger: #ef4444;
+      }
       body {
         font-family: var(--vscode-font-family);
         margin: 0;
@@ -2070,8 +2218,22 @@ class WalletLabViewProvider implements vscode.WebviewViewProvider {
         box-shadow: 0 14px 30px rgba(2, 6, 23, 0.55), inset 0 0 0 1px rgba(94, 129, 193, 0.24);
       }
       .wallet-card {
-        padding: 8px;
+        padding: 10px;
         margin-bottom: 8px;
+      }
+      .wallet-head {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 8px;
+      }
+      .wallet-head-right {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+      }
+      .wallet-title {
+        margin: 0;
       }
       .label {
         font-size: 10px;
@@ -2091,19 +2253,48 @@ class WalletLabViewProvider implements vscode.WebviewViewProvider {
         box-shadow: 0 0 0 1px rgba(248, 191, 84, 0.1) inset;
       }
       .value {
-        margin-top: 5px;
-        font-size: 12px;
+        margin-top: 6px;
+        font-size: 15px;
+        font-weight: 600;
         word-break: break-all;
         color: #f8fafc;
       }
+      .wallet-key-title {
+        margin-top: 8px;
+        font-size: 10px;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        font-weight: 800;
+        color: #8fd5ff;
+      }
       .wallet-address {
         color: var(--address-color);
+        text-shadow: 0 0 18px rgba(248, 191, 84, 0.2);
+      }
+      .wallet-brand-row {
+        margin-top: 7px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 7px;
+      }
+      .wallet-brand-group {
+        display: inline-flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 3px;
+      }
+      .wallet-brand-title {
+        font-size: 10px;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        font-weight: 700;
+        color: var(--text-secondary);
       }
       .meta-grid {
         display: grid;
         grid-template-columns: 1fr;
-        gap: 8px;
-        margin-top: 10px;
+        gap: 6px;
+        margin-top: 5px;
       }
       .meta-item {
         display: flex;
@@ -2112,7 +2303,8 @@ class WalletLabViewProvider implements vscode.WebviewViewProvider {
         gap: 8px;
       }
       .meta-title {
-        font-size: 10px;
+        font-size: 11px;
+        font-weight: 700;
         color: var(--text-secondary);
         letter-spacing: 0.06em;
       }
@@ -2120,29 +2312,32 @@ class WalletLabViewProvider implements vscode.WebviewViewProvider {
         display: inline-flex;
         align-items: center;
         gap: 6px;
-        padding: 3px 8px 3px 4px;
+        padding: 5px 11px 5px 6px;
         border-radius: 999px;
         border: 1px solid transparent;
-        font-size: 10px;
+        font-size: 12px;
         font-weight: 700;
+        backdrop-filter: blur(3px);
       }
       .meta-logo {
-        width: 18px;
-        height: 18px;
+        width: 24px;
+        height: 24px;
         border-radius: 50%;
         display: inline-flex;
         align-items: center;
         justify-content: center;
-        font-size: 8px;
+        font-size: 9px;
         font-weight: 800;
         letter-spacing: 0.04em;
         border: 1px solid transparent;
+        background: transparent;
       }
       .meta-logo-img {
-        width: 12px;
-        height: 12px;
+        width: 18px;
+        height: 18px;
         object-fit: contain;
         display: block;
+        filter: drop-shadow(0 1px 2px rgba(2, 6, 23, 0.6));
       }
       .meta-logo-fallback-hidden {
         display: none;
@@ -2159,7 +2354,6 @@ class WalletLabViewProvider implements vscode.WebviewViewProvider {
         display: inline-flex;
         align-items: center;
         gap: 6px;
-        margin-top: 6px;
         font-size: 11px;
       }
       .dot {
@@ -2253,9 +2447,10 @@ class WalletLabViewProvider implements vscode.WebviewViewProvider {
         border-radius: 8px;
         background: rgba(250, 204, 21, 0.08);
         color: #f8fafc;
-        display: flex;
+        display: grid;
+        grid-template-columns: 30px minmax(0, 1fr);
         align-items: center;
-        gap: 7px;
+        gap: 8px;
         padding: 6px 8px;
         width: 100%;
         cursor: pointer;
@@ -2269,11 +2464,13 @@ class WalletLabViewProvider implements vscode.WebviewViewProvider {
         min-width: 28px;
       }
       .donate-chip-value {
-        font-size: 10px;
+        font-size: 11px;
+        font-family: var(--vscode-editor-font-family), Consolas, monospace;
         color: var(--address-color);
         overflow: hidden;
         text-overflow: ellipsis;
         white-space: nowrap;
+        line-height: 1.2;
       }
       .donate-qr-tooltip {
         position: absolute;
@@ -2324,6 +2521,12 @@ class WalletLabViewProvider implements vscode.WebviewViewProvider {
         color: #f8bf54;
         font-weight: 700;
       }
+      .chart-timeframe {
+        margin-top: 6px;
+        font-size: 9px;
+        letter-spacing: 0.04em;
+        color: var(--text-secondary);
+      }
       .market-subtitle {
         margin-top: 4px;
         font-size: 10px;
@@ -2331,17 +2534,101 @@ class WalletLabViewProvider implements vscode.WebviewViewProvider {
       }
       .market-tools {
         margin-top: 9px;
-        display: flex;
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) auto;
         gap: 6px;
+        align-items: stretch;
+        position: relative;
+      }
+      .market-search-wrap {
+        min-width: 0;
+        position: relative;
+      }
+      .market-add-btn {
+        min-width: 56px;
+        margin: 0;
+        padding: 0 12px;
+        height: 30px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        white-space: nowrap;
+        line-height: 1;
+        align-self: stretch;
       }
       .market-input {
-        flex: 1;
+        width: 100%;
+        height: 30px;
+        box-sizing: border-box;
         border-radius: 9px;
         border: 1px solid rgba(98, 129, 188, 0.45);
         background: rgba(10, 18, 36, 0.78);
         color: var(--text-primary);
         padding: 6px 8px;
         font-size: 10px;
+      }
+      .market-autocomplete {
+        position: absolute;
+        top: calc(100% + 4px);
+        left: 0;
+        right: 0;
+        border: 1px solid rgba(98, 129, 188, 0.45);
+        border-radius: 8px;
+        background: rgba(8, 14, 30, 0.98);
+        box-shadow: 0 12px 22px rgba(2, 6, 23, 0.5);
+        z-index: 40;
+        max-height: 168px;
+        overflow-y: auto;
+      }
+      .market-autocomplete-item {
+        width: 100%;
+        border: 0;
+        border-bottom: 1px solid rgba(98, 129, 188, 0.2);
+        background: transparent;
+        color: var(--text-primary);
+        text-align: left;
+        padding: 7px 8px;
+        cursor: pointer;
+        font-size: 10px;
+      }
+      .market-autocomplete-item:last-child {
+        border-bottom: 0;
+      }
+      .market-autocomplete-item:hover,
+      .market-autocomplete-item.active {
+        background: rgba(49, 184, 255, 0.18);
+      }
+      .market-autocomplete-primary {
+        font-weight: 700;
+      }
+      .market-autocomplete-secondary {
+        margin-top: 2px;
+        font-size: 9px;
+        color: var(--text-secondary);
+      }
+      .market-favorites {
+        margin-top: 7px;
+        border: 1px solid rgba(98, 129, 188, 0.3);
+        border-radius: 8px;
+        padding: 7px;
+        background: rgba(8, 14, 30, 0.45);
+      }
+      .market-favorites-title {
+        font-size: 9px;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        color: #9ad7ff;
+      }
+      .market-favorites-grid {
+        margin-top: 6px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+      }
+      .market-favorite-empty {
+        margin-top: 4px;
+        font-size: 9px;
+        color: var(--text-secondary);
       }
       .market-input::placeholder {
         color: var(--text-secondary);
@@ -2368,6 +2655,34 @@ class WalletLabViewProvider implements vscode.WebviewViewProvider {
         border: 1px solid rgba(148, 163, 184, 0.35);
         background: rgba(15, 23, 42, 0.7);
         color: #e2e8f0;
+      }
+      .bubble-main {
+        display: inline-flex;
+        align-items: center;
+      }
+      .bubble-actions {
+        display: inline-flex;
+        align-items: center;
+        gap: 4px;
+      }
+      .bubble-pin {
+        width: 16px;
+        height: 16px;
+        border: 0;
+        border-radius: 999px;
+        padding: 0;
+        cursor: pointer;
+        font-size: 9px;
+        line-height: 1;
+        background: rgba(2, 6, 23, 0.5);
+        color: currentColor;
+      }
+      .bubble-pin.active {
+        color: #facc15;
+        background: rgba(250, 204, 21, 0.2);
+      }
+      .bubble-pin:hover {
+        background: rgba(2, 6, 23, 0.75);
       }
       .bubble-remove {
         width: 16px;
@@ -2421,6 +2736,14 @@ class WalletLabViewProvider implements vscode.WebviewViewProvider {
         padding: 5px 8px;
         font-size: 10px;
       }
+      .chart-range-select {
+        border-radius: 8px;
+        border: 1px solid rgba(98, 129, 188, 0.45);
+        background: rgba(12, 21, 42, 0.85);
+        color: var(--text-primary);
+        padding: 5px 6px;
+        font-size: 10px;
+      }
       .chart-surface {
         margin-top: 8px;
         height: 90px;
@@ -2439,6 +2762,12 @@ class WalletLabViewProvider implements vscode.WebviewViewProvider {
       .chart-svg {
         width: 100%;
         height: 100%;
+      }
+      .chart-scale-text {
+        fill: rgba(215, 226, 251, 0.9);
+        font-size: 8px;
+        font-weight: 700;
+        letter-spacing: 0.02em;
       }
       .chart-path {
         fill: none;
@@ -2561,16 +2890,27 @@ class WalletLabViewProvider implements vscode.WebviewViewProvider {
         align-items: center;
         justify-content: space-between;
         gap: 8px;
+        flex-wrap: wrap;
       }
       .theme-picker {
-        display: inline-flex;
+        display: flex;
+        flex-wrap: wrap;
         align-items: center;
         gap: 6px;
+        justify-content: flex-end;
+        min-width: min(100%, 380px);
+      }
+      .theme-picker-group {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        min-width: 0;
       }
       .theme-picker-label {
         font-size: 10px;
         color: var(--text-secondary);
         letter-spacing: 0.04em;
+        white-space: nowrap;
       }
       .theme-picker-select {
         border-radius: 7px;
@@ -2579,19 +2919,21 @@ class WalletLabViewProvider implements vscode.WebviewViewProvider {
         font-size: 10px;
         background: rgba(12, 18, 36, 0.75);
         color: var(--text-primary);
+        min-width: 124px;
       }
       .mode-badge {
         display: inline-flex;
         align-items: center;
-        margin-top: 9px;
+        margin-top: 10px;
         border-radius: 999px;
-        padding: 3px 8px;
-        font-size: 10px;
-        font-weight: 700;
+        padding: 4px 10px;
+        font-size: 11px;
+        font-weight: 800;
         letter-spacing: 0.06em;
         color: #ffd48b;
         border: 1px solid rgba(255, 212, 139, 0.65);
         background: rgba(255, 212, 139, 0.15);
+        box-shadow: 0 0 0 1px rgba(255, 212, 139, 0.2) inset;
       }
       .ui-theme-calm-light {
         background: radial-gradient(circle at top, #eef2fa 0%, #e8edf7 54%, #e1e8f3 100%);
@@ -2645,6 +2987,18 @@ class WalletLabViewProvider implements vscode.WebviewViewProvider {
         background: rgba(245, 248, 255, 0.95);
         border-color: rgba(169, 184, 212, 0.9);
         color: #253044;
+      }
+      .ui-theme-calm-light .market-autocomplete {
+        background: rgba(245, 248, 255, 0.98);
+        border-color: rgba(169, 184, 212, 0.9);
+      }
+      .ui-theme-calm-light .market-autocomplete-item {
+        border-bottom-color: rgba(169, 184, 212, 0.35);
+        color: #253044;
+      }
+      .ui-theme-calm-light .market-favorites {
+        background: rgba(240, 245, 253, 0.95);
+        border-color: rgba(169, 184, 212, 0.8);
       }
       .ui-theme-calm-light .bubble {
         background: rgba(236, 242, 250, 0.96);
@@ -2724,6 +3078,18 @@ class WalletLabViewProvider implements vscode.WebviewViewProvider {
         border-color: rgba(198, 171, 130, 0.92);
         color: #2f281d;
       }
+      .ui-theme-btc-dawn-light .market-autocomplete {
+        background: rgba(251, 246, 237, 0.99);
+        border-color: rgba(198, 171, 130, 0.92);
+      }
+      .ui-theme-btc-dawn-light .market-autocomplete-item {
+        border-bottom-color: rgba(198, 171, 130, 0.38);
+        color: #2f281d;
+      }
+      .ui-theme-btc-dawn-light .market-favorites {
+        background: rgba(246, 239, 227, 0.93);
+        border-color: rgba(195, 170, 131, 0.84);
+      }
       .ui-theme-btc-dawn-light .bubble {
         background: rgba(244, 236, 224, 0.95);
         color: #463a2b;
@@ -2769,61 +3135,273 @@ class WalletLabViewProvider implements vscode.WebviewViewProvider {
         border-color: rgba(149, 170, 206, 0.9) !important;
         background: rgba(205, 219, 243, 0.95) !important;
       }
+      .ui-theme-bittensor {
+        background: radial-gradient(circle at top, #0d1f24 0%, #08161b 54%, #050d10 100%);
+      }
+      .ui-theme-bittensor .card,
+      .ui-theme-bittensor .market-wrap,
+      .ui-theme-bittensor .registry-wrap {
+        background: linear-gradient(180deg, rgba(8, 28, 33, 0.95) 0%, rgba(5, 20, 24, 0.92) 100%);
+        border-color: rgba(43, 181, 169, 0.75);
+      }
+      .ui-theme-bittensor .label,
+      .ui-theme-bittensor .market-title {
+        color: #2dd4bf;
+      }
+      .ui-theme-bittensor .value,
+      .ui-theme-bittensor .registry-title {
+        color: #d8fff9;
+      }
+      .ui-theme-bittensor .btn-secondary {
+        background: rgba(45, 212, 191, 0.14);
+        color: #d8fff9;
+      }
+      .ui-theme-bittensor .market-input,
+      .ui-theme-bittensor .chart-select,
+      .ui-theme-bittensor .registry-format-select,
+      .ui-theme-bittensor .theme-picker-select {
+        background: rgba(4, 22, 27, 0.9);
+        border-color: rgba(43, 181, 169, 0.72);
+        color: #d8fff9;
+      }
+      .ui-theme-bittensor .market-autocomplete,
+      .ui-theme-bittensor .market-favorites,
+      .ui-theme-bittensor .chart-wrap,
+      .ui-theme-bittensor .registry-column,
+      .ui-theme-bittensor .registry-item,
+      .ui-theme-bittensor .chart-surface {
+        background: rgba(5, 20, 24, 0.9);
+        border-color: rgba(43, 181, 169, 0.6);
+      }
+      .ui-theme-bittensor .env-banner {
+        color: #2dd4bf;
+        border-color: rgba(45, 212, 191, 0.7);
+        background: rgba(45, 212, 191, 0.12);
+      }
+      .ui-theme-bittensor .mode-badge {
+        color: #f6ad55;
+        border-color: rgba(245, 158, 11, 0.75);
+        background: rgba(245, 158, 11, 0.14);
+      }
+      .ui-theme-bittensor .meta-brand {
+        color: #d8fff9 !important;
+        border-color: rgba(45, 212, 191, 0.62) !important;
+        background: rgba(5, 32, 37, 0.92) !important;
+      }
+      .ui-theme-bittensor .meta-logo {
+        color: #d8fff9 !important;
+        border-color: rgba(45, 212, 191, 0.72) !important;
+        background: rgba(17, 79, 74, 0.95) !important;
+      }
+      body.ui-theme-lamberto {
+        --panel-bg: rgba(13, 35, 58, 0.78);
+        --panel-border: rgba(86, 164, 196, 0.52);
+        --panel-shadow: 0 12px 28px rgba(7, 22, 39, 0.36);
+        --text-primary: #f2fbff;
+        --text-secondary: #b9dceb;
+        --address-color: #ffcf6e;
+        --accent-primary: #f97316;
+        --accent-primary-hover: #fb923c;
+        --accent-info: #4fd1ff;
+        --accent-success: #34d399;
+        --accent-danger: #ef4444;
+        background:
+          radial-gradient(circle at 20% 16%, rgba(255, 205, 122, 0.18) 0%, rgba(255, 205, 122, 0) 42%),
+          radial-gradient(circle at 84% 18%, rgba(70, 177, 215, 0.2) 0%, rgba(70, 177, 215, 0) 48%),
+          linear-gradient(180deg, #0f365b 0%, #0c2a4a 46%, #0b2440 100%);
+      }
+      .ui-theme-lamberto::before {
+        content: "";
+        position: fixed;
+        inset: 0;
+        pointer-events: none;
+        background:
+          linear-gradient(180deg, rgba(154, 216, 255, 0.2) 0%, rgba(154, 216, 255, 0.08) 26%, rgba(56, 146, 193, 0.06) 54%, rgba(17, 82, 128, 0.12) 100%),
+          radial-gradient(circle at 74% 10%, rgba(255, 236, 175, 0.28) 0%, rgba(255, 236, 175, 0) 28%),
+          radial-gradient(circle at 12% 74%, rgba(248, 216, 152, 0.2) 0%, rgba(248, 216, 152, 0) 34%);
+        opacity: 0.24;
+        z-index: -2;
+      }
+      .ui-theme-lamberto::after {
+        content: "";
+        position: fixed;
+        inset: 0;
+        pointer-events: none;
+        background:
+          radial-gradient(130% 78% at 14% 98%, rgba(244, 211, 132, 0.2) 0%, rgba(244, 211, 132, 0) 48%),
+          radial-gradient(120% 62% at 88% 99%, rgba(34, 135, 173, 0.2) 0%, rgba(34, 135, 173, 0) 52%),
+          radial-gradient(80% 55% at 100% 12%, rgba(58, 117, 83, 0.16) 0%, rgba(58, 117, 83, 0) 58%);
+        opacity: 0.26;
+        z-index: -1;
+      }
+      .ui-theme-lamberto .card,
+      .ui-theme-lamberto .market-wrap,
+      .ui-theme-lamberto .registry-wrap {
+        background: linear-gradient(180deg, rgba(9, 34, 58, 0.9) 0%, rgba(7, 26, 47, 0.88) 100%);
+        border-color: rgba(92, 175, 206, 0.62);
+      }
+      .ui-theme-lamberto .label,
+      .ui-theme-lamberto .market-title,
+      .ui-theme-lamberto .wallet-key-title {
+        color: #ffd57f;
+      }
+      .ui-theme-lamberto .env-banner {
+        color: #ffe8b1;
+        border-color: rgba(254, 215, 140, 0.64);
+        background: rgba(255, 213, 127, 0.12);
+      }
+      .ui-theme-lamberto .mode-badge {
+        color: #ffe7b5;
+        border-color: rgba(255, 194, 98, 0.76);
+        background: rgba(255, 194, 98, 0.16);
+      }
+      .ui-theme-lamberto .meta-brand {
+        color: #f0fbff !important;
+        border-color: rgba(108, 198, 231, 0.72) !important;
+        background: rgba(11, 48, 78, 0.78) !important;
+      }
+      .ui-theme-lamberto .meta-logo {
+        color: #f7fcff !important;
+        border-color: rgba(132, 215, 244, 0.88) !important;
+      }
+      body.ui-theme-cobol {
+        --panel-bg: rgba(5, 18, 10, 0.83);
+        --panel-border: rgba(82, 255, 150, 0.42);
+        --panel-shadow: 0 10px 26px rgba(0, 0, 0, 0.55);
+        --text-primary: #d4ffd7;
+        --text-secondary: #91d79f;
+        --address-color: #ffe66d;
+        --accent-primary: #39ff14;
+        --accent-primary-hover: #7dff62;
+        --accent-info: #65ffa8;
+        --accent-success: #50fa7b;
+        --accent-danger: #ff7b7b;
+        background:
+          repeating-linear-gradient(180deg, rgba(8, 28, 13, 0.97) 0px, rgba(8, 28, 13, 0.97) 2px, rgba(5, 19, 9, 0.95) 3px, rgba(5, 19, 9, 0.95) 4px),
+          linear-gradient(180deg, #071b0d 0%, #061409 100%);
+      }
+      .ui-theme-cobol .card,
+      .ui-theme-cobol .market-wrap,
+      .ui-theme-cobol .registry-wrap {
+        background: linear-gradient(180deg, rgba(8, 28, 13, 0.93) 0%, rgba(5, 18, 10, 0.9) 100%);
+        border-color: rgba(97, 255, 161, 0.5);
+        box-shadow: 0 0 0 1px rgba(97, 255, 161, 0.12) inset, 0 12px 28px rgba(0, 0, 0, 0.52);
+      }
+      .ui-theme-cobol .label,
+      .ui-theme-cobol .market-title,
+      .ui-theme-cobol .wallet-key-title {
+        color: #9dffa0;
+      }
+      .ui-theme-cobol .meta-brand {
+        color: #ddffe1 !important;
+        border-color: rgba(121, 255, 175, 0.72) !important;
+        background: rgba(10, 34, 14, 0.74) !important;
+      }
+      .ui-theme-cobol .meta-logo {
+        color: #ddffe1 !important;
+        border-color: rgba(121, 255, 175, 0.8) !important;
+      }
+      .ui-theme-cobol .env-banner {
+        color: #b5ffbf;
+        border-color: rgba(121, 255, 175, 0.64);
+        background: rgba(57, 255, 20, 0.09);
+      }
+      .ui-theme-cobol .mode-badge {
+        color: #e9ff9f;
+        border-color: rgba(233, 255, 159, 0.72);
+        background: rgba(233, 255, 159, 0.12);
+      }
     </style>
   </head>
   <body class="ui-theme-${uiTheme}">
     <div class="env-banner">
-      <span>ENVIRONMENT: ${modeLabel}</span>
+      <span id="envLabel">ENVIRONMENT: ${modeLabel}</span>
       <span class="theme-picker">
-        <span class="theme-picker-label">Theme</span>
-        <select class="theme-picker-select" id="uiThemeSelect">
-          <option value="pro">Pro Studio</option>
-          <option value="calm-light">Calm Light BTC</option>
-          <option value="btc-dawn-light">BTC Dawn Light</option>
-          <option value="neon">Neon Focus</option>
-        </select>
+        <span class="theme-picker-group">
+          <span class="theme-picker-label" id="panelThemeLabel">Panel</span>
+          <select class="theme-picker-select" id="uiThemeSelect">
+            <option value="neon">Neon Focus</option>
+            <option value="pro">Pro Studio</option>
+            <option value="bittensor">Bittensor Signal</option>
+            <option value="lamberto">Lamberto Ubatuba Beach</option>
+            <option value="cobol">COBOL Terminal</option>
+            <option value="calm-light">Calm Light BTC</option>
+            <option value="btc-dawn-light">BTC Dawn Light</option>
+          </select>
+        </span>
+        <span class="theme-picker-group">
+          <span class="theme-picker-label" id="vscodeThemeLabel">VS Code</span>
+          <select class="theme-picker-select" id="workbenchThemeSelect">
+            <option value="vaporwave-neon-dusk">Vaporwave Neon Dusk</option>
+            <option value="bittensor-signal">Bittensor Signal</option>
+            <option value="lamberto-shoreline">Lamberto Ubatuba Beach</option>
+            <option value="cobol-terminal">COBOL Terminal</option>
+            <option value="vaporwave-midnight">Vaporwave Midnight</option>
+            <option value="bitcoin-sober">Bitcoin Sober</option>
+            <option value="bitcoin-calm-light">Bitcoin Calm Light</option>
+          </select>
+        </span>
+        <span class="theme-picker-group">
+          <span class="theme-picker-label" id="languageLabel">Language</span>
+          <select class="theme-picker-select" id="localeSelect">
+            <option value="en">English</option>
+            <option value="pt-BR">Portugues (Brasil)</option>
+            <option value="fr">Francais</option>
+            <option value="es">Espanol</option>
+            <option value="de">Deutsch</option>
+            <option value="ru">Русский</option>
+            <option value="ja">日本語</option>
+            <option value="zh">中文</option>
+            <option value="ar">العربية</option>
+          </select>
+        </span>
       </span>
     </div>
     <div class="card wallet-card">
-      <div class="label">Wallet Lab</div>
-      <div class="status">
-        <span class="dot"></span>
-        <span>${statusLabel}</span>
+      <div class="wallet-head">
+        <div class="label wallet-title">Wallet Lab</div>
+        <div class="wallet-head-right">
+          <div class="status">
+            <span class="dot"></span>
+            <span>${statusLabel}</span>
+          </div>
+        </div>
       </div>
-      <div class="value ${state.connected ? "wallet-address" : ""}">${state.connected ? state.address : "No wallet connected"}</div>
-      <div class="meta-grid">
-        <div class="meta-item">
-          <span class="meta-title">NETWORK</span>
+      <div class="wallet-brand-row">
+        <span class="wallet-brand-group">
+          <span class="wallet-brand-title" id="networkLabel">Network</span>
           <span class="meta-brand" style="background:${networkBrand.bg}; border-color:${networkBrand.border}; color:${networkBrand.fg};">
-            <span class="meta-logo" style="background:${networkBrand.border}; border-color:${networkBrand.fg}; color:${networkBrand.fg};">${networkLogoUri ? `<img class="meta-logo-img" src="${networkLogoUri}" alt="${this.escapeHtml(networkBrand.label)} logo" />` : ""}<span class="${networkLogoUri ? "meta-logo-fallback-hidden" : ""}">${networkBrand.mark}</span></span>
+            <span class="meta-logo" style="border-color:${networkBrand.fg}; color:${networkBrand.fg};">${networkLogoUri ? `<img class="meta-logo-img" src="${networkLogoUri}" alt="${this.escapeHtml(networkBrand.label)} logo" />` : ""}<span class="${networkLogoUri ? "meta-logo-fallback-hidden" : ""}">${networkBrand.mark}</span></span>
             ${networkBrand.label}
           </span>
-        </div>
-        <div class="meta-item">
-          <span class="meta-title">WALLET</span>
+        </span>
+        <span class="wallet-brand-group">
+          <span class="wallet-brand-title" id="walletLabel">Wallet</span>
           <span class="meta-brand" style="background:${providerBrand.bg}; border-color:${providerBrand.border}; color:${providerBrand.fg};">
-            <span class="meta-logo" style="background:${providerBrand.border}; border-color:${providerBrand.fg}; color:${providerBrand.fg};">${providerLogoUri ? `<img class="meta-logo-img" src="${providerLogoUri}" alt="${this.escapeHtml(providerBrand.label)} logo" />` : ""}<span class="${providerLogoUri ? "meta-logo-fallback-hidden" : ""}">${providerBrand.mark}</span></span>
+            <span class="meta-logo" style="border-color:${providerBrand.fg}; color:${providerBrand.fg};">${providerLogoUri ? `<img class="meta-logo-img" src="${providerLogoUri}" alt="${this.escapeHtml(providerBrand.label)} logo" />` : ""}<span class="${providerLogoUri ? "meta-logo-fallback-hidden" : ""}">${providerBrand.mark}</span></span>
             ${providerBrand.label}
           </span>
-        </div>
+        </span>
       </div>
-      <div class="mode-badge">Mode: ${modeLabel}</div>
+      <div class="wallet-key-title" id="publicKeyLabel">Public Key</div>
+      <div class="value ${state.connected ? "wallet-address" : ""}">${state.connected ? state.address : "No wallet connected"}</div>
+      <div class="mode-badge" id="modeBadge">MODE: ${modeLabel}</div>
     </div>
 
     <div class="actions">
       <button class="btn btn-primary btn-wide" id="connectBtn">Connect Wallet</button>
       <button class="btn btn-secondary" id="contractCheckBtn">Contract Check</button>
-      ${balanceButtonHtml}
       <button class="btn btn-secondary" id="openProviderBtn">Wallet Site</button>
+      ${balanceButtonHtml}
+      <button class="btn btn-secondary" id="copyBtn">Copy Address</button>
       <div class="donate-menu">
-        <button class="btn btn-secondary" id="donateBtn"><img class="btn-icon" src="${donateIconUri}" alt="Donate" />Donate</button>
+        <button class="btn btn-secondary" id="donateBtn"><img class="btn-icon" src="${donateIconUri}" alt="Donate" /><span id="donateBtnText">Donate</span></button>
         <div class="donate-flyout" aria-label="Donate addresses and QR codes">
           <div class="donate-flyout-title">Hover address for QR | Click to copy</div>
           <div class="donate-address-grid">${donateAddressesHtml}</div>
         </div>
       </div>
-      <button class="btn btn-secondary" id="copyBtn">Copy Address</button>
-      <button class="btn btn-secondary" id="disconnectBtn">Disconnect</button>
+      <button class="btn btn-secondary btn-wide" id="disconnectBtn">Disconnect</button>
     </div>
 
     <p class="hint">
@@ -2831,20 +3409,35 @@ class WalletLabViewProvider implements vscode.WebviewViewProvider {
     </p>
 
     <div class="market-wrap">
-      <div class="market-title">Crypto Market Snapshot</div>
+      <div class="market-title" id="marketTitle">Crypto Market Snapshot</div>
       <div class="market-subtitle" id="marketTimestamp">Loading live prices...</div>
-      <div class="market-tools">
-        <input class="market-input" id="marketSearchInput" placeholder="Search coin (BTC, ETH, DOGE, xrp, cardano...)" />
-        <button class="btn btn-secondary" id="marketSearchBtn">Add</button>
+      <div class="market-favorites">
+        <div class="market-favorites-title" id="pinnedFavoritesLabel">Pinned Favorites</div>
+        <div class="market-favorites-grid" id="marketFavorites"></div>
+        <div class="market-favorite-empty" id="marketFavoritesEmpty">Pin bubbles to keep your top coins at hand.</div>
       </div>
-      <div class="market-hint">Tip: you can type symbol or CoinGecko id.</div>
+      <div class="market-tools">
+        <div class="market-search-wrap">
+          <input class="market-input" id="marketSearchInput" placeholder="Search coin (BTC, ETH, DOGE, xrp, cardano...)" autocomplete="off" />
+          <div class="market-autocomplete" id="marketAutocomplete" style="display:none;"></div>
+        </div>
+        <button class="btn btn-secondary market-add-btn" id="marketSearchBtn">Add</button>
+      </div>
+      <div class="market-hint" id="marketHint">Tip: you can type symbol or CoinGecko id.</div>
       <div class="bubble-grid" id="marketBubbles"></div>
       <div class="market-error" id="marketError" style="display:none;"></div>
       <div class="chart-wrap">
         <div class="chart-tools">
           <select class="chart-select" id="chartCoinSelect"></select>
+          <select class="chart-range-select" id="chartRangeSelect">
+            <option value="max">Max</option>
+            <option value="5y">5Y</option>
+            <option value="1y">1Y</option>
+            <option value="90d">90D</option>
+          </select>
           <button class="btn btn-secondary" id="chartRefreshBtn">Chart</button>
         </div>
+        <div class="chart-timeframe" id="chartTimeframe">Range: loading...</div>
         <div class="chart-surface" id="priceChartSurface">
           <div class="chart-empty">Loading chart...</div>
         </div>
@@ -2852,8 +3445,8 @@ class WalletLabViewProvider implements vscode.WebviewViewProvider {
     </div>
 
     <div class="registry-wrap">
-      <div class="market-title">Wallet Registry</div>
-      <div class="market-subtitle">Real and test addresses used in this tool.</div>
+      <div class="market-title" id="walletRegistryTitle">Wallet Registry</div>
+      <div class="market-subtitle" id="walletRegistrySubtitle">Real and test addresses used in this tool.</div>
       <div class="registry-toolbar">
         <button class="btn btn-secondary" id="checkRegistryBalancesBtn">Check Real Balances</button>
         <select class="registry-format-select" id="registryExportFormatSelect" aria-label="Registry export format">
@@ -2885,6 +3478,9 @@ class WalletLabViewProvider implements vscode.WebviewViewProvider {
     <script nonce="${nonce}">
       const vscode = acquireVsCodeApi();
       const currentUiTheme = '${uiTheme}';
+      const currentWorkbenchTheme = '${editorTheme}';
+      const currentLocale = '${locale}';
+      let activeLocale = currentLocale;
       document.getElementById('connectBtn').addEventListener('click', () => vscode.postMessage({ command: 'connect' }));
       document.getElementById('contractCheckBtn').addEventListener('click', () => vscode.postMessage({ command: 'contractCheck' }));
       const balanceBtn = document.getElementById('balanceBtn');
@@ -2917,6 +3513,87 @@ class WalletLabViewProvider implements vscode.WebviewViewProvider {
       });
       document.getElementById('clearRegistryBtn').addEventListener('click', () => vscode.postMessage({ command: 'clearRegistry' }));
       const uiThemeSelectEl = document.getElementById('uiThemeSelect');
+      const workbenchThemeSelectEl = document.getElementById('workbenchThemeSelect');
+      const localeSelectEl = document.getElementById('localeSelect');
+
+      const i18n = {
+        en: {
+          panel: 'Panel', vscode: 'VS Code', language: 'Language', env: 'ENVIRONMENT',
+          network: 'Network', wallet: 'Wallet', publicKey: 'Public Key', mode: 'MODE',
+          connect: 'Connect Wallet', contract: 'Contract Check', site: 'Wallet Site', balance: 'Check Balance', copy: 'Copy Address', donate: 'Donate', disconnect: 'Disconnect',
+          market: 'Crypto Market Snapshot', favorites: 'Pinned Favorites', favEmpty: 'Pin bubbles to keep your top coins at hand.',
+          searchPlaceholder: 'Search coin (BTC, ETH, DOGE, xrp, cardano...)', add: 'Add', hint: 'Tip: you can type symbol or CoinGecko id.',
+          chart: 'Chart', registry: 'Wallet Registry', registrySub: 'Real and test addresses used in this tool.',
+          rangeLoading: 'Range: loading...', realBalances: 'Check Real Balances', exportRegistry: 'Export Registry', exportBalance: 'Export Balance', exportContract: 'Export Contract', clearList: 'Clear List'
+        },
+        'pt-BR': {
+          panel: 'Painel', vscode: 'VS Code', language: 'Idioma', env: 'AMBIENTE',
+          network: 'Rede', wallet: 'Carteira', publicKey: 'Chave Publica', mode: 'MODO',
+          connect: 'Conectar Carteira', contract: 'Checar Contrato', site: 'Site da Carteira', balance: 'Checar Saldo', copy: 'Copiar Endereco', donate: 'Doar', disconnect: 'Desconectar',
+          market: 'Snapshot do Mercado Cripto', favorites: 'Favoritos Fixados', favEmpty: 'Fixe bolhas para manter suas moedas principais.',
+          searchPlaceholder: 'Buscar moeda (BTC, ETH, DOGE, xrp, cardano...)', add: 'Adicionar', hint: 'Dica: voce pode digitar simbolo ou id do CoinGecko.',
+          chart: 'Grafico', registry: 'Registro de Carteiras', registrySub: 'Enderecos reais e de teste usados nesta ferramenta.',
+          rangeLoading: 'Periodo: carregando...', realBalances: 'Checar Saldos Reais', exportRegistry: 'Exportar Registro', exportBalance: 'Exportar Saldo', exportContract: 'Exportar Contrato', clearList: 'Limpar Lista'
+        },
+        fr: { panel: 'Panneau', vscode: 'VS Code', language: 'Langue', env: 'ENVIRONNEMENT', network: 'Reseau', wallet: 'Portefeuille', publicKey: 'Cle Publique', mode: 'MODE', connect: 'Connecter Portefeuille', contract: 'Verifier Contrat', site: 'Site du Wallet', balance: 'Verifier Solde', copy: 'Copier Adresse', donate: 'Don', disconnect: 'Deconnecter', market: 'Apercu Marche Crypto', favorites: 'Favoris Epingles', favEmpty: 'Epinglez des bulles pour garder vos principales pieces.', searchPlaceholder: 'Rechercher coin (BTC, ETH, DOGE, xrp, cardano...)', add: 'Ajouter', hint: 'Astuce: symbole ou id CoinGecko.', chart: 'Graphique', registry: 'Registre Wallet', registrySub: 'Adresses reelles et test utilisees.', rangeLoading: 'Periode: chargement...', realBalances: 'Verifier Soldes Reels', exportRegistry: 'Exporter Registre', exportBalance: 'Exporter Solde', exportContract: 'Exporter Contrat', clearList: 'Vider Liste' },
+        es: { panel: 'Panel', vscode: 'VS Code', language: 'Idioma', env: 'ENTORNO', network: 'Red', wallet: 'Billetera', publicKey: 'Clave Publica', mode: 'MODO', connect: 'Conectar Billetera', contract: 'Verificar Contrato', site: 'Sitio Wallet', balance: 'Verificar Saldo', copy: 'Copiar Direccion', donate: 'Donar', disconnect: 'Desconectar', market: 'Resumen Mercado Cripto', favorites: 'Favoritos Fijados', favEmpty: 'Fija burbujas para mantener tus monedas top.', searchPlaceholder: 'Buscar moneda (BTC, ETH, DOGE, xrp, cardano...)', add: 'Agregar', hint: 'Tip: simbolo o id de CoinGecko.', chart: 'Grafico', registry: 'Registro de Billeteras', registrySub: 'Direcciones reales y de prueba usadas en esta herramienta.', rangeLoading: 'Periodo: cargando...', realBalances: 'Verificar Saldos Reales', exportRegistry: 'Exportar Registro', exportBalance: 'Exportar Saldo', exportContract: 'Exportar Contrato', clearList: 'Limpiar Lista' },
+        de: { panel: 'Panel', vscode: 'VS Code', language: 'Sprache', env: 'UMGEBUNG', network: 'Netzwerk', wallet: 'Wallet', publicKey: 'Public Key', mode: 'MODUS', connect: 'Wallet Verbinden', contract: 'Vertrag Prufen', site: 'Wallet Seite', balance: 'Saldo Prufen', copy: 'Adresse Kopieren', donate: 'Spenden', disconnect: 'Trennen', market: 'Krypto Markt Ubersicht', favorites: 'Angepinnte Favoriten', favEmpty: 'Pinne Blasen fur deine Top Coins.', searchPlaceholder: 'Coin suchen (BTC, ETH, DOGE, xrp, cardano...)', add: 'Hinzufugen', hint: 'Tipp: Symbol oder CoinGecko-ID.', chart: 'Chart', registry: 'Wallet Register', registrySub: 'Reale und Test-Adressen in diesem Tool.', rangeLoading: 'Zeitraum: wird geladen...', realBalances: 'Reale Salden Prufen', exportRegistry: 'Register Export', exportBalance: 'Saldo Export', exportContract: 'Vertrag Export', clearList: 'Liste Loschen' },
+        ru: { panel: 'Панель', vscode: 'VS Code', language: 'Язык', env: 'СРЕДА', network: 'Сеть', wallet: 'Кошелек', publicKey: 'Публичный ключ', mode: 'РЕЖИМ', connect: 'Подключить кошелек', contract: 'Проверка контракта', site: 'Сайт кошелька', balance: 'Проверить баланс', copy: 'Копировать адрес', donate: 'Поддержать', disconnect: 'Отключить', market: 'Снимок крипторынка', favorites: 'Закрепленные избранные', favEmpty: 'Закрепляйте монеты для быстрого доступа.', searchPlaceholder: 'Поиск монеты (BTC, ETH, DOGE, xrp, cardano...)', add: 'Добавить', hint: 'Подсказка: символ или id CoinGecko.', chart: 'График', registry: 'Реестр кошельков', registrySub: 'Реальные и тестовые адреса в инструменте.', rangeLoading: 'Период: загрузка...', realBalances: 'Проверить реальные балансы', exportRegistry: 'Экспорт реестра', exportBalance: 'Экспорт баланса', exportContract: 'Экспорт контракта', clearList: 'Очистить список' },
+        ja: { panel: 'パネル', vscode: 'VS Code', language: '言語', env: '環境', network: 'ネットワーク', wallet: 'ウォレット', publicKey: '公開鍵', mode: 'モード', connect: 'ウォレット接続', contract: 'コントラクト確認', site: 'ウォレットサイト', balance: '残高確認', copy: 'アドレスコピー', donate: '寄付', disconnect: '切断', market: '暗号市場スナップショット', favorites: '固定お気に入り', favEmpty: 'バブルを固定して主要コインを保持します。', searchPlaceholder: 'コイン検索 (BTC, ETH, DOGE, xrp, cardano...)', add: '追加', hint: 'ヒント: シンボルまたはCoinGecko id。', chart: 'チャート', registry: 'ウォレット登録', registrySub: 'このツールで使われた実/テストアドレス。', rangeLoading: '期間: 読み込み中...', realBalances: '実残高チェック', exportRegistry: '登録をエクスポート', exportBalance: '残高をエクスポート', exportContract: '契約をエクスポート', clearList: 'リストをクリア' },
+        zh: { panel: '面板', vscode: 'VS Code', language: '语言', env: '环境', network: '网络', wallet: '钱包', publicKey: '公钥', mode: '模式', connect: '连接钱包', contract: '合约检查', site: '钱包网站', balance: '检查余额', copy: '复制地址', donate: '赞助', disconnect: '断开连接', market: '加密市场快照', favorites: '置顶收藏', favEmpty: '置顶气泡以保留常用币种。', searchPlaceholder: '搜索币种 (BTC, ETH, DOGE, xrp, cardano...)', add: '添加', hint: '提示: 可输入符号或CoinGecko id。', chart: '图表', registry: '钱包登记', registrySub: '此工具中使用的真实和测试地址。', rangeLoading: '区间: 加载中...', realBalances: '检查真实余额', exportRegistry: '导出登记', exportBalance: '导出余额', exportContract: '导出合约', clearList: '清空列表' },
+        ar: { panel: 'اللوحة', vscode: 'VS Code', language: 'اللغة', env: 'البيئة', network: 'الشبكة', wallet: 'المحفظة', publicKey: 'المفتاح العام', mode: 'الوضع', connect: 'ربط المحفظة', contract: 'فحص العقد', site: 'موقع المحفظة', balance: 'فحص الرصيد', copy: 'نسخ العنوان', donate: 'تبرع', disconnect: 'قطع الاتصال', market: 'لقطة سوق الكريبتو', favorites: 'المفضلة المثبتة', favEmpty: 'ثبّت الفقاعات للاحتفاظ بأهم العملات.', searchPlaceholder: 'ابحث عن عملة (BTC, ETH, DOGE, xrp, cardano...)', add: 'إضافة', hint: 'نصيحة: يمكنك كتابة الرمز أو معرف CoinGecko.', chart: 'الرسم البياني', registry: 'سجل المحافظ', registrySub: 'عناوين حقيقية وتجريبية مستخدمة في الأداة.', rangeLoading: 'النطاق: جار التحميل...', realBalances: 'فحص الأرصدة الحقيقية', exportRegistry: 'تصدير السجل', exportBalance: 'تصدير الرصيد', exportContract: 'تصدير العقد', clearList: 'مسح القائمة' }
+      };
+
+      function t(key) {
+        const localeMap = i18n[activeLocale] || i18n.en;
+        return localeMap[key] || i18n.en[key] || key;
+      }
+
+      function applyTranslations() {
+        const envText = t('env') + ': ${modeLabel}';
+        const envLabelEl = document.getElementById('envLabel');
+        if (envLabelEl) {
+          envLabelEl.textContent = envText;
+        }
+        document.getElementById('panelThemeLabel').textContent = t('panel');
+        document.getElementById('vscodeThemeLabel').textContent = t('vscode');
+        document.getElementById('languageLabel').textContent = t('language');
+        document.getElementById('networkLabel').textContent = t('network');
+        document.getElementById('walletLabel').textContent = t('wallet');
+        document.getElementById('publicKeyLabel').textContent = t('publicKey');
+        document.getElementById('modeBadge').textContent = t('mode') + ': ${modeLabel}';
+        document.getElementById('connectBtn').textContent = t('connect');
+        document.getElementById('contractCheckBtn').textContent = t('contract');
+        document.getElementById('openProviderBtn').textContent = t('site');
+        const balanceButtonEl = document.getElementById('balanceBtn');
+        if (balanceButtonEl) {
+          balanceButtonEl.textContent = t('balance');
+        }
+        document.getElementById('copyBtn').textContent = t('copy');
+        document.getElementById('donateBtnText').textContent = t('donate');
+        document.getElementById('disconnectBtn').textContent = t('disconnect');
+        document.getElementById('marketTitle').textContent = t('market');
+        document.getElementById('pinnedFavoritesLabel').textContent = t('favorites');
+        document.getElementById('marketFavoritesEmpty').textContent = t('favEmpty');
+        const searchInputEl = document.getElementById('marketSearchInput');
+        if (searchInputEl) {
+          searchInputEl.placeholder = t('searchPlaceholder');
+        }
+        document.getElementById('marketSearchBtn').textContent = t('add');
+        document.getElementById('marketHint').textContent = t('hint');
+        document.getElementById('chartRefreshBtn').textContent = t('chart');
+        document.getElementById('walletRegistryTitle').textContent = t('registry');
+        document.getElementById('walletRegistrySubtitle').textContent = t('registrySub');
+        document.getElementById('checkRegistryBalancesBtn').textContent = t('realBalances');
+        document.getElementById('exportRegistryBtn').textContent = t('exportRegistry');
+        document.getElementById('exportBalanceBtn').textContent = t('exportBalance');
+        document.getElementById('exportContractBtn').textContent = t('exportContract');
+        document.getElementById('clearRegistryBtn').textContent = t('clearList');
+        const chartTimeframeLocalEl = document.getElementById('chartTimeframe');
+        if (chartTimeframeLocalEl && chartTimeframeLocalEl.textContent === 'Range: loading...') {
+          chartTimeframeLocalEl.textContent = t('rangeLoading');
+        }
+      }
 
       document.querySelectorAll('.meta-logo-img').forEach((img) => {
         const fallback = img.nextElementSibling;
@@ -2932,6 +3609,22 @@ class WalletLabViewProvider implements vscode.WebviewViewProvider {
       uiThemeSelectEl.addEventListener('change', () => {
         vscode.postMessage({ command: 'setUiTheme', themeId: uiThemeSelectEl.value });
       });
+
+      workbenchThemeSelectEl.value = currentWorkbenchTheme;
+      workbenchThemeSelectEl.addEventListener('change', () => {
+        vscode.postMessage({ command: 'setWorkbenchTheme', workbenchThemeId: workbenchThemeSelectEl.value });
+      });
+
+      localeSelectEl.value = activeLocale;
+      localeSelectEl.addEventListener('change', () => {
+        activeLocale = localeSelectEl.value;
+        document.body.dir = activeLocale === 'ar' ? 'rtl' : 'ltr';
+        applyTranslations();
+        vscode.postMessage({ command: 'setLocale', localeId: activeLocale });
+      });
+
+      document.body.dir = activeLocale === 'ar' ? 'rtl' : 'ltr';
+      applyTranslations();
 
       const registryTabRealEl = document.getElementById('registryTabReal');
       const registryTabTestEl = document.getElementById('registryTabTest');
@@ -2975,7 +3668,17 @@ class WalletLabViewProvider implements vscode.WebviewViewProvider {
         polygon: 'matic-network',
         pol: 'matic-network',
         link: 'chainlink',
-        dot: 'polkadot'
+        dot: 'polkadot',
+        xaut: 'tether-gold',
+        htx: 'htx-dao',
+        huobi: 'huobi-token',
+        ht: 'huobi-token'
+      };
+
+      const extraCandidateIdsByQuery = {
+        htx: ['htx-dao', 'huobi-token'],
+        huobi: ['huobi-token', 'htx-dao'],
+        ht: ['huobi-token']
       };
 
       const symbolById = {
@@ -2990,7 +3693,10 @@ class WalletLabViewProvider implements vscode.WebviewViewProvider {
         'avalanche-2': 'AVAX',
         'matic-network': 'POL',
         chainlink: 'LINK',
-        polkadot: 'DOT'
+        polkadot: 'DOT',
+        'tether-gold': 'XAUT',
+        'htx-dao': 'HTX',
+        'huobi-token': 'HT'
       };
 
       const coinCapIdByCoinGeckoId = {
@@ -3005,7 +3711,8 @@ class WalletLabViewProvider implements vscode.WebviewViewProvider {
         'avalanche-2': 'avalanche',
         'matic-network': 'polygon',
         chainlink: 'chainlink',
-        polkadot: 'polkadot'
+        polkadot: 'polkadot',
+        'huobi-token': 'huobi-token'
       };
 
       const binancePairByCoinId = {
@@ -3020,7 +3727,23 @@ class WalletLabViewProvider implements vscode.WebviewViewProvider {
         'avalanche-2': 'AVAXUSDT',
         'matic-network': 'POLUSDT',
         chainlink: 'LINKUSDT',
-        polkadot: 'DOTUSDT'
+        polkadot: 'DOTUSDT',
+        'huobi-token': 'HTUSDT'
+      };
+
+      const yahooSymbolByCoinId = {
+        bitcoin: 'BTC-USD',
+        ethereum: 'ETH-USD',
+        solana: 'SOL-USD',
+        binancecoin: 'BNB-USD',
+        ripple: 'XRP-USD',
+        cardano: 'ADA-USD',
+        tron: 'TRX-USD',
+        dogecoin: 'DOGE-USD',
+        chainlink: 'LINK-USD',
+        polkadot: 'DOT-USD',
+        'matic-network': 'MATIC-USD',
+        'avalanche-2': 'AVAX-USD'
       };
 
       const marketBubblesEl = document.getElementById('marketBubbles');
@@ -3028,9 +3751,37 @@ class WalletLabViewProvider implements vscode.WebviewViewProvider {
       const marketErrorEl = document.getElementById('marketError');
       const marketSearchInputEl = document.getElementById('marketSearchInput');
       const marketSearchBtnEl = document.getElementById('marketSearchBtn');
+      const marketAutocompleteEl = document.getElementById('marketAutocomplete');
+      const marketFavoritesEl = document.getElementById('marketFavorites');
+      const marketFavoritesEmptyEl = document.getElementById('marketFavoritesEmpty');
       const chartCoinSelectEl = document.getElementById('chartCoinSelect');
+      const chartRangeSelectEl = document.getElementById('chartRangeSelect');
       const chartRefreshBtnEl = document.getElementById('chartRefreshBtn');
+      const chartTimeframeEl = document.getElementById('chartTimeframe');
       const priceChartSurfaceEl = document.getElementById('priceChartSurface');
+      const favoriteAssetIds = new Set(['bitcoin', 'ethereum']);
+      let activeSuggestions = [];
+      let activeSuggestionIndex = -1;
+      let autocompleteTimer = null;
+      let selectedSuggestionId = '';
+      let coinGeckoCoinListCache = [];
+      let coinGeckoCoinListFetchedAt = 0;
+      let chartRangeSetting = 'max';
+      let chartProviderRotationIndex = 0;
+
+      async function getCoinGeckoCoinList() {
+        const now = Date.now();
+        const ttlMs = 6 * 60 * 60 * 1000;
+        if (coinGeckoCoinListCache.length > 0 && (now - coinGeckoCoinListFetchedAt) < ttlMs) {
+          return coinGeckoCoinListCache;
+        }
+
+        const endpoint = 'https://api.coingecko.com/api/v3/coins/list?include_platform=false';
+        const payload = await fetchJsonWithRetry(endpoint, 1, 20000);
+        coinGeckoCoinListCache = Array.isArray(payload) ? payload : [];
+        coinGeckoCoinListFetchedAt = Date.now();
+        return coinGeckoCoinListCache;
+      }
 
       function formatUsd(value) {
         return new Intl.NumberFormat('en-US', {
@@ -3040,8 +3791,168 @@ class WalletLabViewProvider implements vscode.WebviewViewProvider {
         }).format(value);
       }
 
+      function getPreferredSymbol(asset) {
+        return String(asset?.symbol || '').toUpperCase().replace(/[^A-Z0-9]/g, '') || 'COIN';
+      }
+
+      function getSyntheticSymbolFromId(assetId) {
+        const rawId = String(assetId || '').toLowerCase();
+        if (!rawId.startsWith('symbol:')) {
+          return '';
+        }
+
+        const rawSymbol = rawId.replace('symbol:', '').toUpperCase();
+        return rawSymbol.replace(/[^A-Z0-9]/g, '').slice(0, 12);
+      }
+
+      function getYahooSymbolForAsset(asset) {
+        const rawId = String(asset?.id || '').toLowerCase();
+        const normalizedId = rawId.startsWith('coincap:') ? rawId.replace('coincap:', '') : rawId;
+
+        const syntheticSymbol = getSyntheticSymbolFromId(rawId);
+        if (syntheticSymbol) {
+          return syntheticSymbol + '-USD';
+        }
+
+        if (yahooSymbolByCoinId[normalizedId]) {
+          return yahooSymbolByCoinId[normalizedId];
+        }
+
+        const symbol = getPreferredSymbol(asset);
+        return symbol ? symbol + '-USD' : '';
+      }
+
+      function setAutocompleteVisible(visible) {
+        marketAutocompleteEl.style.display = visible ? 'block' : 'none';
+      }
+
+      function clearAutocomplete() {
+        activeSuggestions = [];
+        activeSuggestionIndex = -1;
+        marketAutocompleteEl.innerHTML = '';
+        setAutocompleteVisible(false);
+      }
+
+      function applySuggestionByIndex(index) {
+        const suggestion = activeSuggestions[index];
+        if (!suggestion) {
+          return;
+        }
+
+        selectedSuggestionId = String(suggestion.id || '').toLowerCase();
+        marketSearchInputEl.value = suggestion.symbol || suggestion.id;
+        clearAutocomplete();
+      }
+
+      function renderAutocompleteSuggestions(suggestions) {
+        activeSuggestions = Array.isArray(suggestions) ? suggestions : [];
+        activeSuggestionIndex = -1;
+
+        if (activeSuggestions.length === 0) {
+          clearAutocomplete();
+          return;
+        }
+
+        marketAutocompleteEl.innerHTML = '';
+        activeSuggestions.forEach((coin, index) => {
+          const row = document.createElement('button');
+          row.type = 'button';
+          row.className = 'market-autocomplete-item';
+          row.innerHTML =
+            '<div class="market-autocomplete-primary">'
+            + String(coin.symbol || '').toUpperCase()
+            + ' - '
+            + String(coin.name || '')
+            + '</div>'
+            + '<div class="market-autocomplete-secondary">'
+            + String(coin.id || '')
+            + '</div>';
+          row.addEventListener('click', () => applySuggestionByIndex(index));
+          marketAutocompleteEl.appendChild(row);
+        });
+
+        setAutocompleteVisible(true);
+      }
+
+      function setActiveAutocompleteIndex(nextIndex) {
+        const items = Array.from(marketAutocompleteEl.querySelectorAll('.market-autocomplete-item'));
+        if (items.length === 0) {
+          activeSuggestionIndex = -1;
+          return;
+        }
+
+        const boundedIndex = Math.max(0, Math.min(nextIndex, items.length - 1));
+        activeSuggestionIndex = boundedIndex;
+        items.forEach((item, index) => item.classList.toggle('active', index === boundedIndex));
+      }
+
+      async function refreshAutocompleteSuggestions(rawQuery) {
+        const normalized = rawQuery.trim();
+        if (!normalized || normalized.length < 2) {
+          clearAutocomplete();
+          return;
+        }
+
+        try {
+          const endpoint = 'https://api.coingecko.com/api/v3/search?query=' + encodeURIComponent(normalized);
+          const payload = await fetchJsonWithRetry(endpoint, 1, 9000);
+          const suggestions = Array.isArray(payload?.coins)
+            ? payload.coins.slice(0, 8).map((coin) => ({
+                id: String(coin.id || ''),
+                symbol: String(coin.symbol || '').toUpperCase(),
+                name: String(coin.name || ''),
+              })).filter((coin) => coin.id)
+            : [];
+
+          renderAutocompleteSuggestions(suggestions);
+        } catch {
+          clearAutocomplete();
+        }
+      }
+
+      function renderFavoriteBubbles(payload) {
+        marketFavoritesEl.innerHTML = '';
+        const favoriteAssets = marketConfig.filter((asset) => favoriteAssetIds.has(asset.id));
+
+        if (favoriteAssets.length === 0) {
+          marketFavoritesEmptyEl.style.display = 'block';
+          return;
+        }
+
+        marketFavoritesEmptyEl.style.display = 'none';
+
+        favoriteAssets.forEach((asset) => {
+          const data = payload?.[asset.id];
+          const hasPrice = data && typeof data.usd === 'number';
+          const bubble = document.createElement('div');
+          bubble.className = 'bubble ' + ((data?.usd_24h_change ?? 0) >= 0 ? 'bubble-up' : 'bubble-down');
+
+          const label = document.createElement('span');
+          label.className = 'bubble-main';
+          label.textContent = hasPrice
+            ? asset.symbol + ' ' + formatUsd(data.usd)
+            : asset.symbol + ' (loading)';
+
+          const unpinBtn = document.createElement('button');
+          unpinBtn.type = 'button';
+          unpinBtn.className = 'bubble-pin active';
+          unpinBtn.title = 'Unpin favorite';
+          unpinBtn.textContent = '★';
+          unpinBtn.addEventListener('click', () => {
+            favoriteAssetIds.delete(asset.id);
+            renderFavoriteBubbles(payload);
+            renderBubbles(payload);
+          });
+
+          bubble.appendChild(label);
+          bubble.appendChild(unpinBtn);
+          marketFavoritesEl.appendChild(bubble);
+        });
+      }
+
       function renderBubbles(payload) {
         marketBubblesEl.innerHTML = '';
+        renderFavoriteBubbles(payload);
 
         marketConfig.forEach((asset) => {
           const data = payload[asset.id];
@@ -3055,7 +3966,26 @@ class WalletLabViewProvider implements vscode.WebviewViewProvider {
 
           const changePrefix = change >= 0 ? '+' : '';
           const content = document.createElement('span');
+          content.className = 'bubble-main';
           content.textContent = asset.symbol + ' ' + formatUsd(data.usd) + ' (' + changePrefix + change.toFixed(2) + '%)';
+
+          const actions = document.createElement('span');
+          actions.className = 'bubble-actions';
+
+          const pinBtn = document.createElement('button');
+          pinBtn.className = 'bubble-pin' + (favoriteAssetIds.has(asset.id) ? ' active' : '');
+          pinBtn.type = 'button';
+          pinBtn.title = favoriteAssetIds.has(asset.id) ? 'Unpin favorite' : 'Pin favorite';
+          pinBtn.textContent = favoriteAssetIds.has(asset.id) ? '★' : '☆';
+          pinBtn.addEventListener('click', () => {
+            if (favoriteAssetIds.has(asset.id)) {
+              favoriteAssetIds.delete(asset.id);
+            } else {
+              favoriteAssetIds.add(asset.id);
+            }
+            renderFavoriteBubbles(payload);
+            void refreshMarketBubbles();
+          });
 
           const removeBtn = document.createElement('button');
           removeBtn.className = 'bubble-remove';
@@ -3066,12 +3996,15 @@ class WalletLabViewProvider implements vscode.WebviewViewProvider {
             const index = marketConfig.findIndex((entry) => entry.id === asset.id);
             if (index >= 0) {
               marketConfig.splice(index, 1);
+              favoriteAssetIds.delete(asset.id);
               void refreshMarketBubbles();
             }
           });
 
           bubble.appendChild(content);
-          bubble.appendChild(removeBtn);
+          actions.appendChild(pinBtn);
+          actions.appendChild(removeBtn);
+          bubble.appendChild(actions);
           marketBubblesEl.appendChild(bubble);
         });
 
@@ -3126,7 +4059,7 @@ class WalletLabViewProvider implements vscode.WebviewViewProvider {
         priceChartSurfaceEl.innerHTML = '<div class="chart-empty">' + message + '</div>';
       }
 
-      function renderSparkline(points) {
+      function renderSparkline(points, startLabel, endLabel) {
         if (!Array.isArray(points) || points.length < 2) {
           renderChartPlaceholder('Not enough chart data');
           return;
@@ -3134,53 +4067,594 @@ class WalletLabViewProvider implements vscode.WebviewViewProvider {
 
         const width = 320;
         const height = 90;
+        const leftPad = 8;
+        const rightPad = 8;
+        const topPad = 14;
+        const bottomPad = 20;
+        const plotWidth = width - leftPad - rightPad;
+        const plotHeight = height - topPad - bottomPad;
         const min = Math.min(...points);
         const max = Math.max(...points);
         const range = max - min || 1;
 
-        const path = points
-          .map((value, index) => {
-            const x = (index / (points.length - 1)) * width;
-            const y = height - (((value - min) / range) * (height - 10) + 5);
-            return (index === 0 ? 'M' : 'L') + x.toFixed(2) + ' ' + y.toFixed(2);
+        const chartPoints = points.map((value, index) => {
+          const x = leftPad + ((index / (points.length - 1)) * plotWidth);
+          const y = topPad + ((1 - ((value - min) / range)) * plotHeight);
+          return { x, y };
+        });
+
+        const path = chartPoints
+          .map((point, index) => {
+            return (index === 0 ? 'M' : 'L') + point.x.toFixed(2) + ' ' + point.y.toFixed(2);
           })
           .join(' ');
 
         const trendDown = points[points.length - 1] < points[0];
         const pathClass = trendDown ? 'chart-path chart-path-down' : 'chart-path';
+        const maxLabel = formatUsd(max);
+        const minLabel = formatUsd(min);
+        const currentPriceLabel = formatUsd(points[points.length - 1]);
+        const lastPoint = chartPoints[chartPoints.length - 1];
+        const currentTextWidth = Math.max(36, (currentPriceLabel.length * 5.4) + 8);
+        const currentTextX = lastPoint.x > (width * 0.68)
+          ? Math.max(6, lastPoint.x - currentTextWidth - 8)
+          : Math.min(width - currentTextWidth - 6, lastPoint.x + 8);
+        const currentTextY = Math.max(12, Math.min(height - 22, lastPoint.y - 6));
 
         priceChartSurfaceEl.innerHTML =
           '<svg class="chart-svg" viewBox="0 0 ' + width + ' ' + height + '" preserveAspectRatio="none" aria-label="price chart">'
+          + '<text class="chart-scale-text" x="6" y="11">' + maxLabel + '</text>'
+          + '<text class="chart-scale-text" x="6" y="' + (height - 7) + '">' + minLabel + '</text>'
+          + '<text class="chart-scale-text" x="6" y="' + (height - 18) + '">' + (startLabel || '') + '</text>'
+          + '<text class="chart-scale-text" x="' + (width - 6) + '" y="' + (height - 18) + '" text-anchor="end">' + (endLabel || '') + '</text>'
           + '<path class="' + pathClass + '" d="' + path + '"></path>'
+          + '<circle cx="' + lastPoint.x.toFixed(2) + '" cy="' + lastPoint.y.toFixed(2) + '" r="2.4" fill="currentColor" class="' + pathClass + '"></circle>'
+          + '<rect x="' + currentTextX.toFixed(2) + '" y="' + (currentTextY - 8).toFixed(2) + '" width="' + currentTextWidth.toFixed(2) + '" height="11" rx="3" fill="rgba(2,6,23,0.62)"></rect>'
+          + '<text class="chart-scale-text" x="' + (currentTextX + 4).toFixed(2) + '" y="' + currentTextY.toFixed(2) + '">' + currentPriceLabel + '</text>'
           + '</svg>';
+      }
+
+      function formatChartDate(timestampMs) {
+        if (!Number.isFinite(timestampMs)) {
+          return '--';
+        }
+
+        return new Date(timestampMs).toLocaleDateString('en-US', {
+          day: '2-digit',
+          month: 'short',
+          year: 'numeric'
+        });
+      }
+
+      function buildChartWindowLabel(startMs, endMs, source) {
+        if (!Number.isFinite(startMs) || !Number.isFinite(endMs)) {
+          return 'Range unavailable';
+        }
+
+        return 'Range: ' + formatChartDate(startMs) + ' to ' + formatChartDate(endMs) + ' | Source: ' + source;
+      }
+
+      function getRangeDays(rangeKey) {
+        if (rangeKey === '90d') {
+          return 90;
+        }
+        if (rangeKey === '1y') {
+          return 365;
+        }
+        if (rangeKey === '5y') {
+          return 1825;
+        }
+        return Number.POSITIVE_INFINITY;
+      }
+
+      function applyDailyRangeSlice(data, rangeKey) {
+        const days = getRangeDays(rangeKey);
+        if (!Number.isFinite(days) || !Array.isArray(data?.points) || data.points.length <= days) {
+          return data;
+        }
+
+        const slicedPoints = data.points.slice(-days);
+        const endMs = data.endMs;
+        const computedStart = Number.isFinite(endMs) ? (endMs - ((days - 1) * 24 * 60 * 60 * 1000)) : data.startMs;
+
+        return {
+          points: slicedPoints,
+          startMs: Number.isFinite(data.startMs) ? Math.max(data.startMs, computedStart) : computedStart,
+          endMs
+        };
+      }
+
+      function rotateProviderEntries(entries, rotationIndex) {
+        if (!Array.isArray(entries) || entries.length <= 1) {
+          return Array.isArray(entries) ? entries : [];
+        }
+
+        const safeRotation = Number.isFinite(rotationIndex) ? Math.abs(Math.floor(rotationIndex)) : 0;
+        const offset = safeRotation % entries.length;
+        return entries.slice(offset).concat(entries.slice(0, offset));
+      }
+
+      function selectOldestChartCandidate(candidates) {
+        if (!Array.isArray(candidates) || candidates.length === 0) {
+          return null;
+        }
+
+        return candidates.slice().sort((a, b) => {
+          const aStart = Number.isFinite(a?.startMs) ? a.startMs : Number.POSITIVE_INFINITY;
+          const bStart = Number.isFinite(b?.startMs) ? b.startMs : Number.POSITIVE_INFINITY;
+          if (aStart !== bStart) {
+            return aStart - bStart;
+          }
+
+          const aCount = Array.isArray(a?.points) ? a.points.length : 0;
+          const bCount = Array.isArray(b?.points) ? b.points.length : 0;
+          return bCount - aCount;
+        })[0] || null;
+      }
+
+      function parseCoinGeckoChartData(payload) {
+        if (!Array.isArray(payload?.prices)) {
+          return { points: [], startMs: NaN, endMs: NaN };
+        }
+
+        const rows = payload.prices
+          .map((row) => ({
+            time: Number(Array.isArray(row) ? row[0] : NaN),
+            price: Number(Array.isArray(row) ? row[1] : NaN)
+          }))
+          .filter((row) => Number.isFinite(row.time) && Number.isFinite(row.price));
+
+        if (rows.length < 2) {
+          return { points: [], startMs: NaN, endMs: NaN };
+        }
+
+        return {
+          points: rows.map((row) => row.price),
+          startMs: rows[0].time,
+          endMs: rows[rows.length - 1].time
+        };
+      }
+
+      function parseCoinCapChartData(payload) {
+        if (!Array.isArray(payload?.data)) {
+          return { points: [], startMs: NaN, endMs: NaN };
+        }
+
+        const rows = payload.data
+          .map((row) => ({
+            time: Number(row?.time),
+            price: Number(row?.priceUsd)
+          }))
+          .filter((row) => Number.isFinite(row.time) && Number.isFinite(row.price));
+
+        if (rows.length < 2) {
+          return { points: [], startMs: NaN, endMs: NaN };
+        }
+
+        return {
+          points: rows.map((row) => row.price),
+          startMs: rows[0].time,
+          endMs: rows[rows.length - 1].time
+        };
+      }
+
+      function parseYahooChartData(payload) {
+        const result = Array.isArray(payload?.chart?.result) ? payload.chart.result[0] : null;
+        const timestamps = Array.isArray(result?.timestamp) ? result.timestamp : [];
+        const closes = Array.isArray(result?.indicators?.quote)
+          ? result.indicators.quote[0]?.close
+          : [];
+
+        if (!Array.isArray(closes) || !Array.isArray(timestamps)) {
+          return { points: [], startMs: NaN, endMs: NaN };
+        }
+
+        const rows = closes
+          .map((value, index) => ({
+            time: Number(timestamps[index]) * 1000,
+            price: Number(value)
+          }))
+          .filter((row) => Number.isFinite(row.time) && Number.isFinite(row.price));
+
+        if (rows.length < 2) {
+          return { points: [], startMs: NaN, endMs: NaN };
+        }
+
+        return {
+          points: rows.map((row) => row.price),
+          startMs: rows[0].time,
+          endMs: rows[rows.length - 1].time
+        };
+      }
+
+      async function fetchYahooChartPointsForAsset(asset) {
+        const yahooSymbol = getYahooSymbolForAsset(asset);
+        if (!yahooSymbol) {
+          return { points: [], startMs: NaN, endMs: NaN };
+        }
+
+        try {
+          const endpoint = 'https://query1.finance.yahoo.com/v8/finance/chart/' + encodeURIComponent(yahooSymbol) + '?interval=1d&range=max';
+          const payload = await fetchJsonWithRetry(endpoint, 1);
+          return parseYahooChartData(payload);
+        } catch {
+          return { points: [], startMs: NaN, endMs: NaN };
+        }
+      }
+
+      async function fetchCoinGeckoChartPointsForAsset(asset) {
+        if (!asset || !asset.id) {
+          return { points: [], startMs: NaN, endMs: NaN };
+        }
+
+        const rawId = String(asset.id || '').toLowerCase();
+        if (!rawId || rawId.startsWith('coincap:')) {
+          return { points: [], startMs: NaN, endMs: NaN };
+        }
+
+        const syntheticSymbol = getSyntheticSymbolFromId(rawId);
+        let geckoId = rawId;
+
+        if (syntheticSymbol) {
+          try {
+            const searchEndpoint = 'https://api.coingecko.com/api/v3/search?query=' + encodeURIComponent(syntheticSymbol);
+            const searchPayload = await fetchJsonWithRetry(searchEndpoint, 1, 9000);
+            const bestMatch = pickBestCoinMatch(searchPayload?.coins, syntheticSymbol.toLowerCase());
+            geckoId = bestMatch?.id ? String(bestMatch.id).toLowerCase() : '';
+          } catch {
+            geckoId = '';
+          }
+
+          if (!geckoId) {
+            return { points: [], startMs: NaN, endMs: NaN };
+          }
+        }
+
+        try {
+          const geckoEndpoint =
+            'https://api.coingecko.com/api/v3/coins/'
+            + encodeURIComponent(geckoId)
+            + '/market_chart?vs_currency=usd&days=max&interval=daily';
+          const geckoPayload = await fetchJsonWithRetry(geckoEndpoint, 1, 25000);
+          return parseCoinGeckoChartData(geckoPayload);
+        } catch {
+          return { points: [], startMs: NaN, endMs: NaN };
+        }
+      }
+
+      async function fetchCoinCapChartPointsForAsset(asset) {
+        if (!asset || !asset.id) {
+          return { points: [], startMs: NaN, endMs: NaN };
+        }
+
+        const rawId = String(asset.id || '').toLowerCase();
+        const normalizedId = rawId.startsWith('coincap:') ? rawId.replace('coincap:', '') : rawId;
+        let coinCapId = coinCapIdByCoinGeckoId[normalizedId] || normalizedId;
+
+        const syntheticSymbol = getSyntheticSymbolFromId(rawId);
+        if (syntheticSymbol) {
+          try {
+            const searchEndpoint = 'https://api.coincap.io/v2/assets?search=' + encodeURIComponent(syntheticSymbol.toLowerCase());
+            const searchPayload = await fetchJsonWithRetry(searchEndpoint, 1, 10000);
+            const bestMatch = pickBestCoinCapMatch(searchPayload?.data, syntheticSymbol.toLowerCase());
+            coinCapId = bestMatch?.id ? String(bestMatch.id).toLowerCase() : '';
+          } catch {
+            coinCapId = '';
+          }
+        }
+
+        if (!coinCapId) {
+          return { points: [], startMs: NaN, endMs: NaN };
+        }
+
+        try {
+          const coincapEndpoint =
+            'https://api.coincap.io/v2/assets/'
+            + encodeURIComponent(coinCapId)
+            + '/history?interval=d1';
+          const coincapPayload = await fetchJsonWithRetry(coincapEndpoint, 1, 20000);
+          return parseCoinCapChartData(coincapPayload);
+        } catch {
+          return { points: [], startMs: NaN, endMs: NaN };
+        }
+      }
+
+      async function fetchBinanceChartPointsForAsset(asset) {
+        const pair = getChartPairFromAsset(asset);
+        if (!pair) {
+          return { points: [], startMs: NaN, endMs: NaN };
+        }
+
+        const maxBatches = 8;
+        const batchLimit = 1000;
+        const rows = [];
+        let endTimeCursor = NaN;
+
+        for (let batchIndex = 0; batchIndex < maxBatches; batchIndex += 1) {
+          const cursorParam = Number.isFinite(endTimeCursor)
+            ? '&endTime=' + Math.max(0, Math.floor(endTimeCursor))
+            : '';
+          const endpoint =
+            'https://api.binance.com/api/v3/klines?symbol='
+            + encodeURIComponent(pair)
+            + '&interval=1d&limit='
+            + batchLimit
+            + cursorParam;
+
+          let payload;
+          try {
+            payload = await fetchJsonWithRetry(endpoint, 1);
+          } catch {
+            break;
+          }
+
+          if (!Array.isArray(payload) || payload.length === 0) {
+            break;
+          }
+
+          const parsedBatch = payload
+            .map((item) => ({
+              openTime: Number(item?.[0]),
+              closeTime: Number(item?.[6]),
+              closePrice: Number(item?.[4])
+            }))
+            .filter((item) => Number.isFinite(item.openTime) && Number.isFinite(item.closeTime) && Number.isFinite(item.closePrice));
+
+          if (parsedBatch.length === 0) {
+            break;
+          }
+
+          rows.push(...parsedBatch);
+
+          const oldestOpenTime = parsedBatch[0].openTime;
+          if (!Number.isFinite(oldestOpenTime) || parsedBatch.length < batchLimit) {
+            break;
+          }
+
+          const nextCursor = oldestOpenTime - 1;
+          if (!Number.isFinite(nextCursor) || nextCursor < 0 || nextCursor === endTimeCursor) {
+            break;
+          }
+
+          endTimeCursor = nextCursor;
+        }
+
+        if (rows.length < 2) {
+          return { points: [], startMs: NaN, endMs: NaN };
+        }
+
+        const uniqueByOpenTime = [];
+        const seenOpenTimes = new Set();
+        rows
+          .sort((a, b) => a.openTime - b.openTime)
+          .forEach((row) => {
+            if (!seenOpenTimes.has(row.openTime)) {
+              seenOpenTimes.add(row.openTime);
+              uniqueByOpenTime.push(row);
+            }
+          });
+
+        if (uniqueByOpenTime.length < 2) {
+          return { points: [], startMs: NaN, endMs: NaN };
+        }
+
+        return {
+          points: uniqueByOpenTime.map((row) => row.closePrice),
+          startMs: uniqueByOpenTime[0].openTime,
+          endMs: uniqueByOpenTime[uniqueByOpenTime.length - 1].closeTime
+        };
+      }
+
+      async function fetchDexScreenerChartPointsForAsset(asset) {
+        const symbol = getPreferredSymbol(asset);
+        if (!symbol) {
+          return [];
+        }
+
+        try {
+          const endpoint = 'https://api.dexscreener.com/latest/dex/search/?q=' + encodeURIComponent(symbol);
+          const payload = await fetchJsonWithRetry(endpoint, 1);
+          if (!Array.isArray(payload?.pairs) || payload.pairs.length === 0) {
+            return [];
+          }
+
+          return payload.pairs
+            .slice(0, 18)
+            .map((pair) => Number(pair?.priceUsd))
+            .filter((value) => Number.isFinite(value));
+        } catch {
+          return [];
+        }
+      }
+
+      async function fetchChartPointsForAsset(asset, rangeKey) {
+        if (!asset || !asset.id) {
+          return {
+            points: [],
+            startMs: NaN,
+            endMs: NaN,
+            timeframe: 'Range unavailable'
+          };
+        }
+
+        const rawId = String(asset.id || '').toLowerCase();
+        const providers = rotateProviderEntries(
+          [
+            {
+              source: 'CoinGecko',
+              enabled: !rawId.startsWith('coincap:'),
+              load: () => fetchCoinGeckoChartPointsForAsset(asset)
+            },
+            {
+              source: 'CoinCap',
+              enabled: true,
+              load: () => fetchCoinCapChartPointsForAsset(asset)
+            },
+            {
+              source: 'Yahoo',
+              enabled: true,
+              load: () => fetchYahooChartPointsForAsset(asset)
+            },
+            {
+              source: 'Binance',
+              enabled: true,
+              load: () => fetchBinanceChartPointsForAsset(asset)
+            }
+          ].filter((provider) => provider.enabled),
+          chartProviderRotationIndex
+        );
+
+        if (providers.length === 0) {
+          return {
+            points: [],
+            startMs: NaN,
+            endMs: NaN,
+            timeframe: 'Range unavailable'
+          };
+        }
+
+        chartProviderRotationIndex = (chartProviderRotationIndex + 1) % providers.length;
+
+        const candidates = [];
+        for (const provider of providers) {
+          try {
+            const fullData = await provider.load();
+            if (!Array.isArray(fullData?.points) || fullData.points.length < 2) {
+              continue;
+            }
+
+            const slicedData = applyDailyRangeSlice(fullData, rangeKey);
+            if (!Array.isArray(slicedData?.points) || slicedData.points.length < 2) {
+              continue;
+            }
+
+            candidates.push({
+              source: provider.source,
+              points: slicedData.points,
+              startMs: slicedData.startMs,
+              endMs: slicedData.endMs
+            });
+          } catch {
+            // Keep probing other sources to maximize chances of older history.
+          }
+        }
+
+        const oldestCandidate = selectOldestChartCandidate(candidates);
+        if (!oldestCandidate) {
+          return {
+            points: [],
+            startMs: NaN,
+            endMs: NaN,
+            timeframe: 'Range unavailable'
+          };
+        }
+
+        return {
+          points: oldestCandidate.points,
+          startMs: oldestCandidate.startMs,
+          endMs: oldestCandidate.endMs,
+          timeframe: buildChartWindowLabel(oldestCandidate.startMs, oldestCandidate.endMs, oldestCandidate.source)
+        };
       }
 
       async function refreshSelectedChart() {
         const selectedId = chartCoinSelectEl.value;
         const selectedAsset = marketConfig.find((asset) => asset.id === selectedId);
-        const pair = getChartPairFromAsset(selectedAsset);
 
-        if (!pair) {
+        if (!selectedAsset) {
           renderChartPlaceholder('Chart unavailable for this asset');
           return;
         }
 
         try {
           renderChartPlaceholder('Loading chart...');
-          const endpoint = 'https://api.binance.com/api/v3/klines?symbol=' + encodeURIComponent(pair) + '&interval=1h&limit=48';
-          const payload = await fetchJsonWithRetry(endpoint, 1);
+          const chartResult = await fetchChartPointsForAsset(selectedAsset, chartRangeSetting);
+          const points = Array.isArray(chartResult?.points) ? chartResult.points : [];
+          if (chartTimeframeEl) {
+            chartTimeframeEl.textContent = String(chartResult?.timeframe || 'Range unavailable');
+          }
 
-          if (!Array.isArray(payload) || payload.length < 2) {
+          if (points.length < 2) {
             throw new Error('No data');
           }
 
-          const closes = payload
-            .map((item) => Number(item?.[4]))
-            .filter((value) => Number.isFinite(value));
-
-          renderSparkline(closes);
+          renderSparkline(points, formatChartDate(chartResult?.startMs), formatChartDate(chartResult?.endMs));
         } catch {
+          if (chartTimeframeEl) {
+            chartTimeframeEl.textContent = 'Range unavailable';
+          }
           renderChartPlaceholder('Chart source unavailable now');
+        }
+      }
+
+      function pickBestCoinFromListMatch(coins, normalized) {
+        if (!Array.isArray(coins) || coins.length === 0) {
+          return null;
+        }
+
+        const ranked = coins
+          .map((coin) => {
+            const id = String(coin.id || '').toLowerCase();
+            const symbol = String(coin.symbol || '').toLowerCase();
+            const name = String(coin.name || '').toLowerCase();
+
+            let score = 0;
+            if (id === normalized || id === normalized.replace(/\\s+/g, '-')) {
+              score += 110;
+            }
+            if (symbol === normalized) {
+              score += 105;
+            }
+            if (name === normalized) {
+              score += 100;
+            }
+            if (id.startsWith(normalized)) {
+              score += 55;
+            }
+            if (symbol.startsWith(normalized)) {
+              score += 50;
+            }
+            if (name.startsWith(normalized)) {
+              score += 45;
+            }
+            if (id.includes(normalized)) {
+              score += 40;
+            }
+            if (name.includes(normalized)) {
+              score += 30;
+            }
+
+            return {
+              coin,
+              score,
+            };
+          })
+          .filter((entry) => entry.score > 0)
+          .sort((a, b) => b.score - a.score);
+
+        return ranked[0]?.coin ?? null;
+      }
+
+      async function resolveCoinFromCoinGeckoList(rawQuery) {
+        const normalized = rawQuery.trim().toLowerCase();
+        if (!normalized) {
+          return null;
+        }
+
+        try {
+          const coins = await getCoinGeckoCoinList();
+          const bestMatch = pickBestCoinFromListMatch(coins, normalized);
+          if (!bestMatch || !bestMatch.id) {
+            return null;
+          }
+
+          return {
+            id: String(bestMatch.id).toLowerCase(),
+            symbol: resolveSymbol(String(bestMatch.id).toLowerCase(), bestMatch.symbol || rawQuery),
+            fromAlias: false
+          };
+        } catch {
+          return null;
         }
       }
 
@@ -3200,7 +4674,7 @@ class WalletLabViewProvider implements vscode.WebviewViewProvider {
             if (symbol === normalized) {
               score += 100;
             }
-            if (id === normalized || id === normalized.replace(/\s+/g, '-')) {
+            if (id === normalized || id === normalized.replace(/\\s+/g, '-')) {
               score += 95;
             }
             if (name === normalized) {
@@ -3269,7 +4743,12 @@ class WalletLabViewProvider implements vscode.WebviewViewProvider {
           // Fallback below when search API is unavailable.
         }
 
-        const fallbackId = normalized.replace(/\s+/g, '-');
+        const fromCoinList = await resolveCoinFromCoinGeckoList(rawQuery);
+        if (fromCoinList) {
+          return fromCoinList;
+        }
+
+        const fallbackId = normalized.replace(/\\s+/g, '-');
         return {
           id: fallbackId,
           symbol: resolveSymbol(fallbackId, rawQuery),
@@ -3293,8 +4772,12 @@ class WalletLabViewProvider implements vscode.WebviewViewProvider {
           candidates.push(coinAliases[normalized]);
         }
 
+        if (Array.isArray(extraCandidateIdsByQuery[normalized])) {
+          candidates.push(...extraCandidateIdsByQuery[normalized]);
+        }
+
         candidates.push(normalized);
-        candidates.push(normalized.replace(/\s+/g, '-'));
+        candidates.push(normalized.replace(/\\s+/g, '-'));
 
         const unique = [];
         for (const id of candidates) {
@@ -3310,14 +4793,101 @@ class WalletLabViewProvider implements vscode.WebviewViewProvider {
         return unique;
       }
 
-      async function fetchJsonWithRetry(url, retries) {
+      function mergeUniqueCoinIds(ids) {
+        const merged = [];
+        for (const id of ids) {
+          const cleaned = String(id || '').trim().toLowerCase();
+          if (!cleaned) {
+            continue;
+          }
+          if (!merged.includes(cleaned)) {
+            merged.push(cleaned);
+          }
+        }
+        return merged;
+      }
+
+      function scoreSearchCoinCandidate(coin, normalizedQuery) {
+        const id = String(coin?.id || '').toLowerCase();
+        const symbol = String(coin?.symbol || '').toLowerCase();
+        const name = String(coin?.name || '').toLowerCase();
+        const marketCapRank = typeof coin?.market_cap_rank === 'number' ? coin.market_cap_rank : Number.MAX_SAFE_INTEGER;
+
+        let score = 0;
+        if (symbol === normalizedQuery) {
+          score += 120;
+        }
+        if (id === normalizedQuery || id === normalizedQuery.replace(/\s+/g, '-')) {
+          score += 110;
+        }
+        if (name === normalizedQuery) {
+          score += 95;
+        }
+        if (symbol.startsWith(normalizedQuery)) {
+          score += 65;
+        }
+        if (id.startsWith(normalizedQuery)) {
+          score += 60;
+        }
+        if (name.startsWith(normalizedQuery)) {
+          score += 55;
+        }
+        if (id.includes(normalizedQuery)) {
+          score += 45;
+        }
+        if (name.includes(normalizedQuery)) {
+          score += 35;
+        }
+
+        return {
+          id,
+          score,
+          marketCapRank
+        };
+      }
+
+      async function buildCoinGeckoSearchCandidateIds(rawQuery) {
+        const normalizedQuery = String(rawQuery || '').trim().toLowerCase();
+        if (!normalizedQuery) {
+          return [];
+        }
+
+        try {
+          const endpoint = 'https://api.coingecko.com/api/v3/search?query=' + encodeURIComponent(normalizedQuery);
+          const payload = await fetchJsonWithRetry(endpoint, 1, 9000);
+          if (!Array.isArray(payload?.coins) || payload.coins.length === 0) {
+            return [];
+          }
+
+          const rankedIds = payload.coins
+            .map((coin) => scoreSearchCoinCandidate(coin, normalizedQuery))
+            .filter((entry) => entry.score > 0 && entry.id)
+            .sort((a, b) => {
+              if (b.score !== a.score) {
+                return b.score - a.score;
+              }
+              return a.marketCapRank - b.marketCapRank;
+            })
+            .slice(0, 20)
+            .map((entry) => entry.id);
+
+          return mergeUniqueCoinIds(rankedIds);
+        } catch {
+          return [];
+        }
+      }
+
+      async function fetchJsonWithRetry(url, retries, timeoutMs = 12000) {
         let lastError = null;
 
         for (let attempt = 0; attempt <= retries; attempt += 1) {
+          const controller = new AbortController();
+          const timeoutHandle = setTimeout(() => controller.abort(), timeoutMs);
           try {
             const response = await fetch(url, {
               method: 'GET',
-              headers: { accept: 'application/json' }
+              headers: { accept: 'application/json' },
+              signal: controller.signal
             });
 
             if (!response.ok) {
@@ -3330,6 +4900,8 @@ class WalletLabViewProvider implements vscode.WebviewViewProvider {
             if (attempt < retries) {
               await new Promise((resolve) => setTimeout(resolve, 500));
             }
+          } finally {
+            clearTimeout(timeoutHandle);
           }
         }
 
@@ -3378,7 +4950,7 @@ class WalletLabViewProvider implements vscode.WebviewViewProvider {
             if (symbol === normalized) {
               score += 100;
             }
-            if (id === normalized || id === normalized.replace(/\s+/g, '-')) {
+            if (id === normalized || id === normalized.replace(/\\s+/g, '-')) {
               score += 95;
             }
             if (name === normalized) {
@@ -3499,6 +5071,91 @@ class WalletLabViewProvider implements vscode.WebviewViewProvider {
         }, {});
       }
 
+      async function fetchCryptoComparePriceForAsset(asset) {
+        const symbol = getPreferredSymbol(asset);
+        if (!symbol) {
+          return null;
+        }
+
+        try {
+          const endpoint = 'https://min-api.cryptocompare.com/data/pricemultifull?fsyms=' + encodeURIComponent(symbol) + '&tsyms=USD';
+          const payload = await fetchJsonWithRetry(endpoint, 1);
+          const raw = payload?.RAW?.[symbol]?.USD;
+          const usd = Number(raw?.PRICE);
+          const change = Number(raw?.CHANGEPCT24HOUR);
+
+          if (!Number.isFinite(usd)) {
+            return null;
+          }
+
+          return {
+            usd,
+            usd_24h_change: Number.isFinite(change) ? change : 0,
+          };
+        } catch {
+          return null;
+        }
+      }
+
+      async function fetchYahooPriceForAsset(asset) {
+        const yahooSymbol = getYahooSymbolForAsset(asset);
+        if (!yahooSymbol) {
+          return null;
+        }
+
+        try {
+          const endpoint = 'https://query1.finance.yahoo.com/v7/finance/quote?symbols=' + encodeURIComponent(yahooSymbol);
+          const payload = await fetchJsonWithRetry(endpoint, 1);
+          const row = Array.isArray(payload?.quoteResponse?.result)
+            ? payload.quoteResponse.result[0]
+            : null;
+
+          const usd = Number(row?.regularMarketPrice);
+          const change = Number(row?.regularMarketChangePercent);
+
+          if (!Number.isFinite(usd)) {
+            return null;
+          }
+
+          return {
+            usd,
+            usd_24h_change: Number.isFinite(change) ? change : 0,
+          };
+        } catch {
+          return null;
+        }
+      }
+
+      async function fetchDexScreenerPriceForAsset(asset) {
+        const symbol = getPreferredSymbol(asset);
+        if (!symbol) {
+          return null;
+        }
+
+        try {
+          const endpoint = 'https://api.dexscreener.com/latest/dex/search/?q=' + encodeURIComponent(symbol);
+          const payload = await fetchJsonWithRetry(endpoint, 1);
+          if (!Array.isArray(payload?.pairs) || payload.pairs.length === 0) {
+            return null;
+          }
+
+          const pair = payload.pairs.find((item) => Number.isFinite(Number(item?.priceUsd))) || payload.pairs[0];
+          const usd = Number(pair?.priceUsd);
+          const change = Number(pair?.priceChange?.h24);
+
+          if (!Number.isFinite(usd)) {
+            return null;
+          }
+
+          return {
+            usd,
+            usd_24h_change: Number.isFinite(change) ? change : 0,
+          };
+        } catch {
+          return null;
+        }
+      }
+
       async function fetchBinancePriceForAsset(asset) {
         const rawId = String(asset.id || '').toLowerCase();
         const normalizedId = rawId.startsWith('coincap:') ? rawId.replace('coincap:', '') : rawId;
@@ -3548,8 +5205,65 @@ class WalletLabViewProvider implements vscode.WebviewViewProvider {
           return fromCoinCap;
         }
 
-        const binanceEntries = await Promise.all(
+        const fromCryptoCompareEntries = await Promise.all(
           missingAfterCoinCap.map(async (asset) => {
+            const priceData = await fetchCryptoComparePriceForAsset(asset);
+            return priceData ? [asset.id, priceData] : null;
+          })
+        );
+
+        const fromCryptoCompare = fromCryptoCompareEntries.reduce((acc, entry) => {
+          if (entry) {
+            acc[entry[0]] = entry[1];
+          }
+          return acc;
+        }, {});
+
+        const missingAfterCryptoCompare = missingAfterCoinCap.filter((asset) => {
+          const current = fromCryptoCompare[asset.id];
+          return !current || typeof current.usd !== 'number';
+        });
+
+        const fromYahooEntries = await Promise.all(
+          missingAfterCryptoCompare.map(async (asset) => {
+            const priceData = await fetchYahooPriceForAsset(asset);
+            return priceData ? [asset.id, priceData] : null;
+          })
+        );
+
+        const fromYahoo = fromYahooEntries.reduce((acc, entry) => {
+          if (entry) {
+            acc[entry[0]] = entry[1];
+          }
+          return acc;
+        }, {});
+
+        const missingAfterYahoo = missingAfterCryptoCompare.filter((asset) => {
+          const current = fromYahoo[asset.id];
+          return !current || typeof current.usd !== 'number';
+        });
+
+        const fromDexEntries = await Promise.all(
+          missingAfterYahoo.map(async (asset) => {
+            const priceData = await fetchDexScreenerPriceForAsset(asset);
+            return priceData ? [asset.id, priceData] : null;
+          })
+        );
+
+        const fromDexScreener = fromDexEntries.reduce((acc, entry) => {
+          if (entry) {
+            acc[entry[0]] = entry[1];
+          }
+          return acc;
+        }, {});
+
+        const missingAfterDex = missingAfterYahoo.filter((asset) => {
+          const current = fromDexScreener[asset.id];
+          return !current || typeof current.usd !== 'number';
+        });
+
+        const binanceEntries = await Promise.all(
+          missingAfterDex.map(async (asset) => {
             const priceData = await fetchBinancePriceForAsset(asset);
             return priceData ? [asset.id, priceData] : null;
           })
@@ -3564,8 +5278,44 @@ class WalletLabViewProvider implements vscode.WebviewViewProvider {
 
         return {
           ...fromCoinCap,
+          ...fromCryptoCompare,
+          ...fromYahoo,
+          ...fromDexScreener,
           ...fromBinance
         };
+      }
+
+      async function resolveAssetByUniversalSymbol(rawQuery) {
+        const symbol = String(rawQuery || '').trim().toUpperCase().replace(/[^A-Z0-9]/g, '').slice(0, 12);
+        if (symbol.length < 2) {
+          return null;
+        }
+
+        const syntheticAsset = {
+          id: 'symbol:' + symbol.toLowerCase(),
+          symbol
+        };
+
+        const providerChecks = [
+          () => fetchCoinCapPriceForAsset(syntheticAsset),
+          () => fetchCryptoComparePriceForAsset(syntheticAsset),
+          () => fetchYahooPriceForAsset(syntheticAsset),
+          () => fetchDexScreenerPriceForAsset(syntheticAsset),
+          () => fetchBinancePriceForAsset(syntheticAsset)
+        ];
+
+        for (const check of providerChecks) {
+          try {
+            const priceData = await check();
+            if (priceData && Number.isFinite(Number(priceData.usd))) {
+              return syntheticAsset;
+            }
+          } catch {
+            // Continue trying other providers.
+          }
+        }
+
+        return null;
       }
 
       async function resolveCoinWithBinance(rawQuery, resolvedCoin) {
@@ -3603,12 +5353,15 @@ class WalletLabViewProvider implements vscode.WebviewViewProvider {
       }
 
       async function refreshMarketBubbles() {
-        const ids = marketConfig.map((a) => encodeURIComponent(a.id)).join(',');
+        const geckoCompatibleIds = marketConfig
+          .map((asset) => String(asset?.id || '').toLowerCase())
+          .filter((id) => id && !id.includes(':'));
+        const ids = geckoCompatibleIds.map((id) => encodeURIComponent(id)).join(',');
         const endpoint = 'https://api.coingecko.com/api/v3/simple/price?ids=' + ids + '&vs_currencies=usd&include_24hr_change=true';
 
         try {
           marketErrorEl.style.display = 'none';
-          const geckoData = await fetchJsonWithRetry(endpoint, 1);
+          const geckoData = ids ? await fetchJsonWithRetry(endpoint, 1) : {};
           const mergedData = { ...geckoData };
 
           const missingAssets = marketConfig.filter((asset) => {
@@ -3648,13 +5401,20 @@ class WalletLabViewProvider implements vscode.WebviewViewProvider {
 
       async function addAssetFromSearch() {
         const rawQuery = (marketSearchInputEl.value || '').trim();
+        const explicitSuggestionId = String(selectedSuggestionId || '').trim().toLowerCase();
         if (!rawQuery) {
           return;
         }
 
         marketSearchBtnEl.disabled = true;
 
-        const resolvedCoin = await resolveCoin(rawQuery);
+        const resolvedCoin = explicitSuggestionId
+          ? {
+              id: explicitSuggestionId,
+              symbol: resolveSymbol(explicitSuggestionId, rawQuery),
+              fromAlias: false
+            }
+          : await resolveCoin(rawQuery);
         const coinId = resolvedCoin.id;
         if (!coinId) {
           marketSearchBtnEl.disabled = false;
@@ -3664,7 +5424,14 @@ class WalletLabViewProvider implements vscode.WebviewViewProvider {
         try {
           marketErrorEl.style.display = 'none';
 
-          const candidateIds = buildCandidateIds(rawQuery, coinId, Boolean(resolvedCoin.fromAlias));
+          const baseCandidateIds = buildCandidateIds(rawQuery, coinId, Boolean(resolvedCoin.fromAlias));
+          const searchCandidateIds = await buildCoinGeckoSearchCandidateIds(rawQuery);
+          const candidateIds = mergeUniqueCoinIds([
+            explicitSuggestionId,
+            coinId,
+            ...baseCandidateIds,
+            ...searchCandidateIds
+          ]);
           const idsParam = candidateIds.map((id) => encodeURIComponent(id)).join(',');
           const endpoint = 'https://api.coingecko.com/api/v3/simple/price?ids=' + idsParam + '&vs_currencies=usd&include_24hr_change=true';
           const payload = await fetchJsonWithRetry(endpoint, 1);
@@ -3682,6 +5449,7 @@ class WalletLabViewProvider implements vscode.WebviewViewProvider {
           }
 
           marketSearchInputEl.value = '';
+          selectedSuggestionId = '';
           await refreshMarketBubbles();
           await refreshSelectedChart();
         } catch (error) {
@@ -3696,6 +5464,7 @@ class WalletLabViewProvider implements vscode.WebviewViewProvider {
               }
 
               marketSearchInputEl.value = '';
+              selectedSuggestionId = '';
               await refreshMarketBubbles();
               await refreshSelectedChart();
               marketErrorEl.style.display = 'none';
@@ -3717,6 +5486,7 @@ class WalletLabViewProvider implements vscode.WebviewViewProvider {
               }
 
               marketSearchInputEl.value = '';
+              selectedSuggestionId = '';
               await refreshMarketBubbles();
               await refreshSelectedChart();
               marketErrorEl.style.display = 'none';
@@ -3724,6 +5494,24 @@ class WalletLabViewProvider implements vscode.WebviewViewProvider {
             }
           } catch {
             // Surface original error when CoinCap fallback also fails.
+          }
+
+          try {
+            const symbolAsset = await resolveAssetByUniversalSymbol(rawQuery);
+            if (symbolAsset) {
+              if (!marketConfig.some((asset) => asset.id === symbolAsset.id)) {
+                marketConfig.push(symbolAsset);
+              }
+
+              marketSearchInputEl.value = '';
+              selectedSuggestionId = '';
+              await refreshMarketBubbles();
+              await refreshSelectedChart();
+              marketErrorEl.style.display = 'none';
+              return;
+            }
+          } catch {
+            // Keep original error from previous attempts.
           }
 
           const message = error instanceof Error ? error.message : 'Unknown error';
@@ -3735,14 +5523,55 @@ class WalletLabViewProvider implements vscode.WebviewViewProvider {
       }
 
       marketSearchBtnEl.addEventListener('click', addAssetFromSearch);
+      marketSearchInputEl.addEventListener('input', () => {
+        selectedSuggestionId = '';
+        const query = marketSearchInputEl.value || '';
+        if (autocompleteTimer) {
+          clearTimeout(autocompleteTimer);
+        }
+        autocompleteTimer = setTimeout(() => {
+          void refreshAutocompleteSuggestions(query);
+        }, 180);
+      });
       marketSearchInputEl.addEventListener('keydown', (event) => {
+        if (event.key === 'ArrowDown' && activeSuggestions.length > 0) {
+          event.preventDefault();
+          setActiveAutocompleteIndex(activeSuggestionIndex + 1);
+          return;
+        }
+
+        if (event.key === 'ArrowUp' && activeSuggestions.length > 0) {
+          event.preventDefault();
+          setActiveAutocompleteIndex(activeSuggestionIndex - 1);
+          return;
+        }
+
         if (event.key === 'Enter') {
           event.preventDefault();
+          if (activeSuggestions.length > 0 && activeSuggestionIndex >= 0) {
+            applySuggestionByIndex(activeSuggestionIndex);
+            return;
+          }
           addAssetFromSearch();
+        }
+
+        if (event.key === 'Escape') {
+          clearAutocomplete();
+        }
+      });
+      document.addEventListener('click', (event) => {
+        if (!marketAutocompleteEl.contains(event.target) && event.target !== marketSearchInputEl) {
+          clearAutocomplete();
         }
       });
       chartRefreshBtnEl.addEventListener('click', refreshSelectedChart);
       chartCoinSelectEl.addEventListener('change', refreshSelectedChart);
+      chartRangeSelectEl.addEventListener('change', () => {
+        chartRangeSetting = chartRangeSelectEl.value || 'max';
+        void refreshSelectedChart();
+      });
+
+      chartRangeSelectEl.value = chartRangeSetting;
 
       syncChartOptions();
       refreshMarketBubbles();

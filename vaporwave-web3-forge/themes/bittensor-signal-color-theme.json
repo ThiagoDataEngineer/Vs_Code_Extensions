@@ -1,0 +1,74 @@
+{
+  "$schema": "vscode://schemas/color-theme",
+  "name": "Web3 Blockchain Bittensor Signal",
+  "type": "dark",
+  "colors": {
+    "editor.background": "#060F11",
+    "editor.foreground": "#D9FFFA",
+    "editorLineNumber.foreground": "#4A7D78",
+    "editorCursor.foreground": "#2DD4BF",
+    "editor.selectionBackground": "#115E5955",
+    "activityBar.background": "#071518",
+    "activityBar.foreground": "#C9FFF7",
+    "activityBarBadge.background": "#F97316",
+    "sideBar.background": "#061214",
+    "sideBar.foreground": "#BDEDE7",
+    "sideBar.border": "#134E4A",
+    "sideBarTitle.foreground": "#5EEAD4",
+    "sideBarSectionHeader.background": "#0A1E21",
+    "sideBarSectionHeader.foreground": "#8DF3E6",
+    "sideBarSectionHeader.border": "#134E4A",
+    "list.activeSelectionBackground": "#0D3638",
+    "list.activeSelectionForeground": "#E8FFFC",
+    "list.inactiveSelectionBackground": "#0A2628",
+    "list.hoverBackground": "#0F2F31",
+    "list.hoverForeground": "#E8FFFC",
+    "list.focusBackground": "#114347",
+    "list.focusForeground": "#FFFFFF",
+    "list.highlightForeground": "#F97316",
+    "statusBar.background": "#0A1A1D",
+    "statusBar.foreground": "#D9FFFA",
+    "titleBar.activeBackground": "#0A1A1D",
+    "button.background": "#F97316",
+    "button.foreground": "#FFFFFF",
+    "focusBorder": "#2DD4BF"
+  },
+  "tokenColors": [
+    {
+      "scope": ["comment"],
+      "settings": {
+        "foreground": "#7DA7A2"
+      }
+    },
+    {
+      "scope": ["keyword", "storage.type"],
+      "settings": {
+        "foreground": "#2DD4BF"
+      }
+    },
+    {
+      "scope": ["entity.name.function", "support.function"],
+      "settings": {
+        "foreground": "#5EEAD4"
+      }
+    },
+    {
+      "scope": ["string"],
+      "settings": {
+        "foreground": "#FB923C"
+      }
+    },
+    {
+      "scope": ["entity.name.type", "support.type"],
+      "settings": {
+        "foreground": "#99F6E4"
+      }
+    },
+    {
+      "scope": ["constant.numeric"],
+      "settings": {
+        "foreground": "#F59E0B"
+      }
+    }
+  ]
+}

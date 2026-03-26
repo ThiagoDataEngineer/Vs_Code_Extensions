@@ -1,0 +1,32 @@
+{
+  "name": "Ubatuba Lamberto Beach",
+  "author": "thiagoyoshiaki@gmail.com",
+  "dark": true,
+  "editorScheme": "theme/ubatuba_lamberto.icls",
+  "ui": {
+    "*": {
+      "background": "#1D3557",
+      "foreground": "#F1FAEE",
+      "selectionBackground": "#457B9D",
+      "selectionForeground": "#F1FAEE"
+    },
+    "Panel.background": "#14213D",
+    "ToolWindow.background": "#14213D",
+    "EditorPane.background": "#1D3557",
+    "EditorPane.foreground": "#F1FAEE",
+    "Component.focusColor": "#A8DADC",
+    "Button.startBackground": "#457B9D",
+    "Button.endBackground": "#457B9D",
+    "Button.foreground": "#F1FAEE"
+  },
+  "icons": {
+    "ColorPalette": {
+      "Checkbox.Background.Default": "#457B9D",
+      "Checkbox.Border.Default": "#A8DADC",
+      "Checkbox.Focus.Wide": "#E9C46A",
+      "Component.errorFocusColor": "#E63946",
+      "Component.focusColor": "#A8DADC",
+      "Component.focusedBorderColor": "#A8DADC"
+    }
+  }
+}

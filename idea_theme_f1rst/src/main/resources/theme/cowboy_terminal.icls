@@ -1,0 +1,74 @@
+<scheme name="Cowboy Terminal Black" version="142" parent_scheme="Darcula">
+  <option name="LINE_SPACING" value="1.0" />
+  <option name="EDITOR_FONT_SIZE" value="13" />
+  <colors>
+    <option name="CARET_ROW_COLOR" value="121212" />
+    <option name="GUTTER_BACKGROUND" value="070707" />
+    <option name="INDENT_GUIDE" value="2D6D36" />
+    <option name="SELECTION_BACKGROUND" value="1C3F24" />
+    <option name="WHITESPACES" value="2B5DCE" />
+  </colors>
+  <attributes>
+    <option name="DEFAULT_TEXT">
+      <value>
+        <option name="FOREGROUND" value="D9F2D9" />
+      </value>
+    </option>
+    <option name="KEYWORD">
+      <value>
+        <option name="FOREGROUND" value="7CFF7C" />
+        <option name="FONT_TYPE" value="1" />
+      </value>
+    </option>
+    <option name="STRING">
+      <value>
+        <option name="FOREGROUND" value="F2E86D" />
+      </value>
+    </option>
+    <option name="NUMBER">
+      <value>
+        <option name="FOREGROUND" value="6CCBFF" />
+      </value>
+    </option>
+    <option name="FUNCTION_DECLARATION">
+      <value>
+        <option name="FOREGROUND" value="8EDBFF" />
+      </value>
+    </option>
+    <option name="FUNCTION_CALL">
+      <value>
+        <option name="FOREGROUND" value="9DFFA6" />
+      </value>
+    </option>
+    <option name="CLASS_NAME">
+      <value>
+        <option name="FOREGROUND" value="F5F5F5" />
+      </value>
+    </option>
+    <option name="LOCAL_VARIABLE">
+      <value>
+        <option name="FOREGROUND" value="D9F2D9" />
+      </value>
+    </option>
+    <option name="GLOBAL_VARIABLE">
+      <value>
+        <option name="FOREGROUND" value="AFFF61" />
+      </value>
+    </option>
+    <option name="LINE_COMMENT">
+      <value>
+        <option name="FOREGROUND" value="5AAE6A" />
+      </value>
+    </option>
+    <option name="DOC_COMMENT">
+      <value>
+        <option name="FOREGROUND" value="77C485" />
+      </value>
+    </option>
+    <option name="OPERATION_SIGN">
+      <value>
+        <option name="FOREGROUND" value="E8D36D" />
+      </value>
+    </option>
+  </attributes>
+</scheme>

@@ -1,0 +1,171 @@
+{
+    "$schema": "vscode://schemas/color-theme",
+    "name": "COBOL Mainframe Light",
+    "type": "light",
+    "colors": {
+        "editor.background": "#F6FBF8",
+        "editor.foreground": "#1F3B2D",
+        "editorLineNumber.foreground": "#5DAE84",
+        "editorCursor.foreground": "#B23A48",
+        "editor.selectionBackground": "#BBF4D188",
+        "activityBar.background": "#EAF4EF",
+        "activityBar.foreground": "#264434",
+        "activityBarBadge.background": "#B23A48",
+        "activityBarBadge.foreground": "#FFFFFF",
+        "sideBar.background": "#EEF7F2",
+        "sideBar.foreground": "#2F4D3C",
+        "sideBarTitle.foreground": "#2F8A63",
+        "statusBar.background": "#DCEDE4",
+        "statusBar.foreground": "#1F3B2D",
+        "titleBar.activeBackground": "#DCEDE4",
+        "titleBar.activeForeground": "#1F3B2D",
+        "button.background": "#B23A48",
+        "button.foreground": "#FFFFFF",
+        "focusBorder": "#2F8A63",
+        "terminal.background": "#F6FBF8",
+        "terminal.foreground": "#1F3B2D",
+        "terminalCursor.foreground": "#B23A48"
+    },
+    "tokenColors": [
+        {
+            "scope": [
+                "comment",
+                "punctuation.definition.comment"
+            ],
+            "settings": {
+                "foreground": "#4FA77A",
+                "fontStyle": "italic"
+            }
+        },
+        {
+            "scope": [
+                "keyword",
+                "storage.type",
+                "storage.modifier",
+                "keyword.control",
+                "source.cobol keyword",
+                "source.cobol storage",
+                "source.cobol meta.verb",
+                "source.solidity keyword"
+            ],
+            "settings": {
+                "foreground": "#B23A48",
+                "fontStyle": "bold"
+            }
+        },
+        {
+            "scope": [
+                "entity.name.type",
+                "support.type",
+                "entity.name.class",
+                "entity.name.namespace",
+                "storage.type.java",
+                "source.scala storage.type",
+                "source.python storage.type"
+            ],
+            "settings": {
+                "foreground": "#7B4F00"
+            }
+        },
+        {
+            "scope": [
+                "entity.name.function",
+                "support.function",
+                "entity.name.function.python",
+                "entity.name.function.java",
+                "entity.name.function.scala",
+                "support.function.builtin.python",
+                "support.function.pyspark"
+            ],
+            "settings": {
+                "foreground": "#005FAF"
+            }
+        },
+        {
+            "scope": [
+                "variable",
+                "meta.definition.variable",
+                "meta.variable.object",
+                "variable.other.readwrite",
+                "source.cobol variable"
+            ],
+            "settings": {
+                "foreground": "#1F3B2D"
+            }
+        },
+        {
+            "scope": [
+                "variable.parameter",
+                "meta.function.parameters"
+            ],
+            "settings": {
+                "foreground": "#FFD700"
+            }
+        },
+        {
+            "scope": [
+                "string",
+                "punctuation.definition.string"
+            ],
+            "settings": {
+                "foreground": "#0E9C66"
+            }
+        },
+        {
+            "scope": [
+                "constant.numeric",
+                "constant.language.boolean"
+            ],
+            "settings": {
+                "foreground": "#FFD700"
+            }
+        },
+        {
+            "scope": [
+                "source.cobol entity.name.section",
+                "source.cobol entity.name.paragraph",
+                "entity.name.section",
+                "entity.name.label"
+            ],
+            "settings": {
+                "foreground": "#FFD700",
+                "fontStyle": "bold"
+            }
+        },
+        {
+            "scope": [
+                "keyword.operator",
+                "keyword.operator.logical",
+                "keyword.operator.arithmetic"
+            ],
+            "settings": {
+                "foreground": "#5D6C80"
+            }
+        }
+    ],
+    "semanticTokenColors": {
+        "class": "#7B4F00",
+        "enum": "#7B4F00",
+        "interface": "#7B4F00",
+        "type": "#7B4F00",
+        "function": "#005FAF",
+        "method": "#1A6FC2",
+        "variable": "#1F3B2D",
+        "property": "#2D7A59",
+        "parameter": "#FFD700",
+        "string": "#0E9C66",
+        "number": "#FFD700",
+        "keyword": {
+            "foreground": "#B23A48",
+            "fontStyle": "bold"
+        },
+        "comment": {
+            "foreground": "#4FA77A",
+            "fontStyle": "italic"
+        },
+        "label": {
+            "foreground": "#FFD700",
+            "fontStyle": "bold"
+        }
+    }
+}

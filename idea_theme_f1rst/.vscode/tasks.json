@@ -1,0 +1,12 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "Build IntelliJ Theme",
+			"type": "shell",
+			"command": "./scripts/build-theme.ps1",
+			"isBackground": false,
+			"group": "build"
+		}
+	]
+}

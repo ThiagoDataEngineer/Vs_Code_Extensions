@@ -1,8 +1,6 @@
 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <path d="M6.2 6.6C6.2 5.5 7.1 4.6 8.2 4.6H15C16.8 4.6 18.2 6 18.2 7.8V8.6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
-  <rect x="3.2" y="8" width="16.2" height="11.2" rx="2.4" stroke="currentColor" stroke-width="1.9"/>
-  <rect x="12.3" y="11.5" width="8.8" height="4.4" rx="1.3" fill="currentColor"/>
-  <circle cx="15.8" cy="4.3" r="3" stroke="currentColor" stroke-width="1.7"/>
-  <path d="M15.2 5.9V2.7M16.4 5.9V2.7M14.4 2.7H16.7C17.3 2.7 17.7 3.1 17.7 3.6C17.7 4.2 17.2 4.5 16.7 4.5H14.4H16.4C17 4.5 17.5 4.9 17.5 5.4C17.5 5.9 17 6.2 16.4 6.2H14.4" stroke="currentColor" stroke-width="0.9" stroke-linecap="round" stroke-linejoin="round"/>
-  <circle cx="14.1" cy="13.7" r="0.65" fill="#0B1020"/>
+  <path d="M5.8 6.1C5.8 4.94 6.74 4 7.9 4H15.2C16.97 4 18.4 5.43 18.4 7.2V8" stroke="currentColor" stroke-width="2.1" stroke-linecap="round"/>
+  <rect x="2" y="8" width="19" height="13" rx="3.2" stroke="currentColor" stroke-width="2.1"/>
+  <rect x="12" y="11" width="10" height="6" rx="1.7" fill="currentColor"/>
+  <circle cx="15.2" cy="14" r="1.1" fill="none" stroke="#0B1020" stroke-width="1.1"/>
 </svg>
