@@ -1,0 +1,89 @@
+<scheme name="Bitcoin Tech" version="142" parent_scheme="Darcula">
+  <option name="LINE_SPACING" value="1.1" />
+  <option name="EDITOR_FONT_SIZE" value="14" />
+  <colors>
+    <option name="CARET_ROW_COLOR" value="2D2418" />
+    <option name="GUTTER_BACKGROUND" value="1E1E1E" />
+    <option name="INDENT_GUIDE" value="3C3F41" />
+    <option name="SELECTION_BACKGROUND" value="4E4231" />
+    <option name="WHITESPACES" value="323232" />
+    <option name="LINE_NUMBERS_COLOR" value="858585" />
+    <option name="TELL_A_FRIEND" value="F2A900" />
+  </colors>
+  <attributes>
+    <option name="DEFAULT_TEXT">
+      <value>
+        <option name="FOREGROUND" value="E0E0E0" />
+        <option name="BACKGROUND" value="1A1A1A" />
+      </value>
+    </option>
+    <option name="KEYWORD">
+      <value>
+        <option name="FOREGROUND" value="F2A900" />
+        <option name="FONT_TYPE" value="1" />
+      </value>
+    </option>
+    <option name="STRING">
+      <value>
+        <option name="FOREGROUND" value="A5D6A7" />
+      </value>
+    </option>
+    <option name="NUMBER">
+      <value>
+        <option name="FOREGROUND" value="FFB74D" />
+      </value>
+    </option>
+    <option name="FUNCTION_DECLARATION">
+      <value>
+        <option name="FOREGROUND" value="FFCC80" />
+      </value>
+    </option>
+    <option name="FUNCTION_CALL">
+      <value>
+        <option name="FOREGROUND" value="FFE0B2" />
+      </value>
+    </option>
+    <option name="CLASS_NAME">
+      <value>
+        <option name="FOREGROUND" value="FFD54F" />
+      </value>
+    </option>
+    <option name="LOCAL_VARIABLE">
+      <value>
+        <option name="FOREGROUND" value="E0E0E0" />
+      </value>
+    </option>
+    <option name="GLOBAL_VARIABLE">
+      <value>
+        <option name="FOREGROUND" value="FFAB40" />
+      </value>
+    </option>
+    <option name="LINE_COMMENT">
+      <value>
+        <option name="FOREGROUND" value="757575" />
+        <option name="FONT_TYPE" value="2" />
+      </value>
+    </option>
+    <option name="DOC_COMMENT">
+      <value>
+        <option name="FOREGROUND" value="9E9E9E" />
+      </value>
+    </option>
+    <option name="OPERATION_SIGN">
+      <value>
+        <option name="FOREGROUND" value="F2A900" />
+      </value>
+    </option>
+    <!-- Web3/Solidity specific or matching -->
+    <option name="TS.TYPE_PARAMETER">
+      <value>
+        <option name="FOREGROUND" value="FFD54F" />
+      </value>
+    </option>
+    <option name="JS.INSTANCE_MEMBER_FUNCTION">
+      <value>
+        <option name="FOREGROUND" value="FFCC80" />
+      </value>
+    </option>
+  </attributes>
+</scheme>

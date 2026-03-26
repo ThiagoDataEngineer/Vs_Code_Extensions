@@ -1,0 +1,36 @@
+{
+  "name": "Bitcoin Tech",
+  "author": "thiagoyoshiaki@gmail.com",
+  "dark": true,
+  "editorScheme": "theme/bitcoin_tech.icls",
+  "ui": {
+    "*": {
+      "background": "#1A1A1A",
+      "foreground": "#E0E0E0",
+      "selectionBackground": "#4E4231",
+      "selectionForeground": "#FFFFFF",
+      "focusColor": "#F2A900"
+    },
+    "Panel.background": "#1E1E1E",
+    "ToolWindow.background": "#1E1E1E",
+    "EditorPane.background": "#1A1A1A",
+    "EditorPane.foreground": "#E0E0E0",
+    "Component.focusColor": "#F2A900",
+    "Button.startBackground": "#2D2418",
+    "Button.endBackground": "#2D2418",
+    "Button.foreground": "#F2A900",
+    "List.selectionBackground": "#4E4231",
+    "Menu.selectionBackground": "#4E4231",
+    "TabbedPane.focusColor": "#F2A900"
+  },
+  "icons": {
+    "ColorPalette": {
+      "Checkbox.Background.Default": "#2D2418",
+      "Checkbox.Border.Default": "#F2A900",
+      "Checkbox.Focus.Wide": "#F2A900",
+      "Component.errorFocusColor": "#CF6679",
+      "Component.focusColor": "#F2A900",
+      "Component.focusedBorderColor": "#F2A900"
+    }
+  }
+}
