@@ -1,33 +1,33 @@
 {
-  "name": "IDEA Theme F1rst",
+  "name": "Theme F1rst",
   "author": "thiagoyoshiaki@gmail.com",
   "dark": true,
   "editorScheme": "theme/idea_theme_f1rst.icls",
   "ui": {
     "*": {
-      "background": "#0A0A0A",
-      "foreground": "#F5E6D3"
+      "background": "#000000",
+      "foreground": "#FF0000"
     },
-    "Panel.background": "#1A1A1A",
-    "ToolWindow.background": "#1A1A1A",
-    "EditorPane.background": "#0A0A0A",
-    "EditorPane.foreground": "#F5E6D3",
-    "Component.focusColor": "#D64933",
-    "Button.startBackground": "#C44536",
-    "Button.endBackground": "#C44536",
-    "Button.foreground": "#F5E6D3",
-    "Link.activeForeground": "#E07A5F",
-    "Notification.background": "#1A1A1A",
-    "Separator.foreground": "#D64933"
+    "Panel.background": "#000000",
+    "ToolWindow.background": "#000000",
+    "EditorPane.background": "#000000",
+    "EditorPane.foreground": "#FF0000",
+    "Component.focusColor": "#FF0000",
+    "Button.startBackground": "#FF0000",
+    "Button.endBackground": "#FF0000",
+    "Button.foreground": "#FFFFFF",
+    "Link.activeForeground": "#FF0000",
+    "Notification.background": "#000000",
+    "Separator.foreground": "#FF0000"
   },
   "icons": {
     "ColorPalette": {
-      "Checkbox.Background.Default": "#1A1A1A",
-      "Checkbox.Border.Default": "#C44536",
-      "Checkbox.Focus.Wide": "#E07A5F",
-      "Component.errorFocusColor": "#E63946",
-      "Component.focusColor": "#E07A5F",
-      "Component.focusedBorderColor": "#E07A5F"
+      "Checkbox.Background.Default": "#000000",
+      "Checkbox.Border.Default": "#FF0000",
+      "Checkbox.Focus.Wide": "#FF0000",
+      "Component.errorFocusColor": "#FF0000",
+      "Component.focusColor": "#FF0000",
+      "Component.focusedBorderColor": "#FF0000"
     }
   }
 }

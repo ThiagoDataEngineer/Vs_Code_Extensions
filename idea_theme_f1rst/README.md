@@ -18,7 +18,7 @@ Tema customizado para IntelliJ IDEA e PyCharm. Inclui 7 variações vibrantes e 
 - **Theme F1rst**: Base sólida com tons de azul e cinza profissionais. Inspirado na identidade visual da F1rst.
 
 ### Como Instalar:
-1. Baixe o arquivo `dist/idea-theme-f1rst-0.7.2.zip`.
+1. Baixe o arquivo `dist/idea-theme-f1rst-0.8.0.zip`.
 2. No IntelliJ/PyCharm: `Settings` > `Plugins` > ícone de engrenagem > `Install Plugin from Disk...`.
 3. Selecione o ZIP e reinicie.
 
