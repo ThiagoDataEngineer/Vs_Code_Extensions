@@ -1,8 +1,8 @@
 {
   "name": "Red Neon Future",
-  "author": "Thiag",
+  "author": "thiagoyoshiaki@gmail.com",
   "dark": true,
-  "editorScheme": "/theme/red_neon_future.icls",
+  "editorScheme": "theme/red_neon_future.icls",
   "ui": {
     "*": {
       "background": "#120306",

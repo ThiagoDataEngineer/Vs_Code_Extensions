@@ -1,8 +1,8 @@
 {
   "name": "Cowboy Terminal Black",
-  "author": "Thiag",
+  "author": "thiagoyoshiaki@gmail.com",
   "dark": true,
-  "editorScheme": "/theme/cowboy_terminal.icls",
+  "editorScheme": "theme/cowboy_terminal.icls",
   "ui": {
     "*": {
       "background": "#050505",

@@ -1,8 +1,8 @@
 {
   "name": "IDEA Theme F1rst",
-  "author": "Thiag",
+  "author": "thiagoyoshiaki@gmail.com",
   "dark": true,
-  "editorScheme": "/theme/idea_theme_f1rst.icls",
+  "editorScheme": "theme/idea_theme_f1rst.icls",
   "ui": {
     "*": {
       "background": "#101318",

@@ -1,86 +1,151 @@
-# IDEA Theme F1rst
+# IDEA Theme F1rst 🎨
 
-Tema customizado para IntelliJ IDEA como plugin local.
+[Português] | [English] | [Español] | [Deutsch] | [Polski] | [日本語] | [简体中文] | [Русский] | [Italiano] | [العربية]
 
-## Temas incluidos
+---
 
-- Vaporwave Red Neon: base escura com acentos magenta, vermelho e ciano neon.
-- Sky Garden (inspiracao ghibli): azul, bege, rosa, vermelho, verde, branco e amarelo em estilo ilustrado suave.
-- Cowboy Terminal Black: tela preta com letras verde, branca, amarela e azul em visual terminal retrô.
-- Red Neon Future: homenagem ao estilo vermelho corporativo, com foco futurista e alto contraste neon.
+## 🇧🇷 Português
 
-## Paletas de cores
+Tema customizado para IntelliJ IDEA e PyCharm. Inclui 5 variações vibrantes e calibradas para desenvolvedores.
 
-- IDEA Theme F1rst (base):
-	- Fundo: #101318
-	- Texto: #D8DEE9
-	- Foco/keyword: #5AA9E6
-	- Strings: #EBCB8B
-	- Numeros: #88C0D0
+### Temas incluídos:
+- **Vaporwave Red Neon**: Base escura com magenta, vermelho e ciano neon.
+- **Sky Garden**: Inspirado em Studio Ghibli, visual suave e ilustrado.
+- **Cowboy Terminal Black**: Visual retrô de terminal verde sobre preto.
+- **Red Neon Future**: Estilo corporativo futurista com alto contraste.
+- **IDEA Theme F1rst**: Base sólida com tons de azul e cinza.
 
-- Vaporwave Red Neon:
-	- Fundo: #130812
-	- Texto: #FFD8E8
-	- Keyword/foco: #FF2E63
-	- Strings: #FFD166
-	- Numeros/links: #47E5FF
+### Como Instalar:
+1. Baixe o arquivo `dist/idea-theme-f1rst-0.3.1.zip`.
+2. No IntelliJ/PyCharm: `Settings` > `Plugins` > ícone de engrenagem > `Install Plugin from Disk...`.
+3. Selecione o ZIP e reinicie.
 
-- Sky Garden Storybook:
-	- Fundo: #FFF9EE
-	- Texto: #27405E
-	- Keyword/foco: #6A9BD8
-	- Strings: #C76885
-	- Numeros: #D3A332
+---
 
-- Cowboy Terminal Black:
-	- Fundo: #050505
-	- Texto: #D9F2D9
-	- Keyword: #7CFF7C
-	- Strings: #F2E86D
-	- Numeros/funcoes: #6CCBFF
+## 🇺🇸 English
 
-- Red Neon Future:
-	- Fundo: #120306
-	- Texto: #FFE8ED
-	- Keyword/foco: #FF1F3D
-	- Strings: #FFB86B
-	- Numeros/funcoes: #35F2FF
+Custom theme for IntelliJ IDEA and PyCharm. Includes 5 vibrant variations calibrated for developers.
 
-## Publico alvo
+### Included Themes:
+- **Vaporwave Red Neon**: Dark base with neon magenta, red, and cyan.
+- **Sky Garden**: Ghibli-inspired, soft and illustrated look.
+- **Cowboy Terminal Black**: Retro green-on-black terminal look.
+- **Red Neon Future**: Futuristic corporate style with high contrast.
+- **IDEA Theme F1rst**: Solid base with blue and grey tones.
 
-Os esquemas foram calibrados para uso diario de programadores:
+### How to Install:
+1. Download `dist/idea-theme-f1rst-0.3.0.zip`.
+2. In IntelliJ/PyCharm: `Settings` > `Plugins` > gear icon > `Install Plugin from Disk...`.
+3. Select the ZIP and restart.
 
-- JavaScript e TypeScript
-- PySpark e Python
-- Scala
-- Java
-- COBOL
-- Shell Script
+---
 
-Cada tema inclui destaque consistente para keywords, strings, numeros, funcoes, classes, variaveis, comentarios e operadores.
+## 🇪🇸 Español
 
-Nota sobre icones: para evitar uso de personagens protegidos por direitos autorais, o pacote usa apenas paleta e estilo visual original inspirado, sem personagens oficiais.
+Tema personalizado para IntelliJ IDEA y PyCharm. Incluye 5 variantes vibrantes calibradas para desarrolladores.
 
-## Estrutura
+### Temas incluidos:
+- **Vaporwave Red Neon**: Base oscura con magenta, rojo y cian neón.
+- **Sky Garden**: Inspirado en Ghibli, aspecto suave e ilustrado.
+- **Cowboy Terminal Black**: Aspecto de terminal retro verde sobre negro.
+- **Red Neon Future**: Estilo corporativo futurista con alto contraste.
+- **IDEA Theme F1rst**: Base sólida con tonos azules y grises.
 
-- `src/main/resources/META-INF/plugin.xml`: manifesto do plugin
-- `src/main/resources/theme/idea_theme_f1rst.theme.json`: definicao visual do tema
-- `scripts/build-theme.ps1`: gera o pacote instalavel em `dist/`
+---
 
-## Como gerar o pacote
+## 🇩🇪 Deutsch
 
-No terminal do projeto:
+Benutzerdefiniertes Theme für IntelliJ IDEA und PyCharm. Enthält 5 lebendige Variationen, die für Entwickler optimiert sind.
 
+### Enthaltene Themes:
+- **Vaporwave Red Neon**: Dunkle Basis mit Neon-Magenta, Rot und Cyan.
+- **Sky Garden**: Ghibli-inspiriert, weicher und illustrierter Look.
+- **Cowboy Terminal Black**: Retro-Terminal-Look (grün auf schwarz).
+- **Red Neon Future**: Futuristischer Corporate-Stil mit hohem Kontrast.
+
+---
+
+## 🇵🇱 Polski
+
+Niestandardowy motyw dla IntelliJ IDEA i PyCharm. Zawiera 5 dynamicznych wariacji skalibrowanych dla programistów.
+
+### Zawarte motywy:
+- **Vaporwave Red Neon**: Ciemna baza z neonowym magentą, czerwienią i cyjanem.
+- **Sky Garden**: Inspirowany stylem Ghibli, miękki i ilustrowany wygląd.
+- **Cowboy Terminal Black**: Retro wygląd terminala (zielony na czarnym).
+
+---
+
+## 🇯🇵 日本語
+
+IntelliJ IDEA および PyCharm 用のカスタムテーマ。開発者向けに調整された 5 つの鮮やかなバリエーションが含まれています。
+
+### 含まれるテーマ:
+- **Vaporwave Red Neon**: ネオンマゼンタ、レッド、シアンを使用したダークベース。
+- **Sky Garden**: ジブリ風のソフトでイラストチックな外観。
+- **Cowboy Terminal Black**: レトロな黒背景に緑文字のターミナル風。
+- **Red Neon Future**: ハイコントラストな近未来コーポレートスタイル。
+
+---
+
+## 🇨🇳 简体中文
+
+适用于 IntelliJ IDEA 和 PyCharm 的自定义主题。包含 5 种专为开发者优化的鲜艳变体。
+
+### 包含的主题：
+- **Vaporwave Red Neon**: 深色底色，配以霓虹洋红、红色和青色。
+- **Sky Garden**: 吉卜力风格，柔和的插画视觉效果。
+- **Cowboy Terminal Black**: 复古的黑底绿字终端外观。
+- **Red Neon Future**: 高对比度的未来主义企业风格。
+
+---
+
+## 🇷🇺 Русский
+
+Пользовательская тема для IntelliJ IDEA и PyCharm. Включает 5 ярких вариаций, оптимизированных для разработчиков.
+
+### Включенные темы:
+- **Vaporwave Red Neon**: Темная база с неоновым маджента, красным и синим.
+- **Sky Garden**: В стиле Гибли, мягкий и иллюстрированный вид.
+- **Cowboy Terminal Black**: Ретро-стиль терминала (зеленый на черном).
+
+---
+
+## 🇮🇹 Italiano
+
+Tema personalizzato per IntelliJ IDEA e PyCharm. Include 5 varianti vivaci calibrate per gli sviluppatori.
+
+### Temi inclusi:
+- **Vaporwave Red Neon**: Base scura con neon magenta, rosso e ciano.
+- **Sky Garden**: Ispirato a Ghibli, aspetto morbido e illustrato.
+- **Cowboy Terminal Black**: Look terminale retrò verde su nero.
+
+---
+
+## 🇸🇦 العربية
+
+مظهر مخصص لـ IntelliJ IDEA و PyCharm. يتضمن 5 تنوعات حيوية تمت معايرتها للمطورين.
+
+### السمات المضمنة:
+- **Vaporwave Red Neon**: قاعدة داكنة مع ألوان نيون أرجواني وأحمر وسماوي.
+- **Sky Garden**: مستوحى من جيبلي، مظهر ناعم ورسومي.
+- **Cowboy Terminal Black**: مظهر طرفي قديم (أخضر على أسود).
+
+---
+
+## 🚀 Como Publicar no Marketplace (JetBrains Marketplace)
+
+1. **Crie uma conta**: Acesse [JetBrains Marketplace](https://plugins.jetbrains.com/) e faça login.
+2. **Upload**: Clique em "Upload Plugin".
+3. **Selecione o ZIP**: Escolha o arquivo em `dist/idea-theme-f1rst-0.3.1.zip`.
+4. **Preencha os detalhes**: Adicione tags (Theme, UI), prints de tela e a descrição.
+5. **Aguarde a aprovação**: A JetBrains revisará o plugin em alguns dias.
+
+---
+
+## 🛠 Desenvolvimento
+
+Para gerar o pacote localmente:
 ```powershell
 ./scripts/build-theme.ps1
 ```
-
-O arquivo final sera criado em `dist/idea-theme-f1rst-0.3.0.zip`.
-
-## Como instalar no IntelliJ
-
-1. Abra IntelliJ IDEA.
-2. Va em Settings > Plugins.
-3. Clique na engrenagem e escolha Install Plugin from Disk.
-4. Selecione o zip em `dist/`.
-5. Reinicie o IntelliJ para aplicar o tema.

@@ -1,8 +1,8 @@
 {
   "name": "Sky Garden Storybook",
-  "author": "Thiag",
+  "author": "thiagoyoshiaki@gmail.com",
   "dark": false,
-  "editorScheme": "/theme/ghibli_sky_garden.icls",
+  "editorScheme": "theme/ghibli_sky_garden.icls",
   "ui": {
     "*": {
       "background": "#F6F1E7",
