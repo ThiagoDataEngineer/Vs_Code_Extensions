@@ -1,0 +1,33 @@
+{
+  "name": "Vaporwave Red Neon",
+  "author": "Thiag",
+  "dark": true,
+  "editorScheme": "/theme/vaporwave_red.icls",
+  "ui": {
+    "*": {
+      "background": "#130812",
+      "foreground": "#FFD8E8"
+    },
+    "Panel.background": "#180A16",
+    "ToolWindow.background": "#180A16",
+    "EditorPane.background": "#130812",
+    "EditorPane.foreground": "#FFD8E8",
+    "Component.focusColor": "#FF2E63",
+    "Button.startBackground": "#3B1028",
+    "Button.endBackground": "#3B1028",
+    "Button.foreground": "#FFE5F0",
+    "Link.activeForeground": "#47E5FF",
+    "Notification.background": "#2B0D1E",
+    "Separator.foreground": "#6E1F45"
+  },
+  "icons": {
+    "ColorPalette": {
+      "Checkbox.Background.Default": "#2A0C1C",
+      "Checkbox.Border.Default": "#B93A6A",
+      "Checkbox.Focus.Wide": "#FF2E63",
+      "Component.errorFocusColor": "#FF5C8A",
+      "Component.focusColor": "#FF2E63",
+      "Component.focusedBorderColor": "#47E5FF"
+    }
+  }
+}

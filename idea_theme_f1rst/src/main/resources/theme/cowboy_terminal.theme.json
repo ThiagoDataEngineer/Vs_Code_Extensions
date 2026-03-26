@@ -1,0 +1,33 @@
+{
+  "name": "Cowboy Terminal Black",
+  "author": "Thiag",
+  "dark": true,
+  "editorScheme": "/theme/cowboy_terminal.icls",
+  "ui": {
+    "*": {
+      "background": "#050505",
+      "foreground": "#D9F2D9"
+    },
+    "Panel.background": "#070707",
+    "ToolWindow.background": "#070707",
+    "EditorPane.background": "#050505",
+    "EditorPane.foreground": "#CFFFD1",
+    "Component.focusColor": "#6CCBFF",
+    "Button.startBackground": "#111111",
+    "Button.endBackground": "#111111",
+    "Button.foreground": "#F5F5F5",
+    "Link.activeForeground": "#9ED0FF",
+    "Notification.background": "#1A1A1A",
+    "Separator.foreground": "#2F7A3E"
+  },
+  "icons": {
+    "ColorPalette": {
+      "Checkbox.Background.Default": "#101010",
+      "Checkbox.Border.Default": "#5AAE6A",
+      "Checkbox.Focus.Wide": "#6CCBFF",
+      "Component.errorFocusColor": "#E8D36D",
+      "Component.focusColor": "#6CCBFF",
+      "Component.focusedBorderColor": "#F5F5F5"
+    }
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "name": "Sky Garden Storybook",
+  "author": "Thiag",
+  "dark": false,
+  "editorScheme": "/theme/ghibli_sky_garden.icls",
+  "ui": {
+    "*": {
+      "background": "#F6F1E7",
+      "foreground": "#2E4865"
+    },
+    "Panel.background": "#F2E8D7",
+    "ToolWindow.background": "#F2E8D7",
+    "EditorPane.background": "#FFF9EE",
+    "EditorPane.foreground": "#27405E",
+    "Component.focusColor": "#6A9BD8",
+    "Button.startBackground": "#EEC9D2",
+    "Button.endBackground": "#EEC9D2",
+    "Button.foreground": "#2F3E4E",
+    "Link.activeForeground": "#5B8C5A",
+    "Notification.background": "#FCE2B3",
+    "Separator.foreground": "#D36A6A"
+  },
+  "icons": {
+    "ColorPalette": {
+      "Checkbox.Background.Default": "#FFF9EE",
+      "Checkbox.Border.Default": "#6A9BD8",
+      "Checkbox.Focus.Wide": "#E8B4C8",
+      "Component.errorFocusColor": "#D76A6A",
+      "Component.focusColor": "#6A9BD8",
+      "Component.focusedBorderColor": "#88B767"
+    }
+  }
+}

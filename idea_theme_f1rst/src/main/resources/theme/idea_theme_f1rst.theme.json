@@ -1,0 +1,30 @@
+{
+  "name": "IDEA Theme F1rst",
+  "author": "Thiag",
+  "dark": true,
+  "editorScheme": "/theme/idea_theme_f1rst.icls",
+  "ui": {
+    "*": {
+      "background": "#101318",
+      "foreground": "#D8DEE9"
+    },
+    "Panel.background": "#0D1117",
+    "ToolWindow.background": "#0D1117",
+    "EditorPane.background": "#101318",
+    "EditorPane.foreground": "#D8DEE9",
+    "Component.focusColor": "#5AA9E6",
+    "Button.startBackground": "#1A2230",
+    "Button.endBackground": "#1A2230",
+    "Button.foreground": "#D8DEE9"
+  },
+  "icons": {
+    "ColorPalette": {
+      "Checkbox.Background.Default": "#1A2230",
+      "Checkbox.Border.Default": "#5A6A80",
+      "Checkbox.Focus.Wide": "#5AA9E6",
+      "Component.errorFocusColor": "#FF6B6B",
+      "Component.focusColor": "#5AA9E6",
+      "Component.focusedBorderColor": "#5AA9E6"
+    }
+  }
+}

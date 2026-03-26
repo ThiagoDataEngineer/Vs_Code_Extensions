@@ -1,0 +1,74 @@
+<scheme name="IDEA Theme F1rst" version="142" parent_scheme="Darcula">
+  <option name="LINE_SPACING" value="1.0" />
+  <option name="EDITOR_FONT_SIZE" value="13" />
+  <colors>
+    <option name="CARET_ROW_COLOR" value="1A2230" />
+    <option name="GUTTER_BACKGROUND" value="0D1117" />
+    <option name="INDENT_GUIDE" value="2A3445" />
+    <option name="SELECTION_BACKGROUND" value="2A3445" />
+    <option name="WHITESPACES" value="3B465A" />
+  </colors>
+  <attributes>
+    <option name="DEFAULT_TEXT">
+      <value>
+        <option name="FOREGROUND" value="D8DEE9" />
+      </value>
+    </option>
+    <option name="KEYWORD">
+      <value>
+        <option name="FOREGROUND" value="5AA9E6" />
+        <option name="FONT_TYPE" value="1" />
+      </value>
+    </option>
+    <option name="STRING">
+      <value>
+        <option name="FOREGROUND" value="EBCB8B" />
+      </value>
+    </option>
+    <option name="NUMBER">
+      <value>
+        <option name="FOREGROUND" value="88C0D0" />
+      </value>
+    </option>
+    <option name="FUNCTION_DECLARATION">
+      <value>
+        <option name="FOREGROUND" value="81A1C1" />
+      </value>
+    </option>
+    <option name="FUNCTION_CALL">
+      <value>
+        <option name="FOREGROUND" value="8FBCBB" />
+      </value>
+    </option>
+    <option name="CLASS_NAME">
+      <value>
+        <option name="FOREGROUND" value="B48EAD" />
+      </value>
+    </option>
+    <option name="LOCAL_VARIABLE">
+      <value>
+        <option name="FOREGROUND" value="D8DEE9" />
+      </value>
+    </option>
+    <option name="GLOBAL_VARIABLE">
+      <value>
+        <option name="FOREGROUND" value="A3BE8C" />
+      </value>
+    </option>
+    <option name="LINE_COMMENT">
+      <value>
+        <option name="FOREGROUND" value="5E81AC" />
+      </value>
+    </option>
+    <option name="DOC_COMMENT">
+      <value>
+        <option name="FOREGROUND" value="6F93B8" />
+      </value>
+    </option>
+    <option name="OPERATION_SIGN">
+      <value>
+        <option name="FOREGROUND" value="BF616A" />
+      </value>
+    </option>
+  </attributes>
+</scheme>
