@@ -1,0 +1,58 @@
+[
+  {
+    "id": "8c4f3ab4-0e85-4979-a1be-36d2748e5dd6",
+    "title": "Houston Championship Rodeo",
+    "type": "rodeo",
+    "source": "PRCA",
+    "country": "United States",
+    "stateOrRegion": "Texas",
+    "city": "Houston",
+    "startsAt": "2026-05-10T18:00:00Z",
+    "venue": "NRG Arena",
+    "officialUrl": "https://example.com/prca-houston",
+    "latitude": 29.6847,
+    "longitude": -95.4107
+  },
+  {
+    "id": "ab33ed7e-53e9-43e7-a1d7-bf2a5dd6cabf",
+    "title": "PBR Austin Bull Night",
+    "type": "rodeo",
+    "source": "PBR",
+    "country": "United States",
+    "stateOrRegion": "Texas",
+    "city": "Austin",
+    "startsAt": "2026-05-20T20:00:00Z",
+    "venue": "Moody Center",
+    "officialUrl": "https://example.com/pbr-austin",
+    "latitude": 30.2837,
+    "longitude": -97.7344
+  },
+  {
+    "id": "e44f4e66-8960-45ca-b992-535638ec5dcf",
+    "title": "ABQM Elite Horse Auction",
+    "type": "auction",
+    "source": "ABQM",
+    "country": "Brazil",
+    "stateOrRegion": "Sao Paulo",
+    "city": "Bauru",
+    "startsAt": "2026-06-01T14:00:00Z",
+    "venue": "ABQM Expo Center",
+    "officialUrl": "https://example.com/abqm-auction",
+    "latitude": -22.3145,
+    "longitude": -49.0587
+  },
+  {
+    "id": "7f66d7df-9f14-45ea-8f8d-492f3f4538eb",
+    "title": "Monterrey Cattle Online Auction",
+    "type": "auction",
+    "source": "PBR Partner",
+    "country": "Mexico",
+    "stateOrRegion": "Nuevo Leon",
+    "city": "Monterrey",
+    "startsAt": "2026-06-15T16:00:00Z",
+    "venue": "Digital Livestock Hub",
+    "officialUrl": "https://example.com/monterrey-auction",
+    "latitude": 25.6866,
+    "longitude": -100.3161
+  }
+]

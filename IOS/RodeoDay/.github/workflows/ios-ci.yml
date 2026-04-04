@@ -1,0 +1,88 @@
+name: iOS CI
+
+on:
+  push:
+    branches:
+      - main
+      - master
+  pull_request:
+  workflow_dispatch:
+    inputs:
+      project_path:
+        description: "Path to .xcodeproj (optional)"
+        required: false
+        type: string
+      scheme:
+        description: "Xcode scheme (optional)"
+        required: false
+        type: string
+
+jobs:
+  build-and-test:
+    runs-on: macos-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Select latest Xcode
+        run: sudo xcode-select -s /Applications/Xcode.app
+
+      - name: Resolve project and scheme
+        id: resolve
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          PROJECT_INPUT="${{ github.event.inputs.project_path }}"
+          SCHEME_INPUT="${{ github.event.inputs.scheme }}"
+
+          if [ -n "${PROJECT_INPUT}" ]; then
+            PROJECT_PATH="${PROJECT_INPUT}"
+          else
+            PROJECT_PATH=$(find . -maxdepth 4 -name "*.xcodeproj" | head -n 1 || true)
+          fi
+
+          if [ -z "${PROJECT_PATH}" ]; then
+            echo "No .xcodeproj found. Commit your Xcode project file to enable CI build/test."
+            exit 1
+          fi
+
+          if [ -n "${SCHEME_INPUT}" ]; then
+            SCHEME="${SCHEME_INPUT}"
+          else
+            SCHEME=$(xcodebuild -list -project "${PROJECT_PATH}" | awk '
+              BEGIN { in_schemes=0 }
+              /^Schemes:/ { in_schemes=1; next }
+              in_schemes && NF { gsub(/^ +| +$/, "", $0); print; exit }
+            ')
+          fi
+
+          if [ -z "${SCHEME}" ]; then
+            echo "No shared scheme found for ${PROJECT_PATH}. Share a scheme in Xcode (Manage Schemes...)."
+            exit 1
+          fi
+
+          echo "project_path=${PROJECT_PATH}" >> "$GITHUB_OUTPUT"
+          echo "scheme=${SCHEME}" >> "$GITHUB_OUTPUT"
+
+          echo "Using project: ${PROJECT_PATH}"
+          echo "Using scheme: ${SCHEME}"
+
+      - name: Build
+        run: |
+          xcodebuild \
+            -project "${{ steps.resolve.outputs.project_path }}" \
+            -scheme "${{ steps.resolve.outputs.scheme }}" \
+            -sdk iphonesimulator \
+            -destination 'platform=iOS Simulator,name=iPhone 15' \
+            clean build
+
+      - name: Test
+        run: |
+          xcodebuild \
+            -project "${{ steps.resolve.outputs.project_path }}" \
+            -scheme "${{ steps.resolve.outputs.scheme }}" \
+            -sdk iphonesimulator \
+            -destination 'platform=iOS Simulator,name=iPhone 15' \
+            test
