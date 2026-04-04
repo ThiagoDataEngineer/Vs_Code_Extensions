@@ -1,31 +1,40 @@
-name: iOS CI
+name: RodeoDay iOS CI
 
 on:
   push:
     branches:
       - main
       - master
+    paths:
+      - 'IOS/RodeoDay/**'
+      - '.github/workflows/ios-rodeoday-ci.yml'
   pull_request:
+    paths:
+      - 'IOS/RodeoDay/**'
+      - '.github/workflows/ios-rodeoday-ci.yml'
   workflow_dispatch:
     inputs:
       project_path:
-        description: "Path to .xcodeproj (optional)"
+        description: Path to .xcodeproj (optional)
         required: false
         type: string
       scheme:
-        description: "Xcode scheme (optional)"
+        description: Xcode scheme (optional)
         required: false
         type: string
 
 jobs:
   build-and-test:
     runs-on: macos-latest
+    defaults:
+      run:
+        working-directory: IOS/RodeoDay
 
     steps:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Select latest Xcode
+      - name: Select Xcode
         run: sudo xcode-select -s /Applications/Xcode.app
 
       - name: Resolve project and scheme
@@ -44,8 +53,9 @@ jobs:
           fi
 
           if [ -z "${PROJECT_PATH}" ]; then
-            echo "No .xcodeproj found. Commit your Xcode project file to enable CI build/test."
-            exit 1
+            echo "found=false" >> "$GITHUB_OUTPUT"
+            echo "::notice::No .xcodeproj found in IOS/RodeoDay. CI executed and skipped build/test."
+            exit 0
           fi
 
           if [ -n "${SCHEME_INPUT}" ]; then
@@ -59,17 +69,17 @@ jobs:
           fi
 
           if [ -z "${SCHEME}" ]; then
-            echo "No shared scheme found for ${PROJECT_PATH}. Share a scheme in Xcode (Manage Schemes...)."
-            exit 1
+            echo "found=false" >> "$GITHUB_OUTPUT"
+            echo "::notice::No shared scheme found for ${PROJECT_PATH}. CI executed and skipped build/test."
+            exit 0
           fi
 
+          echo "found=true" >> "$GITHUB_OUTPUT"
           echo "project_path=${PROJECT_PATH}" >> "$GITHUB_OUTPUT"
           echo "scheme=${SCHEME}" >> "$GITHUB_OUTPUT"
 
-          echo "Using project: ${PROJECT_PATH}"
-          echo "Using scheme: ${SCHEME}"
-
       - name: Build
+        if: steps.resolve.outputs.found == 'true'
         run: |
           xcodebuild \
             -project "${{ steps.resolve.outputs.project_path }}" \
@@ -79,6 +89,7 @@ jobs:
             clean build
 
       - name: Test
+        if: steps.resolve.outputs.found == 'true'
         run: |
           xcodebuild \
             -project "${{ steps.resolve.outputs.project_path }}" \

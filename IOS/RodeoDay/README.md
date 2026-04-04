@@ -60,9 +60,9 @@ You can validate iOS build and tests from Windows using GitHub-hosted macOS runn
 
 1. Push this repository to GitHub.
 2. Ensure your Xcode project (`.xcodeproj`) and at least one shared scheme are committed.
-3. The workflow at `.github/workflows/ios-ci.yml` runs automatically on push and pull request.
+3. The workflow at repository root `.github/workflows/ios-rodeoday-ci.yml` runs automatically on push and pull request for `IOS/RodeoDay/**` changes.
 4. You can also run it manually in `Actions > iOS CI > Run workflow` and optionally pass:
   - `project_path` (example: `RodeoDay.xcodeproj`)
   - `scheme` (example: `RodeoDay`)
 
-If CI fails with "No .xcodeproj found" or "No shared scheme found", open the project in Xcode on macOS, create/share the scheme, commit, and rerun.
+If no `.xcodeproj` or shared scheme is found yet, CI will finish with a notice and skip build/test. After you commit the Xcode project and share a scheme, the same workflow will build and test normally.
